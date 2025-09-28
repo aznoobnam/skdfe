@@ -62,7 +62,7 @@ transform_weapon_specialforces
 
 transform_weapon_transcendent
     Name      : Dimension Travel Guide
-    Forgeable : True
+    Forgeable : False
     Is melee  : False
     Rarity    : 6
     Type      : Mythic
@@ -97,6 +97,13 @@ weapon_000xx10
 
 weapon_000xx11
     Name      : Scorching Soul
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Pistol
+
+weapon_000xx12
+    Name      : Y-Box Blaster
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -1105,9 +1112,9 @@ weapon_135
 
 weapon_135x
     Name      : One Punch
-    Forgeable : False
+    Forgeable : True
     Is melee  : True
-    Rarity    : 0
+    Rarity    : 3
     Type      : Strange
 
 weapon_136
@@ -2937,6 +2944,13 @@ weapon_408
     Rarity    : 2
     Type      : Pistol
 
+weapon_409
+    Name      : Sweetie Milktea
+    Forgeable : True
+    Is melee  : False
+    Rarity    : 2
+    Type      : Strange
+
 weapon_900
     Name      : Candied Hawberries
     Forgeable : True
@@ -3497,6 +3511,13 @@ weapon_init_bardxx2
     Rarity    : 1
     Type      : ShotGun
 
+weapon_init_bardxx3
+    Name      : Maple Echo
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : ShotGun
+
 weapon_init_beheaded
     Name      : Vorpan
     Forgeable : True
@@ -3527,6 +3548,13 @@ weapon_init_captainx
 
 weapon_init_captainxx
     Name      : Netherflare Duet
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_captainxx2
+    Name      : Key of Liberty
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -4225,6 +4253,13 @@ weapon_init_necromancerxx11
     Rarity    : 1
     Type      : Staff
 
+weapon_init_necromancerxx12
+    Name      : Sanguine Sprout
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
 weapon_init_necromancerxx2
     Name      : Green Snake Sword
     Forgeable : False
@@ -4296,7 +4331,7 @@ weapon_init_ninjax
     Type      : Sword
 
 weapon_init_ninjaxx
-    Name      : [Name Not Found]
+    Name      : Mindsplitter
     Forgeable : False
     Is melee  : True
     Rarity    : 1
@@ -4367,6 +4402,13 @@ weapon_init_officerxx7
 
 weapon_init_officerxx8
     Name      : Bloodthirst Revolver
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Pistol
+
+weapon_init_officerxx9
+    Name      : Wavebreaker
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -4841,6 +4883,13 @@ weapon_init_taoistxx
     Rarity    : 1
     Type      : Sword
 
+weapon_init_taoistxx10
+    Name      : Sawtooth
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Sword
+
 weapon_init_taoistxx2
     Name      : Taiyi Hossu
     Forgeable : False
@@ -4906,6 +4955,13 @@ weapon_init_transcendent
 
 weapon_init_transcendentx
     Name      : Dimensional Grip
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_transcendentxx
+    Name      : Stygian Lance
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -4983,6 +5039,13 @@ weapon_init_vampirexx
 
 weapon_init_vampirexx10
     Name      : Bloodwrath Cleaver
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_vampirexx11
+    Name      : [Name Not Found]
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -5240,6 +5303,13 @@ weapon_init_warlockxx6
     Rarity    : 1
     Type      : Staff
 
+weapon_init_warlockxx7
+    Name      : Pearlescent Conch
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
 weapon_init_werewolf
     Name      : Flaring Claw
     Forgeable : True
@@ -5316,13 +5386,6 @@ weapon_inkfish
     Is melee  : False
     Rarity    : 2
     Type      : Strange
-
-weapon_joker_phantomx
-    Name      : [Name Not Found]
-    Forgeable : False
-    Is melee  : False
-    Rarity    : 0
-    Type      : Default
 
 weapon_laserfishee
     Name      : Baby Laser Fish
@@ -5517,6 +5580,20 @@ weapon_mythic_25
     Name      : Vajra Hoop
     Forgeable : True
     Is melee  : False
+    Rarity    : 6
+    Type      : Mythic
+
+weapon_mythic_26
+    Name      : Eight Trigrams Furnace
+    Forgeable : True
+    Is melee  : False
+    Rarity    : 6
+    Type      : Mythic
+
+weapon_mythic_27
+    Name      : Grimsteel Greatsword
+    Forgeable : True
+    Is melee  : True
     Rarity    : 6
     Type      : Mythic
 
@@ -5839,6 +5916,7 @@ c0 = Knight
     c0_skin29 = Pyroverdict Geralt
     c0_skin30 = Skywrath Saint Salvator
     c0_skin31 = Knipybara
+    c0_skin32 = Gamer Gabby
 
 c1 = Rogue
     c1_skin0 = Rogue
@@ -6001,6 +6079,7 @@ c14 = Necromancer
     c14_skin18 = Necromoncer
     c14_skin19 = Necrybara
     c14_skin20 = Miraculous Sonatia
+    c14_skin21 = Embergaze Vera​
 
 c15 = Officer
     c15_skin0 = Officer
@@ -6023,6 +6102,7 @@ c15 = Officer
     c15_skin17 = Bloodlord Lyon
     c15_skin18 = Offocer
     c15_skin19 = Offybara
+    c15_skin20 = Abyssadmiral Dylan
 
 c16 = Taoist
     c16_skin0 = Taoist
@@ -6047,9 +6127,13 @@ c16 = Taoist
     c16_skin19 = Taoost
     c16_skin20 = Dominus Faustus
     c16_skin21 = Taopybara
+    c16_skin22 = Sharkchef Brucello
 
 c17 = Inter-dimension Traveler
     c17_skin0 = Inter-dimension Traveler
+    c17_skin1 = Hades, King of the Underworld
+    c17_skin2 = Intor-domension Troveler
+    c17_skin3 = Inter-dimension Travara
 
 c18 = Element Envoy
     c18_skin0 = Element Envoy
@@ -6091,6 +6175,7 @@ c20 = Time Traveling Ninja
     c20_skin0 = Time Traveling Ninja
     c20_skin1 = Skyveil Sylph
     c20_skin2 = Tome Troveling Ninjo
+    c20_skin3 = Time Traveling Nara
 
 c21 = Special Forces
     c21_skin0 = Special Forces
@@ -6108,6 +6193,7 @@ c22 = Airbender
     c22_skin9 = Airbonder
     c22_skin10 = Martialist Lee
     c22_skin11 = Stormcrest Falco
+    c22_skin12 = Airbybara
 
 c23 = Demonmancer
     c23_skin0 = Demonmancer
@@ -6123,6 +6209,7 @@ c23 = Demonmancer
     c23_skin10 = Demonmoncer
     c23_skin11 = Demybara
     c23_skin12 = Gardener Gwen
+    c23_skin13 = Aqualune Marina
 
 c24 = Miner
     c24_skin0 = Miner
@@ -6167,6 +6254,7 @@ c26 = Costume Prince
     c26_skin9 = Costome Prince
     c26_skin10 = Noah the King
     c26_skin11 = Painter Preston
+    c26_skin12 = Co Pybara
 
 c27 = Physicist
     c27_skin0 = Physicist
@@ -6202,6 +6290,7 @@ c29 = Lancer
     c29_skin6 = Ming Xiao
     c29_skin7 = Loncer
     c29_skin8 = Gigachad
+    c29_skin9 = Lancybara
 
 c3 = Assassin
     c3_skin0 = Assassin
@@ -6252,6 +6341,7 @@ c31 = Arcane Knight
     c31_skin4 = Princess Iron Fan
     c31_skin5 = Arcone Knoght
     c31_skin6 = Ravenloom Woodoom
+    c31_skin7 = Arcany Kara
 
 c32 = Astromancer
     c32_skin0 = Astromancer
@@ -6281,6 +6371,7 @@ c34 = Trickster
     c34_skin3 = Trockster
     c34_skin4 = Maid Mayu
     c34_skin5 = Crown of Clone
+    c34_skin6 = Trickybara
 
 c35 = Bard
     c35_skin0 = Bard
@@ -6289,6 +6380,7 @@ c35 = Bard
     c35_skin3 = Bord
     c35_skin4 = Cheerleader Clara
     c35_skin5 = Bardybara
+    c35_skin6 = Maroonglow Maplelyn
 
 c36 = Gunner
     c36_skin0 = Gunner
@@ -6303,11 +6395,14 @@ c37 = Machina
     c37_skin1 = Hexagon
     c37_skin2 = Lostpearl Lazura
     c37_skin3 = Mochino
+    c37_skin4 = Machybara
 
 c38 = Captain
     c38_skin0 = Captain
     c38_skin1 = Dreadwake Stryke
     c38_skin2 = Coptain
+    c38_skin3 = Deepsea 001
+    c38_skin4 = Captybara
 
 c4 = Alchemist
     c4_skin0 = Alchemist
@@ -6387,6 +6482,7 @@ c6 = Vampire
     c6_skin20 = Vompire
     c6_skin21 = Shadowthane Vane
     c6_skin22 = Vampybara
+    c6_skin23 = Spider Pepper
 
 c7 = Paladin
     c7_skin0 = Paladin
@@ -6440,6 +6536,7 @@ c8 = Elf
     c8_skin19 = Athlete Ayuki
     c8_skin20 = Olf
     c8_skin21 = Apsara Veluriya
+    c8_skin22 = Elfybara
 
 c9 = Werewolf
     c9_skin0 = Werewolf
@@ -6613,6 +6710,12 @@ c9 = Werewolf
 5
     Display name : Panda
 
+50
+    Display name : Milktea Monitor Tower
+
+51
+    Display name : Lil Drillmaster
+
 6
     Display name : BonBon
 
@@ -6653,7 +6756,7 @@ c9 = Werewolf
 
 05
     Name        : Sturdy Shield
-    Description : No extra damage when shield is broken
+    Description : No extra damage is taken when armor is depleted.
 
 06
     Name        : Trap Shield
@@ -6689,7 +6792,7 @@ c9 = Werewolf
 
 1004
     Name        : [Name Not Found]
-    Description : Chance to be immune to all damage. Exclusive to this character.
+    Description : Inter-dimension Traveler gains a chance to be immune to all damage. Every 5 bare-hand attacks trigger an enhanced one. [Exclusive to this character]
 
 1005
     Name        : [Name Not Found]
@@ -7055,6 +7158,10 @@ c9 = Werewolf
     Name        : [Name Not Found]
     Description : Whenever a plant is destroyed, it deals {0} damage to nearby enemies.
 
+2149
+    Name        : [Name Not Found]
+    Description : Max HP, max armor, and max energy no longer change. Melee damage, ranged damage, and elemental damage +{0}.
+
 2150
     Name        : [Name Not Found]
     Description : Explosions cover a larger area but deal {0}% less damage.
@@ -7105,7 +7212,7 @@ c9 = Werewolf
 
 2182
     Name        : [Name Not Found]
-    Description : All damage you deal during the first {0}s in each battle is absorbed. After that, all your attacks deal additional damage equal to {1}% of the absorbed damage until the end of the battle.
+    Description : All damage you deal within {0}s of hitting an enemy is absorbed. For the next {1}s, all your attacks deal additional damage equal to {2}% of the absorbed damage.
 
 2183
     Name        : [Name Not Found]
@@ -7259,11 +7366,39 @@ c9 = Werewolf
     Name        : [Name Not Found]
     Description : Picking up an energy orb grants {0} special bullets. Upon consuming 1 energy, fires 1 special bullet.
 
+58
+    Name        : [Name Not Found]
+    Description : Ignite the ground while moving, dealing {0} fire damage to enemies and possibly inflicting burn.
+
+59
+    Name        : [Name Not Found]
+    Description : Dealing lightning damage to burning enemies or fire damage to electro-charged enemies triggers an additional {0} area damage.
+
  ██████ ██   ██  █████  ██       █████  ███    ██  ██████  ███████ 
 ██      ██   ██ ██   ██ ██      ██   ██ ████   ██ ██       ██      
 ██      ███████ ███████ ██      ███████ ██ ██  ██ ██   ███ █████   
 ██      ██   ██ ██   ██ ██      ██   ██ ██  ██ ██ ██    ██ ██      
  ██████ ██   ██ ██   ██ ███████ ██   ██ ██   ████  ██████  ███████ 
+
+ARAMDisableAttack
+    Name        : [Name Not Found]
+    Title       : Spellbound
+    Description : You are unable to attack or use skills, and receive {0} Rosemary Beans at the end of combat.
+
+ARAMMagicBomb
+    Name        : [Name Not Found]
+    Title       : Alchemy Accident
+    Description : Bombs randomly drop on the battlefield, dealing {1} unavoidable damage to all nearby units after {0}s.
+
+ARAMPickUpCoinDamage
+    Name        : [Name Not Found]
+    Title       : Undercooked Rosemary Bean
+    Description : Lose {1} health for every {0} pickups of Rosemary Beans.
+
+ARAMUseSkillToMove
+    Name        : [Name Not Found]
+    Title       : Root Entanglement
+    Description : Unable to move and take {0}% less damage. This effect is temporarily disabled for {1}s after using a skill.
 
 AggressiveEnemy
     Name        : More aggressive enemies!
@@ -7745,6 +7880,9 @@ material_activity_coin_bug_feature
 material_activity_coin_dream
     Display name : 
 
+material_activity_coin_element
+    Display name : Elemental Coin
+
 material_activity_coin_fire
     Display name : Firepower Token
 
@@ -7792,6 +7930,12 @@ material_c21_book_2
 
 material_cell
     Display name : Organic Matter
+
+material_choose_hero
+    Display name : Character Selection Card
+
+material_choose_skin
+    Display name : Skin Selection Card
 
 material_dead_cell
     Display name : Cell

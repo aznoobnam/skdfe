@@ -3,30 +3,41 @@
     "weapon_006",
     "weapon_007",
     "weapon_008",
+    "weapon_009",
     "weapon_010",
     "weapon_015",
     "weapon_033",
     "weapon_038",
     "weapon_041",
+    "weapon_061",
     "weapon_064",
     "weapon_072",
     "weapon_076",
     "weapon_078",
     "weapon_079",
+    "weapon_089",
     "weapon_093",
     "weapon_094",
     "weapon_097",
+    "weapon_108",
     "weapon_111",
     "weapon_121",
     "weapon_127",
+    "weapon_129",
+    "weapon_134",
+    "weapon_135",
     "weapon_140",
     "weapon_141",
     "weapon_146",
     "weapon_156",
     "weapon_161",
+    "weapon_170",
+    "weapon_183",
     "weapon_200",
     "weapon_210",
     "weapon_220",
+    "weapon_223",
+    "weapon_224",
     "weapon_231",
     "weapon_233",
     "weapon_239",
@@ -47,6 +58,7 @@
     "weapon_345",
     "weapon_371",
     "weapon_372",
+    "weapon_374",
     "weapon_376",
     "weapon_377",
     "weapon_399",
@@ -68,6 +80,9 @@
     "weapon_008": [
       "weapon_008_s_1"
     ],
+    "weapon_009": [
+      "weapon_009_s_1"
+    ],
     "weapon_010": [
       "weapon_010_s_1"
     ],
@@ -82,6 +97,9 @@
     ],
     "weapon_041": [
       "weapon_041_s_1"
+    ],
+    "weapon_061": [
+      "weapon_061_s_1"
     ],
     "weapon_064": [
       "weapon_064_s_1"
@@ -98,6 +116,9 @@
     "weapon_079": [
       "weapon_079_s_1"
     ],
+    "weapon_089": [
+      "weapon_089_s_1"
+    ],
     "weapon_093": [
       "weapon_093_s_1"
     ],
@@ -107,6 +128,9 @@
     "weapon_097": [
       "weapon_097_s_1"
     ],
+    "weapon_108": [
+      "weapon_108_s_1"
+    ],
     "weapon_111": [
       "weapon_111_s_1"
     ],
@@ -115,6 +139,15 @@
     ],
     "weapon_127": [
       "weapon_127_s_1"
+    ],
+    "weapon_129": [
+      "weapon_129_s_1"
+    ],
+    "weapon_134": [
+      "weapon_134_s_1"
+    ],
+    "weapon_135": [
+      "weapon_135_s_1"
     ],
     "weapon_140": [
       "weapon_140_s_1"
@@ -131,8 +164,14 @@
     "weapon_161": [
       "weapon_161_s_1"
     ],
+    "weapon_170": [
+      "weapon_170_s_1"
+    ],
     "weapon_177": [
       "weapon_177_s_1"
+    ],
+    "weapon_183": [
+      "weapon_183_s_1"
     ],
     "weapon_200": [
       "weapon_200_s_1"
@@ -142,6 +181,12 @@
     ],
     "weapon_220": [
       "weapon_220_s_1"
+    ],
+    "weapon_223": [
+      "weapon_223_s_1"
+    ],
+    "weapon_224": [
+      "weapon_224_s_1"
     ],
     "weapon_231": [
       "weapon_231_s_1"
@@ -209,6 +254,9 @@
     "weapon_372": [
       "weapon_372_s_1"
     ],
+    "weapon_374": [
+      "weapon_374_s_1"
+    ],
     "weapon_376": [
       "weapon_376_s_1"
     ],
@@ -229,6 +277,9 @@
     ],
     "weapon_403": [
       "weapon_403_s_1"
+    ],
+    "weapon_shower": [
+      "weapon_shower_s_1"
     ]
   }
 }

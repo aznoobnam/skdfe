@@ -67,6 +67,7 @@
     "Character33_skill_1_name": "Whirlwind Kick",
     "Character34_skill_0_name": "Shadow Crescendo",
     "Character35_skill_0_name": "Melodic Pulse",
+    "Character35_skill_1_name": "Resonant Symphony",
     "Character36_skill_0_name": "Marksman's Mastery",
     "Character36_skill_1_name": "Deadeye Domain",
     "Character37_skill_0_name": "Iridescent Resonance",
@@ -96,6 +97,8 @@
   "material": {
     "material_battery": "Battery",
     "material_cell": "Organic Matter",
+    "material_choose_hero": "Character Selection Card",
+    "material_choose_skin": "Skin Selection Card",
     "material_dead_cell": "Cell",
     "material_fertilize": "Fertilizer",
     "material_fish": "Fish Chip",
@@ -161,6 +164,8 @@
     "48": "Mahhmot",
     "49": "Kapikapi",
     "5": "Panda",
+    "50": "Milktea Monitor Tower",
+    "51": "Lil Drillmaster",
     "6": "BonBon",
     "7": "Can'bellied Pig",
     "8": "Tap",
@@ -194,6 +199,7 @@
       "c0_skin3": "Shiba",
       "c0_skin30": "Skywrath Saint Salvator",
       "c0_skin31": "Knipybara",
+      "c0_skin32": "Gamer Gabby",
       "c0_skin4": "Mr. Popcorn",
       "c0_skin5": "Fusion Core",
       "c0_skin6": "Cyber Knight",
@@ -355,6 +361,7 @@
       "c14_skin19": "Necrybara",
       "c14_skin2": "The Devout",
       "c14_skin20": "Miraculous Sonatia",
+      "c14_skin21": "Embergaze Vera​",
       "c14_skin3": "Stunt Actor",
       "c14_skin4": "Guardian Lu Wu",
       "c14_skin5": "Green Snake",
@@ -377,6 +384,7 @@
       "c15_skin18": "Offocer",
       "c15_skin19": "Offybara",
       "c15_skin2": "Jin Yi Wei",
+      "c15_skin20": "Abyssadmiral Dylan",
       "c15_skin3": "Vampire Hunter",
       "c15_skin4": "Ghost Catcher Zhong Kui",
       "c15_skin5": "Gold Mask",
@@ -401,6 +409,7 @@
       "c16_skin2": "Exorcist",
       "c16_skin20": "Dominus Faustus",
       "c16_skin21": "Taopybara",
+      "c16_skin22": "Sharkchef Brucello",
       "c16_skin3": "Sky Ruler",
       "c16_skin4": "Sage of Taoism",
       "c16_skin5": "Goblin Priest",
@@ -410,7 +419,10 @@
       "c16_skin9": "Ink Wash - Miao Xian Lang"
     },
     "c17": {
-      "c17_skin0": "Inter-dimension Traveler"
+      "c17_skin0": "Inter-dimension Traveler",
+      "c17_skin1": "Hades, King of the Underworld",
+      "c17_skin2": "Intor-domension Troveler",
+      "c17_skin3": "Inter-dimension Travara"
     },
     "c18": {
       "c18_skin0": "Element Envoy"
@@ -451,7 +463,8 @@
     "c20": {
       "c20_skin0": "Time Traveling Ninja",
       "c20_skin1": "Skyveil Sylph",
-      "c20_skin2": "Tome Troveling Ninjo"
+      "c20_skin2": "Tome Troveling Ninjo",
+      "c20_skin3": "Time Traveling Nara"
     },
     "c21": {
       "c21_skin0": "Special Forces"
@@ -461,6 +474,7 @@
       "c22_skin1": "Devildom Magnate",
       "c22_skin10": "Martialist Lee",
       "c22_skin11": "Stormcrest Falco",
+      "c22_skin12": "Airbybara",
       "c22_skin2": "Abo",
       "c22_skin3": "Sunyata",
       "c22_skin4": "\"A I R B E N D R\"",
@@ -476,6 +490,7 @@
       "c23_skin10": "Demonmoncer",
       "c23_skin11": "Demybara",
       "c23_skin12": "Gardener Gwen",
+      "c23_skin13": "Aqualune Marina",
       "c23_skin2": "Chewbat",
       "c23_skin3": "Possessed Girl",
       "c23_skin4": "\"DIS R ME\"",
@@ -520,6 +535,7 @@
       "c26_skin1": "Dr. O's Rocket (Knock-off)",
       "c26_skin10": "Noah the King",
       "c26_skin11": "Painter Preston",
+      "c26_skin12": "Co Pybara",
       "c26_skin2": "Apple Meow",
       "c26_skin3": "Monk Sha",
       "c26_skin4": "\"COSTUME PRICE\"",
@@ -562,7 +578,8 @@
       "c29_skin5": "Fallen Star",
       "c29_skin6": "Ming Xiao",
       "c29_skin7": "Loncer",
-      "c29_skin8": "Gigachad"
+      "c29_skin8": "Gigachad",
+      "c29_skin9": "Lancybara"
     },
     "c3": {
       "c3_skin0": "Assassin",
@@ -612,7 +629,8 @@
       "c31_skin3": "Ultra Black",
       "c31_skin4": "Princess Iron Fan",
       "c31_skin5": "Arcone Knoght",
-      "c31_skin6": "Ravenloom Woodoom"
+      "c31_skin6": "Ravenloom Woodoom",
+      "c31_skin7": "Arcany Kara"
     },
     "c32": {
       "c32_skin0": "Astromancer",
@@ -641,7 +659,8 @@
       "c34_skin2": "戏",
       "c34_skin3": "Trockster",
       "c34_skin4": "Maid Mayu",
-      "c34_skin5": "Crown of Clone"
+      "c34_skin5": "Crown of Clone",
+      "c34_skin6": "Trickybara"
     },
     "c35": {
       "c35_skin0": "Bard",
@@ -649,7 +668,8 @@
       "c35_skin2": "诗",
       "c35_skin3": "Bord",
       "c35_skin4": "Cheerleader Clara",
-      "c35_skin5": "Bardybara"
+      "c35_skin5": "Bardybara",
+      "c35_skin6": "Maroonglow Maplelyn"
     },
     "c36": {
       "c36_skin0": "Gunner",
@@ -663,12 +683,15 @@
       "c37_skin0": "Machina",
       "c37_skin1": "Hexagon",
       "c37_skin2": "Lostpearl Lazura",
-      "c37_skin3": "Mochino"
+      "c37_skin3": "Mochino",
+      "c37_skin4": "Machybara"
     },
     "c38": {
       "c38_skin0": "Captain",
       "c38_skin1": "Dreadwake Stryke",
-      "c38_skin2": "Coptain"
+      "c38_skin2": "Coptain",
+      "c38_skin3": "Deepsea 001",
+      "c38_skin4": "Captybara"
     },
     "c4": {
       "c4_skin0": "Alchemist",
@@ -741,6 +764,7 @@
       "c6_skin20": "Vompire",
       "c6_skin21": "Shadowthane Vane",
       "c6_skin22": "Vampybara",
+      "c6_skin23": "Spider Pepper",
       "c6_skin3": "Old Breed",
       "c6_skin4": "Jack the Pumpkin",
       "c6_skin5": "Bai Wu Chang",
@@ -794,6 +818,7 @@
       "c8_skin2": "Ice Queen",
       "c8_skin20": "Olf",
       "c8_skin21": "Apsara Veluriya",
+      "c8_skin22": "Elfybara",
       "c8_skin3": "Chang'e",
       "c8_skin4": "TapTap",
       "c8_skin5": "Forest Keeper",
