@@ -76,6 +76,7 @@ jobs:
         Move-Item weapons_${{ steps.check_version.outputs.new_version }}.json weapons.json -Force
         Move-Item weapon_skins_${{ steps.check_version.outputs.new_version }}.json weapon_skins.json -Force
         Move-Item needed_data_${{ steps.check_version.outputs.new_version }}.json needed_data.json -Force
+        Move-Item needed_data_cn_${{ steps.check_version.outputs.new_version }}.json needed_data_cn.json -Force
         Move-Item highest_skin_ids.json highest_skin_ids.json -Force
     - name: Update version.json
       if: ${{ steps.check_version.outputs.run_update == 'true' }}
