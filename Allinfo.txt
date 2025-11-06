@@ -41,7 +41,7 @@ transform_weapon_beheaded
 
 transform_weapon_envoy
     Name      : Echo Amber
-    Forgeable : True
+    Forgeable : False
     Is melee  : False
     Rarity    : 6
     Type      : Mythic
@@ -2951,6 +2951,20 @@ weapon_409
     Rarity    : 2
     Type      : Strange
 
+weapon_410
+    Name      : Eternal Night
+    Forgeable : True
+    Is melee  : True
+    Rarity    : 5
+    Type      : Sword
+
+weapon_411
+    Name      : Seed Blaster
+    Forgeable : True
+    Is melee  : False
+    Rarity    : 3
+    Type      : Gun
+
 weapon_900
     Name      : Candied Hawberries
     Forgeable : True
@@ -3156,6 +3170,13 @@ weapon_init_aigirlxx
 
 weapon_init_aigirlxx2
     Name      : Zephyrage
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_aigirlxx3
+    Name      : Endgame Etiquette
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -3665,6 +3686,13 @@ weapon_init_doctorxx5
     Rarity    : 1
     Type      : Pistol
 
+weapon_init_doctorxx6
+    Name      : Owlways Win
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Pistol
+
 weapon_init_druid
     Name      : Crispy Bone
     Forgeable : True
@@ -3938,6 +3966,13 @@ weapon_init_envoyx
     Rarity    : 1
     Type      : Staff
 
+weapon_init_envoyxx
+    Name      : Erosion
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
 weapon_init_fighter
     Name      : Qi Punch
     Forgeable : True
@@ -4045,6 +4080,13 @@ weapon_init_lancerxx2
 
 weapon_init_lancerxx3
     Name      : Loong of Brilliance
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Spear
+
+weapon_init_lancerxx4
+    Name      : Lance Ultima
     Forgeable : False
     Is melee  : True
     Rarity    : 1
@@ -4638,6 +4680,13 @@ weapon_init_rangerxx12
     Rarity    : 1
     Type      : Throw
 
+weapon_init_rangerxx13
+    Name      : Veiled Leaves
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Throw
+
 weapon_init_rangerxx2
     Name      : Gan Jiang & Mo Ye
     Forgeable : False
@@ -4710,6 +4759,13 @@ weapon_init_robotx
 
 weapon_init_robotxx
     Name      : Satellite Floating Gun
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_robotxx10
+    Name      : Signal of Decay
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -5137,6 +5193,13 @@ weapon_init_vikingxx10
 
 weapon_init_vikingxx11
     Name      : Waverider
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_vikingxx12
+    Name      : Deicide's Grasp
     Forgeable : False
     Is melee  : True
     Rarity    : 1
@@ -5640,7 +5703,7 @@ weapon_pet_2
     Type      : Gun
 
 weapon_pet_3
-    Name      : Mercernary Intern's Shotgun
+    Name      : Mercenary Intern's Shotgun
     Forgeable : True
     Is melee  : False
     Rarity    : 0
@@ -5948,6 +6011,7 @@ c1 = Rogue
     c1_skin26 = Roogue
     c1_skin27 = Alein the Knight
     c1_skin28 = Rogybara
+    c1_skin29 = Twinblade Sylvain
 
 c10 = Priestess
     c10_skin0 = Priestess
@@ -6027,6 +6091,7 @@ c12 = Robot
     c12_skin20 = Roboto
     c12_skin21 = Superstudent Soultama
     c12_skin22 = Robybara
+    c12_skin23 = Silent Semi-proto X
 
 c13 = Berserker
     c13_skin0 = Berserker
@@ -6056,6 +6121,7 @@ c13 = Berserker
     c13_skin24 = Borserker
     c13_skin25 = Bersybara
     c13_skin26 = Surfer Sean
+    c13_skin27 = Achilles, Hero of the Greeks
 
 c14 = Necromancer
     c14_skin0 = Necromancer
@@ -6137,6 +6203,8 @@ c17 = Inter-dimension Traveler
 
 c18 = Element Envoy
     c18_skin0 = Element Envoy
+    c18_skin1 = Amethyne Sirena
+    c18_skin2 = Olement Onvoy
 
 c19 = The Beheaded
     c19_skin0 = The Beheaded
@@ -6267,6 +6335,7 @@ c27 = Physicist
     c27_skin7 = Physocist
     c27_skin8 = Nyxcrown Camilla
     c27_skin9 = Physybara
+    c27_skin10 = Athena, Goddess of Wisdom
 
 c28 = Sword Master
     c28_skin0 = Sword Master
@@ -6291,6 +6360,7 @@ c29 = Lancer
     c29_skin7 = Loncer
     c29_skin8 = Gigachad
     c29_skin9 = Lancybara
+    c29_skin10 = Ares, God of War
 
 c3 = Assassin
     c3_skin0 = Assassin
@@ -6388,7 +6458,7 @@ c36 = Gunner
     c36_skin2 = 手
     c36_skin3 = Gonner
     c36_skin4 = Gunnybara
-    c36_skin5 = Theophil​​ the Bishop
+    c36_skin5 = Theophil the Bishop
 
 c37 = Machina
     c37_skin0 = Machina
@@ -6396,6 +6466,7 @@ c37 = Machina
     c37_skin2 = Lostpearl Lazura
     c37_skin3 = Mochino
     c37_skin4 = Machybara
+    c37_skin5 = Caissa the Queen
 
 c38 = Captain
     c38_skin0 = Captain
@@ -6796,7 +6867,7 @@ c9 = Werewolf
 
 1005
     Name        : [Name Not Found]
-    Description : Immune to fire, take less explosion damage, and increase fire damage to enemies. Immune to freeze, and apply extra freeze time to enemies. Exclusive to this character.
+    Description : Immune to fire, take less explosion damage, and increase fire damage to enemies. Immune to freeze, and apply extra freeze time to enemies. Summon random elemental stelae in combat to attack enemies. [Exclusive to this character]
 
 1006
     Name        : [Name Not Found]
