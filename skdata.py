@@ -12,7 +12,6 @@ from pathlib import Path
 from collections import defaultdict
 from typing import List, Tuple, Dict
 
-
 BASE_URL = "http://www.chillyroom.com/zh"
 APK_REGEX = re.compile(
     r"https://apk\.chillyroom\.com/apks/[\w\d.\-]+/SoulKnight-release-chillyroom-([\w\d.\-]+)\.apk"
@@ -20,8 +19,7 @@ APK_REGEX = re.compile(
 
 ASSET_STUDIO_CLI_URL = (
     "https://github.com/aelurum/AssetStudio/releases/download/"
-    "v0.18.0/AssetStudioModCLI_net6_win64.zip"
-)
+    "v0.18.0/AssetStudioModCLI_net6_win64.zip")
 
 LANGUAGES = [
     "English",
@@ -40,7 +38,6 @@ LANGUAGES = [
     "Thai",
     "Vietnamese",
 ]
-
 
 logging.basicConfig(
     level=logging.INFO,
@@ -137,15 +134,15 @@ def run_asset_studio_cli(
     - `assembly_folder`: required only for monobehaviour extraction.
     """
     if not unity_data_path.exists():
-        raise FileNotFoundError(f"Unity data file not found: {unity_data_path}")
+        raise FileNotFoundError(
+            f"Unity data file not found: {unity_data_path}")
 
     executable = asset_studio_dir / "AssetStudioModCLI.exe"
     if not executable.exists():
         executable = asset_studio_dir / "AssetStudioModCLI"
         if not executable.exists():
             raise FileNotFoundError(
-                f"AssetStudioModCLI not found in {asset_studio_dir}"
-            )
+                f"AssetStudioModCLI not found in {asset_studio_dir}")
 
     cmd = [
         str(executable),
@@ -161,7 +158,8 @@ def run_asset_studio_cli(
     ]
     if assembly_folder:
         if not assembly_folder.exists() or not assembly_folder.is_dir():
-            raise FileNotFoundError(f"Assembly folder not found: {assembly_folder}")
+            raise FileNotFoundError(
+                f"Assembly folder not found: {assembly_folder}")
         cmd.extend(["--assembly-folder", str(assembly_folder)])
 
     logging.info("Running AssetStudioModCLI: " + " ".join(cmd))
@@ -169,8 +167,7 @@ def run_asset_studio_cli(
         subprocess.run(cmd, check=True, cwd=asset_studio_dir)
     except subprocess.CalledProcessError as e:
         raise RuntimeError(
-            f"AssetStudioModCLI failed (exit code {e.returncode})"
-        ) from e
+            f"AssetStudioModCLI failed (exit code {e.returncode})") from e
     logging.info(f"AssetStudio CLI finished extracting {asset_type}.")
 
 
@@ -178,11 +175,14 @@ def sanitize_text(text: str) -> str:
     """
     Replace CRLF / CR / LF with literal '\n' and strip.
     """
-    return text.replace("\r\n", "\\n").replace("\r", "\\n").replace("\n", "\\n").strip()
+    return text.replace("\r\n", "\\n").replace("\r",
+                                               "\\n").replace("\n",
+                                                              "\\n").strip()
 
 
 def parse_i2_asset_file(
-    file_path: Path, filter_patterns: List[re.Pattern] = None
+    file_path: Path,
+    filter_patterns: List[re.Pattern] = None
 ) -> Tuple[List[Tuple[str, List[str]]], List[str]]:
     """
     Parse a single I2 Languages .dat file.
@@ -204,23 +204,22 @@ def parse_i2_asset_file(
         if pos + 4 > len(data):
             break
 
-        key_len = int.from_bytes(data[pos : pos + 4], "little")
+        key_len = int.from_bytes(data[pos:pos + 4], "little")
         pos += 4
 
         if key_len == 0:
 
-            while (
-                pos < len(data) and int.from_bytes(data[pos : pos + 4], "little") == 0
-            ):
+            while (pos < len(data)
+                   and int.from_bytes(data[pos:pos + 4], "little") == 0):
                 pos += 4
             if pos >= len(data) - 4:
                 break
-            key_len = int.from_bytes(data[pos : pos + 4], "little")
+            key_len = int.from_bytes(data[pos:pos + 4], "little")
             pos += 4
             if key_len == 0:
                 break
 
-        key_bytes = data[pos : pos + key_len]
+        key_bytes = data[pos:pos + key_len]
         try:
             key = key_bytes.decode("utf-8", errors="ignore").strip()
         except UnicodeDecodeError:
@@ -232,13 +231,13 @@ def parse_i2_asset_file(
 
         if pos + 4 > len(data):
             break
-        start_count = int.from_bytes(data[pos : pos + 4], "little")
+        start_count = int.from_bytes(data[pos:pos + 4], "little")
         pos += 4
 
         if start_count == 0:
             if pos + 4 > len(data):
                 break
-            fields_count = int.from_bytes(data[pos : pos + 4], "little")
+            fields_count = int.from_bytes(data[pos:pos + 4], "little")
             pos += 4
         else:
             fields_count = start_count
@@ -247,11 +246,11 @@ def parse_i2_asset_file(
         for _ in range(fields_count):
             if pos + 4 > len(data):
                 break
-            field_len = int.from_bytes(data[pos : pos + 4], "little")
+            field_len = int.from_bytes(data[pos:pos + 4], "little")
             pos += 4
 
             if field_len > 0:
-                raw = data[pos : pos + field_len]
+                raw = data[pos:pos + field_len]
                 try:
                     text = raw.decode("utf-8")
                 except UnicodeDecodeError:
@@ -267,7 +266,8 @@ def parse_i2_asset_file(
         if pos + 4 <= len(data):
             pos += 4
 
-        if not filter_patterns or not any(p.match(key) for p in filter_patterns):
+        if not filter_patterns or not any(
+                p.match(key) for p in filter_patterns):
             records.append((key, fields))
 
     records.sort(key=lambda r: r[0])
@@ -314,7 +314,8 @@ def ensure_apk_extracted(version: str, link: str) -> Path:
             with zipfile.ZipFile(versioned_apk_file, "r") as zf:
                 zf.extractall(sk_extracted_path)
         except zipfile.BadZipFile as e:
-            raise RuntimeError(f"Corrupted APK zip: {versioned_apk_file}") from e
+            raise RuntimeError(
+                f"Corrupted APK zip: {versioned_apk_file}") from e
         except Exception as e:
             raise RuntimeError(f"Failed extracting APK: {e}") from e
         logging.info(f"APK extracted to: {sk_extracted_path}")
@@ -360,8 +361,7 @@ def run_asset_extractions(sk_extracted_path: Path) -> None:
         EXPORT_DIR.mkdir(parents=True, exist_ok=True)
     except Exception as e:
         raise RuntimeError(
-            f"Could not create export directory {EXPORT_DIR}: {e}"
-        ) from e
+            f"Could not create export directory {EXPORT_DIR}: {e}") from e
 
     run_asset_studio_cli(
         ASSET_STUDIO_DIR,
@@ -384,7 +384,8 @@ def run_asset_extractions(sk_extracted_path: Path) -> None:
         if size < 2_000_000:
             try:
                 dat_file.unlink()
-                logging.info(f"Removed SMALL I2 file: {dat_file.name} ({size} bytes)")
+                logging.info(
+                    f"Removed SMALL I2 file: {dat_file.name} ({size} bytes)")
                 removed_any = True
             except Exception as e:
                 logging.warning(f"Failed to remove {dat_file}: {e}")
@@ -416,8 +417,7 @@ def find_valid_i2_dat() -> Path:
             logging.info(f"Found valid I2 dat: {dat_file.name} ({size} bytes)")
             return dat_file
     raise FileNotFoundError(
-        "No valid (≥2 MB) I2Languages .dat file found under export/."
-    )
+        "No valid (≥2 MB) I2Languages .dat file found under export/.")
 
 
 def write_i2_csv(version: str, records: List[Tuple[str, List[str]]]) -> Path:
@@ -438,7 +438,8 @@ def write_i2_csv(version: str, records: List[Tuple[str, List[str]]]) -> Path:
     return csv_path
 
 
-def load_language_map(csv_path: Path, language: str = "English") -> Dict[str, str]:
+def load_language_map(csv_path: Path,
+                      language: str = "English") -> Dict[str, str]:
     """
     Load the CSV and resolve aliases like `{boss18}` → boss18 → final English string.
     Returns: dict of ID → English string (fully resolved)
@@ -522,11 +523,8 @@ def build_dictionaries(csv_path: Path) -> Dict[str, Dict]:
         elif rid.startswith("plant_") and "/" not in rid:
             plant_ids[rid] = eng
 
-        elif (
-            rid.startswith("Pet_name_")
-            and not rid.endswith("_des")
-            and not rid.endswith("_lock")
-        ):
+        elif (rid.startswith("Pet_name_") and not rid.endswith("_des")
+              and not rid.endswith("_lock")):
             pets[rid] = eng
 
         else:
@@ -561,7 +559,8 @@ def write_master_txt(
     txt_path = SCRIPT_DIR / f"Allinfo_{version}.txt"
     logging.info(f"Writing master TXT: {txt_path}")
     if not weapon_json_path.exists():
-        raise FileNotFoundError(f"WeaponInfo JSON not found: {weapon_json_path}")
+        raise FileNotFoundError(
+            f"WeaponInfo JSON not found: {weapon_json_path}")
 
     try:
         with open(weapon_json_path, "r", encoding="utf-8") as f:
@@ -593,8 +592,7 @@ def write_master_txt(
                 "██     ██ ██      ██   ██ ██   ██ ██    ██ ████   ██\n"
                 "██  █  ██ █████   ███████ ██████  ██    ██ ██ ██  ██\n"
                 "██ ███ ██ ██      ██   ██ ██      ██    ██ ██  ██ ██\n"
-                " ███ ███  ███████ ██   ██ ██       ██████  ██   ████\n\n"
-            )
+                " ███ ███  ███████ ██   ██ ██       ██████  ██   ████\n\n")
             for w in weapons_sorted:
                 name_key = w.get("name", "")
                 english_name = weapons_map.get(name_key, "[Name Not Found]")
@@ -620,30 +618,29 @@ def write_master_txt(
                 max_skin_ids[f"c{char_index}"] = max_skin_id
                 for skin_index in sorted(skins.keys(), key=lambda x: int(x)):
                     skin_name = skins[skin_index]
-                    out.write(f"    c{char_index}_skin{skin_index} = {skin_name}\n")
+                    out.write(
+                        f"    c{char_index}_skin{skin_index} = {skin_name}\n")
                 out.write("\n")
 
-            out.write(
-                "██████  ███████ ████████\n"
-                "██   ██ ██         ██   \n"
-                "██████  █████      ██   \n"
-                "██      ██         ██   \n"
-                "██      ███████    ██   \n\n"
-            )
+            out.write("██████  ███████ ████████\n"
+                      "██   ██ ██         ██   \n"
+                      "██████  █████      ██   \n"
+                      "██      ██         ██   \n"
+                      "██      ███████    ██   \n\n")
             for pet_id, pet_name in sorted(pets.items(), key=lambda kv: kv[0]):
                 out.write(f"{pet_id.removeprefix('Pet_name_')}\n")
                 out.write(f"    Display name : {pet_name}\n\n")
 
-            out.write(
-                "██████  ██    ██ ███████ ███████ \n"
-                "██   ██ ██    ██ ██      ██      \n"
-                "██████  ██    ██ █████   █████   \n"
-                "██   ██ ██    ██ ██      ██      \n"
-                "██████   ██████  ██      ██      \n\n"
-            )
+            out.write("██████  ██    ██ ███████ ███████ \n"
+                      "██   ██ ██    ██ ██      ██      \n"
+                      "██████  ██    ██ █████   █████   \n"
+                      "██   ██ ██    ██ ██      ██      \n"
+                      "██████   ██████  ██      ██      \n\n")
             buff_ids = set()
-            buff_ids.update(k.replace("Buff_name_", "") for k in buff_names.keys())
-            buff_ids.update(k.replace("Buff_info_", "") for k in buff_infos.keys())
+            buff_ids.update(
+                k.replace("Buff_name_", "") for k in buff_names.keys())
+            buff_ids.update(
+                k.replace("Buff_info_", "") for k in buff_infos.keys())
             for bid in sorted(buff_ids):
                 name_key = f"Buff_name_{bid}"
                 info_key = f"Buff_info_{bid}"
@@ -665,9 +662,8 @@ def write_master_txt(
             challenge_ids.update(challenge_titles.keys())
             challenge_ids.update(challenge_descs.keys())
 
-            for cid in sorted(
-                challenge_ids, key=lambda x: int(x) if x.isdigit() else x
-            ):
+            for cid in sorted(challenge_ids,
+                              key=lambda x: int(x) if x.isdigit() else x):
                 name = challenge_names.get(cid, "[Name Not Found]")
                 title = challenge_titles.get(cid, "[Title Not Found]")
                 desc = challenge_descs.get(cid, "[Description Not Found]")
@@ -687,13 +683,11 @@ def write_master_txt(
                 out.write(f"{mid}\n")
                 out.write(f"    Display name : {mname}\n\n")
 
-            out.write(
-                "██████  ██       █████  ███    ██ ████████ \n"
-                "██   ██ ██      ██   ██ ████   ██    ██    \n"
-                "██████  ██      ███████ ██ ██  ██    ██    \n"
-                "██      ██      ██   ██ ██  ██ ██    ██    \n"
-                "██      ███████ ██   ██ ██   ████    ██    \n\n"
-            )
+            out.write("██████  ██       █████  ███    ██ ████████ \n"
+                      "██   ██ ██      ██   ██ ████   ██    ██    \n"
+                      "██████  ██      ███████ ██ ██  ██    ██    \n"
+                      "██      ██      ██   ██ ██  ██ ██    ██    \n"
+                      "██      ███████ ██   ██ ██   ████    ██    \n\n")
             for pid, pname in sorted(plants.items(), key=lambda kv: kv[0]):
                 out.write(f"{pid}\n")
                 out.write(f"    Display name : {pname}\n\n")
@@ -746,12 +740,17 @@ def export_filtered_weapons_from_info(
     # Write to JSON
     try:
         with open(output_path, "w", encoding="utf-8") as f:
-            json.dump(filtered, f, ensure_ascii=False, indent=2, sort_keys=True)
+            json.dump(filtered,
+                      f,
+                      ensure_ascii=False,
+                      indent=2,
+                      sort_keys=True)
     except Exception as e:
         raise RuntimeError(f"Failed writing filtered weapons JSON: {e}") from e
 
 
-def export_weapon_evo_data(lang_map: Dict[str, str], output_path: Path) -> None:
+def export_weapon_evo_data(lang_map: Dict[str, str],
+                           output_path: Path) -> None:
     import re
     from collections import defaultdict
 
@@ -784,37 +783,60 @@ def export_weapon_evo_data(lang_map: Dict[str, str], output_path: Path) -> None:
     upgradable_weapon_list = sorted(upgradable_weapons)
 
     # Final structure
-    result = {
-        "upgradable_weapon": upgradable_weapon_list,
-        "weapon_skin": weapon_skin_map
+    weapon_evo_data = {
+        "blindBoxOpenCount0": 0,
+        "favorWeapons": [],
+        "lastOpenMachineHistoryStr0": "",
+        "weapons": {
+            weapon: {
+                "Name":
+                weapon,
+                "Level":
+                1 if weapon in upgradable_weapon_list else 0,
+                "CurrentSkinIndex":
+                1 if (skins := weapon_skin_map.get(weapon)) else 0,
+                "UnlockedSkins":
+                skins or []
+            }
+            for weapon in weapon_skin_map.keys() | upgradable_weapons
+        }
     }
 
     # Write JSON
     with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(result, f, indent=2, ensure_ascii=False, sort_keys=True)
+        json.dump(weapon_evo_data,
+                  f,
+                  indent=2,
+                  ensure_ascii=False,
+                  sort_keys=True)
 
     print(f"Exported weapon metadata to: {output_path}")
 
-def export_needed_data_from_langmap(lang_map: Dict[str, str], output_dir: Path) -> None:
+
+def export_needed_data_from_langmap(lang_map: Dict[str, str],
+                                    output_dir: Path) -> None:
 
     result = {
-        "skin": defaultdict(dict),         # c1: {c1_skin0: name, ...}
-        "pet": {},                         # p0: name
-        "material": {},                    # material_id: name
-        "character_skill": {}              # Character1_skill_1_name: name
+        "skin": defaultdict(dict),  # c1: {c1_skin0: name, ...}
+        "pet": {},  # p0: name
+        "material": {},  # material_id: name
+        "character_skill": {}  # Character1_skill_1_name: name
     }
 
     # Patterns
     skin_pattern = re.compile(r"Character(\d+)_name_skin(\d+)")
     pet_pattern = re.compile(r"Pet_name_(\d+)")
-    material_pattern = re.compile(r'(^material_(?!.*(?:activity|book|fragment|tape|skill|new|money|multi|box)).*)')
+    material_pattern = re.compile(
+        r'(^material_(?!.*(?:activity|book|fragment|tape|skill|new|money|multi|box)).*)'
+    )
     skill_pattern = re.compile(r"(Character\d+_skill_\d+_name)")
     for key, value in lang_map.items():
         # Skins
         m_skin = skin_pattern.fullmatch(key)
         if m_skin:
             char_index, skin_index = m_skin.groups()
-            result["skin"][f"c{char_index}"][f"c{char_index}_skin{skin_index}"] = value
+            result["skin"][f"c{char_index}"][
+                f"c{char_index}_skin{skin_index}"] = value
             continue
 
         # Pets
@@ -846,6 +868,7 @@ def export_needed_data_from_langmap(lang_map: Dict[str, str], output_dir: Path) 
         json.dump(result, f, indent=2, ensure_ascii=False, sort_keys=True)
 
     logging.info(f"Exported: {output_dir}")
+
 
 def main():
 
@@ -924,15 +947,17 @@ def main():
         logging.error(f"Failed exporting filtered weapons JSON: {e}")
     weapon_skin_path = SCRIPT_DIR / f"weapon_skins_{version}.json"
     lang_map = load_language_map(csv_path)
-    lang_map_cn = load_language_map(csv_path,"Chinese (Simplified)")
+    lang_map_cn = load_language_map(csv_path, "Chinese (Simplified)")
     try:
         export_weapon_evo_data(lang_map, weapon_skin_path)
         logging.info(f"Weapon evolution data baked : {weapon_skin_path}")
     except Exception as e:
         logging.error(f"Cannot export weapon skin: {e}")
     try:
-        export_needed_data_from_langmap(lang_map, SCRIPT_DIR / f"needed_data_{version}.json")
-        export_needed_data_from_langmap(lang_map_cn, SCRIPT_DIR / f"needed_data_cn_{version}.json")
+        export_needed_data_from_langmap(
+            lang_map, SCRIPT_DIR / f"needed_data_{version}.json")
+        export_needed_data_from_langmap(
+            lang_map_cn, SCRIPT_DIR / f"needed_data_cn_{version}.json")
         logging.info("Exported needed data for English and Chinese")
     except Exception as e:
         logging.warning(f"Can't export: {e}")
@@ -941,7 +966,8 @@ def main():
             shutil.rmtree(DATA_DIR)
             logging.info(f"Cleaned up data folder: {DATA_DIR}")
     except Exception as e:
-        logging.warning(f"Could not remove data folder (maybe in use): {DATA_DIR}: {e}")
+        logging.warning(
+            f"Could not remove data folder (maybe in use): {DATA_DIR}: {e}")
 
     logging.info("All done.")
 
