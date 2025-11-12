@@ -92,6 +92,6 @@ jobs:
       run: |
         git config user.name  "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
-        git add I2language.csv Allinfo.txt version.json weapons.json weapon_skins.json highest_skin_ids.json needed_data.json
+        git add I2language.csv Allinfo.txt version.json weapons.json weapon_skins.json highest_skin_ids.json needed_data.json needed_data_cn.json
         git commit -m "Updated to ${{ steps.check_version.outputs.new_version }}" || echo "Nothing to commit"
         git push
