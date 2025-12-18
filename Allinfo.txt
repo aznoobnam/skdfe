@@ -2965,6 +2965,13 @@ weapon_411
     Rarity    : 3
     Type      : Gun
 
+weapon_412
+    Name      : Gomoku Board
+    Forgeable : True
+    Is melee  : False
+    Rarity    : 2
+    Type      : Strange
+
 weapon_900
     Name      : Candied Hawberries
     Forgeable : True
@@ -3182,6 +3189,13 @@ weapon_init_aigirlxx3
     Rarity    : 1
     Type      : Strange
 
+weapon_init_aigirlxx4
+    Name      : Little Sidekicks
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Strange
+
 weapon_init_airbender
     Name      : Qian-kun Punch
     Forgeable : False
@@ -3247,6 +3261,13 @@ weapon_init_airbenderxx7
 
 weapon_init_airbenderxx8
     Name      : Tempest Fang
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Default
+
+weapon_init_airbenderxx9
+    Name      : Air Shocker
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -3373,6 +3394,13 @@ weapon_init_arcaneknightxx3
 
 weapon_init_arcaneknightxx4
     Name      : Ancestor's Wrath
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
+weapon_init_arcaneknightxx5
+    Name      : Lens of Truth
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -3637,6 +3665,13 @@ weapon_init_costumeprincexx6
     Rarity    : 1
     Type      : Gun
 
+weapon_init_costumeprincexx7
+    Name      : Tome of Ultima
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Gun
+
 weapon_init_doctor
     Name      : Ion Excitator
     Forgeable : True
@@ -3896,6 +3931,13 @@ weapon_init_engineerxx10
     Rarity    : 1
     Type      : Gun
 
+weapon_init_engineerxx11
+    Name      : Sinful Flame
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Gun
+
 weapon_init_engineerxx2
     Name      : Tyrant's Halberd
     Forgeable : False
@@ -4050,6 +4092,13 @@ weapon_init_jokerxx2
     Rarity    : 1
     Type      : Sword
 
+weapon_init_jokerxx3
+    Name      : Aria of Stars
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Sword
+
 weapon_init_lancer
     Name      : Dragon Fang
     Forgeable : True
@@ -4199,6 +4248,13 @@ weapon_init_minerx
 
 weapon_init_minerxx
     Name      : Carrot Pickaxe
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Axe
+
+weapon_init_minerxx10
+    Name      : Speedster Bottle
     Forgeable : False
     Is melee  : True
     Rarity    : 1
@@ -4577,6 +4633,13 @@ weapon_init_priestxx10
 
 weapon_init_priestxx11
     Name      : Soothing Syringe
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
+weapon_init_priestxx12
+    Name      : Rose Kiss
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -5067,6 +5130,13 @@ weapon_init_trapmasterxx4
 
 weapon_init_trapmasterxx5
     Name      : Netherflame Grappler
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Gun
+
+weapon_init_trapmasterxx6
+    Name      : Frograppler
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -5832,8 +5902,8 @@ weapon_troop_heal
     Name      : [Name Not Found]
     Forgeable : False
     Is melee  : False
-    Rarity    : 5
-    Type      : Token
+    Rarity    : 0
+    Type      : Default
 
 weapon_troop_hp
     Name      : [Name Not Found]
@@ -5846,22 +5916,22 @@ weapon_troop_ice
     Name      : [Name Not Found]
     Forgeable : False
     Is melee  : False
-    Rarity    : 5
-    Type      : Token
+    Rarity    : 0
+    Type      : Default
 
 weapon_troop_reborn
     Name      : [Name Not Found]
     Forgeable : False
     Is melee  : False
-    Rarity    : 5
-    Type      : Token
+    Rarity    : 0
+    Type      : Default
 
 weapon_troop_shield
     Name      : [Name Not Found]
     Forgeable : False
     Is melee  : False
-    Rarity    : 5
-    Type      : Token
+    Rarity    : 0
+    Type      : Default
 
 weapon_troop_statue_assassin
     Name      : [Name Not Found]
@@ -5936,8 +6006,8 @@ weapon_troop_statue_wolf
 weapon_troop_whistle
     Name      : Whistle
     Forgeable : False
-    Is melee  : True
-    Rarity    : 5
+    Is melee  : False
+    Rarity    : 0
     Type      : Default
 
  ██████ ██   ██  █████  ██████   █████   ██████ ████████ ███████ ██████
@@ -6039,6 +6109,7 @@ c10 = Priestess
     c10_skin22 = Fragrans Felora
     c10_skin23 = Pripybara
     c10_skin24 = Clinic Cloudia
+    c10_skin25 = Aphrodite, Goddess of Love
 
 c11 = Druid
     c11_skin0 = Druid
@@ -6066,6 +6137,7 @@ c11 = Druid
     c11_skin22 = Butterflette Lofeyra
     c11_skin23 = Drupybara
     c11_skin24 = Blightherald Gorth
+    c11_skin25 = 口r□id
 
 c12 = Robot
     c12_skin0 = Robot
@@ -6122,6 +6194,7 @@ c13 = Berserker
     c13_skin25 = Bersybara
     c13_skin26 = Surfer Sean
     c13_skin27 = Achilles, Hero of the Greeks
+    c13_skin28 = 日□rs□rk□r
 
 c14 = Necromancer
     c14_skin0 = Necromancer
@@ -6146,6 +6219,7 @@ c14 = Necromancer
     c14_skin19 = Necrybara
     c14_skin20 = Miraculous Sonatia
     c14_skin21 = Embergaze Vera​
+    c14_skin22 = 口ecr□m□ncer
 
 c15 = Officer
     c15_skin0 = Officer
@@ -6238,6 +6312,7 @@ c2 = Witch
     c2_skin25 = Wotch
     c2_skin26 = Witybara
     c2_skin27 = Idol Isla
+    c2_skin28 = 口it□h
 
 c20 = Time Traveling Ninja
     c20_skin0 = Time Traveling Ninja
@@ -6262,6 +6337,7 @@ c22 = Airbender
     c22_skin10 = Martialist Lee
     c22_skin11 = Stormcrest Falco
     c22_skin12 = Airbybara
+    c22_skin13 = Silverdawn Ayther
 
 c23 = Demonmancer
     c23_skin0 = Demonmancer
@@ -6278,6 +6354,7 @@ c23 = Demonmancer
     c23_skin11 = Demybara
     c23_skin12 = Gardener Gwen
     c23_skin13 = Aqualune Marina
+    c23_skin14 = 口em□nm□ncer
 
 c24 = Miner
     c24_skin0 = Miner
@@ -6295,6 +6372,7 @@ c24 = Miner
     c24_skin12 = Moner
     c24_skin13 = Minybara
     c24_skin14 = Seabreeze Sylvie
+    c24_skin15 = Cyclist Cleo
 
 c25 = Trap Master
     c25_skin0 = Trap Master
@@ -6308,6 +6386,7 @@ c25 = Trap Master
     c25_skin8 = Trop Moster
     c25_skin9 = Jack of All Tricks
     c25_skin10 = Trapy Mara
+    c25_skin11 = Biologist Bogg
 
 c26 = Costume Prince
     c26_skin0 = Costume Prince
@@ -6323,6 +6402,7 @@ c26 = Costume Prince
     c26_skin10 = Noah the King
     c26_skin11 = Painter Preston
     c26_skin12 = Co Pybara
+    c26_skin13 = Eidolonwaker Loiseth
 
 c27 = Physicist
     c27_skin0 = Physicist
@@ -6412,6 +6492,7 @@ c31 = Arcane Knight
     c31_skin5 = Arcone Knoght
     c31_skin6 = Ravenloom Woodoom
     c31_skin7 = Arcany Kara
+    c31_skin8 = Detective Doyle
 
 c32 = Astromancer
     c32_skin0 = Astromancer
@@ -6442,6 +6523,7 @@ c34 = Trickster
     c34_skin4 = Maid Mayu
     c34_skin5 = Crown of Clone
     c34_skin6 = Trickybara
+    c34_skin7 = Euphoryn
 
 c35 = Bard
     c35_skin0 = Bard
@@ -6467,6 +6549,7 @@ c37 = Machina
     c37_skin3 = Mochino
     c37_skin4 = Machybara
     c37_skin5 = Caissa the Queen
+    c37_skin6 = Rustbud Vita
 
 c38 = Captain
     c38_skin0 = Captain
@@ -6528,6 +6611,7 @@ c5 = Engineer
     c5_skin24 = Engybara
     c5_skin25 = Team Tarara
     c5_skin26 = Programmer
+    c5_skin27 = Lonegear Fiero
 
 c6 = Vampire
     c6_skin0 = Vampire
@@ -6786,6 +6870,9 @@ c9 = Werewolf
 
 51
     Display name : Lil Drillmaster
+
+52
+    Display name : Toastie
 
 6
     Display name : BonBon
@@ -7601,6 +7688,46 @@ FastShooter
     Title       : Speed Booster
     Description : Weapon fire rate +100%, attack -50%
 
+FireBlinkingWaiter
+    Name        : [Name Not Found]
+    Title       : Pick-Pocketwatch
+    Description : Defeating an enemy while in the Power Up state slightly extends its duration.
+
+FireBloodVial
+    Name        : [Name Not Found]
+    Title       : Vampire Cloak
+    Description : While in the Power Up state, you lost health over time, releasing multiple piercing blood arrows.
+
+FireElementShard
+    Name        : [Name Not Found]
+    Title       : Elemental Stela Shard
+    Description : Elemental damage +{0}% while in the Power Up state. Each stance of elemental damage may trigger an elemental explosion and leaves behind an elemental circle.
+
+FireFrostGloves
+    Name        : [Name Not Found]
+    Title       : Jolly Reindeer Bell
+    Description : Weapon damage +{0}% upon casting any skill while in the Power Up state. Lasts for {1}s.
+
+FireIceCrown
+    Name        : [Name Not Found]
+    Title       : Yeti's Heavy Gauntlets
+    Description : Melee attacks are enhanced and may stun enemies while in the Power Up state.
+
+FireMasterDiary
+    Name        : [Name Not Found]
+    Title       : Mentor's Memo
+    Description : Skill level +{0} while in the Power Up state.
+
+FireSnowGlobe
+    Name        : [Name Not Found]
+    Title       : Snow Squad Badge
+    Description : All followers and summons gain greatly increased attack and survivability while in the Power Up state.
+
+FireSnowShoes
+    Name        : [Name Not Found]
+    Title       : Santa's Sleigh
+    Description : Upon moving {0} units of distance while in the Power Up state, unleashes a freezing strike on nearby enemies, with a special effect activating at high speed.
+
 FloorCrack
     Name        : Rift in Time and Space
     Title       : Rift in Time and Space
@@ -7957,6 +8084,9 @@ material_activity_coin_element
 material_activity_coin_fire
     Display name : Firepower Token
 
+material_activity_coin_fire2025
+    Display name : Snowman Badge
+
 material_activity_coin_fusion_2025
     Display name : Fusion Particle
 
@@ -8227,6 +8357,9 @@ material_tape_irontide_multiroom
 material_tape_island
     Display name : Iron Will Braves the Waves
 
+material_tape_joker_7
+    Display name : Euphoric Pulsation
+
 material_tape_level_2g
     Display name : Hail to Connectionism!
 
@@ -8292,6 +8425,27 @@ material_ticket
 
 material_ticket_bossrush
     Display name : Feather of Valkyrie
+
+material_weapon_fragment_chest_0
+    Display name : White Weapon Evolution Fragment Chest
+
+material_weapon_fragment_chest_1
+    Display name : Green Weapon Evolution Fragment Chest
+
+material_weapon_fragment_chest_2
+    Display name : Blue Weapon Evolution Fragment Chest
+
+material_weapon_fragment_chest_3
+    Display name : Purple Weapon Evolution Fragment Chest
+
+material_weapon_fragment_chest_4
+    Display name : Orange Weapon Evolution Fragment Chest
+
+material_weapon_fragment_chest_5
+    Display name : Red Weapon Evolution Fragment Chest
+
+material_weapon_fragment_chest_desc
+    Display name : Contains weapon evolution fragments of the corresponding tier. If you have obtained all weapon evolution fragments of that tier, you will receive gems instead.
 
 material_wood
     Display name : Timber
