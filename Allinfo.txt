@@ -2972,6 +2972,13 @@ weapon_412
     Rarity    : 2
     Type      : Strange
 
+weapon_413
+    Name      : Marble Blaster
+    Forgeable : True
+    Is melee  : False
+    Rarity    : 3
+    Type      : Strange
+
 weapon_900
     Name      : Candied Hawberries
     Forgeable : True
@@ -3434,6 +3441,13 @@ weapon_init_assassinxx10
     Rarity    : 1
     Type      : Sword
 
+weapon_init_assassinxx11
+    Name      : Carmine Cutlass
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Sword
+
 weapon_init_assassinxx2
     Name      : Dragon Den
     Forgeable : False
@@ -3532,6 +3546,13 @@ weapon_init_astrologistxx4
     Rarity    : 1
     Type      : Staff
 
+weapon_init_astrologistxx5
+    Name      : Nebula Gaze
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
 weapon_init_bard
     Name      : Forest Melody
     Forgeable : True
@@ -3562,6 +3583,13 @@ weapon_init_bardxx2
 
 weapon_init_bardxx3
     Name      : Maple Echo
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : ShotGun
+
+weapon_init_bardxx4
+    Name      : Blistering Ballad
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -3763,6 +3791,13 @@ weapon_init_druidxx11
     Rarity    : 1
     Type      : Throw
 
+weapon_init_druidxx12
+    Name      : Pan Flute
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Throw
+
 weapon_init_druidxx2
     Name      : Feather Fan
     Forgeable : False
@@ -3842,6 +3877,13 @@ weapon_init_elvesxx
 
 weapon_init_elvesxx10
     Name      : Mistglow Bow
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Bow
+
+weapon_init_elvesxx11
+    Name      : Lunar Phase
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -4064,6 +4106,13 @@ weapon_init_fighterxx5
     Rarity    : 1
     Type      : Strange
 
+weapon_init_fighterxx6
+    Name      : Drift Grip
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Strange
+
 weapon_init_joker
     Name      : Phantom Blade
     Forgeable : True
@@ -4171,6 +4220,13 @@ weapon_init_magexx10
 
 weapon_init_magexx11
     Name      : Starry Glowstick
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
+weapon_init_magexx12
+    Name      : Soulpad
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -4918,6 +4974,13 @@ weapon_init_shooterxx2
     Rarity    : 1
     Type      : Rifle
 
+weapon_init_shooterxx3
+    Name      : True Aim
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Rifle
+
 weapon_init_specialforces
     Name      : S.O. Firearm
     Forgeable : True
@@ -5375,6 +5438,13 @@ weapon_init_warliegexx4
 
 weapon_init_warliegexx5
     Name      : Noizwave
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Sword
+
+weapon_init_warliegexx6
+    Name      : Dragon's Wrath
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -6138,6 +6208,7 @@ c11 = Druid
     c11_skin23 = Drupybara
     c11_skin24 = Blightherald Gorth
     c11_skin25 = 口r□id
+    c11_skin26 = Pan, God of the Wild
 
 c12 = Robot
     c12_skin0 = Robot
@@ -6313,6 +6384,7 @@ c2 = Witch
     c2_skin26 = Witybara
     c2_skin27 = Idol Isla
     c2_skin28 = 口it□h
+    c2_skin29 = Neon Apparition Ada
 
 c20 = Time Traveling Ninja
     c20_skin0 = Time Traveling Ninja
@@ -6387,6 +6459,7 @@ c25 = Trap Master
     c25_skin9 = Jack of All Tricks
     c25_skin10 = Trapy Mara
     c25_skin11 = Biologist Bogg
+    c25_skin12 = Tr□p M□st□r
 
 c26 = Costume Prince
     c26_skin0 = Costume Prince
@@ -6428,6 +6501,7 @@ c28 = Sword Master
     c28_skin7 = Rosadame Evelyn
     c28_skin8 = Swordy Mara
     c28_skin9 = Hellbelle Lorna
+    c28_skin10 = Sw□rd M□st□r
 
 c29 = Lancer
     c29_skin0 = Lancer
@@ -6441,6 +6515,7 @@ c29 = Lancer
     c29_skin8 = Gigachad
     c29_skin9 = Lancybara
     c29_skin10 = Ares, God of War
+    c29_skin11 = La□c□r
 
 c3 = Assassin
     c3_skin0 = Assassin
@@ -6470,6 +6545,7 @@ c3 = Assassin
     c3_skin24 = Assossin
     c3_skin25 = Assassybara
     c3_skin26 = Poseidon, King of the Sea
+    c3_skin27 = Exultis
 
 c30 = Warliege
     c30_skin0 = Warliege
@@ -6482,6 +6558,7 @@ c30 = Warliege
     c30_skin7 = Worliege
     c30_skin8 = Rockstar Zock
     c30_skin9 = Warlybara
+    c30_skin10 = Oathbound Gaddon
 
 c31 = Arcane Knight
     c31_skin0 = Arcane Knight
@@ -6503,6 +6580,7 @@ c32 = Astromancer
     c32_skin5 = UFO-Chaser Urian
     c32_skin6 = Astropybara
     c32_skin7 = Tentacled Samuel
+    c32_skin8 = Astraltide Aster
 
 c33 = Fighter
     c33_skin0 = Fighter
@@ -6514,6 +6592,7 @@ c33 = Fighter
     c33_skin6 = Journalist Junie
     c33_skin7 = Fightybara
     c33_skin8 = Pyropact Ignis
+    c33_skin9 = Bladeplume Lark
 
 c34 = Trickster
     c34_skin0 = Trickster
@@ -6524,6 +6603,7 @@ c34 = Trickster
     c34_skin5 = Crown of Clone
     c34_skin6 = Trickybara
     c34_skin7 = Euphoryn
+    c34_skin8 = Tri□kst□r
 
 c35 = Bard
     c35_skin0 = Bard
@@ -6533,6 +6613,7 @@ c35 = Bard
     c35_skin4 = Cheerleader Clara
     c35_skin5 = Bardybara
     c35_skin6 = Maroonglow Maplelyn
+    c35_skin7 = Purgatory Pyrelia
 
 c36 = Gunner
     c36_skin0 = Gunner
@@ -6541,6 +6622,7 @@ c36 = Gunner
     c36_skin3 = Gonner
     c36_skin4 = Gunnybara
     c36_skin5 = Theophil the Bishop
+    c36_skin6 = Sharpshooter Syrus
 
 c37 = Machina
     c37_skin0 = Machina
@@ -6550,6 +6632,7 @@ c37 = Machina
     c37_skin4 = Machybara
     c37_skin5 = Caissa the Queen
     c37_skin6 = Rustbud Vita
+    c37_skin7 = M□chin□
 
 c38 = Captain
     c38_skin0 = Captain
@@ -6692,6 +6775,7 @@ c8 = Elf
     c8_skin20 = Olf
     c8_skin21 = Apsara Veluriya
     c8_skin22 = Elfybara
+    c8_skin23 = Artemis, Goddess of the Moon
 
 c9 = Werewolf
     c9_skin0 = Werewolf
@@ -6723,6 +6807,7 @@ c9 = Werewolf
     c9_skin26 = Werepybara
     c9_skin27 = Spooky Bear
     c9_skin28 = Greedfang Warwolf Skin
+    c9_skin29 = Posh Penguin
 
 ██████  ███████ ████████
 ██   ██ ██         ██   
@@ -8138,6 +8223,12 @@ material_choose_hero
 material_choose_skin
     Display name : Skin Selection Card
 
+material_choose_skin_bp_1
+    Display name : Skin Selection Card
+
+material_choose_skin_bp_1_desc
+    Display name : Can be used to redeem any one skin from this Skin Selection Card pool.
+
 material_dead_cell
     Display name : Cell
 
@@ -8161,6 +8252,30 @@ material_gear
 
 material_gem
     Display name : Gem
+
+material_generic_weapon_fragment
+    Display name : Universal Weapon Evolution Fragment
+
+material_generic_weapon_fragment_0
+    Display name : White Universal Weapon Evolution Fragment
+
+material_generic_weapon_fragment_1
+    Display name : Green Universal Weapon Evolution Fragment
+
+material_generic_weapon_fragment_2
+    Display name : Blue Universal Weapon Evolution Fragment
+
+material_generic_weapon_fragment_3
+    Display name : Purple Universal Weapon Evolution Fragment
+
+material_generic_weapon_fragment_4
+    Display name : Orange Universal Weapon Evolution Fragment
+
+material_generic_weapon_fragment_5
+    Display name : Red Universal Weapon Evolution Fragment
+
+material_generic_weapon_fragment_desc
+    Display name : When lacking enough fragments for evolving weapons, universal fragments can be used as substitutes for any weapon fragments of the same tier.
 
 material_grain
     Display name : Pet Treats
@@ -8273,6 +8388,9 @@ material_tape_alien
 material_tape_ambition
     Display name : Mighty Heroes
 
+material_tape_assassin_27
+    Display name : Exultant Cadence
+
 material_tape_aurora
     Display name : Digital Xunder #2
 
@@ -8344,6 +8462,9 @@ material_tape_hall_cny
 
 material_tape_halloween
     Display name : Wraith on Halloween
+
+material_tape_heroBall
+    Display name : Digital Realm
 
 material_tape_ice
     Display name : Blizzard

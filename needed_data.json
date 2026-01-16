@@ -60,6 +60,7 @@
     "Character2_skill_2_name": "Firestorm",
     "Character30_skill_0_name": "Battle Storm",
     "Character30_skill_1_name": "Resolute Rush",
+    "Character30_skill_2_name": "Dark Sovereign",
     "Character31_skill_0_name": "Power Burst",
     "Character31_skill_1_name": "Aegis Circle",
     "Character32_skill_0_name": "Starfall Surge",
@@ -101,6 +102,8 @@
     "material_cell": "Organic Matter",
     "material_choose_hero": "Character Selection Card",
     "material_choose_skin": "Skin Selection Card",
+    "material_choose_skin_bp_1": "Skin Selection Card",
+    "material_choose_skin_bp_1_desc": "Can be used to redeem any one skin from this Skin Selection Card pool.",
     "material_dead_cell": "Cell",
     "material_fertilize": "Fertilizer",
     "material_fish": "Fish Chip",
@@ -290,6 +293,7 @@
       "c11_skin23": "Drupybara",
       "c11_skin24": "Blightherald Gorth",
       "c11_skin25": "口r□id",
+      "c11_skin26": "Pan, God of the Wild",
       "c11_skin3": "Reindeer",
       "c11_skin4": "Dragon King",
       "c11_skin5": "Frostash",
@@ -465,6 +469,7 @@
       "c2_skin26": "Witybara",
       "c2_skin27": "Idol Isla",
       "c2_skin28": "口it□h",
+      "c2_skin29": "Neon Apparition Ada",
       "c2_skin3": "Apprentice",
       "c2_skin4": "Halloween Witch",
       "c2_skin5": "Chinese New Year",
@@ -538,6 +543,7 @@
       "c25_skin1": "Yama Raja",
       "c25_skin10": "Trapy Mara",
       "c25_skin11": "Biologist Bogg",
+      "c25_skin12": "Tr□p M□st□r",
       "c25_skin2": "\"TRAP MASTAH\"",
       "c25_skin3": "Aries",
       "c25_skin4": "Holy",
@@ -579,6 +585,7 @@
     "c28": {
       "c28_skin0": "Sword Master",
       "c28_skin1": "Sun Shangxiang",
+      "c28_skin10": "Sw□rd M□st□r",
       "c28_skin2": "\"SWORD MUSTER\"",
       "c28_skin3": "剑",
       "c28_skin4": "Rinne",
@@ -592,6 +599,7 @@
       "c29_skin0": "Lancer",
       "c29_skin1": "Zhao Yun - Zilong",
       "c29_skin10": "Ares, God of War",
+      "c29_skin11": "La□c□r",
       "c29_skin2": "\"L A C E R\"",
       "c29_skin3": "枪",
       "c29_skin4": "Morley Skin",
@@ -622,6 +630,7 @@
       "c3_skin24": "Assossin",
       "c3_skin25": "Assassybara",
       "c3_skin26": "Poseidon, King of the Sea",
+      "c3_skin27": "Exultis",
       "c3_skin3": "Anbu",
       "c3_skin4": "Gangster",
       "c3_skin5": "Mayan Mask",
@@ -633,6 +642,7 @@
     "c30": {
       "c30_skin0": "Warliege",
       "c30_skin1": "Cao Cao - Mengde",
+      "c30_skin10": "Oathbound Gaddon",
       "c30_skin2": "\"W O W L I E G E\"",
       "c30_skin3": "领",
       "c30_skin4": "Shadowmoon",
@@ -661,7 +671,8 @@
       "c32_skin4": "Astromoncer",
       "c32_skin5": "UFO-Chaser Urian",
       "c32_skin6": "Astropybara",
-      "c32_skin7": "Tentacled Samuel"
+      "c32_skin7": "Tentacled Samuel",
+      "c32_skin8": "Astraltide Aster"
     },
     "c33": {
       "c33_skin0": "Fighter",
@@ -672,7 +683,8 @@
       "c33_skin5": "Foghter",
       "c33_skin6": "Journalist Junie",
       "c33_skin7": "Fightybara",
-      "c33_skin8": "Pyropact Ignis"
+      "c33_skin8": "Pyropact Ignis",
+      "c33_skin9": "Bladeplume Lark"
     },
     "c34": {
       "c34_skin0": "Trickster",
@@ -682,7 +694,8 @@
       "c34_skin4": "Maid Mayu",
       "c34_skin5": "Crown of Clone",
       "c34_skin6": "Trickybara",
-      "c34_skin7": "Euphoryn"
+      "c34_skin7": "Euphoryn",
+      "c34_skin8": "Tri□kst□r"
     },
     "c35": {
       "c35_skin0": "Bard",
@@ -691,7 +704,8 @@
       "c35_skin3": "Bord",
       "c35_skin4": "Cheerleader Clara",
       "c35_skin5": "Bardybara",
-      "c35_skin6": "Maroonglow Maplelyn"
+      "c35_skin6": "Maroonglow Maplelyn",
+      "c35_skin7": "Purgatory Pyrelia"
     },
     "c36": {
       "c36_skin0": "Gunner",
@@ -699,7 +713,8 @@
       "c36_skin2": "手",
       "c36_skin3": "Gonner",
       "c36_skin4": "Gunnybara",
-      "c36_skin5": "Theophil the Bishop"
+      "c36_skin5": "Theophil the Bishop",
+      "c36_skin6": "Sharpshooter Syrus"
     },
     "c37": {
       "c37_skin0": "Machina",
@@ -708,7 +723,8 @@
       "c37_skin3": "Mochino",
       "c37_skin4": "Machybara",
       "c37_skin5": "Caissa the Queen",
-      "c37_skin6": "Rustbud Vita"
+      "c37_skin6": "Rustbud Vita",
+      "c37_skin7": "M□chin□"
     },
     "c38": {
       "c38_skin0": "Captain",
@@ -844,6 +860,7 @@
       "c8_skin20": "Olf",
       "c8_skin21": "Apsara Veluriya",
       "c8_skin22": "Elfybara",
+      "c8_skin23": "Artemis, Goddess of the Moon",
       "c8_skin3": "Chang'e",
       "c8_skin4": "TapTap",
       "c8_skin5": "Forest Keeper",
@@ -875,6 +892,7 @@
       "c9_skin26": "Werepybara",
       "c9_skin27": "Spooky Bear",
       "c9_skin28": "Greedfang Warwolf Skin",
+      "c9_skin29": "Posh Penguin",
       "c9_skin3": "Monkey King",
       "c9_skin4": "Living Dead",
       "c9_skin5": "Tiger Cub",
