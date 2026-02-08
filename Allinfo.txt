@@ -109,6 +109,13 @@ weapon_000xx12
     Rarity    : 1
     Type      : Pistol
 
+weapon_000xx13
+    Name      : Lion Roar
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Pistol
+
 weapon_000xx2
     Name      : Serpent Spear
     Forgeable : False
@@ -2979,6 +2986,20 @@ weapon_413
     Rarity    : 3
     Type      : Strange
 
+weapon_414
+    Name      : Red Devil Horn
+    Forgeable : True
+    Is melee  : False
+    Rarity    : 3
+    Type      : Staff
+
+weapon_415
+    Name      : Monster Compressor
+    Forgeable : True
+    Is melee  : False
+    Rarity    : 3
+    Type      : Strange
+
 weapon_900
     Name      : Candied Hawberries
     Forgeable : True
@@ -3308,6 +3329,13 @@ weapon_init_alchemistxx10
     Rarity    : 1
     Type      : ShotGun
 
+weapon_init_alchemistxx11
+    Name      : Powder Cannon
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : ShotGun
+
 weapon_init_alchemistxx2
     Name      : [Name Not Found]
     Forgeable : False
@@ -3632,6 +3660,13 @@ weapon_init_captainxx
 
 weapon_init_captainxx2
     Name      : Key of Liberty
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_captainxx3
+    Name      : Deepdiver's Pal
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -4113,6 +4148,27 @@ weapon_init_fighterxx6
     Rarity    : 1
     Type      : Strange
 
+weapon_init_gunsexpert
+    Name      : Arms-041
+    Forgeable : True
+    Is melee  : False
+    Rarity    : 0
+    Type      : Laser
+
+weapon_init_gunsexpertx
+    Name      : Arms-041
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Laser
+
+weapon_init_gunsexpertxx
+    Name      : Dolly Deliverer
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Laser
+
 weapon_init_joker
     Name      : Phantom Blade
     Forgeable : True
@@ -4190,6 +4246,13 @@ weapon_init_lancerxx4
     Rarity    : 1
     Type      : Spear
 
+weapon_init_lancerxx5
+    Name      : Lapis Pike
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Spear
+
 weapon_init_mage
     Name      : The Code
     Forgeable : True
@@ -4227,6 +4290,13 @@ weapon_init_magexx11
 
 weapon_init_magexx12
     Name      : Soulpad
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
+weapon_init_magexx13
+    Name      : Raven Staff
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -4491,6 +4561,13 @@ weapon_init_ninjaxx
     Rarity    : 1
     Type      : Sword
 
+weapon_init_ninjaxx2
+    Name      : Veil of Dunes
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Sword
+
 weapon_init_officer
     Name      : Nemesis of Villains
     Forgeable : True
@@ -4701,6 +4778,13 @@ weapon_init_priestxx12
     Rarity    : 1
     Type      : Staff
 
+weapon_init_priestxx13
+    Name      : Surgical Scissors
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
 weapon_init_priestxx2
     Name      : Flower Rain
     Forgeable : False
@@ -4801,6 +4885,13 @@ weapon_init_rangerxx12
 
 weapon_init_rangerxx13
     Name      : Veiled Leaves
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Throw
+
+weapon_init_rangerxx14
+    Name      : Aureate Twins
     Forgeable : False
     Is melee  : True
     Rarity    : 1
@@ -5039,6 +5130,13 @@ weapon_init_swordmasterxx4
 
 weapon_init_swordmasterxx5
     Name      : Soul Rapier
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Sword
+
+weapon_init_swordmasterxx6
+    Name      : Ruby Quill
     Forgeable : False
     Is melee  : True
     Rarity    : 1
@@ -5583,6 +5681,27 @@ weapon_init_werewolfxx8
     Rarity    : 1
     Type      : Strange
 
+weapon_init_yinyang
+    Name      : Yin & Yang
+    Forgeable : True
+    Is melee  : True
+    Rarity    : 0
+    Type      : Strange
+
+weapon_init_yinyangx
+    Name      : Yin & Yang
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 0
+    Type      : Strange
+
+weapon_init_yinyangxx
+    Name      : Draconic Sight
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 0
+    Type      : Strange
+
 weapon_inkfish
     Name      : Octopus
     Forgeable : False
@@ -6120,6 +6239,7 @@ c0 = Knight
     c0_skin30 = Skywrath Saint Salvator
     c0_skin31 = Knipybara
     c0_skin32 = Gamer Gabby
+    c0_skin33 = Lionleaper Yunxiao
 
 c1 = Rogue
     c1_skin0 = Rogue
@@ -6152,6 +6272,7 @@ c1 = Rogue
     c1_skin27 = Alein the Knight
     c1_skin28 = Rogybara
     c1_skin29 = Twinblade Sylvain
+    c1_skin30 = Hermes, Herald of the Gods
 
 c10 = Priestess
     c10_skin0 = Priestess
@@ -6180,6 +6301,7 @@ c10 = Priestess
     c10_skin23 = Pripybara
     c10_skin24 = Clinic Cloudia
     c10_skin25 = Aphrodite, Goddess of Love
+    c10_skin26 = Rotweaver Ravena
 
 c11 = Druid
     c11_skin0 = Druid
@@ -6209,6 +6331,7 @@ c11 = Druid
     c11_skin24 = Blightherald Gorth
     c11_skin25 = 口r□id
     c11_skin26 = Pan, God of the Wild
+    c11_skin27 = Dendroid King Skin
 
 c12 = Robot
     c12_skin0 = Robot
@@ -6385,12 +6508,14 @@ c2 = Witch
     c2_skin27 = Idol Isla
     c2_skin28 = 口it□h
     c2_skin29 = Neon Apparition Ada
+    c2_skin30 = Ashenseer Voojaa
 
 c20 = Time Traveling Ninja
     c20_skin0 = Time Traveling Ninja
     c20_skin1 = Skyveil Sylph
     c20_skin2 = Tome Troveling Ninjo
     c20_skin3 = Time Traveling Nara
+    c20_skin4 = Sandspecter Shahya
 
 c21 = Special Forces
     c21_skin0 = Special Forces
@@ -6502,6 +6627,7 @@ c28 = Sword Master
     c28_skin8 = Swordy Mara
     c28_skin9 = Hellbelle Lorna
     c28_skin10 = Sw□rd M□st□r
+    c28_skin11 = Moonveil
 
 c29 = Lancer
     c29_skin0 = Lancer
@@ -6516,6 +6642,7 @@ c29 = Lancer
     c29_skin9 = Lancybara
     c29_skin10 = Ares, God of War
     c29_skin11 = La□c□r
+    c29_skin12 = Starshade
 
 c3 = Assassin
     c3_skin0 = Assassin
@@ -6559,6 +6686,7 @@ c30 = Warliege
     c30_skin8 = Rockstar Zock
     c30_skin9 = Warlybara
     c30_skin10 = Oathbound Gaddon
+    c30_skin11 = W□rli□ge
 
 c31 = Arcane Knight
     c31_skin0 = Arcane Knight
@@ -6570,6 +6698,7 @@ c31 = Arcane Knight
     c31_skin6 = Ravenloom Woodoom
     c31_skin7 = Arcany Kara
     c31_skin8 = Detective Doyle
+    c31_skin9 = Arc□ne K□ight
 
 c32 = Astromancer
     c32_skin0 = Astromancer
@@ -6581,6 +6710,7 @@ c32 = Astromancer
     c32_skin6 = Astropybara
     c32_skin7 = Tentacled Samuel
     c32_skin8 = Astraltide Aster
+    c32_skin9 = Astr□m□nc□r
 
 c33 = Fighter
     c33_skin0 = Fighter
@@ -6593,6 +6723,7 @@ c33 = Fighter
     c33_skin7 = Fightybara
     c33_skin8 = Pyropact Ignis
     c33_skin9 = Bladeplume Lark
+    c33_skin10 = Fi□ht□r
 
 c34 = Trickster
     c34_skin0 = Trickster
@@ -6614,6 +6745,7 @@ c35 = Bard
     c35_skin5 = Bardybara
     c35_skin6 = Maroonglow Maplelyn
     c35_skin7 = Purgatory Pyrelia
+    c35_skin8 = 日□rd
 
 c36 = Gunner
     c36_skin0 = Gunner
@@ -6640,6 +6772,12 @@ c38 = Captain
     c38_skin2 = Coptain
     c38_skin3 = Deepsea 001
     c38_skin4 = Captybara
+    c38_skin5 = Diver Dave
+
+c39 = Yin-Yang Adept
+    c39_skin0 = Yin-Yang Adept
+    c39_skin1 = Draconess Glacinder
+    c39_skin2 = Yon-Yong Adept
 
 c4 = Alchemist
     c4_skin0 = Alchemist
@@ -6665,6 +6803,12 @@ c4 = Alchemist
     c4_skin20 = Alchomost
     c4_skin21 = Alchybara
     c4_skin22 = Elementaress Lizzmii
+    c4_skin23 = Bombrewer Hawk
+
+c40 = Arms Expert
+    c40_skin0 = Arms Expert
+    c40_skin1 = Dollkeeper Perly
+    c40_skin2 = Orms Oxpert
 
 c5 = Engineer
     c5_skin0 = Engineer
@@ -6959,6 +7103,12 @@ c9 = Werewolf
 52
     Display name : Toastie
 
+53
+    Display name : Chilly Cube
+
+54
+    Display name : Lai Cai
+
 6
     Display name : BonBon
 
@@ -7124,6 +7274,14 @@ c9 = Werewolf
 1022_name
     Name        : [Name Not Found]
     Description : Blast Fest
+
+1023
+    Name        : Yin-Yang Flux
+    Description : Using skills generates Yin or Yang energy and enhances skill effects. [Exclusive to this character]
+
+1024
+    Name        : Arms Alignment
+    Description : Attacks periodically trigger an extra attack from a random weapon you've picked up this run for a while. Interval shortens as more weapons are picked up.
 
 11
     Name        : Healing Surge
@@ -7504,6 +7662,18 @@ c9 = Werewolf
 30
     Name        : Combo Turbo
     Description : Increase the number of combo hits for combo-hit weapons
+
+3001
+    Name        : Void Grip
+    Description : Bare hands deals {0} more damage to void shields.
+
+3002
+    Name        : Void Affinity
+    Description : Immune to damage caused by void rifts.
+
+3003
+    Name        : Void Bounty
+    Description : Void elites will no longer retreat once all the minions in the room are defeated.
 
 31
     Name        : Rapid Fire
@@ -8418,6 +8588,9 @@ material_tape_boss4
 material_tape_castle
     Display name : Heroes' Avatar
 
+material_tape_chess
+    Display name : Castling March
+
 material_tape_civilization
     Display name : GlobalTravelOverture.mid
 
@@ -8447,6 +8620,9 @@ material_tape_end_temple
 
 material_tape_forest
     Display name : Deep in the Forest
+
+material_tape_four_seasons
+    Display name : Ballad of Seasons
 
 material_tape_grave
     Display name : Beware of Falling!
@@ -8534,6 +8710,9 @@ material_tape_sword_master_4
 
 material_tape_thunderstorm
     Display name : Digital Xunder #3
+
+material_tape_unrivaled_archenemy
+    Display name : Heist Rivalry
 
 material_tape_volcano
     Display name : Roaring Lava

@@ -83,6 +83,14 @@
         "weapon_041_s_1"
       ]
     },
+    "weapon_043": {
+      "CurrentSkinIndex": 1,
+      "Level": 1,
+      "Name": "weapon_043",
+      "UnlockedSkins": [
+        "weapon_043_s_1"
+      ]
+    },
     "weapon_044": {
       "CurrentSkinIndex": 1,
       "Level": 1,
@@ -139,6 +147,14 @@
         "weapon_079_s_1"
       ]
     },
+    "weapon_083": {
+      "CurrentSkinIndex": 1,
+      "Level": 0,
+      "Name": "weapon_083",
+      "UnlockedSkins": [
+        "weapon_083_s_1"
+      ]
+    },
     "weapon_084": {
       "CurrentSkinIndex": 1,
       "Level": 0,
@@ -193,6 +209,14 @@
       "Name": "weapon_099",
       "UnlockedSkins": [
         "weapon_099_s_1"
+      ]
+    },
+    "weapon_104": {
+      "CurrentSkinIndex": 1,
+      "Level": 0,
+      "Name": "weapon_104",
+      "UnlockedSkins": [
+        "weapon_104_s_1"
       ]
     },
     "weapon_108": {
@@ -395,6 +419,14 @@
         "weapon_183_s_1"
       ]
     },
+    "weapon_190": {
+      "CurrentSkinIndex": 1,
+      "Level": 0,
+      "Name": "weapon_190",
+      "UnlockedSkins": [
+        "weapon_190_s_1"
+      ]
+    },
     "weapon_195": {
       "CurrentSkinIndex": 1,
       "Level": 0,
@@ -419,12 +451,28 @@
         "weapon_200_s_1"
       ]
     },
+    "weapon_205": {
+      "CurrentSkinIndex": 1,
+      "Level": 0,
+      "Name": "weapon_205",
+      "UnlockedSkins": [
+        "weapon_205_s_1"
+      ]
+    },
     "weapon_210": {
       "CurrentSkinIndex": 1,
       "Level": 1,
       "Name": "weapon_210",
       "UnlockedSkins": [
         "weapon_210_s_1"
+      ]
+    },
+    "weapon_215": {
+      "CurrentSkinIndex": 1,
+      "Level": 1,
+      "Name": "weapon_215",
+      "UnlockedSkins": [
+        "weapon_215_s_1"
       ]
     },
     "weapon_220": {
@@ -493,12 +541,28 @@
         "weapon_246_s_1"
       ]
     },
+    "weapon_260": {
+      "CurrentSkinIndex": 1,
+      "Level": 1,
+      "Name": "weapon_260",
+      "UnlockedSkins": [
+        "weapon_260_s_1"
+      ]
+    },
     "weapon_270": {
       "CurrentSkinIndex": 1,
       "Level": 1,
       "Name": "weapon_270",
       "UnlockedSkins": [
         "weapon_270_s_1"
+      ]
+    },
+    "weapon_274": {
+      "CurrentSkinIndex": 1,
+      "Level": 1,
+      "Name": "weapon_274",
+      "UnlockedSkins": [
+        "weapon_274_s_1"
       ]
     },
     "weapon_275": {
@@ -531,6 +595,22 @@
       "Name": "weapon_302",
       "UnlockedSkins": [
         "weapon_302_s_1"
+      ]
+    },
+    "weapon_307": {
+      "CurrentSkinIndex": 1,
+      "Level": 1,
+      "Name": "weapon_307",
+      "UnlockedSkins": [
+        "weapon_307_s_1"
+      ]
+    },
+    "weapon_310": {
+      "CurrentSkinIndex": 1,
+      "Level": 0,
+      "Name": "weapon_310",
+      "UnlockedSkins": [
+        "weapon_310_s_1"
       ]
     },
     "weapon_311": {
@@ -790,6 +870,20 @@
       "UnlockedSkins": [
         "weapon_413_s_1"
       ]
+    },
+    "weapon_414": {
+      "CurrentSkinIndex": 1,
+      "Level": 1,
+      "Name": "weapon_414",
+      "UnlockedSkins": [
+        "weapon_414_s_1"
+      ]
+    },
+    "weapon_415": {
+      "CurrentSkinIndex": 0,
+      "Level": 1,
+      "Name": "weapon_415",
+      "UnlockedSkins": []
     },
     "weapon_cg_2": {
       "CurrentSkinIndex": 1,
