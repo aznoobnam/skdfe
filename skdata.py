@@ -810,7 +810,7 @@ def export_weapon_evo_data(lang_map: Dict[str, str],
                   ensure_ascii=False,
                   sort_keys=True)
 
-    print(f"Exported weapon metadata to: {output_path}")
+    logging.info(f"Exported weapon skins data to: {output_path}")
 
 
 def export_needed_data_from_langmap(lang_map: Dict[str, str],
@@ -820,7 +820,8 @@ def export_needed_data_from_langmap(lang_map: Dict[str, str],
         "skin": defaultdict(dict),  # c1: {c1_skin0: name, ...}
         "pet": {},  # p0: name
         "material": {},  # material_id: name
-        "character_skill": {}  # Character1_skill_1_name: name
+        "character_skill": {},  # Character1_skill_1_name: name
+        "weapon_skin": {}
     }
 
     # Patterns
@@ -830,6 +831,9 @@ def export_needed_data_from_langmap(lang_map: Dict[str, str],
         r'(^material_(?!.*(?:activity|book|skill|new|money|multi|desc)).*)'
     )
     skill_pattern = re.compile(r"(Character\d+_skill_\d+_name)")
+    weapon_skin_pattern = re.compile(r"(weapon_\w+_s_\d+)")
+    with open("test.lagmap.txt", "w", encoding="utf-8") as f:
+        json.dump(lang_map, f, indent=2, ensure_ascii=False, sort_keys=True)
     for key, value in lang_map.items():
         # Skins
         m_skin = skin_pattern.fullmatch(key)
@@ -859,6 +863,14 @@ def export_needed_data_from_langmap(lang_map: Dict[str, str],
             sid = m_skill.group(1)
             result["character_skill"][sid] = value
             continue
+
+        # Weapon Skins
+        m_w_skin = weapon_skin_pattern.fullmatch(key)
+        if m_w_skin:
+            wsid = m_w_skin.group(1)
+            result["weapon_skin"][wsid] = value
+            continue
+        
 
     # Convert defaultdict to dict for JSON
     result["skin"] = dict(result["skin"])
