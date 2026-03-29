@@ -116,6 +116,13 @@ weapon_000xx13
     Rarity    : 1
     Type      : Pistol
 
+weapon_000xx14
+    Name      : Knight
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Pistol
+
 weapon_000xx2
     Name      : Serpent Spear
     Forgeable : False
@@ -3000,6 +3007,13 @@ weapon_415
     Rarity    : 3
     Type      : Strange
 
+weapon_416
+    Name      : Flamewrath Blade
+    Forgeable : True
+    Is melee  : True
+    Rarity    : 3
+    Type      : Sword
+
 weapon_900
     Name      : Candied Hawberries
     Forgeable : True
@@ -3245,6 +3259,13 @@ weapon_init_airbenderxx
     Rarity    : 1
     Type      : Default
 
+weapon_init_airbenderxx10
+    Name      : Airbender
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Default
+
 weapon_init_airbenderxx2
     Name      : Cyber-Pulsating Punch
     Forgeable : False
@@ -3331,6 +3352,13 @@ weapon_init_alchemistxx10
 
 weapon_init_alchemistxx11
     Name      : Powder Cannon
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : ShotGun
+
+weapon_init_alchemistxx12
+    Name      : Alchemist
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -3471,6 +3499,13 @@ weapon_init_assassinxx10
 
 weapon_init_assassinxx11
     Name      : Carmine Cutlass
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Sword
+
+weapon_init_assassinxx12
+    Name      : Assassin
     Forgeable : False
     Is melee  : True
     Rarity    : 1
@@ -3735,6 +3770,13 @@ weapon_init_costumeprincexx7
     Rarity    : 1
     Type      : Gun
 
+weapon_init_costumeprincexx8
+    Name      : Costume Prince
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Gun
+
 weapon_init_doctor
     Name      : Ion Excitator
     Forgeable : True
@@ -3833,6 +3875,13 @@ weapon_init_druidxx12
     Rarity    : 1
     Type      : Throw
 
+weapon_init_druidxx13
+    Name      : Druid
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Throw
+
 weapon_init_druidxx2
     Name      : Feather Fan
     Forgeable : False
@@ -3924,6 +3973,20 @@ weapon_init_elvesxx11
     Rarity    : 1
     Type      : Bow
 
+weapon_init_elvesxx12
+    Name      : Tidal Vow
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Bow
+
+weapon_init_elvesxx13
+    Name      : Elf
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Bow
+
 weapon_init_elvesxx2
     Name      : Iron Bow
     Forgeable : False
@@ -4010,6 +4073,13 @@ weapon_init_engineerxx10
 
 weapon_init_engineerxx11
     Name      : Sinful Flame
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Gun
+
+weapon_init_engineerxx12
+    Name      : Engineer
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -4302,6 +4372,13 @@ weapon_init_magexx13
     Rarity    : 1
     Type      : Staff
 
+weapon_init_magexx14
+    Name      : Witch
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
 weapon_init_magexx2
     Name      : Embroidered Blade
     Forgeable : False
@@ -4381,6 +4458,20 @@ weapon_init_minerxx
 
 weapon_init_minerxx10
     Name      : Speedster Bottle
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Axe
+
+weapon_init_minerxx11
+    Name      : Wave Anchor
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Axe
+
+weapon_init_minerxx12
+    Name      : Miner
     Forgeable : False
     Is melee  : True
     Rarity    : 1
@@ -4479,6 +4570,20 @@ weapon_init_necromancerxx11
 
 weapon_init_necromancerxx12
     Name      : Sanguine Sprout
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
+weapon_init_necromancerxx13
+    Name      : Shellveil Coral
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
+weapon_init_necromancerxx14
+    Name      : [Name Not Found]
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -4589,6 +4694,20 @@ weapon_init_officerxx
     Rarity    : 1
     Type      : Pistol
 
+weapon_init_officerxx10
+    Name      : Homerun Buddy
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Pistol
+
+weapon_init_officerxx11
+    Name      : Officer
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Pistol
+
 weapon_init_officerxx2
     Name      : Path of the Dead
     Forgeable : False
@@ -4675,6 +4794,20 @@ weapon_init_paladinxx10
 
 weapon_init_paladinxx11
     Name      : Stormrender
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Axe
+
+weapon_init_paladinxx12
+    Name      : Paladin
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Axe
+
+weapon_init_paladinxx13
+    Name      : Dawnbringer
     Forgeable : False
     Is melee  : True
     Rarity    : 1
@@ -4780,6 +4913,13 @@ weapon_init_priestxx12
 
 weapon_init_priestxx13
     Name      : Surgical Scissors
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
+weapon_init_priestxx14
+    Name      : Priestess
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -4897,6 +5037,13 @@ weapon_init_rangerxx14
     Rarity    : 1
     Type      : Throw
 
+weapon_init_rangerxx15
+    Name      : Rogue
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Throw
+
 weapon_init_rangerxx2
     Name      : Gan Jiang & Mo Ye
     Forgeable : False
@@ -4976,6 +5123,13 @@ weapon_init_robotxx
 
 weapon_init_robotxx10
     Name      : Signal of Decay
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_robotxx11
+    Name      : Robot
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -5170,6 +5324,13 @@ weapon_init_taoistxx10
     Rarity    : 1
     Type      : Sword
 
+weapon_init_taoistxx11
+    Name      : Taoist
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Sword
+
 weapon_init_taoistxx2
     Name      : Taiyi Hossu
     Forgeable : False
@@ -5303,6 +5464,13 @@ weapon_init_trapmasterxx6
     Rarity    : 1
     Type      : Gun
 
+weapon_init_trapmasterxx7
+    Name      : Trap Master
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Gun
+
 weapon_init_vampire
     Name      : Crimson Wine Glass
     Forgeable : True
@@ -5333,6 +5501,13 @@ weapon_init_vampirexx10
 
 weapon_init_vampirexx11
     Name      : [Name Not Found]
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_vampirexx12
+    Name      : Vampire
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -5431,6 +5606,20 @@ weapon_init_vikingxx11
 
 weapon_init_vikingxx12
     Name      : Deicide's Grasp
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_vikingxx13
+    Name      : Berserker
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_vikingxx14
+    Name      : Greatsword of Judgment
     Forgeable : False
     Is melee  : True
     Rarity    : 1
@@ -5611,6 +5800,20 @@ weapon_init_warlockxx7
     Rarity    : 1
     Type      : Staff
 
+weapon_init_warlockxx8
+    Name      : Demonmancer
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
+weapon_init_warlockxx9
+    Name      : Eternal Sorrow
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
 weapon_init_werewolf
     Name      : Flaring Claw
     Forgeable : True
@@ -5627,6 +5830,13 @@ weapon_init_werewolfx
 
 weapon_init_werewolfxx
     Name      : Flaring Claw
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_werewolfxx10
+    Name      : Wolfking's Grip
     Forgeable : False
     Is melee  : True
     Rarity    : 1
@@ -5676,6 +5886,13 @@ weapon_init_werewolfxx7
 
 weapon_init_werewolfxx8
     Name      : Molten Claws
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_werewolfxx9
+    Name      : Werewolf
     Forgeable : False
     Is melee  : True
     Rarity    : 1
@@ -6240,6 +6457,7 @@ c0 = Knight
     c0_skin31 = Knipybara
     c0_skin32 = Gamer Gabby
     c0_skin33 = Lionleaper Yunxiao
+    c0_skin34 = Bad Pistol
 
 c1 = Rogue
     c1_skin0 = Rogue
@@ -6273,6 +6491,7 @@ c1 = Rogue
     c1_skin28 = Rogybara
     c1_skin29 = Twinblade Sylvain
     c1_skin30 = Hermes, Herald of the Gods
+    c1_skin31 = Jack and Mary
 
 c10 = Priestess
     c10_skin0 = Priestess
@@ -6302,6 +6521,8 @@ c10 = Priestess
     c10_skin24 = Clinic Cloudia
     c10_skin25 = Aphrodite, Goddess of Love
     c10_skin26 = Rotweaver Ravena
+    c10_skin27 = Pri□st□ss
+    c10_skin28 = Wooden Cross
 
 c11 = Druid
     c11_skin0 = Druid
@@ -6332,6 +6553,7 @@ c11 = Druid
     c11_skin25 = 口r□id
     c11_skin26 = Pan, God of the Wild
     c11_skin27 = Dendroid King Skin
+    c11_skin28 = Crispy Bone
 
 c12 = Robot
     c12_skin0 = Robot
@@ -6358,6 +6580,7 @@ c12 = Robot
     c12_skin21 = Superstudent Soultama
     c12_skin22 = Robybara
     c12_skin23 = Silent Semi-proto X
+    c12_skin24 = Satellite Floating Gun
 
 c13 = Berserker
     c13_skin0 = Berserker
@@ -6389,6 +6612,8 @@ c13 = Berserker
     c13_skin26 = Surfer Sean
     c13_skin27 = Achilles, Hero of the Greeks
     c13_skin28 = 日□rs□rk□r
+    c13_skin29 = Boxing Gloves
+    c13_skin30 = Paragon Aureon
 
 c14 = Necromancer
     c14_skin0 = Necromancer
@@ -6414,6 +6639,8 @@ c14 = Necromancer
     c14_skin20 = Miraculous Sonatia
     c14_skin21 = Embergaze Vera​
     c14_skin22 = 口ecr□m□ncer
+    c14_skin23 = Pearlbloom Perrine
+    c14_skin24 = Staff of Plague
 
 c15 = Officer
     c15_skin0 = Officer
@@ -6437,6 +6664,8 @@ c15 = Officer
     c15_skin18 = Offocer
     c15_skin19 = Offybara
     c15_skin20 = Abyssadmiral Dylan
+    c15_skin21 = Baseball Brady
+    c15_skin22 = Nemesis of Villains
 
 c16 = Taoist
     c16_skin0 = Taoist
@@ -6462,6 +6691,7 @@ c16 = Taoist
     c16_skin20 = Dominus Faustus
     c16_skin21 = Taopybara
     c16_skin22 = Sharkchef Brucello
+    c16_skin23 = Tao Sword
 
 c17 = Inter-dimension Traveler
     c17_skin0 = Inter-dimension Traveler
@@ -6509,6 +6739,7 @@ c2 = Witch
     c2_skin28 = 口it□h
     c2_skin29 = Neon Apparition Ada
     c2_skin30 = Ashenseer Voojaa
+    c2_skin31 = The Code
 
 c20 = Time Traveling Ninja
     c20_skin0 = Time Traveling Ninja
@@ -6535,6 +6766,7 @@ c22 = Airbender
     c22_skin11 = Stormcrest Falco
     c22_skin12 = Airbybara
     c22_skin13 = Silverdawn Ayther
+    c22_skin14 = Qian-kun Punch
 
 c23 = Demonmancer
     c23_skin0 = Demonmancer
@@ -6552,6 +6784,8 @@ c23 = Demonmancer
     c23_skin12 = Gardener Gwen
     c23_skin13 = Aqualune Marina
     c23_skin14 = 口em□nm□ncer
+    c23_skin15 = Key of the Faint Star
+    c23_skin16 = Lamentra
 
 c24 = Miner
     c24_skin0 = Miner
@@ -6570,6 +6804,8 @@ c24 = Miner
     c24_skin13 = Minybara
     c24_skin14 = Seabreeze Sylvie
     c24_skin15 = Cyclist Cleo
+    c24_skin16 = Wavechant Nerissa
+    c24_skin17 = Pickaxe
 
 c25 = Trap Master
     c25_skin0 = Trap Master
@@ -6585,6 +6821,7 @@ c25 = Trap Master
     c25_skin10 = Trapy Mara
     c25_skin11 = Biologist Bogg
     c25_skin12 = Tr□p M□st□r
+    c25_skin13 = Grappling Gun
 
 c26 = Costume Prince
     c26_skin0 = Costume Prince
@@ -6601,6 +6838,7 @@ c26 = Costume Prince
     c26_skin11 = Painter Preston
     c26_skin12 = Co Pybara
     c26_skin13 = Eidolonwaker Loiseth
+    c26_skin14 = Plastic Mucus Gun
 
 c27 = Physicist
     c27_skin0 = Physicist
@@ -6673,6 +6911,7 @@ c3 = Assassin
     c3_skin25 = Assassybara
     c3_skin26 = Poseidon, King of the Sea
     c3_skin27 = Exultis
+    c3_skin28 = Blood Blade
 
 c30 = Warliege
     c30_skin0 = Warliege
@@ -6804,6 +7043,7 @@ c4 = Alchemist
     c4_skin21 = Alchybara
     c4_skin22 = Elementaress Lizzmii
     c4_skin23 = Bombrewer Hawk
+    c4_skin24 = Dormant Bubble Machine
 
 c40 = Arms Expert
     c40_skin0 = Arms Expert
@@ -6839,6 +7079,7 @@ c5 = Engineer
     c5_skin25 = Team Tarara
     c5_skin26 = Programmer
     c5_skin27 = Lonegear Fiero
+    c5_skin28 = H2O
 
 c6 = Vampire
     c6_skin0 = Vampire
@@ -6865,6 +7106,8 @@ c6 = Vampire
     c6_skin21 = Shadowthane Vane
     c6_skin22 = Vampybara
     c6_skin23 = Spider Pepper
+    c6_skin24 = V□mpir□
+    c6_skin25 = Crimson Wine Glass
 
 c7 = Paladin
     c7_skin0 = Paladin
@@ -6894,6 +7137,9 @@ c7 = Paladin
     c7_skin24 = Hellaxe Gregor
     c7_skin25 = Palybara
     c7_skin26 = Flametide Sigrid
+    c7_skin27 = P□l□di□
+    c7_skin28 = Sacred Flail
+    c7_skin29 = Apollo, God of the Sun
 
 c8 = Elf
     c8_skin0 = Elf
@@ -6920,6 +7166,9 @@ c8 = Elf
     c8_skin21 = Apsara Veluriya
     c8_skin22 = Elfybara
     c8_skin23 = Artemis, Goddess of the Moon
+    c8_skin24 = Tidewhisper Ondine
+    c8_skin25 = 日lf
+    c8_skin26 = Ancient Bow
 
 c9 = Werewolf
     c9_skin0 = Werewolf
@@ -6952,6 +7201,9 @@ c9 = Werewolf
     c9_skin27 = Spooky Bear
     c9_skin28 = Greedfang Warwolf Skin
     c9_skin29 = Posh Penguin
+    c9_skin30 = W□r□w□lf
+    c9_skin31 = Flaring Claw
+    c9_skin32 = Frostreign Gale
 
 ██████  ███████ ████████
 ██   ██ ██         ██   
@@ -8348,6 +8600,15 @@ material_activity_coin_fusion_2025
 material_activity_coin_legend
     Display name : Ingot
 
+material_activity_coin_legend_safe_token
+    Display name : Failsafe Voucher
+
+material_activity_coin_legend_token
+    Display name : Reroll Voucher
+
+material_activity_coin_legend_yin
+    Display name : Silver Ingot
+
 material_activity_coin_reborn_egg
     Display name : Monster Coin
 
@@ -8716,6 +8977,9 @@ material_tape_unrivaled_archenemy
 
 material_tape_volcano
     Display name : Roaring Lava
+
+material_tape_warlock_16
+    Display name : Drifting Lament
 
 material_tape_zhuazhua
     Display name : Digital Xunder #4
