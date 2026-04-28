@@ -75,6 +75,7 @@
     "Character36_skill_1_name": "Deadeye Domain",
     "Character37_skill_0_name": "Iridescent Resonance",
     "Character38_skill_0_name": "Barrel Blowout",
+    "Character38_skill_1_name": "Onward, Wavecutter!",
     "Character39_skill_0_name": "Duskbell Talisman / Dawnflare Fist",
     "Character3_skill_0_name": "Dark Blade",
     "Character3_skill_1_name": "Doppelgänger",
@@ -161,6 +162,7 @@
     "material_tape_boss2": "Threat",
     "material_tape_boss3": "Finale!",
     "material_tape_boss4": "Echoes of Ruins",
+    "material_tape_boss_void": "The Void Descends",
     "material_tape_castle": "Heroes' Avatar",
     "material_tape_chess": "Castling March",
     "material_tape_civilization": "GlobalTravelOverture.mid",
@@ -204,6 +206,7 @@
     "material_tape_thunderstorm": "Digital Xunder #3",
     "material_tape_unrivaled_archenemy": "Heist Rivalry",
     "material_tape_volcano": "Roaring Lava",
+    "material_tape_warliege_12": "Soaring Dolor",
     "material_tape_warlock_16": "Drifting Lament",
     "material_tape_zhuazhua": "Digital Xunder #4",
     "material_ticket": "Free Trial Voucher",
@@ -304,6 +307,7 @@
       "c0_skin32": "Gamer Gabby",
       "c0_skin33": "Lionleaper Yunxiao",
       "c0_skin34": "Bad Pistol",
+      "c0_skin35": "K□ight",
       "c0_skin4": "Mr. Popcorn",
       "c0_skin5": "Fusion Core",
       "c0_skin6": "Cyber Knight",
@@ -338,6 +342,7 @@
       "c1_skin3": "Rudolph",
       "c1_skin30": "Hermes, Herald of the Gods",
       "c1_skin31": "Jack and Mary",
+      "c1_skin32": "R□g□e",
       "c1_skin4": "Bubbles",
       "c1_skin5": "Nightingale",
       "c1_skin6": "Trader",
@@ -549,12 +554,14 @@
       "c17_skin0": "Inter-dimension Traveler",
       "c17_skin1": "Hades, King of the Underworld",
       "c17_skin2": "Intor-domension Troveler",
-      "c17_skin3": "Inter-dimension Travara"
+      "c17_skin3": "Inter-dimension Travara",
+      "c17_skin4": "Dimensional Grip"
     },
     "c18": {
       "c18_skin0": "Element Envoy",
       "c18_skin1": "Amethyne Sirena",
-      "c18_skin2": "Olement Onvoy"
+      "c18_skin2": "Olement Onvoy",
+      "c18_skin3": "Visage of Elemental Power"
     },
     "c19": {
       "c19_skin0": "The Beheaded"
@@ -586,6 +593,7 @@
       "c2_skin3": "Apprentice",
       "c2_skin30": "Ashenseer Voojaa",
       "c2_skin31": "The Code",
+      "c2_skin32": "Gaia, Goddess of the Earth",
       "c2_skin4": "Halloween Witch",
       "c2_skin5": "Chinese New Year",
       "c2_skin6": "Soul Snare",
@@ -598,7 +606,8 @@
       "c20_skin1": "Skyveil Sylph",
       "c20_skin2": "Tome Troveling Ninjo",
       "c20_skin3": "Time Traveling Nara",
-      "c20_skin4": "Sandspecter Shahya"
+      "c20_skin4": "Sandspecter Shahya",
+      "c20_skin5": "Molecule Ichimonji"
     },
     "c21": {
       "c21_skin0": "Special Forces"
@@ -696,6 +705,7 @@
       "c27_skin0": "Physicist",
       "c27_skin1": "Senior Commander",
       "c27_skin10": "Athena, Goddess of Wisdom",
+      "c27_skin11": "Ion Excitator",
       "c27_skin2": "\"P H Y S I O C R A T\"",
       "c27_skin3": "博",
       "c27_skin4": "Rakshasi",
@@ -710,6 +720,8 @@
       "c28_skin1": "Sun Shangxiang",
       "c28_skin10": "Sw□rd M□st□r",
       "c28_skin11": "Moonveil",
+      "c28_skin12": "Breeze",
+      "c28_skin13": "Fencer Faye",
       "c28_skin2": "\"SWORD MUSTER\"",
       "c28_skin3": "剑",
       "c28_skin4": "Rinne",
@@ -725,6 +737,7 @@
       "c29_skin10": "Ares, God of War",
       "c29_skin11": "La□c□r",
       "c29_skin12": "Starshade",
+      "c29_skin13": "Dragon Fang",
       "c29_skin2": "\"L A C E R\"",
       "c29_skin3": "枪",
       "c29_skin4": "Morley Skin",
@@ -757,6 +770,7 @@
       "c3_skin26": "Poseidon, King of the Sea",
       "c3_skin27": "Exultis",
       "c3_skin28": "Blood Blade",
+      "c3_skin29": "Ass□ssi□",
       "c3_skin3": "Anbu",
       "c3_skin4": "Gangster",
       "c3_skin5": "Mayan Mask",
@@ -770,6 +784,7 @@
       "c30_skin1": "Cao Cao - Mengde",
       "c30_skin10": "Oathbound Gaddon",
       "c30_skin11": "W□rli□ge",
+      "c30_skin12": "Dolorion",
       "c30_skin2": "\"W O W L I E G E\"",
       "c30_skin3": "领",
       "c30_skin4": "Shadowmoon",
@@ -836,7 +851,8 @@
       "c35_skin5": "Bardybara",
       "c35_skin6": "Maroonglow Maplelyn",
       "c35_skin7": "Purgatory Pyrelia",
-      "c35_skin8": "日□rd"
+      "c35_skin8": "日□rd",
+      "c35_skin9": "Calliope, Muse of Epic Poetry"
     },
     "c36": {
       "c36_skin0": "Gunner",
@@ -863,7 +879,8 @@
       "c38_skin2": "Coptain",
       "c38_skin3": "Deepsea 001",
       "c38_skin4": "Captybara",
-      "c38_skin5": "Diver Dave"
+      "c38_skin5": "Diver Dave",
+      "c38_skin6": "Vector"
     },
     "c39": {
       "c39_skin0": "Yin-Yang Adept",
@@ -889,6 +906,8 @@
       "c4_skin22": "Elementaress Lizzmii",
       "c4_skin23": "Bombrewer Hawk",
       "c4_skin24": "Dormant Bubble Machine",
+      "c4_skin25": "Grainkeeper Thatch",
+      "c4_skin26": "Al□h□mist",
       "c4_skin3": "The Fortune God",
       "c4_skin4": "Doctor Beaky",
       "c4_skin5": "Varkolyn Leader Skin",
@@ -900,7 +919,8 @@
     "c40": {
       "c40_skin0": "Arms Expert",
       "c40_skin1": "Dollkeeper Perly",
-      "c40_skin2": "Orms Oxpert"
+      "c40_skin2": "Orms Oxpert",
+      "c40_skin3": "Armament Array: Scintilla"
     },
     "c5": {
       "c5_skin0": "Engineer",
@@ -925,7 +945,9 @@
       "c5_skin26": "Programmer",
       "c5_skin27": "Lonegear Fiero",
       "c5_skin28": "H2O",
+      "c5_skin29": "Berry Barry",
       "c5_skin3": "Sky Lantern",
+      "c5_skin30": "E□gin□□r",
       "c5_skin4": "Poached Egg",
       "c5_skin5": "Musician",
       "c5_skin6": "HELLO WORLD",
@@ -1014,6 +1036,7 @@
       "c8_skin24": "Tidewhisper Ondine",
       "c8_skin25": "日lf",
       "c8_skin26": "Ancient Bow",
+      "c8_skin27": "Armament Array: Aeris",
       "c8_skin3": "Chang'e",
       "c8_skin4": "TapTap",
       "c8_skin5": "Forest Keeper",
@@ -1065,6 +1088,7 @@
     "weapon_008_s_1": "Whitebane",
     "weapon_009_s_1": "Flarefox",
     "weapon_010_s_1": "Gildtalon",
+    "weapon_011_s_1": "Ionspark",
     "weapon_015_s_1": "Goldvolver",
     "weapon_028_s_1": "Stillpoint",
     "weapon_029_s_1": "Torrent",
@@ -1092,9 +1116,11 @@
     "weapon_097_s_1": "Appless",
     "weapon_099_s_1": "Tomahawk Steak",
     "weapon_104_s_1": "Blues",
+    "weapon_105_s_1": "Redfall",
     "weapon_108_s_1": "Neonlusion",
     "weapon_109_s_1": "Silverwave",
     "weapon_111_s_1": "Pyroblast",
+    "weapon_114_s_1": "Luminarc",
     "weapon_115_s_1": "Evergold",
     "weapon_120_s_1": "Demonlord's Oath",
     "weapon_121_s_1": "Sapphire",
@@ -1102,6 +1128,7 @@
     "weapon_124_s_1": "C4",
     "weapon_125_s_1": "Coral Cobra",
     "weapon_127_s_1": "Doomflame",
+    "weapon_128_s_1": "Wyrmfang",
     "weapon_129_s_1": "Ignisteel",
     "weapon_132_s_1": "Chaos Covenant",
     "weapon_134_s_1": "Carnivine",
@@ -1115,16 +1142,20 @@
     "weapon_156_s_1": "Violetveil",
     "weapon_161_s_1": "Catfish",
     "weapon_164_s_1": "Fruit Knife",
+    "weapon_165_s_1": "Nyx's Embrace",
     "weapon_170_s_1": "Eyas",
     "weapon_175_s_1": "Plasma Sharkannon",
     "weapon_177_s_1": "Chunky",
     "weapon_179_s_1": "Steelguard",
+    "weapon_181_s_1": "Onyx Tempest",
     "weapon_183_s_1": "Scarletine",
     "weapon_190_s_1": "Cull",
+    "weapon_194_s_1": "Windbreaker",
     "weapon_195_s_1": "Viridian",
     "weapon_197_s_1": "Larimar",
     "weapon_200_s_1": "Amethyst",
     "weapon_205_s_1": "Magma",
+    "weapon_207_s_1": "Frostedge",
     "weapon_210_s_1": "Corallure",
     "weapon_215_s_1": "Regalia",
     "weapon_220_s_1": "Nailshot",
@@ -1147,6 +1178,7 @@
     "weapon_307_s_1": "Eschaton",
     "weapon_309_s_1": "Fusion Vortex",
     "weapon_310_s_1": "Godslayer",
+    "weapon_310_s_2": "Felblade",
     "weapon_311_s_1": "Divinestorm",
     "weapon_314_s_1": "Gaze of Thunder",
     "weapon_315_s_1": "Neonburst",
@@ -1157,9 +1189,11 @@
     "weapon_326_s_1": "Winterland",
     "weapon_327_s_1": "Nightwatch",
     "weapon_329_s_1": "Darkmist",
+    "weapon_330_s_1": "Flare Flux",
     "weapon_339_s_1": "Colorplay",
     "weapon_343_s_1": "Blazefall",
     "weapon_345_s_1": "Wingflare",
+    "weapon_346_s_1": "AE86",
     "weapon_351_s_1": "Bonecleaver",
     "weapon_361_s_1": "Vindicator",
     "weapon_365_s_1": "Candyhood",
@@ -1180,6 +1214,7 @@
     "weapon_413_s_1": "Syrup Pulse",
     "weapon_414_s_1": "Finis Noctem",
     "weapon_cg_2_s_1": "Nox Nova",
+    "weapon_lighter_s_1": "Razzle-Dazzle",
     "weapon_shower_s_1": "Cerulean"
   }
 }

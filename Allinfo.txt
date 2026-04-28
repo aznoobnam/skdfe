@@ -3014,6 +3014,13 @@ weapon_416
     Rarity    : 3
     Type      : Sword
 
+weapon_417
+    Name      : Nether Lantern
+    Forgeable : True
+    Is melee  : False
+    Rarity    : 5
+    Type      : Staff
+
 weapon_900
     Name      : Candied Hawberries
     Forgeable : True
@@ -3344,7 +3351,7 @@ weapon_init_alchemistxx
     Type      : ShotGun
 
 weapon_init_alchemistxx10
-    Name      : [Name Not Found]
+    Name      : Arcana Flask
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -3359,6 +3366,13 @@ weapon_init_alchemistxx11
 
 weapon_init_alchemistxx12
     Name      : Alchemist
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : ShotGun
+
+weapon_init_alchemistxx13
+    Name      : Field Reaper
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -3414,7 +3428,7 @@ weapon_init_alchemistxx8
     Type      : ShotGun
 
 weapon_init_alchemistxx9
-    Name      : Arcana Flask
+    Name      : Strange Solution
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -3658,6 +3672,13 @@ weapon_init_bardxx4
     Rarity    : 1
     Type      : ShotGun
 
+weapon_init_bardxx5
+    Name      : Winged Verse
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : ShotGun
+
 weapon_init_beheaded
     Name      : Vorpan
     Forgeable : True
@@ -3702,6 +3723,13 @@ weapon_init_captainxx2
 
 weapon_init_captainxx3
     Name      : Deepdiver's Pal
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_captainxx4
+    Name      : Lightchaser
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -3828,6 +3856,13 @@ weapon_init_doctorxx5
 
 weapon_init_doctorxx6
     Name      : Owlways Win
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Pistol
+
+weapon_init_doctorxx7
+    Name      : Physicist
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -3987,6 +4022,13 @@ weapon_init_elvesxx13
     Rarity    : 1
     Type      : Bow
 
+weapon_init_elvesxx14
+    Name      : Frostgrave
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Bow
+
 weapon_init_elvesxx2
     Name      : Iron Bow
     Forgeable : False
@@ -4085,6 +4127,13 @@ weapon_init_engineerxx12
     Rarity    : 1
     Type      : Gun
 
+weapon_init_engineerxx13
+    Name      : Boozy Barrage
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Gun
+
 weapon_init_engineerxx2
     Name      : Tyrant's Halberd
     Forgeable : False
@@ -4157,6 +4206,13 @@ weapon_init_envoyx
 
 weapon_init_envoyxx
     Name      : Erosion
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
+weapon_init_envoyxx2
+    Name      : Element Envoy
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -4261,7 +4317,7 @@ weapon_init_jokerxx
     Type      : Sword
 
 weapon_init_jokerxx2
-    Name      : [Name Not Found]
+    Name      : Cleaning Broom
     Forgeable : False
     Is melee  : True
     Rarity    : 1
@@ -4323,6 +4379,13 @@ weapon_init_lancerxx5
     Rarity    : 1
     Type      : Spear
 
+weapon_init_lancerxx6
+    Name      : Lancer
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Spear
+
 weapon_init_mage
     Name      : The Code
     Forgeable : True
@@ -4374,6 +4437,13 @@ weapon_init_magexx13
 
 weapon_init_magexx14
     Name      : Witch
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
+weapon_init_magexx15
+    Name      : Terra Sphere
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -4668,6 +4738,13 @@ weapon_init_ninjaxx
 
 weapon_init_ninjaxx2
     Name      : Veil of Dunes
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Sword
+
+weapon_init_ninjaxx3
+    Name      : Time Traveling Ninja
     Forgeable : False
     Is melee  : True
     Rarity    : 1
@@ -5296,6 +5373,20 @@ weapon_init_swordmasterxx6
     Rarity    : 1
     Type      : Sword
 
+weapon_init_swordmasterxx7
+    Name      : Sword Master
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Sword
+
+weapon_init_swordmasterxx8
+    Name      : Fleuret
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Sword
+
 weapon_init_taoist
     Name      : Tao Sword
     Forgeable : True
@@ -5403,6 +5494,13 @@ weapon_init_transcendentx
 
 weapon_init_transcendentxx
     Name      : Stygian Lance
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_transcendentxx2
+    Name      : Inter-dimension Traveler
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -5732,6 +5830,13 @@ weapon_init_warliegexx5
 
 weapon_init_warliegexx6
     Name      : Dragon's Wrath
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Sword
+
+weapon_init_warliegexx7
+    Name      : Lacrimosa
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -6458,6 +6563,7 @@ c0 = Knight
     c0_skin32 = Gamer Gabby
     c0_skin33 = Lionleaper Yunxiao
     c0_skin34 = Bad Pistol
+    c0_skin35 = K□ight
 
 c1 = Rogue
     c1_skin0 = Rogue
@@ -6492,6 +6598,7 @@ c1 = Rogue
     c1_skin29 = Twinblade Sylvain
     c1_skin30 = Hermes, Herald of the Gods
     c1_skin31 = Jack and Mary
+    c1_skin32 = R□g□e
 
 c10 = Priestess
     c10_skin0 = Priestess
@@ -6698,11 +6805,13 @@ c17 = Inter-dimension Traveler
     c17_skin1 = Hades, King of the Underworld
     c17_skin2 = Intor-domension Troveler
     c17_skin3 = Inter-dimension Travara
+    c17_skin4 = Dimensional Grip
 
 c18 = Element Envoy
     c18_skin0 = Element Envoy
     c18_skin1 = Amethyne Sirena
     c18_skin2 = Olement Onvoy
+    c18_skin3 = Visage of Elemental Power
 
 c19 = The Beheaded
     c19_skin0 = The Beheaded
@@ -6740,6 +6849,7 @@ c2 = Witch
     c2_skin29 = Neon Apparition Ada
     c2_skin30 = Ashenseer Voojaa
     c2_skin31 = The Code
+    c2_skin32 = Gaia, Goddess of the Earth
 
 c20 = Time Traveling Ninja
     c20_skin0 = Time Traveling Ninja
@@ -6747,6 +6857,7 @@ c20 = Time Traveling Ninja
     c20_skin2 = Tome Troveling Ninjo
     c20_skin3 = Time Traveling Nara
     c20_skin4 = Sandspecter Shahya
+    c20_skin5 = Molecule Ichimonji
 
 c21 = Special Forces
     c21_skin0 = Special Forces
@@ -6852,6 +6963,7 @@ c27 = Physicist
     c27_skin8 = Nyxcrown Camilla
     c27_skin9 = Physybara
     c27_skin10 = Athena, Goddess of Wisdom
+    c27_skin11 = Ion Excitator
 
 c28 = Sword Master
     c28_skin0 = Sword Master
@@ -6866,6 +6978,8 @@ c28 = Sword Master
     c28_skin9 = Hellbelle Lorna
     c28_skin10 = Sw□rd M□st□r
     c28_skin11 = Moonveil
+    c28_skin12 = Breeze
+    c28_skin13 = Fencer Faye
 
 c29 = Lancer
     c29_skin0 = Lancer
@@ -6881,6 +6995,7 @@ c29 = Lancer
     c29_skin10 = Ares, God of War
     c29_skin11 = La□c□r
     c29_skin12 = Starshade
+    c29_skin13 = Dragon Fang
 
 c3 = Assassin
     c3_skin0 = Assassin
@@ -6912,6 +7027,7 @@ c3 = Assassin
     c3_skin26 = Poseidon, King of the Sea
     c3_skin27 = Exultis
     c3_skin28 = Blood Blade
+    c3_skin29 = Ass□ssi□
 
 c30 = Warliege
     c30_skin0 = Warliege
@@ -6926,6 +7042,7 @@ c30 = Warliege
     c30_skin9 = Warlybara
     c30_skin10 = Oathbound Gaddon
     c30_skin11 = W□rli□ge
+    c30_skin12 = Dolorion
 
 c31 = Arcane Knight
     c31_skin0 = Arcane Knight
@@ -6985,6 +7102,7 @@ c35 = Bard
     c35_skin6 = Maroonglow Maplelyn
     c35_skin7 = Purgatory Pyrelia
     c35_skin8 = 日□rd
+    c35_skin9 = Calliope, Muse of Epic Poetry
 
 c36 = Gunner
     c36_skin0 = Gunner
@@ -7012,6 +7130,7 @@ c38 = Captain
     c38_skin3 = Deepsea 001
     c38_skin4 = Captybara
     c38_skin5 = Diver Dave
+    c38_skin6 = Vector
 
 c39 = Yin-Yang Adept
     c39_skin0 = Yin-Yang Adept
@@ -7044,11 +7163,14 @@ c4 = Alchemist
     c4_skin22 = Elementaress Lizzmii
     c4_skin23 = Bombrewer Hawk
     c4_skin24 = Dormant Bubble Machine
+    c4_skin25 = Grainkeeper Thatch
+    c4_skin26 = Al□h□mist
 
 c40 = Arms Expert
     c40_skin0 = Arms Expert
     c40_skin1 = Dollkeeper Perly
     c40_skin2 = Orms Oxpert
+    c40_skin3 = Armament Array: Scintilla
 
 c5 = Engineer
     c5_skin0 = Engineer
@@ -7080,6 +7202,8 @@ c5 = Engineer
     c5_skin26 = Programmer
     c5_skin27 = Lonegear Fiero
     c5_skin28 = H2O
+    c5_skin29 = Berry Barry
+    c5_skin30 = E□gin□□r
 
 c6 = Vampire
     c6_skin0 = Vampire
@@ -7169,6 +7293,7 @@ c8 = Elf
     c8_skin24 = Tidewhisper Ondine
     c8_skin25 = 日lf
     c8_skin26 = Ancient Bow
+    c8_skin27 = Armament Array: Aeris
 
 c9 = Werewolf
     c9_skin0 = Werewolf
@@ -7521,7 +7646,7 @@ c9 = Werewolf
 
 1022
     Name        : [Name Not Found]
-    Description : Immune to explosive barrels and randomly drops them on the field. [Exclusive to this character]
+    Description : Immune to damage from all explosive barrels.
 
 1022_name
     Name        : [Name Not Found]
@@ -8260,6 +8385,26 @@ GoodLuck
     Title       : Good Luck
     Description : Today is your lucky day!
 
+GunMasterFireBlessing
+    Name        : [Name Not Found]
+    Title       : Fire Blessing
+    Description : Arms Expert's chance to offer a fire eidolon is increased by {0}%.
+
+GunMasterIceBlessing
+    Name        : [Name Not Found]
+    Title       : Ice Blessing
+    Description : Arms Expert's chance to offer an ice eidolon is increased by {0}%.
+
+GunMasterNeutralBlessing
+    Name        : [Name Not Found]
+    Title       : Non-elemental Blessing
+    Description : Arms Expert's chance to offer a non-elemental eidolon is increased by {0}%.
+
+GunMasterPoisonBlessing
+    Name        : [Name Not Found]
+    Title       : Poison Blessing
+    Description : Arms Expert's chance to offer a poison eidolon is increased by {0}%.
+
 HalfCd
     Name        : Skill cooldown -50%
     Title       : Halved Cooldown
@@ -8846,6 +8991,9 @@ material_tape_boss3
 material_tape_boss4
     Display name : Echoes of Ruins
 
+material_tape_boss_void
+    Display name : The Void Descends
+
 material_tape_castle
     Display name : Heroes' Avatar
 
@@ -8977,6 +9125,9 @@ material_tape_unrivaled_archenemy
 
 material_tape_volcano
     Display name : Roaring Lava
+
+material_tape_warliege_12
+    Display name : Soaring Dolor
 
 material_tape_warlock_16
     Display name : Drifting Lament
