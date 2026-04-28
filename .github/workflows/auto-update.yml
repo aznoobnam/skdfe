@@ -42,13 +42,13 @@ jobs:
     
         url = "http://www.chillyroom.com/zh"
         apk_re = re.compile(
-            r"https://apk\.chillyroom\.com/apks/[\w\d.\-]+/SoulKnight-release-chillyroom-([\w\d.\-]+)\.apk"
+            r"https://pages.chillyroom.com/GameOfficialWebsite/strapi-cms/Soul_Knight_release_chillyroom_([_\d]+)_\w+\.apk"
         )
         resp = requests.get(url, timeout=15)
         m = apk_re.search(resp.text)
         if not m:
             raise SystemExit("::error:: Could not detect latest APK version")
-        new = m.group(1)
+        new = m.group(1).replace("_",".")
     
         print(f"Old version: {old}")
         print(f"New version: {new}")
