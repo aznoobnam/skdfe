@@ -14,7 +14,7 @@ from typing import List, Tuple, Dict
 
 BASE_URL = "http://www.chillyroom.com/zh"
 APK_REGEX = re.compile(
-    r"https://apk\.chillyroom\.com/apks/[\w\d.\-]+/SoulKnight-release-chillyroom-([\w\d.\-]+)\.apk"
+    r"https://pages.chillyroom.com/GameOfficialWebsite/strapi-cms/Soul_Knight_release_chillyroom_([_\d]+)_\w+\.apk"
 )
 
 ASSET_STUDIO_CLI_URL = (
@@ -289,7 +289,7 @@ def get_latest_apk_info() -> Tuple[str, str]:
     match = APK_REGEX.search(resp.text)
     if not match:
         raise RuntimeError("Could not find Soul Knight APK link on page.")
-    version = match.group(1)
+    version = match.group(1).replace("_",".")
     link = match.group(0)
     logging.info(f"Found version: {version}")
     return version, link
