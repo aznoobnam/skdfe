@@ -14,7 +14,7 @@ from typing import List, Tuple, Dict
 
 BASE_URL = "http://www.chillyroom.com/zh"
 APK_REGEX = re.compile(
-    r"https://pages.chillyroom.com/GameOfficialWebsite/strapi-cms/Soul_Knight_release_chillyroom_([_\d]+)_\w+\.apk"
+    r"https://pages.chillyroom.com/GameOfficialWebsite/strapi-cms/\w+_Soul_Knight_release_chillyroom_([_\d]+)_\w+\.apk"
 )
 
 ASSET_STUDIO_CLI_URL = (
