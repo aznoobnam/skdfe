@@ -42,7 +42,7 @@ jobs:
     
         url = "http://www.chillyroom.com/zh"
         apk_re = re.compile(
-            r"https://pages.chillyroom.com/GameOfficialWebsite/strapi-cms/Soul_Knight_release_chillyroom_([_\d]+)_\w+\.apk"
+            r"https://pages.chillyroom.com/GameOfficialWebsite/strapi-cms/\w+_Soul_Knight_release_chillyroom_([_\d]+)_\w+\.apk"
         )
         resp = requests.get(url, timeout=15)
         m = apk_re.search(resp.text)
