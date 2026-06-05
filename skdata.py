@@ -173,11 +173,13 @@ def run_asset_studio_cli(
 
 def sanitize_text(text: str) -> str:
     """
-    Replace CRLF / CR / LF with literal '\n' and strip.
+    Replace CRLF / CR / LF with literal '\\n', strip null bytes and
+    other non-printable control characters, then strip whitespace.
     """
-    return text.replace("\r\n", "\\n").replace("\r",
-                                               "\\n").replace("\n",
-                                                              "\\n").strip()
+    text = text.replace("\r\n", "\\n").replace("\r", "\\n").replace("\n", "\\n")
+    # Remove null bytes and other ASCII control characters (0x00–0x1F except \\n already handled)
+    text = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]", "", text)
+    return text.strip()
 
 
 def parse_i2_asset_file(
@@ -429,7 +431,7 @@ def write_i2_csv(version: str, records: List[Tuple[str, List[str]]]) -> Path:
     logging.info(f"Writing CSV: {csv_path}")
     try:
         with open(csv_path, "w", encoding="utf-8", newline="") as f:
-            writer = csv.writer(f)
+            writer = csv.writer(f, escapechar="\\", quoting=csv.QUOTE_MINIMAL)
             writer.writerow(["id"] + LANGUAGES)
             for key, fields in records:
                 writer.writerow([key] + fields)
