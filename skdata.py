@@ -177,10 +177,8 @@ def sanitize_text(text: str) -> str:
     other non-printable control characters, then strip whitespace.
     """
     text = text.replace("\r\n", "\\n").replace("\r", "\\n").replace("\n", "\\n")
-    # Remove null bytes and other ASCII control characters (0x00–0x1F except \\n already handled)
     text = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]", "", text)
     return text.strip()
-
 
 def parse_i2_asset_file(
     file_path: Path,
@@ -221,7 +219,7 @@ def parse_i2_asset_file(
             if key_len == 0:
                 break
 
-        key_bytes = data[pos:pos + key_len]
+        key_bytes = data[pos:pos + key_len].replace(b"\x00", b"")
         try:
             key = key_bytes.decode("utf-8", errors="ignore").strip()
         except UnicodeDecodeError:
@@ -252,7 +250,7 @@ def parse_i2_asset_file(
             pos += 4
 
             if field_len > 0:
-                raw = data[pos:pos + field_len]
+                raw = data[pos:pos + field_len].replace(b"\x00", b"")  # strip NUL bytes before decode
                 try:
                     text = raw.decode("utf-8")
                 except UnicodeDecodeError:
@@ -977,7 +975,7 @@ def main():
         logging.warning(f"Can't export: {e}")
     try:
         if DATA_DIR.exists():
-            shutil.rmtree(DATA_DIR)
+            # shutil.rmtree(DATA_DIR)
             logging.info(f"Cleaned up data folder: {DATA_DIR}")
     except Exception as e:
         logging.warning(
