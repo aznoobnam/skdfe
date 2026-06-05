@@ -3273,6 +3273,13 @@ weapon_init_airbenderxx10
     Rarity    : 1
     Type      : Default
 
+weapon_init_airbenderxx11
+    Name      : Blastbeats
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Default
+
 weapon_init_airbenderxx2
     Name      : Cyber-Pulsating Punch
     Forgeable : False
@@ -3735,6 +3742,13 @@ weapon_init_captainxx4
     Rarity    : 1
     Type      : Strange
 
+weapon_init_captainxx5
+    Name      : [Name Not Found]
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Strange
+
 weapon_init_costumeprince
     Name      : Plastic Mucus Gun
     Forgeable : True
@@ -3912,6 +3926,13 @@ weapon_init_druidxx12
 
 weapon_init_druidxx13
     Name      : Druid
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Throw
+
+weapon_init_druidxx14
+    Name      : Tone of Tide
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -4659,6 +4680,13 @@ weapon_init_necromancerxx14
     Rarity    : 1
     Type      : Staff
 
+weapon_init_necromancerxx15
+    Name      : Emerald Radiance
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
 weapon_init_necromancerxx2
     Name      : Green Snake Sword
     Forgeable : False
@@ -4780,6 +4808,13 @@ weapon_init_officerxx10
 
 weapon_init_officerxx11
     Name      : Officer
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Pistol
+
+weapon_init_officerxx12
+    Name      : Scepter of Thunder
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -5422,6 +5457,13 @@ weapon_init_taoistxx11
     Rarity    : 1
     Type      : Sword
 
+weapon_init_taoistxx12
+    Name      : Violet Edge
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Sword
+
 weapon_init_taoistxx2
     Name      : Taiyi Hossu
     Forgeable : False
@@ -6014,14 +6056,21 @@ weapon_init_yinyangx
     Name      : Yin & Yang
     Forgeable : False
     Is melee  : True
-    Rarity    : 0
+    Rarity    : 1
     Type      : Strange
 
 weapon_init_yinyangxx
     Name      : Draconic Sight
     Forgeable : False
     Is melee  : True
-    Rarity    : 0
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_yinyangxx2
+    Name      : Seed of Spring
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
     Type      : Strange
 
 weapon_inkfish
@@ -6564,6 +6613,7 @@ c0 = Knight
     c0_skin33 = Lionleaper Yunxiao
     c0_skin34 = Bad Pistol
     c0_skin35 = K□ight
+    c0_skin36 = Zongzi Knight
 
 c1 = Rogue
     c1_skin0 = Rogue
@@ -6661,6 +6711,7 @@ c11 = Druid
     c11_skin26 = Pan, God of the Wild
     c11_skin27 = Dendroid King Skin
     c11_skin28 = Crispy Bone
+    c11_skin29 = Seasong Selia
 
 c12 = Robot
     c12_skin0 = Robot
@@ -6688,6 +6739,7 @@ c12 = Robot
     c12_skin22 = Robybara
     c12_skin23 = Silent Semi-proto X
     c12_skin24 = Satellite Floating Gun
+    c12_skin25 = R□b□t
 
 c13 = Berserker
     c13_skin0 = Berserker
@@ -6748,6 +6800,7 @@ c14 = Necromancer
     c14_skin22 = 口ecr□m□ncer
     c14_skin23 = Pearlbloom Perrine
     c14_skin24 = Staff of Plague
+    c14_skin25 = Jadesheen Celestin
 
 c15 = Officer
     c15_skin0 = Officer
@@ -6773,6 +6826,8 @@ c15 = Officer
     c15_skin20 = Abyssadmiral Dylan
     c15_skin21 = Baseball Brady
     c15_skin22 = Nemesis of Villains
+    c15_skin23 = 口fficer
+    c15_skin24 = Zeus, King of the Gods
 
 c16 = Taoist
     c16_skin0 = Taoist
@@ -6799,6 +6854,8 @@ c16 = Taoist
     c16_skin21 = Taopybara
     c16_skin22 = Sharkchef Brucello
     c16_skin23 = Tao Sword
+    c16_skin24 = Ta□ist
+    c16_skin25 = Sheathed Savile
 
 c17 = Inter-dimension Traveler
     c17_skin0 = Inter-dimension Traveler
@@ -6878,6 +6935,8 @@ c22 = Airbender
     c22_skin12 = Airbybara
     c22_skin13 = Silverdawn Ayther
     c22_skin14 = Qian-kun Punch
+    c22_skin15 = Airb□nd□r
+    c22_skin16 = Furyx
 
 c23 = Demonmancer
     c23_skin0 = Demonmancer
@@ -6917,6 +6976,7 @@ c24 = Miner
     c24_skin15 = Cyclist Cleo
     c24_skin16 = Wavechant Nerissa
     c24_skin17 = Pickaxe
+    c24_skin18 = Min□r
 
 c25 = Trap Master
     c25_skin0 = Trap Master
@@ -7131,11 +7191,13 @@ c38 = Captain
     c38_skin4 = Captybara
     c38_skin5 = Diver Dave
     c38_skin6 = Vector
+    c38_skin7 = Iron Pirate King Level Skin
 
 c39 = Yin-Yang Adept
     c39_skin0 = Yin-Yang Adept
     c39_skin1 = Draconess Glacinder
     c39_skin2 = Yon-Yong Adept
+    c39_skin3 = Persephone, Goddess of Spring
 
 c4 = Alchemist
     c4_skin0 = Alchemist
@@ -7578,7 +7640,7 @@ c9 = Werewolf
 
 1008
     Name        : [Name Not Found]
-    Description : Three Special Forces knights are masters of different types of weapons. \nRed Knight: Attacks with some melee weapons release projectiles. \nBlue Knight: Attacks with staffs are more powerful. \nGreen Knight: Faster bullet speed for all guns.
+    Description : Three Special Forces knights are masters of different types of weapons. \\nRed Knight: Attacks with some melee weapons release projectiles. \\nBlue Knight: Attacks with staffs are more powerful. \\nGreen Knight: Faster bullet speed for all guns.
 
 1009
     Name        : [Name Not Found]
@@ -7590,7 +7652,7 @@ c9 = Werewolf
 
 1011
     Name        : [Name Not Found]
-    Description : Attacking enemies or taking damage increases Battlelust.\nUpon reaching max Battlelust, enter the Battle Surge state, temporarily enhancing size, attack speed, movement speed, and attack. [Exclusive to this character]
+    Description : Attacking enemies or taking damage increases Battlelust.\\nUpon reaching max Battlelust, enter the Battle Surge state, temporarily enhancing size, attack speed, movement speed, and attack. [Exclusive to this character]
 
 1012
     Name        : [Name Not Found]
@@ -7946,19 +8008,19 @@ c9 = Werewolf
 
 2170
     Name        : [Name Not Found]
-    Description : Release <color=#FFEB04FF>Holy Nova</color> and gain immunity to this hit when taking lethal damage. Cooldown {0} seconds. \n<color=#FFEB04FF>Holy Nova</color>: Destroys non-boss enemies and their bullets, and dishes out a massive amount of damage to bosses, while healing all allies. Effective range {1}.
+    Description : Release <color=#FFEB04FF>Holy Nova</color> and gain immunity to this hit when taking lethal damage. Cooldown {0} seconds. \\n<color=#FFEB04FF>Holy Nova</color>: Destroys non-boss enemies and their bullets, and dishes out a massive amount of damage to bosses, while healing all allies. Effective range {1}.
 
 2171
     Name        : [Name Not Found]
-    Description : Enemies drop soul pieces when they die. Collect enough soul pieces to release <color=#A473FCFF>Soul Strike</color> on your next hit. \n<color=#A473FCFF>Soul Strike</color>: Inflicts a massive amount of damage to the target as well as AoE damage to enemies around them. Damage permanently increases by {0}% every time Soul Strike is triggered.
+    Description : Enemies drop soul pieces when they die. Collect enough soul pieces to release <color=#A473FCFF>Soul Strike</color> on your next hit. \\n<color=#A473FCFF>Soul Strike</color>: Inflicts a massive amount of damage to the target as well as AoE damage to enemies around them. Damage permanently increases by {0}% every time Soul Strike is triggered.
 
 2172
     Name        : [Name Not Found]
-    Description : Gain 1 stack of Blockade every {0} seconds. Max {1} stacks. Each stack of Blockade can block one hit and release a <color=#00FFFFFF>Frost Ring</color>. \n<color=#00FFFFFF>Frost Ring</color>: Reduces movement speed and fire rate of surrounding enemies and makes them suffer from Frostbite. Enemies affected by Frostbite will be frozen on hit.
+    Description : Gain 1 stack of Blockade every {0} seconds. Max {1} stacks. Each stack of Blockade can block one hit and release a <color=#00FFFFFF>Frost Ring</color>. \\n<color=#00FFFFFF>Frost Ring</color>: Reduces movement speed and fire rate of surrounding enemies and makes them suffer from Frostbite. Enemies affected by Frostbite will be frozen on hit.
 
 2173
     Name        : [Name Not Found]
-    Description : Release a conical <color=#FF0000FF>Dragonbreath</color> every {0} seconds. \n<color=#FF0000FF>Dragonbreath</color>: Burns enemies on hit and inflicts an explosion when it hits burnt enemies.
+    Description : Release a conical <color=#FF0000FF>Dragonbreath</color> every {0} seconds. \\n<color=#FF0000FF>Dragonbreath</color>: Burns enemies on hit and inflicts an explosion when it hits burnt enemies.
 
 2174
     Name        : [Name Not Found]
@@ -8223,7 +8285,7 @@ BombGift
 BoomBoomBoom
     Name        : Boom Boom Boom
     Title       : Boom Boom Boom
-    Description : Complete the game once. And in this game, both enemies and players explode upon death. The explosion deals damage to players.\n\n
+    Description : Complete the game once. And in this game, both enemies and players explode upon death. The explosion deals damage to players.\\n\\n
 
 BoxMutation
     Name        : Crate Mutation
@@ -8453,7 +8515,7 @@ Intensive
 ItIsFate
     Name        : Destined
     Title       : Destined
-    Description : Complete the game once, and in this game, the whole team (all the team members combined) can't revive more than 2 times. If one is revived by a weapon or a challenge condition, it is not counted as one revival consumed.\n
+    Description : Complete the game once, and in this game, the whole team (all the team members combined) can't revive more than 2 times. If one is revived by a weapon or a challenge condition, it is not counted as one revival consumed.\\n
 
 KillEnemyRebornTeammate
     Name        : Chance to revive all teammates upon killing enemies.
@@ -8598,7 +8660,7 @@ SlowShooter
 SpaceDistortion
     Name        : Distorted Space
     Title       : Distorted Space
-    Description : Complete the game once. And in this game, you will get bigger or smaller from time to time. You move slower if you grow bigger, and you move faster once you shrink smaller.\n
+    Description : Complete the game once. And in this game, you will get bigger or smaller from time to time. You move slower if you grow bigger, and you move faster once you shrink smaller.\\n
 
 SuperFactor
     Name        : Other challenge conditions are reinforced
@@ -8616,9 +8678,9 @@ TimeDistortion
     Description : Your movement speed randomly increases or decreases.
 
 TimeRacing
-    Name        : Complete the game within {0} minutes on Normal difficulty or {1} minutes on Badass difficulty.\n
+    Name        : Complete the game within {0} minutes on Normal difficulty or {1} minutes on Badass difficulty.\\n
     Title       : Matrix Racer
-    Description : Complete the game once. And in this game you should finish a run within 12 minutes on Normal difficulty or 16 minutes on Badass difficulty.\n
+    Description : Complete the game once. And in this game you should finish a run within 12 minutes on Normal difficulty or 16 minutes on Badass difficulty.\\n
 
 Tiny
     Name        : Dwarfism
@@ -8643,7 +8705,7 @@ VolcanaEruption
 VolcanoEruption
     Name        : [Name Not Found]
     Title       : [Title Not Found]
-    Description : Complete the game once. And in this game volcanic rocks will pelt down on you. These rocks deal no damage to enemies.\n
+    Description : Complete the game once. And in this game volcanic rocks will pelt down on you. These rocks deal no damage to enemies.\\n
 
 WeaponEquip
     Name        : All weapons are equipped with attachments
@@ -8706,7 +8768,7 @@ Troop
     Description : [Description Not Found]
 
 new
-    Name        : Drillmaster is secretly helping you. The challenge condition will be effective for {0} more games.\nIn the multiplayer mode, it does not work but a stack will be consumed. This challenge condition will be removed from the season mode and the Badass difficulty level.
+    Name        : Drillmaster is secretly helping you. The challenge condition will be effective for {0} more games.\\nIn the multiplayer mode, it does not work but a stack will be consumed. This challenge condition will be removed from the season mode and the Badass difficulty level.
     Title       : [Title Not Found]
     Description : [Description Not Found]
 
@@ -8759,6 +8821,9 @@ material_activity_coin_reborn_egg
 
 material_activity_coin_school
     Display name : Scholar Coin
+
+material_activity_coin_zongzi2026
+    Display name : Zongzi Wrapper
 
 material_ancient_weapon_fragment
     Display name : Fragments of Ancient Weapon
@@ -8957,6 +9022,9 @@ material_skin_fragment_law
 
 material_soul_fragment
     Display name : Soul Fragment
+
+material_tape_airbender_16
+    Display name : Flux of Fury
 
 material_tape_alien
     Display name : Interstellar Travel
@@ -9167,6 +9235,21 @@ material_wood
 
 material_zongzi_fragment
     Display name : Zongzi Leaf
+
+material_zongzi_leaf_basic
+    Display name : Basic Wrapper
+
+material_zongzi_leaf_fire
+    Display name : Ornate Wrapper
+
+material_zongzi_leaf_guard
+    Display name : Hardy Banana Wrapper
+
+material_zongzi_leaf_thunder
+    Display name : Cornhusk Wrapper
+
+material_zongzi_leaf_wind
+    Display name : Bamboo Tube
 
 ██████  ██       █████  ███    ██ ████████ 
 ██   ██ ██      ██   ██ ████   ██    ██    
