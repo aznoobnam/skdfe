@@ -959,7 +959,7 @@ def main():
         logging.error(f"Failed exporting filtered weapons JSON: {e}")
     weapon_skin_path = SCRIPT_DIR / f"weapon_skins_{version}.json"
     lang_map = load_language_map(csv_path)
-    lang_map_cn = load_language_map(csv_path, "Chinese (Simplified)")
+    # lang_map_cn = load_language_map(csv_path, "Chinese (Simplified)")
     try:
         export_weapon_evo_data(lang_map, weapon_skin_path)
         logging.info(f"Weapon evolution data baked : {weapon_skin_path}")
@@ -968,8 +968,8 @@ def main():
     try:
         export_needed_data_from_langmap(
             lang_map, SCRIPT_DIR / f"needed_data_{version}.json")
-        export_needed_data_from_langmap(
-            lang_map_cn, SCRIPT_DIR / f"needed_data_cn_{version}.json")
+        # export_needed_data_from_langmap(
+        #     lang_map_cn, SCRIPT_DIR / f"needed_data_cn_{version}.json")
         logging.info("Exported needed data for English and Chinese")
     except Exception as e:
         logging.warning(f"Can't export: {e}")
