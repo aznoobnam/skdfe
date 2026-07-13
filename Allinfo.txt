@@ -3280,6 +3280,13 @@ weapon_init_airbenderxx11
     Rarity    : 1
     Type      : Default
 
+weapon_init_airbenderxx12
+    Name      : Rust Blaze
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Default
+
 weapon_init_airbenderxx2
     Name      : Cyber-Pulsating Punch
     Forgeable : False
@@ -3485,6 +3492,13 @@ weapon_init_arcaneknightxx4
 
 weapon_init_arcaneknightxx5
     Name      : Lens of Truth
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
+weapon_init_arcaneknightxx6
+    Name      : Scrap Conductor
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -3749,6 +3763,20 @@ weapon_init_captainxx5
     Rarity    : 1
     Type      : Strange
 
+weapon_init_captainxx6
+    Name      : Azure Echo
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_captainxx7
+    Name      : Captain
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Strange
+
 weapon_init_costumeprince
     Name      : Plastic Mucus Gun
     Forgeable : True
@@ -3814,6 +3842,13 @@ weapon_init_costumeprincexx7
 
 weapon_init_costumeprincexx8
     Name      : Costume Prince
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Gun
+
+weapon_init_costumeprincexx9
+    Name      : Starflame
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -4316,6 +4351,13 @@ weapon_init_gunsexpertxx
     Rarity    : 1
     Type      : Laser
 
+weapon_init_gunsexpertxx2
+    Name      : Arms Expert
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Laser
+
 weapon_init_joker
     Name      : Phantom Blade
     Forgeable : True
@@ -4350,6 +4392,41 @@ weapon_init_jokerxx3
     Is melee  : True
     Rarity    : 1
     Type      : Sword
+
+weapon_init_jokerxx4
+    Name      : Refraction
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Sword
+
+weapon_init_ladychef
+    Name      : Spatula
+    Forgeable : True
+    Is melee  : False
+    Rarity    : 0
+    Type      : Throw
+
+weapon_init_ladychefx
+    Name      : Spectacular Spatula
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Throw
+
+weapon_init_ladychefxx
+    Name      : Lady Chef
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Throw
+
+weapon_init_ladychefxx2
+    Name      : Bone Melter
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Throw
 
 weapon_init_lancer
     Name      : Dragon Fang
@@ -4778,6 +4855,13 @@ weapon_init_ninjaxx3
     Rarity    : 1
     Type      : Sword
 
+weapon_init_ninjaxx4
+    Name      : Ragebloom
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Sword
+
 weapon_init_officer
     Name      : Nemesis of Villains
     Forgeable : True
@@ -5156,6 +5240,13 @@ weapon_init_rangerxx15
     Rarity    : 1
     Type      : Throw
 
+weapon_init_rangerxx16
+    Name      : Blades of Sheen
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Throw
+
 weapon_init_rangerxx2
     Name      : Gan Jiang & Mo Ye
     Forgeable : False
@@ -5247,6 +5338,13 @@ weapon_init_robotxx11
     Rarity    : 1
     Type      : Strange
 
+weapon_init_robotxx12
+    Name      : Divine Fists
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Strange
+
 weapon_init_robotxx2
     Name      : [Name Not Found]
     Forgeable : False
@@ -5333,6 +5431,13 @@ weapon_init_shooterxx2
 
 weapon_init_shooterxx3
     Name      : True Aim
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Rifle
+
+weapon_init_shooterxx4
+    Name      : Downfall
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -5884,6 +5989,13 @@ weapon_init_warliegexx7
     Rarity    : 1
     Type      : Sword
 
+weapon_init_warliegexx8
+    Name      : Bladoge
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Sword
+
 weapon_init_warlock
     Name      : Key of the Faint Star
     Forgeable : True
@@ -6068,6 +6180,13 @@ weapon_init_yinyangxx
 
 weapon_init_yinyangxx2
     Name      : Seed of Spring
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_yinyangxx3
+    Name      : Yin-Yang Adept
     Forgeable : False
     Is melee  : True
     Rarity    : 1
@@ -6570,6 +6689,13 @@ weapon_troop_whistle
     Rarity    : 0
     Type      : Default
 
+weapon_void_hand
+    Name      : Bone Boomerang
+    Forgeable : True
+    Is melee  : False
+    Rarity    : 1
+    Type      : Throw
+
  ██████ ██   ██  █████  ██████   █████   ██████ ████████ ███████ ██████
 ██      ██   ██ ██   ██ ██   ██ ██   ██ ██         ██    ██      ██   ██
 ██      ███████ ███████ ██████  ███████ ██         ██    █████   ██████
@@ -6649,6 +6775,7 @@ c1 = Rogue
     c1_skin30 = Hermes, Herald of the Gods
     c1_skin31 = Jack and Mary
     c1_skin32 = R□g□e
+    c1_skin33 = Malachite
 
 c10 = Priestess
     c10_skin0 = Priestess
@@ -6740,6 +6867,7 @@ c12 = Robot
     c12_skin23 = Silent Semi-proto X
     c12_skin24 = Satellite Floating Gun
     c12_skin25 = R□b□t
+    c12_skin26 = Talos, the Bronze Giant
 
 c13 = Berserker
     c13_skin0 = Berserker
@@ -6915,6 +7043,7 @@ c20 = Time Traveling Ninja
     c20_skin3 = Time Traveling Nara
     c20_skin4 = Sandspecter Shahya
     c20_skin5 = Molecule Ichimonji
+    c20_skin6 = Ireva
 
 c21 = Special Forces
     c21_skin0 = Special Forces
@@ -6937,6 +7066,7 @@ c22 = Airbender
     c22_skin14 = Qian-kun Punch
     c22_skin15 = Airb□nd□r
     c22_skin16 = Furyx
+    c22_skin17 = Duskfist Cohen
 
 c23 = Demonmancer
     c23_skin0 = Demonmancer
@@ -7010,6 +7140,7 @@ c26 = Costume Prince
     c26_skin12 = Co Pybara
     c26_skin13 = Eidolonwaker Loiseth
     c26_skin14 = Plastic Mucus Gun
+    c26_skin15 = Mechtrix Stellan
 
 c27 = Physicist
     c27_skin0 = Physicist
@@ -7103,6 +7234,7 @@ c30 = Warliege
     c30_skin10 = Oathbound Gaddon
     c30_skin11 = W□rli□ge
     c30_skin12 = Dolorion
+    c30_skin13 = WTDD
 
 c31 = Arcane Knight
     c31_skin0 = Arcane Knight
@@ -7115,6 +7247,7 @@ c31 = Arcane Knight
     c31_skin7 = Arcany Kara
     c31_skin8 = Detective Doyle
     c31_skin9 = Arc□ne K□ight
+    c31_skin10 = Violetta
 
 c32 = Astromancer
     c32_skin0 = Astromancer
@@ -7151,6 +7284,7 @@ c34 = Trickster
     c34_skin6 = Trickybara
     c34_skin7 = Euphoryn
     c34_skin8 = Tri□kst□r
+    c34_skin9 = Ametrine
 
 c35 = Bard
     c35_skin0 = Bard
@@ -7172,6 +7306,7 @@ c36 = Gunner
     c36_skin4 = Gunnybara
     c36_skin5 = Theophil the Bishop
     c36_skin6 = Sharpshooter Syrus
+    c36_skin7 = Blackout
 
 c37 = Machina
     c37_skin0 = Machina
@@ -7192,12 +7327,17 @@ c38 = Captain
     c38_skin5 = Diver Dave
     c38_skin6 = Vector
     c38_skin7 = Iron Pirate King Level Skin
+    c38_skin8 = Apatite
+    c38_skin9 = Cutlass & Flintlock
+    c38_skin10 = C□ptain
 
 c39 = Yin-Yang Adept
     c39_skin0 = Yin-Yang Adept
     c39_skin1 = Draconess Glacinder
     c39_skin2 = Yon-Yong Adept
     c39_skin3 = Persephone, Goddess of Spring
+    c39_skin4 = Yin & Yang
+    c39_skin5 = Y□n-Y□ng Ad□pt
 
 c4 = Alchemist
     c4_skin0 = Alchemist
@@ -7233,6 +7373,14 @@ c40 = Arms Expert
     c40_skin1 = Dollkeeper Perly
     c40_skin2 = Orms Oxpert
     c40_skin3 = Armament Array: Scintilla
+    c40_skin4 = Arms-041
+    c40_skin5 = A□ms Exp□rt
+
+c41 = Lady Chef
+    c41_skin0 = Lady Chef
+    c41_skin1 = Spatula
+    c41_skin2 = Fuchsia
+    c41_skin3 = L□dy Ch□f
 
 c5 = Engineer
     c5_skin0 = Engineer
@@ -7326,6 +7474,7 @@ c7 = Paladin
     c7_skin27 = P□l□di□
     c7_skin28 = Sacred Flail
     c7_skin29 = Apollo, God of the Sun
+    c7_skin30 = QR Colt
 
 c8 = Elf
     c8_skin0 = Elf
@@ -7548,6 +7697,9 @@ c9 = Werewolf
 54
     Display name : Lai Cai
 
+55
+    Display name : Mecha Chilly
+
 6
     Display name : BonBon
 
@@ -7721,6 +7873,10 @@ c9 = Werewolf
 1024
     Name        : Arms Alignment
     Description : Attacks periodically trigger an extra attack from a random weapon you've picked up this run for a while. Interval shortens as more weapons are picked up.
+
+1025
+    Name        : Dungeon Foodie
+    Description : Defeated enemies may drop ingredients. Consuming them grants unique buffs.
 
 11
     Name        : Healing Surge
@@ -8113,6 +8269,22 @@ c9 = Werewolf
 3003
     Name        : Void Bounty
     Description : Void elites will no longer retreat once all the minions in the room are defeated.
+
+3004
+    Name        : Void Shield
+    Description : Protects you from the consuming power of the Apocalyptic Void. Incoming damage depletes a stack of shield instead of your health or armor. When all shield stacks are depleted, an annihilation countdown will start, resulting in your demise when it ends.
+
+3005
+    Name        : Void Blessing
+    Description : While the void shield is active, the invincibility frames following damage are slightly extended.
+
+3006
+    Name        : Void Support
+    Description : Instantly restores {0} void shield stacks. Interacting with any support character in subsequent levels restores {1} void shield stacks.
+
+3007
+    Name        : Void Afterimage
+    Description : While the void shield is active, using a skill grants brief invisibility and invulnerability, and leaves behind a void Afterimage who attacks enemies with your current weapon. (Cooldown: {0}s)
 
 31
     Name        : Rapid Fire
@@ -9062,6 +9234,9 @@ material_tape_boss4
 material_tape_boss_void
     Display name : The Void Descends
 
+material_tape_boss_void_origin
+    Display name : The Advent of End
+
 material_tape_castle
     Display name : Heroes' Avatar
 
@@ -9143,6 +9318,9 @@ material_tape_level_4g
 material_tape_lvbu
     Display name : Matchless Warrior
 
+material_tape_mecha
+    Display name : Robotic Reboot
+
 material_tape_monster
     Display name : Enlightened
 
@@ -9154,6 +9332,9 @@ material_tape_necromancer_16
 
 material_tape_neon
     Display name : Digital Xunder #1
+
+material_tape_ninja_6
+    Display name : Searing Ire
 
 material_tape_opera
     Display name : Stellar Moments

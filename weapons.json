@@ -473,6 +473,8 @@
   "weapon_init_gunsexpertx": "Arms-041",
   "weapon_init_joker": "Phantom Blade",
   "weapon_init_jokerx": "Ethereal Blade",
+  "weapon_init_ladychef": "Spatula",
+  "weapon_init_ladychefx": "Spectacular Spatula",
   "weapon_init_lancer": "Dragon Fang",
   "weapon_init_lancerx": "Dragon Fang",
   "weapon_init_mage": "The Code",
@@ -563,5 +565,6 @@
   "weapon_shower": "Watering Can",
   "weapon_swordfish": "Swordfish",
   "weapon_troop_book": "A  Mercenary Prepares",
-  "weapon_troop_whistle": "Whistle"
+  "weapon_troop_whistle": "Whistle",
+  "weapon_void_hand": "Bone Boomerang"
 }
