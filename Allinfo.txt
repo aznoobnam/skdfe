@@ -34,7 +34,7 @@ ring_3
 
 transform_weapon_beheaded
     Name      : Cytoplasm
-    Forgeable : True
+    Forgeable : False
     Is melee  : False
     Rarity    : 6
     Type      : Mythic
@@ -55,7 +55,7 @@ transform_weapon_ninja
 
 transform_weapon_specialforces
     Name      : Walkie Talkie
-    Forgeable : True
+    Forgeable : False
     Is melee  : False
     Rarity    : 6
     Type      : Mythic
@@ -1868,7 +1868,7 @@ weapon_246
 
 weapon_247
     Name      : Star Bow
-    Forgeable : False
+    Forgeable : True
     Is melee  : False
     Rarity    : 4
     Type      : Bow
@@ -2197,7 +2197,7 @@ weapon_297
 
 weapon_298
     Name      : EM Railgun
-    Forgeable : False
+    Forgeable : True
     Is melee  : False
     Rarity    : 3
     Type      : Hold
@@ -3063,6 +3063,13 @@ weapon_bladefish
     Rarity    : 3
     Type      : Sword
 
+weapon_boss_void_origin
+    Name      : Annihilation Avatar
+    Forgeable : True
+    Is melee  : True
+    Rarity    : 5
+    Type      : Strange
+
 weapon_boss_year_beast
     Name      : Super Rocket Fireworks
     Forgeable : True
@@ -3240,6 +3247,13 @@ weapon_init_aigirlxx3
 
 weapon_init_aigirlxx4
     Name      : Little Sidekicks
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_aigirlxx5
+    Name      : Mystery Digest
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -3541,6 +3555,13 @@ weapon_init_assassinxx11
 
 weapon_init_assassinxx12
     Name      : Assassin
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Sword
+
+weapon_init_assassinxx13
+    Name      : Peaceforger
     Forgeable : False
     Is melee  : True
     Rarity    : 1
@@ -4330,6 +4351,20 @@ weapon_init_fighterxx6
     Rarity    : 1
     Type      : Strange
 
+weapon_init_fighterxx7
+    Name      : Fighter
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_fighterxx8
+    Name      : Goldrender
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Strange
+
 weapon_init_gunsexpert
     Name      : Arms-041
     Forgeable : True
@@ -4395,6 +4430,13 @@ weapon_init_jokerxx3
 
 weapon_init_jokerxx4
     Name      : Refraction
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Sword
+
+weapon_init_jokerxx5
+    Name      : Trickster
     Forgeable : False
     Is melee  : True
     Rarity    : 1
@@ -4479,6 +4521,13 @@ weapon_init_lancerxx5
 
 weapon_init_lancerxx6
     Name      : Lancer
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Spear
+
+weapon_init_lancerxx7
+    Name      : Jaxon's Javelin
     Forgeable : False
     Is melee  : True
     Rarity    : 1
@@ -5457,6 +5506,27 @@ weapon_init_specialforcesx
     Rarity    : 1
     Type      : Strange
 
+weapon_init_specialforcesxx
+    Name      : [Name Not Found]
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_specialforcesxx2
+    Name      : Special Forces
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_specialforcesxx3
+    Name      : Vendetta
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Strange
+
 weapon_init_swordmaster
     Name      : Breeze
     Forgeable : True
@@ -5569,6 +5639,13 @@ weapon_init_taoistxx12
     Rarity    : 1
     Type      : Sword
 
+weapon_init_taoistxx13
+    Name      : Plume Fan
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Sword
+
 weapon_init_taoistxx2
     Name      : Taiyi Hossu
     Forgeable : False
@@ -5648,6 +5725,13 @@ weapon_init_transcendentxx
 
 weapon_init_transcendentxx2
     Name      : Inter-dimension Traveler
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_transcendentxx3
+    Name      : Mellow Tone
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -5870,6 +5954,13 @@ weapon_init_vikingxx14
     Rarity    : 1
     Type      : Strange
 
+weapon_init_vikingxx15
+    Name      : Handhook
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Strange
+
 weapon_init_vikingxx2
     Name      : [Name Not Found]
     Forgeable : False
@@ -6012,6 +6103,13 @@ weapon_init_warlockx
 
 weapon_init_warlockxx
     Name      : Key of Umbra
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
+weapon_init_warlockxx10
+    Name      : Demantoid Staff
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -6901,6 +6999,7 @@ c13 = Berserker
     c13_skin28 = 日□rs□rk□r
     c13_skin29 = Boxing Gloves
     c13_skin30 = Paragon Aureon
+    c13_skin31 = Hookhand Baro
 
 c14 = Necromancer
     c14_skin0 = Necromancer
@@ -6984,6 +7083,7 @@ c16 = Taoist
     c16_skin23 = Tao Sword
     c16_skin24 = Ta□ist
     c16_skin25 = Sheathed Savile
+    c16_skin26 = Jadeite
 
 c17 = Inter-dimension Traveler
     c17_skin0 = Inter-dimension Traveler
@@ -6991,6 +7091,7 @@ c17 = Inter-dimension Traveler
     c17_skin2 = Intor-domension Troveler
     c17_skin3 = Inter-dimension Travara
     c17_skin4 = Dimensional Grip
+    c17_skin5 = Serenith
 
 c18 = Element Envoy
     c18_skin0 = Element Envoy
@@ -7047,6 +7148,9 @@ c20 = Time Traveling Ninja
 
 c21 = Special Forces
     c21_skin0 = Special Forces
+    c21_skin1 = Sp□cial F□rces
+    c21_skin2 = S.O. Firearm
+    c21_skin3 = Erinyes, Goddesses of Vengeance
 
 c22 = Airbender
     c22_skin0 = Airbender
@@ -7086,6 +7190,7 @@ c23 = Demonmancer
     c23_skin14 = 口em□nm□ncer
     c23_skin15 = Key of the Faint Star
     c23_skin16 = Lamentra
+    c23_skin17 = Demantoid
 
 c24 = Miner
     c24_skin0 = Miner
@@ -7187,6 +7292,7 @@ c29 = Lancer
     c29_skin11 = La□c□r
     c29_skin12 = Starshade
     c29_skin13 = Dragon Fang
+    c29_skin14 = Javelinist Jaxon
 
 c3 = Assassin
     c3_skin0 = Assassin
@@ -7219,6 +7325,7 @@ c3 = Assassin
     c3_skin27 = Exultis
     c3_skin28 = Blood Blade
     c3_skin29 = Ass□ssi□
+    c3_skin30 = Ashenborn Valerian
 
 c30 = Warliege
     c30_skin0 = Warliege
@@ -7273,6 +7380,8 @@ c33 = Fighter
     c33_skin8 = Pyropact Ignis
     c33_skin9 = Bladeplume Lark
     c33_skin10 = Fi□ht□r
+    c33_skin11 = Qi Punch
+    c33_skin12 = Tiger's Eye
 
 c34 = Trickster
     c34_skin0 = Trickster
@@ -7285,6 +7394,7 @@ c34 = Trickster
     c34_skin7 = Euphoryn
     c34_skin8 = Tri□kst□r
     c34_skin9 = Ametrine
+    c34_skin10 = Phantom Blade
 
 c35 = Bard
     c35_skin0 = Bard
@@ -7317,6 +7427,7 @@ c37 = Machina
     c37_skin5 = Caissa the Queen
     c37_skin6 = Rustbud Vita
     c37_skin7 = M□chin□
+    c37_skin8 = Cryptidist Curiosa
 
 c38 = Captain
     c38_skin0 = Captain
@@ -7792,7 +7903,7 @@ c9 = Werewolf
 
 1008
     Name        : [Name Not Found]
-    Description : Three Special Forces knights are masters of different types of weapons. \\nRed Knight: Attacks with some melee weapons release projectiles. \\nBlue Knight: Attacks with staffs are more powerful. \\nGreen Knight: Faster bullet speed for all guns.
+    Description : Switching knights grants a temporary attack speed bonus. Certain melee attacks unleash sword waves, and staff attacks are enhanced.
 
 1009
     Name        : [Name Not Found]
@@ -7900,7 +8011,7 @@ c9 = Werewolf
 
 16
     Name        : Best Buddy
-    Description : Increase the effectiveness of pets and followers
+    Description : Your pets and followers gain a {0}% bonus to their size and health and deal {1}% more damage.
 
 17
     Name        : Shield Blast
@@ -7968,7 +8079,7 @@ c9 = Werewolf
 
 2105
     Name        : Elemental Cycle
-    Description : Fire damage, ice damage, poison damage, and electric damage, each type of elemental damage increases by {0}% in turn. The cycle lasts for {1} seconds.
+    Description : Cycles between Burn, Freeze, Poison, and Electro-charged states every {0}s. While in a state, attacks have a {1}% chance to inflict the corresponding elemental effect on hit and increase damage of that element by {2}%.
 
 2106
     Name        : Kinetic Strike
@@ -7980,7 +8091,7 @@ c9 = Werewolf
 
 2108
     Name        : Party Time!
-    Description : When pets and followers start to fight, their attack speed increases by {0}% and attack damage by {1}% for {2} seconds.
+    Description : While in combat, your pets and followers attack {0}% faster and move {1}% faster.
 
 2109
     Name        : [Name Not Found]
@@ -8140,7 +8251,7 @@ c9 = Werewolf
 
 2146
     Name        : Martial Spirit
-    Description : Every {0}th attack is guaranteed to crit.
+    Description : Hitting an enemy grants a stack of Battle Will for {0}s, up to {1} stacks. At max stacks, you gain Martial Spirit for {2}s, greatly enhancing the projectile size and crit hit rate of your melee weapons.
 
 2146_name
     Name        : [Name Not Found]
@@ -8288,7 +8399,7 @@ c9 = Werewolf
 
 31
     Name        : Rapid Fire
-    Description : Increase firing speed of weapon
+    Description : Each attack grants {0} stack of attack speed boost for {1}s. Each stack increases your attack speed by {2}%, stacking up to {3} times. Max stacks grants additional {4}% attack speed.
 
 32
     Name        : Blast on Death
@@ -8300,7 +8411,7 @@ c9 = Werewolf
 
 34
     Name        : Vengeance Instinct
-    Description : Guaranteed critical hit for a short duration when HP reduces.
+    Description : Crit hit rate and attack speed increase as HP and armor decrease.
 
 35
     Name        : Blitz Defense
@@ -9368,6 +9479,9 @@ material_tape_sword_master_4
 
 material_tape_thunderstorm
     Display name : Digital Xunder #3
+
+material_tape_transcendent_5
+    Display name : Serene Reverie
 
 material_tape_unrivaled_archenemy
     Display name : Heist Rivalry
