@@ -1,6 +1,7 @@
 import re
 import sys
 import csv
+import io
 import json
 import time
 import shutil
@@ -48,8 +49,25 @@ logging.basicConfig(
 SCRIPT_DIR = Path(__file__).parent.resolve()
 DATA_DIR = SCRIPT_DIR / "data"
 EXPORT_DIR = DATA_DIR / "export"
+CONFIG_EXPORT_DIR = DATA_DIR / "config_export"
 ASSET_STUDIO_ZIP = DATA_DIR / "AssetStudio.zip"
 ASSET_STUDIO_DIR = DATA_DIR / "AssetStudio"
+XOR_KEY = b"soulKnight"
+
+ITEM_PREFIX_GROUPS = (
+    ("material_weapon_fragment", "material", "weapon_fragment"),
+    ("material_skin_fragment", "material", "skin_fragment"),
+    ("customization_kill_effect", "customization", "kill_effect"),
+    ("blueprint_evolution", "blueprint", "evolution"),
+    ("blueprint_weapon", "blueprint", "weapon"),
+    ("blueprint_skin", "blueprint", "skin"),
+    ("blueprint_skill", "blueprint", "skill"),
+    ("blueprint_multi", "blueprint", "multi"),
+    ("material_activity", "material", "activity"),
+    ("material_skill", "material", "skill"),
+    ("material_tape", "material", "tape"),
+    ("blueprint_m", "blueprint", "m"),
+)
 
 
 def download_file(url: str, dest: Path, chunk_size: int = 8192) -> None:
@@ -171,6 +189,149 @@ def run_asset_studio_cli(
     logging.info(f"AssetStudio CLI finished extracting {asset_type}.")
 
 
+def xor_repeating(data: str, key: str = XOR_KEY.decode()) -> str:
+    """XOR Unicode characters with a repeating key."""
+    if not key:
+        raise ValueError("XOR key cannot be empty")
+    return "".join(
+        chr(ord(value) ^ ord(key[index % len(key)]))
+        for index, value in enumerate(data)
+    )
+
+
+def find_exported_text_asset(output_dir: Path, asset_name: str) -> Path:
+    """Find one AssetStudio TextAsset export by its original name."""
+    accepted_names = {asset_name.lower(), f"{asset_name.lower()}.txt"}
+    matches = [
+        path for path in output_dir.rglob("*")
+        if path.is_file() and path.name.lower() in accepted_names
+    ]
+    if len(matches) != 1:
+        found = ", ".join(str(path) for path in matches) or "none"
+        raise FileNotFoundError(
+            f"Expected one export for {asset_name} under {output_dir}; found: {found}"
+        )
+    return matches[0]
+
+
+def parse_csv_keys(text: str) -> List[str]:
+    """Read unique Key values, excluding the second CSV type row."""
+    reader = csv.reader(io.StringIO(text, newline=""))
+    try:
+        header = next(reader)
+        type_row = next(reader)
+    except StopIteration as e:
+        raise ValueError("CSV must contain a header and type row") from e
+
+    if "Key" not in header:
+        raise ValueError("CSV header does not contain Key")
+    if len(type_row) != len(header):
+        raise ValueError("CSV type row does not match header width")
+
+    key_index = header.index("Key")
+    keys = []
+    seen = set()
+    for row_number, row in enumerate(reader, start=3):
+        if not row or all(not field for field in row):
+            continue
+        if len(row) != len(header):
+            raise ValueError(f"CSV row {row_number} does not match header width")
+        key = row[key_index].strip()
+        if not key:
+            raise ValueError(f"CSV row {row_number} has an empty Key")
+        if key in seen:
+            raise ValueError(f"Duplicate Key: {key}")
+        seen.add(key)
+        keys.append(key)
+
+    return sorted(keys)
+
+
+def classify_item_key(key: str) -> Tuple[str, str]:
+    """Map an item key to a predetermined prefix group."""
+    if key.startswith(("desc_", "feature_")):
+        return "others", "others"
+
+    for prefix, item_type, group in ITEM_PREFIX_GROUPS:
+        if key == prefix or key.startswith(f"{prefix}_"):
+            return item_type, group
+
+    item_type, separator, _ = key.partition("_")
+    if not separator or not item_type:
+        raise ValueError(f"Item Key has no type prefix: {key}")
+    return item_type.lower(), "others"
+
+
+def group_item_keys(keys: List[str]) -> Dict[str, object]:
+    """Group item keys, flattening types that only use the fallback group."""
+    grouped = defaultdict(lambda: defaultdict(list))
+    for key in keys:
+        item_type, group = classify_item_key(key)
+        grouped[item_type][group].append(key)
+
+    result = {}
+    for item_type, groups in sorted(grouped.items()):
+        if set(groups) == {"others"}:
+            result[item_type] = sorted(groups["others"])
+        else:
+            result[item_type] = {
+                group: sorted(group_keys)
+                for group, group_keys in sorted(groups.items())
+            }
+    return result
+
+
+def write_config_json(
+    enemy_csv: Path,
+    item_csv: Path,
+    enemy_json: Path,
+    item_json: Path,
+) -> None:
+    """Convert decrypted config CSV Key columns to JSON."""
+    enemy_keys = parse_csv_keys(enemy_csv.read_text(encoding="utf-8-sig"))
+    item_keys = parse_csv_keys(item_csv.read_text(encoding="utf-8-sig"))
+    enemy_json.write_text(
+        json.dumps(enemy_keys, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    item_json.write_text(
+        json.dumps(
+            group_item_keys(item_keys),
+            indent=2,
+            ensure_ascii=False,
+            sort_keys=True,
+        ) + "\n",
+        encoding="utf-8",
+    )
+
+
+def decrypt_config_exports(version: str) -> None:
+    """Decrypt config CSVs and generate versioned enemy/item JSON files."""
+    outputs = {
+        "enemies.csv": SCRIPT_DIR / "enemies.decrypted.csv",
+        "items.csv": SCRIPT_DIR / "items.decrypted.csv",
+    }
+    for asset_name, output_path in outputs.items():
+        export_path = find_exported_text_asset(
+            CONFIG_EXPORT_DIR / Path(asset_name).stem,
+            asset_name,
+        )
+        encrypted = export_path.read_bytes().decode("utf-8")
+        decrypted = xor_repeating(encrypted)
+        output_path.write_bytes(decrypted.encode("utf-8"))
+        logging.info(f"Decrypted config CSV: {output_path}")
+
+    enemy_json = SCRIPT_DIR / f"enemy_{version}.json"
+    item_json = SCRIPT_DIR / f"item_{version}.json"
+    write_config_json(
+        outputs["enemies.csv"],
+        outputs["items.csv"],
+        enemy_json,
+        item_json,
+    )
+    logging.info(f"Generated {enemy_json.name} and {item_json.name}")
+
+
 def sanitize_text(text: str) -> str:
     """
     Replace CRLF / CR / LF with literal '\\n', strip null bytes and
@@ -194,83 +355,93 @@ def parse_i2_asset_file(
         raise FileNotFoundError(f"I2 .dat file not found: {file_path}")
 
     data = file_path.read_bytes()
+    if len(data) < 60:
+        raise ValueError(f"I2 .dat header is truncated: {file_path}")
+
+    record_count = int.from_bytes(data[56:60], "little")
     records: List[Tuple[str, List[str]]] = []
     pos = 60
 
-    while pos < len(data):
+    def require(size: int, context: str) -> None:
+        if pos + size > len(data):
+            raise ValueError(f"I2 record {record_index + 1}: truncated {context}")
 
-        if pos % 4:
-            pos += 4 - (pos % 4)
-        if pos + 4 > len(data):
-            break
+    def align(context: str) -> None:
+        nonlocal pos
+        padding = (-pos) % 4
+        require(padding, context)
+        pos += padding
 
-        key_len = int.from_bytes(data[pos:pos + 4], "little")
+    def read_u32(context: str) -> int:
+        nonlocal pos
+        require(4, context)
+        value = int.from_bytes(data[pos:pos + 4], "little")
         pos += 4
+        return value
 
+    for record_index in range(record_count):
+        align("key alignment")
+        key_len = read_u32("key length")
         if key_len == 0:
+            raise ValueError(f"I2 record {record_index + 1}: empty key")
 
-            while (pos < len(data)
-                   and int.from_bytes(data[pos:pos + 4], "little") == 0):
-                pos += 4
-            if pos >= len(data) - 4:
-                break
-            key_len = int.from_bytes(data[pos:pos + 4], "little")
-            pos += 4
-            if key_len == 0:
-                break
-
+        require(key_len, "key")
         key_bytes = data[pos:pos + key_len].replace(b"\x00", b"")
-        try:
-            key = key_bytes.decode("utf-8", errors="ignore").strip()
-        except UnicodeDecodeError:
-            key = key_bytes.decode("latin-1", errors="ignore").strip()
+        key = key_bytes.decode("utf-8", errors="ignore").strip()
         pos += key_len
+        if not key:
+            raise ValueError(f"I2 record {record_index + 1}: empty key")
 
-        if pos % 4:
-            pos += 4 - (pos % 4)
+        align("term-type alignment")
+        term_type = read_u32("term type")
+        if term_type != 0:
+            raise ValueError(
+                f"I2 record {record_index + 1} ({key!r}): unsupported "
+                f"term type {term_type}"
+            )
 
-        if pos + 4 > len(data):
-            break
-        start_count = int.from_bytes(data[pos:pos + 4], "little")
-        pos += 4
-
-        if start_count == 0:
-            if pos + 4 > len(data):
-                break
-            fields_count = int.from_bytes(data[pos:pos + 4], "little")
-            pos += 4
-        else:
-            fields_count = start_count
+        fields_count = read_u32("field count")
+        if fields_count != len(LANGUAGES):
+            raise ValueError(
+                f"I2 record {record_index + 1} ({key!r}): expected "
+                f"{len(LANGUAGES)} fields, found {fields_count}"
+            )
 
         fields: List[str] = []
-        for _ in range(fields_count):
-            if pos + 4 > len(data):
-                break
-            field_len = int.from_bytes(data[pos:pos + 4], "little")
-            pos += 4
-
-            if field_len > 0:
-                raw = data[pos:pos + field_len].replace(b"\x00", b"")  # strip NUL bytes before decode
-                try:
-                    text = raw.decode("utf-8")
-                except UnicodeDecodeError:
-                    text = raw.decode("latin-1", errors="ignore")
-            else:
-                text = ""
+        for field_index in range(fields_count):
+            field_len = read_u32(f"field {field_index + 1} length")
+            require(field_len, f"field {field_index + 1}")
+            raw = data[pos:pos + field_len].replace(b"\x00", b"")
+            try:
+                text = raw.decode("utf-8")
+            except UnicodeDecodeError:
+                text = raw.decode("latin-1", errors="ignore")
             fields.append(sanitize_text(text))
             pos += field_len
+            align(f"field {field_index + 1} alignment")
 
-            if pos % 4:
-                pos += 4 - (pos % 4)
+        flags_count = read_u32("flags count")
+        if flags_count != len(LANGUAGES):
+            raise ValueError(
+                f"I2 record {record_index + 1} ({key!r}): expected "
+                f"{len(LANGUAGES)} flags, found {flags_count}"
+            )
+        require(flags_count, "flags")
+        pos += flags_count
+        align("flags alignment")
 
-        if pos + 4 <= len(data):
-            pos += 4
+        trailing_count = read_u32("trailing array count")
+        if trailing_count != 0:
+            raise ValueError(
+                f"I2 record {record_index + 1} ({key!r}): unsupported "
+                f"trailing array count {trailing_count}"
+            )
 
         if not filter_patterns or not any(
-                p.match(key) for p in filter_patterns):
+                pattern.match(key) for pattern in filter_patterns):
             records.append((key, fields))
 
-    records.sort(key=lambda r: r[0])
+    records.sort(key=lambda record: record[0])
     return records, LANGUAGES
 
 
@@ -345,23 +516,28 @@ def ensure_asset_studio() -> Path:
 
 def run_asset_extractions(sk_extracted_path: Path) -> None:
     """
-    1) Extract I2Languages .dat (monobehaviour/raw)
+    1) Remove stale and extract I2Languages .dat (monobehaviour/raw)
     2) Delete any small I2Languages*.dat (< 2 MB)
-    3) Extract WeaponInfo (textasset/export)
+    3) Extract WeaponInfo and encrypted config CSVs (textasset/export)
     """
     unity_data = sk_extracted_path / "assets/bin/Data/data.unity3d"
     managed_folder = sk_extracted_path / "assets/bin/Data/Managed"
+    config_bundle = sk_extracted_path / "assets/AssetBundles/config.ab"
 
     if not unity_data.exists():
         raise FileNotFoundError(f"Unity data file missing: {unity_data}")
     if not managed_folder.exists() or not managed_folder.is_dir():
         raise FileNotFoundError(f"Managed folder missing: {managed_folder}")
+    if not config_bundle.exists():
+        raise FileNotFoundError(f"Config asset bundle missing: {config_bundle}")
 
     try:
         EXPORT_DIR.mkdir(parents=True, exist_ok=True)
+        for dat_file in EXPORT_DIR.rglob("I2Languages*.dat"):
+            dat_file.unlink()
     except Exception as e:
         raise RuntimeError(
-            f"Could not create export directory {EXPORT_DIR}: {e}") from e
+            f"Could not refresh I2 exports under {EXPORT_DIR}: {e}") from e
 
     run_asset_studio_cli(
         ASSET_STUDIO_DIR,
@@ -402,22 +578,48 @@ def run_asset_extractions(sk_extracted_path: Path) -> None:
         filter_name="WeaponInfo",
     )
 
+    for asset_name in ("enemies.csv", "items.csv"):
+        output_dir = CONFIG_EXPORT_DIR / Path(asset_name).stem
+        if output_dir.exists():
+            shutil.rmtree(output_dir)
+        output_dir.mkdir(parents=True)
+        run_asset_studio_cli(
+            ASSET_STUDIO_DIR,
+            unity_data_path=config_bundle,
+            output_dir=output_dir,
+            asset_type="textasset",
+            mode="export",
+            filter_name=Path(asset_name).stem,
+        )
+
 
 def find_valid_i2_dat() -> Path:
-    """
-    Find the first I2Languages*.dat in EXPORT_DIR with size ≥ 2 MB.
-    Raises FileNotFoundError if none found.
-    """
-    for dat_file in EXPORT_DIR.rglob("I2Languages*.dat"):
+    """Find the canonical or sole large I2Languages export."""
+    candidates = []
+    for dat_file in sorted(EXPORT_DIR.rglob("I2Languages*.dat")):
         try:
-            size = dat_file.stat().st_size
+            if dat_file.stat().st_size >= 2_000_000:
+                candidates.append(dat_file)
         except OSError:
             continue
-        if size >= 2_000_000:
-            logging.info(f"Found valid I2 dat: {dat_file.name} ({size} bytes)")
-            return dat_file
-    raise FileNotFoundError(
-        "No valid (≥2 MB) I2Languages .dat file found under export/.")
+
+    if not candidates:
+        raise FileNotFoundError(
+            "No valid (≥2 MB) I2Languages .dat file found under export/.")
+
+    canonical = [path for path in candidates if path.name == "I2Languages.dat"]
+    if len(canonical) == 1:
+        selected = canonical[0]
+    elif len(candidates) == 1:
+        selected = candidates[0]
+    else:
+        paths = ", ".join(str(path) for path in candidates)
+        raise RuntimeError(f"Ambiguous I2Languages exports: {paths}")
+
+    logging.info(
+        f"Found valid I2 dat: {selected.name} ({selected.stat().st_size} bytes)"
+    )
+    return selected
 
 
 def write_i2_csv(version: str, records: List[Tuple[str, List[str]]]) -> Path:
@@ -426,6 +628,19 @@ def write_i2_csv(version: str, records: List[Tuple[str, List[str]]]) -> Path:
     under the script folder. Returns the CSV path.
     """
     csv_path = SCRIPT_DIR / f"I2language_{version}.csv"
+    seen = set()
+    for record_index, (key, fields) in enumerate(records, start=1):
+        if not key:
+            raise ValueError(f"I2 record {record_index} has an empty key")
+        if key in seen:
+            raise ValueError(f"I2 record {record_index}: duplicate key {key!r}")
+        seen.add(key)
+        if len(fields) != len(LANGUAGES):
+            raise ValueError(
+                f"I2 record {record_index} ({key!r}): expected "
+                f"{len(LANGUAGES)} fields, found {len(fields)}"
+            )
+
     logging.info(f"Writing CSV: {csv_path}")
     try:
         with open(csv_path, "w", encoding="utf-8", newline="") as f:
@@ -910,6 +1125,12 @@ def main():
         sys.exit(1)
 
     try:
+        decrypt_config_exports(version)
+    except Exception as e:
+        logging.error(f"Config export failed: {e}")
+        sys.exit(1)
+
+    try:
         i2_dat = find_valid_i2_dat()
         records, languages = parse_i2_asset_file(i2_dat)
     except Exception as e:
@@ -959,7 +1180,7 @@ def main():
         logging.error(f"Failed exporting filtered weapons JSON: {e}")
     weapon_skin_path = SCRIPT_DIR / f"weapon_skins_{version}.json"
     lang_map = load_language_map(csv_path)
-    # lang_map_cn = load_language_map(csv_path, "Chinese (Simplified)")
+    lang_map_cn = load_language_map(csv_path, "Chinese (Simplified)")
     try:
         export_weapon_evo_data(lang_map, weapon_skin_path)
         logging.info(f"Weapon evolution data baked : {weapon_skin_path}")
@@ -968,8 +1189,8 @@ def main():
     try:
         export_needed_data_from_langmap(
             lang_map, SCRIPT_DIR / f"needed_data_{version}.json")
-        # export_needed_data_from_langmap(
-        #     lang_map_cn, SCRIPT_DIR / f"needed_data_cn_{version}.json")
+        export_needed_data_from_langmap(
+            lang_map_cn, SCRIPT_DIR / f"needed_data_cn_{version}.json")
         logging.info("Exported needed data for English and Chinese")
     except Exception as e:
         logging.warning(f"Can't export: {e}")

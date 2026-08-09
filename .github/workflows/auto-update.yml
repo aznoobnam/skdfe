@@ -76,6 +76,8 @@ jobs:
         Move-Item weapons_${{ steps.check_version.outputs.new_version }}.json weapons.json -Force
         Move-Item weapon_skins_${{ steps.check_version.outputs.new_version }}.json weapon_skins.json -Force
         Move-Item needed_data_${{ steps.check_version.outputs.new_version }}.json needed_data.json -Force
+        Move-Item enemy_${{ steps.check_version.outputs.new_version }}.json enemy.json -Force
+        Move-Item item_${{ steps.check_version.outputs.new_version }}.json item.json -Force
         # Move-Item needed_data_cn_${{ steps.check_version.outputs.new_version }}.json needed_data_cn.json -Force
         Move-Item highest_skin_ids.json highest_skin_ids.json -Force
     - name: Update version.json
@@ -92,6 +94,6 @@ jobs:
       run: |
         git config user.name  "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
-        git add I2language.csv Allinfo.txt version.json weapons.json weapon_skins.json highest_skin_ids.json needed_data.json needed_data_cn.json
+        git add I2language.csv Allinfo.txt version.json weapons.json weapon_skins.json highest_skin_ids.json needed_data.json needed_data_cn.json enemies.decrypted.csv items.decrypted.csv enemy.json item.json
         git commit -m "Updated to ${{ steps.check_version.outputs.new_version }}" || echo "Nothing to commit"
         git push
