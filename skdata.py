@@ -3,12 +3,14 @@ import sys
 import csv
 import io
 import json
+import os
 import time
 import shutil
 import logging
 import zipfile
 import requests
 import subprocess
+import tempfile
 from pathlib import Path
 from collections import defaultdict
 from typing import List, Tuple, Dict
@@ -50,6 +52,7 @@ SCRIPT_DIR = Path(__file__).parent.resolve()
 DATA_DIR = SCRIPT_DIR / "data"
 EXPORT_DIR = DATA_DIR / "export"
 CONFIG_EXPORT_DIR = DATA_DIR / "config_export"
+CHARACTER_EXPORT_DIR = DATA_DIR / "character_export"
 ASSET_STUDIO_ZIP = DATA_DIR / "AssetStudio.zip"
 ASSET_STUDIO_DIR = DATA_DIR / "AssetStudio"
 XOR_KEY = b"soulKnight"
@@ -141,8 +144,9 @@ def run_asset_studio_cli(
     output_dir: Path,
     asset_type: str,
     mode: str,
-    filter_name: str,
+    filter_name: str = None,
     assembly_folder: Path = None,
+    extra_args: List[str] = None,
 ) -> None:
     """
     Invoke AssetStudioModCLI with subprocess.
@@ -150,6 +154,7 @@ def run_asset_studio_cli(
     - `mode`: e.g. "raw" or "export"
     - `filter_name`: e.g. "i2language" or "WeaponInfo"
     - `assembly_folder`: required only for monobehaviour extraction.
+    - `extra_args`: additional trusted AssetStudio CLI arguments.
     """
     if not unity_data_path.exists():
         raise FileNotFoundError(
@@ -171,14 +176,16 @@ def run_asset_studio_cli(
         mode,
         "-o",
         str(output_dir),
-        "--filter-by-name",
-        filter_name,
     ]
+    if filter_name:
+        cmd.extend(["--filter-by-name", filter_name])
     if assembly_folder:
         if not assembly_folder.exists() or not assembly_folder.is_dir():
             raise FileNotFoundError(
                 f"Assembly folder not found: {assembly_folder}")
         cmd.extend(["--assembly-folder", str(assembly_folder)])
+    if extra_args:
+        cmd.extend(extra_args)
 
     logging.info("Running AssetStudioModCLI: " + " ".join(cmd))
     try:
@@ -187,6 +194,116 @@ def run_asset_studio_cli(
         raise RuntimeError(
             f"AssetStudioModCLI failed (exit code {e.returncode})") from e
     logging.info(f"AssetStudio CLI finished extracting {asset_type}.")
+
+
+def read_hero_character_ids(manifest_path: Path) -> List[int]:
+    """Read and validate contiguous character IDs from hero.manifest."""
+    pattern = re.compile(r"^- Assets/RGPrefab/Player/c(\d+)\.prefab$", re.I)
+    ids = []
+    for line in manifest_path.read_text(encoding="utf-8").splitlines():
+        match = pattern.fullmatch(line.strip())
+        if match:
+            ids.append(int(match.group(1)))
+    if not ids:
+        raise ValueError(f"No character prefabs found in {manifest_path}")
+    if len(ids) != len(set(ids)):
+        raise ValueError(f"Duplicate character ID in {manifest_path}")
+    ids.sort()
+    if ids != list(range(ids[-1] + 1)):
+        raise ValueError(f"Character IDs are not contiguous: {ids}")
+    return ids
+
+
+def read_character_names(dump_dir: Path, expected_ids: List[int]) -> List[str]:
+    """Read CharacterSprites base-skin rows in numeric character-ID order."""
+    matches = []
+    for path in dump_dir.rglob("*.txt"):
+        text = path.read_text(encoding="utf-8", errors="replace")
+        if re.search(r'^\s*string m_Name = "CharacterSprites"', text, re.M):
+            matches.append(text)
+    if len(matches) != 1:
+        raise ValueError(f"Expected one CharacterSprites dump; found {len(matches)}")
+
+    model_pattern = re.compile(
+        r"CharacterSpriteModel data\s+int characterIndex = (\d+)\s+"
+        r"int skinIndex = (\d+)(.*?)(?=\n\s*(?:\[\d+\]\s*\n\s*)?"
+        r"CharacterSpriteModel data|\Z)",
+        re.S,
+    )
+    path_pattern = re.compile(
+        r'string path = "Skin/Character/([^/]+)/Skin_(\d+)/', re.I)
+    names = {}
+    for character_id, skin_index, body in model_pattern.findall(matches[0]):
+        if skin_index != "0":
+            continue
+        paths = {(name, path_skin_index)
+                 for name, path_skin_index in path_pattern.findall(body)
+                 if path_skin_index == "0"}
+        if len(paths) != 1:
+            raise ValueError(
+                f"Character {character_id} base skin has {len(paths)} code names")
+        name = paths.pop()[0]
+        character_id = int(character_id)
+        if character_id in names and names[character_id] != name:
+            raise ValueError(f"Conflicting base names for character {character_id}")
+        names[character_id] = name
+
+    if sorted(names) != expected_ids:
+        raise ValueError(
+            f"CharacterSprites IDs do not match hero manifest: {sorted(names)}"
+        )
+    ordered = [names[character_id] for character_id in expected_ids]
+    if len(ordered) != len(set(ordered)):
+        raise ValueError("Character code names are not unique")
+    return ordered
+
+
+def write_json_atomic(output_path: Path, value: object) -> None:
+    """Write formatted JSON without exposing a partial target file."""
+    content = json.dumps(value, indent=2, ensure_ascii=False) + "\n"
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    temporary_name = None
+    try:
+        with tempfile.NamedTemporaryFile(
+                "w", encoding="utf-8", newline="\n", delete=False,
+                dir=output_path.parent, prefix=f".{output_path.name}.") as temporary:
+            temporary.write(content)
+            temporary.flush()
+            os.fsync(temporary.fileno())
+            temporary_name = temporary.name
+        os.replace(temporary_name, output_path)
+        temporary_name = None
+    finally:
+        if temporary_name:
+            Path(temporary_name).unlink(missing_ok=True)
+
+
+def generate_char_code_names(sk_extracted_path: Path) -> Path:
+    """Extract and write char_code_name.json in numeric character-ID order."""
+    bundle_root = sk_extracted_path / "assets/AssetBundles"
+    common_bundle = bundle_root / "common.ab"
+    hero_manifest = bundle_root / "hero.manifest"
+    for path in (common_bundle, hero_manifest):
+        if not path.is_file():
+            raise FileNotFoundError(f"Character extraction input missing: {path}")
+
+    character_ids = read_hero_character_ids(hero_manifest)
+    if CHARACTER_EXPORT_DIR.exists():
+        shutil.rmtree(CHARACTER_EXPORT_DIR)
+    run_asset_studio_cli(
+        ASSET_STUDIO_DIR,
+        common_bundle,
+        CHARACTER_EXPORT_DIR,
+        "monobehaviour",
+        "dump",
+        filter_name="CharacterSprites",
+        extra_args=["-g", "none", "-f", "pathID"],
+    )
+    names = read_character_names(CHARACTER_EXPORT_DIR, character_ids)
+    output_path = SCRIPT_DIR / "char_code_name.json"
+    write_json_atomic(output_path, names)
+    logging.info(f"Generated character code names: {output_path}")
+    return output_path
 
 
 def xor_repeating(data: str, key: str = XOR_KEY.decode()) -> str:
@@ -1122,6 +1239,12 @@ def main():
         run_asset_extractions(sk_extracted)
     except Exception as e:
         logging.error(f"AssetStudio extraction failed: {e}")
+        sys.exit(1)
+
+    try:
+        generate_char_code_names(sk_extracted)
+    except Exception as e:
+        logging.error(f"Character code generation failed: {e}")
         sys.exit(1)
 
     try:
