@@ -37,6 +37,8 @@ jobs:
 
       - name: Update version.json
         shell: python
+        env:
+          PYTHONPATH: ${{ github.workspace }}
         run: |
           import json
           from skdfe.acquisition import get_latest_apk_info
