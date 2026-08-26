@@ -24,7 +24,10 @@ jobs:
         python-version: '3.14'
 
     - name: Install Python deps
-      run: pip install requests
+      run: pip install -r requirements.txt
+
+    - name: Run unit tests
+      run: python -m unittest discover -s tests -v
 
     - name: Check current and latest version
       id: check_version
@@ -68,18 +71,6 @@ jobs:
       if: ${{ steps.check_version.outputs.run_update == 'true' }}
       run: python skdata.py
 
-    - name: Rename outputs
-      if: ${{ steps.check_version.outputs.run_update == 'true' }}
-      run: |
-        Move-Item I2language_${{ steps.check_version.outputs.new_version }}.csv I2language.csv -Force
-        Move-Item Allinfo_${{ steps.check_version.outputs.new_version }}.txt Allinfo.txt -Force
-        Move-Item weapons_${{ steps.check_version.outputs.new_version }}.json weapons.json -Force
-        Move-Item weapon_skins_${{ steps.check_version.outputs.new_version }}.json weapon_skins.json -Force
-        Move-Item needed_data_${{ steps.check_version.outputs.new_version }}.json needed_data.json -Force
-        Move-Item enemy_${{ steps.check_version.outputs.new_version }}.json enemy.json -Force
-        Move-Item item_${{ steps.check_version.outputs.new_version }}.json item.json -Force
-        # Move-Item needed_data_cn_${{ steps.check_version.outputs.new_version }}.json needed_data_cn.json -Force
-        Move-Item highest_skin_ids.json highest_skin_ids.json -Force
     - name: Update version.json
       if: ${{ steps.check_version.outputs.run_update == 'true' }}
       shell: python
@@ -94,6 +85,6 @@ jobs:
       run: |
         git config user.name  "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
-        git add I2language.csv Allinfo.txt version.json weapons.json weapon_skins.json highest_skin_ids.json needed_data.json needed_data_cn.json enemies.decrypted.csv items.decrypted.csv enemy.json item.json
+        git add I2language.csv Allinfo.txt version.json weapon_full.json weapon_skins.json highest_skin_ids.json needed_data.json needed_data_cn.json enemies.decrypted.csv items.decrypted.csv enemy.json item.json
         git commit -m "Updated to ${{ steps.check_version.outputs.new_version }}" || echo "Nothing to commit"
         git push

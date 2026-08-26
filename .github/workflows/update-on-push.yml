@@ -1,0 +1,59 @@
+name: Update data on push
+
+on:
+  push:
+    tags-ignore:
+      - "**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Python 3.14
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Install Python deps
+        run: pip install -r requirements.txt
+
+      - name: Run unit tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Set up .NET 6 Runtime
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "6.0.x"
+
+      - name: Run data export
+        run: python skdata.py
+
+      - name: Update version.json
+        shell: python
+        run: |
+          import json
+          from skdfe.acquisition import get_latest_apk_info
+
+          version, _ = get_latest_apk_info()
+          with open("version.json", "w", encoding="utf-8") as file:
+              json.dump({"version": version}, file)
+
+      - name: Commit and push updated data
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add I2language.csv Allinfo.txt version.json weapon_full.json weapon_skins.json highest_skin_ids.json needed_data.json needed_data_cn.json enemies.decrypted.csv items.decrypted.csv enemy.json item.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Update extracted data"
+          git push
