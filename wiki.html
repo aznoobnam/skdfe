@@ -1,0 +1,884 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src https://api.github.com https://raw.githubusercontent.com; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>SKDFE Wiki</title>
+  <style>
+    :root { color-scheme: light dark; --bg:#f6f6f3; --panel:#fff; --text:#20211f; --muted:#666a64; --line:#d9dcd5; --accent:#245f45; --soft:#e7f0eb; --warn:#8a4b08; --danger:#9b2c2c; }
+    @media (prefers-color-scheme:dark) { :root { --bg:#161816; --panel:#20231f; --text:#eceee9; --muted:#aeb3aa; --line:#3b4039; --accent:#8fd4ae; --soft:#263b30; --warn:#ffc06a; --danger:#ff9a9a; } }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font:15px/1.55 system-ui,sans-serif; }
+    a { color:var(--accent); text-underline-offset:.18em; }
+    button,input,select { font:inherit; }
+    button,input,select,a { border-radius:.35rem; }
+    :focus-visible { outline:3px solid var(--accent); outline-offset:2px; }
+    header { position:sticky; top:0; z-index:2; background:color-mix(in srgb,var(--panel) 94%,transparent); border-bottom:1px solid var(--line); backdrop-filter:blur(8px); }
+    .bar { max-width:1180px; margin:auto; padding:.7rem 1rem; display:flex; gap:.65rem; align-items:center; flex-wrap:wrap; }
+    .brand { color:var(--text); font-weight:750; text-decoration:none; margin-inline-end:.35rem; }
+    nav { display:flex; gap:.25rem; flex-wrap:wrap; }
+    nav a { color:var(--muted); padding:.35rem .55rem; text-decoration:none; }
+    nav a[aria-current="page"] { background:var(--soft); color:var(--accent); }
+    .controls { display:flex; gap:.5rem; margin-inline-start:auto; flex:1; justify-content:flex-end; min-width:280px; }
+    input,select,button { border:1px solid var(--line); background:var(--panel); color:var(--text); padding:.42rem .58rem; }
+    input { width:min(23rem,100%); }
+    button { cursor:pointer; }
+    button:disabled { cursor:wait; opacity:.65; }
+    main,footer { max-width:1180px; margin:auto; padding:1.15rem 1rem; }
+    h1 { font-size:clamp(1.55rem,4vw,2.3rem); margin:.15rem 0 .25rem; }
+    h2 { font-size:1.2rem; margin:1.5rem 0 .55rem; }
+    h3 { margin:.1rem 0; font-size:1rem; }
+    .muted,.key { color:var(--muted); }
+    .key { font:12px/1.45 ui-monospace,SFMono-Regular,Consolas,monospace; overflow-wrap:anywhere; }
+    .status { margin:.75rem 0 1rem; padding:.65rem .8rem; border:1px solid var(--line); border-inline-start:4px solid var(--accent); background:var(--panel); }
+    .status.warn { border-inline-start-color:var(--warn); }
+    .status.error { border-inline-start-color:var(--danger); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:.7rem; }
+    .card { display:block; min-width:0; padding:.8rem; border:1px solid var(--line); background:var(--panel); text-decoration:none; color:var(--text); }
+    a.card:hover { border-color:var(--accent); }
+    .card p { margin:.3rem 0 0; }
+    .count { font-size:1.7rem; font-weight:750; color:var(--accent); }
+    .badge { display:inline-block; margin:.2rem .25rem .1rem 0; padding:.08rem .4rem; border-radius:999px; background:var(--soft); color:var(--accent); font-size:.76rem; }
+    .badge.warn { color:var(--warn); }
+    .badge.error { color:var(--danger); }
+    .stack { display:grid; gap:.55rem; }
+    .field { padding:.7rem .8rem; border:1px solid var(--line); background:var(--panel); }
+    .field dt { color:var(--muted); font-size:.8rem; }
+    .field dd { margin:.12rem 0 0; white-space:pre-wrap; overflow-wrap:anywhere; }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+    .empty { padding:2rem 1rem; text-align:center; color:var(--muted); border:1px dashed var(--line); }
+    footer { color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); }
+    [hidden] { display:none!important; }
+    @media (max-width:760px) { .controls { order:3; min-width:100%; justify-content:stretch; } input { flex:1; min-width:0; } select { max-width:42%; } .bar { padding:.55rem .7rem; } main,footer { padding-inline:.7rem; } }
+    @media (prefers-reduced-motion:no-preference) { a,button { transition:border-color .12s,background-color .12s; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <a class="brand" href="#/">SKDFE Wiki</a>
+      <nav aria-label="Wiki pages">
+        <a href="#/" data-page="home">Home</a>
+        <a href="#/characters" data-page="characters">Characters</a>
+        <a href="#/pets" data-page="pets">Pets</a>
+        <a href="#/weapons" data-page="weapons">Weapons</a>
+        <a href="#/materials" data-page="materials">Materials</a>
+        <a href="#/blueprints" data-page="blueprints">Blueprints</a>
+        <a href="#/enemies" data-page="enemies">Enemies</a>
+      </nav>
+      <div class="controls">
+        <label hidden for="search">Search</label>
+        <input id="search" type="search" placeholder="Search wiki" autocomplete="off">
+        <label hidden for="language">Language</label>
+        <select id="language" aria-label="Language"></select>
+        <button id="refresh" type="button">Refresh</button>
+      </div>
+    </div>
+  </header>
+  <main id="app" tabindex="-1"><p>Loading wiki…</p></main>
+  <footer>
+    <div id="status" class="status" role="status" aria-live="polite">Starting…</div>
+    <div id="source"></div>
+  </footer>
+<script>
+'use strict';
+
+const REPO = 'aznoobnam/skdfe';
+const REPO_URL = `https://github.com/${REPO}`;
+const API_URL = `https://api.github.com/repos/${REPO}/commits/main`;
+const FILES = ['version.json','char_code_name.json','pet_code_name.json','weapon_full.json','weapon_skins.json','item.json','I2language.csv'];
+const BLUEPRINT_FILE = 'items.decrypted.csv';
+const ENEMY_FILE = 'enemies.decrypted.csv';
+const LIMITS = {'I2language.csv':30_000_000,'items.decrypted.csv':1_000_000,'enemies.decrypted.csv':1_000_000,'item.json':2_000_000,'weapon_skins.json':2_000_000,'weapon_full.json':2_000_000,'char_code_name.json':100_000,'pet_code_name.json':100_000,'version.json':10_000};
+const ENEMY_HEADER = ['Key','Path','AssetBundle','LevelKey','EnemyId','SummonedEnemy','Intensive','CellarSprite','Hp','Speed','SpeedRate','Critical','IsBoss','ExtraAssetBundle','BossBgm','BossRoom','BossWeapon','SubspeciesBoss','DoubleBosses','DropOffsetX','DropOffsetY','Drops','DropGroups'];
+const ENEMY_SCHEMA = ['string','string','string','string','string','bool','bool','SpriteAtlasData','int','float','float','int','bool','string','string','string','string','string','Dictionary<string, int>','float','float','List<Enemy.EnemyDropInfo>','List<Enemy.EnemyDropGroup>'];
+const LANGUAGES = ['English','Chinese (Traditional)','Chinese (Simplified)','Japanese','Korean','Spanish','German','Portuguese','French','Russian','Polish','Persian','Arabic','Thai','Vietnamese'];
+const RTL = new Set(['Persian','Arabic']);
+const DB_NAME = 'skdfe-wiki-v1';
+const DB_VERSION = 2;
+const CAN_PERSIST = location.protocol !== 'file:' && typeof indexedDB !== 'undefined';
+const REFRESH_MS = 30 * 60 * 1000;
+const MAX_RESULTS = 300;
+
+const app = document.querySelector('#app');
+const statusBox = document.querySelector('#status');
+const sourceBox = document.querySelector('#source');
+const searchInput = document.querySelector('#search');
+const languageSelect = document.querySelector('#language');
+const refreshButton = document.querySelector('#refresh');
+const navLinks = [...document.querySelectorAll('nav a')];
+
+const state = {
+  snapshot:null, model:null, language:'English', sourceMode:'none', message:'Starting…',
+  statusKind:'', refreshing:false, lastCheck:0, search:'', db:null
+};
+
+function el(tag, attrs={}, ...children) {
+  const node = document.createElement(tag);
+  for (const [key,value] of Object.entries(attrs)) {
+    if (key === 'class') node.className = value;
+    else if (key === 'text') node.textContent = value;
+    else if (key === 'hidden') node.hidden = value;
+    else node.setAttribute(key, value);
+  }
+  for (const child of children.flat()) if (child != null) node.append(child instanceof Node ? child : document.createTextNode(String(child)));
+  return node;
+}
+
+function setStatus(message, kind='') {
+  state.message = message;
+  state.statusKind = kind;
+  statusBox.textContent = message;
+  statusBox.className = `status${kind ? ` ${kind}` : ''}`;
+}
+
+function parseCSV(text) {
+  if (text.charCodeAt(0) === 0xfeff) text = text.slice(1);
+  const rows=[];
+  let row=[], field='', quoted=false, closed=false;
+  for (let i=0; i<text.length; i++) {
+    const ch=text[i];
+    if (quoted) {
+      if (ch === '"') {
+        if (text[i+1] === '"') { field += '"'; i++; }
+        else { quoted=false; closed=true; }
+      } else field += ch;
+      continue;
+    }
+    if (closed) {
+      if (ch === ',') { row.push(field); field=''; closed=false; }
+      else if (ch === '\r' || ch === '\n') { row.push(field); rows.push(row); row=[]; field=''; closed=false; if (ch === '\r' && text[i+1] === '\n') i++; }
+      else throw new Error(`Unexpected character after closing quote at offset ${i}`);
+    } else if (ch === '"') {
+      if (field) throw new Error(`Unexpected quote at offset ${i}`);
+      quoted=true;
+    } else if (ch === ',') { row.push(field); field=''; }
+    else if (ch === '\r' || ch === '\n') { row.push(field); rows.push(row); row=[]; field=''; if (ch === '\r' && text[i+1] === '\n') i++; }
+    else field += ch;
+  }
+  if (quoted) throw new Error('Unclosed quoted CSV field');
+  if (closed || field || row.length) { row.push(field); rows.push(row); }
+  return rows;
+}
+
+function parseLocalization(text) {
+  const rows = parseCSV(text);
+  const expected = ['id', ...LANGUAGES];
+  if (!rows.length || rows[0].length !== expected.length || rows[0].some((value,index) => value !== expected[index])) throw new Error('Unexpected localization CSV header');
+  if (rows.length < 1000) throw new Error(`Localization CSV too small: ${rows.length - 1} records`);
+  const entries = new Map();
+  for (let i=1; i<rows.length; i++) {
+    const row=rows[i];
+    if (row.length !== expected.length) throw new Error(`Localization row ${i+1} has ${row.length} fields`);
+    const id=row[0].trim();
+    if (!id) throw new Error(`Localization row ${i+1} has an empty ID`);
+    if (entries.has(id)) throw new Error(`Duplicate localization ID: ${id}`);
+    entries.set(id,row.slice(1));
+  }
+  for (const key of ['Character0_name_skin0','Pet_name_0','weapon/weapon_000']) if (!entries.has(key)) throw new Error(`Missing localization sentinel: ${key}`);
+  return entries;
+}
+
+function enemyType(key,isBoss) { return isBoss?'Boss':key.startsWith('ex_')?'Elite':'Normal'; }
+
+function parseEnemyDrop(value,name) {
+  assertObject(value,name); assertObject(value.item,`${name}.item`);
+  if (typeof value.item.item!=='string' || !value.item.item) throw new Error(`${name} has an invalid item ID`);
+  if (typeof value.probability!=='number' || !Number.isFinite(value.probability) || value.probability<0) throw new Error(`${name} has an invalid probability`);
+  if (typeof value.guaranteeDrop!=='boolean') throw new Error(`${name} has an invalid guaranteeDrop`);
+  if (!Number.isSafeInteger(value.guaranteeDropCount) || value.guaranteeDropCount<0) throw new Error(`${name} has an invalid guaranteeDropCount`);
+  if (!Array.isArray(value.conditions)) throw new Error(`${name} has invalid conditions`);
+  value.conditions.forEach((condition,index)=>assertObject(condition,`${name}.conditions[${index}]`));
+  return {item:value.item.item,probability:value.probability,guaranteeDrop:value.guaranteeDrop,guaranteeDropCount:value.guaranteeDropCount,conditions:value.conditions};
+}
+
+function parseEnemyCSV(text) {
+  const rows=parseCSV(text);
+  if (rows.length<3 || rows[0]?.length!==ENEMY_HEADER.length || ENEMY_HEADER.some((value,index)=>rows[0][index]!==value)) throw new Error('Unexpected enemies CSV header');
+  if (rows[1]?.length!==ENEMY_SCHEMA.length || ENEMY_SCHEMA.some((value,index)=>rows[1][index]!==value)) throw new Error('Unexpected enemies CSV schema row');
+  const enemies=new Map();
+  for (let index=2; index<rows.length; index++) {
+    const row=rows[index];
+    if (row.length!==ENEMY_HEADER.length) throw new Error(`Enemies CSV row ${index+1} has ${row.length} fields`);
+    const key=row[0].trim(), enemyId=row[4].trim(), isBossText=row[12], bossWeapon=row[16].trim(), subspeciesBoss=row[17].trim();
+    if (!key) throw new Error(`Enemies CSV row ${index+1} has an empty Key`);
+    if (enemies.has(key)) throw new Error(`Duplicate enemy Key: ${key}`);
+    if (isBossText!=='True' && isBossText!=='False') throw new Error(`Enemy ${key} has an invalid IsBoss`);
+    const drops=parseJSON(row[21],`Enemy ${key} Drops`), groups=parseJSON(row[22],`Enemy ${key} DropGroups`);
+    if (!Array.isArray(drops) || !Array.isArray(groups)) throw new Error(`Enemy ${key} has invalid drops`);
+    const parsedDrops=drops.map((drop,dropIndex)=>parseEnemyDrop(drop,`Enemy ${key} Drops[${dropIndex}]`));
+    const dropGroups=groups.map((group,groupIndex)=>{
+      const name=`Enemy ${key} DropGroups[${groupIndex}]`; assertObject(group,name);
+      if (typeof group.probability!=='number' || !Number.isFinite(group.probability) || group.probability<0) throw new Error(`${name} has an invalid probability`);
+      if (typeof group.randomOrder!=='boolean' || !Array.isArray(group.Drops)) throw new Error(`${name} is invalid`);
+      return {probability:group.probability,randomOrder:group.randomOrder,drops:group.Drops.map((drop,dropIndex)=>parseEnemyDrop(drop,`${name}.Drops[${dropIndex}]`))};
+    });
+    const isBoss=isBossText==='True';
+    enemies.set(key,{type:'enemies',key,enemyId,isBoss,enemyType:enemyType(key,isBoss),bossWeapon,subspeciesBoss,drops:parsedDrops,dropGroups});
+  }
+  return enemies;
+}
+
+function parseBlueprintCSV(text) {
+  const rows=parseCSV(text);
+  const header=['Key','Type','SubType','DataStr'];
+  const schema=['string','string','string','string'];
+  if (rows.length<3 || header.some((value,index)=>rows[0]?.[index]!==value) || rows[0].length!==4) throw new Error('Unexpected items CSV header');
+  if (schema.some((value,index)=>rows[1]?.[index]!==value) || rows[1].length!==4) throw new Error('Unexpected items CSV schema row');
+  const keys=new Set(), blueprints=new Map();
+  for (let index=2; index<rows.length; index++) {
+    const row=rows[index];
+    if (row.length!==4) throw new Error(`Items CSV row ${index+1} has ${row.length} fields`);
+    const [key,type,subType,dataText]=row;
+    if (!key.trim()) throw new Error(`Items CSV row ${index+1} has an empty Key`);
+    if (keys.has(key)) throw new Error(`Duplicate item Key: ${key}`);
+    keys.add(key);
+    if (type!=='BluePrint' || subType!=='Blueprint') continue;
+    const data=parseJSON(dataText,`items CSV ${key}`);
+    assertObject(data,`items CSV ${key} DataStr`);
+    if (data.Name!==key) throw new Error(`Blueprint ${key} Name does not match Key`);
+    if (typeof data.ItemName!=='string' || !data.ItemName) throw new Error(`Blueprint ${key} has an invalid ItemName`);
+    if (!Number.isInteger(data.BlueprintType)) throw new Error(`Blueprint ${key} has an invalid BlueprintType`);
+    for (const field of ['Hero','SkinIndex','SkillIndex']) if (!Number.isSafeInteger(data[field]) || data[field]<0) throw new Error(`Blueprint ${key} has an invalid ${field}`);
+    if (typeof data.Localization!=='string') throw new Error(`Blueprint ${key} has an invalid Localization`);
+    if (!Array.isArray(data.ResearchMaterials)) throw new Error(`Blueprint ${key} has invalid ResearchMaterials`);
+    const seenMaterials=new Set();
+    const materials=data.ResearchMaterials.map((entry,materialIndex)=>{
+      assertObject(entry,`Blueprint ${key} ResearchMaterials[${materialIndex}]`);
+      if (typeof entry.item!=='string' || !entry.item) throw new Error(`Blueprint ${key} has an invalid research material ID`);
+      if (!Number.isSafeInteger(entry.num) || entry.num<=0) throw new Error(`Blueprint ${key} has an invalid research quantity`);
+      if (seenMaterials.has(entry.item)) throw new Error(`Blueprint ${key} repeats research material ${entry.item}`);
+      seenMaterials.add(entry.item);
+      return {item:entry.item,num:entry.num};
+    });
+    blueprints.set(key,{itemId:data.ItemName,blueprintType:data.BlueprintType,hero:data.Hero,skinIndex:data.SkinIndex,skillIndex:data.SkillIndex,localization:data.Localization,materials});
+  }
+  return blueprints;
+}
+
+function blueprintLocalizationKey(id,row) {
+  switch (row.blueprintType) {
+    case 0: case 1: return row.itemId.replace(/_skin_(\d+)$/,'_skin_name_$1');
+    case 2: return row.itemId;
+    case 3: return row.localization;
+    case 4: return `Character${row.hero}_skill_${row.skillIndex}_name`;
+    case 5: return `Character${row.hero}_name_skin${row.skinIndex}`;
+    case 6: case 7: return `weapon/${row.itemId}`;
+    case 8: {
+      const target=id.replace(/^blueprint_evolution_/,'');
+      if (target===id) throw new Error(`Evolution blueprint ${id} has an invalid ID`);
+      return `weapon/${target}`;
+    }
+    default: throw new Error(`Blueprint ${id} has unsupported type ${row.blueprintType}`);
+  }
+}
+
+function parseJSON(raw, name) {
+  try { return JSON.parse(raw); }
+  catch (error) { throw new Error(`${name}: ${error.message}`); }
+}
+
+function assertObject(value, name) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error(`${name} must be an object`);
+}
+
+function characterWeaponIds(code) {
+  const starting=code==='Knight'?'weapon_000':`weapon_init_${code.toLowerCase()}`;
+  return {starting,upgraded:`${starting}x`};
+}
+
+function parseWeapons(value) {
+  assertObject(value,'weapon_full.json');
+  if (!Array.isArray(value.weapons)) throw new Error('weapon_full.json.weapons must be an array');
+  const ids=new Set();
+  return value.weapons.map((weapon,index)=>{
+    const source=`weapon_full.json.weapons[${index}]`;
+    assertObject(weapon,source);
+    if (typeof weapon.name!=='string' || !weapon.name) throw new Error(`${source} has an invalid name`);
+    if (!Number.isSafeInteger(weapon.level) || weapon.level<0) throw new Error(`${source} has an invalid level`);
+    if (typeof weapon.type!=='string' || !weapon.type) throw new Error(`${source} has an invalid type`);
+    if (ids.has(weapon.name)) throw new Error(`Duplicate weapon name: ${weapon.name}`);
+    ids.add(weapon.name);
+    return {code:weapon.name,english:typeof weapon.title==='string'?weapon.title:'',level:weapon.level,weaponType:weapon.type};
+  });
+}
+
+function buildModel(snapshot) {
+  const raw=snapshot.files;
+  if (!raw || FILES.some(name => typeof raw[name] !== 'string')) throw new Error('Snapshot files are incomplete');
+  const version=parseJSON(raw['version.json'],'version.json');
+  const charCodes=parseJSON(raw['char_code_name.json'],'char_code_name.json');
+  const petCodes=parseJSON(raw['pet_code_name.json'],'pet_code_name.json');
+  const weapons=parseWeapons(parseJSON(raw['weapon_full.json'],'weapon_full.json'));
+  const weaponSkins=parseJSON(raw['weapon_skins.json'],'weapon_skins.json');
+  const items=parseJSON(raw['item.json'],'item.json');
+  if (!version || typeof version.version !== 'string') throw new Error('version.json lacks version string');
+  if (!Array.isArray(charCodes) || charCodes.some(v => typeof v !== 'string')) throw new Error('char_code_name.json must be a string array');
+  if (!Array.isArray(petCodes) || petCodes.some(v => typeof v !== 'string')) throw new Error('pet_code_name.json must be a string array');
+  assertObject(weaponSkins,'weapon_skins.json'); assertObject(weaponSkins.weapons,'weapon_skins.json.weapons'); assertObject(items,'item.json'); assertObject(items.material,'item.json.material'); assertObject(items.blueprint,'item.json.blueprint');
+  if (!/^[0-9a-f]{40}$/.test(snapshot.sha)) throw new Error('Snapshot SHA is invalid');
+  const i18n=parseLocalization(raw['I2language.csv']);
+  const keys=[...i18n.keys()];
+
+  const skinIds=new Map(), skillIds=new Map(), petSkillIds=new Map();
+  for (const key of keys) {
+    let match=key.match(/^Character(\d+)_name_skin(\d+)$/);
+    if (match) { const id=Number(match[1]); if (!skinIds.has(id)) skinIds.set(id,new Set()); skinIds.get(id).add(Number(match[2])); continue; }
+    match=key.match(/^Character(\d+)_skill_(\d+)_(name|info|x)$/);
+    if (match) { const id=Number(match[1]); if (!skillIds.has(id)) skillIds.set(id,new Set()); skillIds.get(id).add(Number(match[2])); continue; }
+    match=key.match(/^pet_(\d+)_skill_(\d+)_(name|desc)$/);
+    if (match) { const id=Number(match[1]); if (!petSkillIds.has(id)) petSkillIds.set(id,new Set()); petSkillIds.get(id).add(Number(match[2])); }
+  }
+
+  const characters=charCodes.map((code,id) => ({type:'characters',id,code,...characterWeaponIds(code),skinIds:[...(skinIds.get(id)||[])].sort((a,b)=>a-b),skillIds:[...(skillIds.get(id)||[])].sort((a,b)=>a-b)}));
+  const pets=petCodes.map((code,id) => ({type:'pets',id,code,skillIds:[...(petSkillIds.get(id)||[])].sort((a,b)=>a-b)}));
+  const evolutionIds=new Set(Array.isArray(items.blueprint?.evolution) ? items.blueprint.evolution.map(id => id.replace(/^blueprint_evolution_/,'')) : []);
+  const weaponEntities=weapons.map(weapon => ({type:'weapons',...weapon,skinIds:[...new Set(weaponSkins.weapons[weapon.code]?.UnlockedSkins || [])].sort(naturalCompare),hasEvolution:evolutionIds.has(weapon.code)||i18n.has(`desc_evolution_${weapon.code}`)})).sort((a,b)=>naturalCompare(a.code,b.code));
+  const weaponIds=new Set(weaponEntities.map(weapon=>weapon.code));
+  for (const character of characters) for (const id of [character.starting,character.upgraded]) {
+    if (!weaponIds.has(id) || !i18n.has(`weapon/${id}`)) throw new Error(`Character ${character.code} starting weapon is missing: ${id}`);
+  }
+  const materials=[], materialIds=new Set();
+  for (const [group,values] of Object.entries(items.material)) {
+    if (!Array.isArray(values)) throw new Error(`item.json material.${group} must be an array`);
+    for (const id of values) {
+      if (typeof id!=='string' || !id) throw new Error(`item.json material.${group} contains an invalid ID`);
+      if (materialIds.has(id)) throw new Error(`Duplicate material ID: ${id}`);
+      materialIds.add(id); materials.push({type:'materials',id,group});
+    }
+  }
+  materials.sort((a,b)=>naturalCompare(a.id,b.id));
+
+  const blueprintIndex=[], blueprintIds=new Set();
+  for (const [group,values] of Object.entries(items.blueprint)) {
+    if (!Array.isArray(values)) throw new Error(`item.json blueprint.${group} must be an array`);
+    for (const id of values) {
+      if (typeof id!=='string' || !id) throw new Error(`item.json blueprint.${group} contains an invalid ID`);
+      if (blueprintIds.has(id)) throw new Error(`Duplicate blueprint ID: ${id}`);
+      blueprintIds.add(id); blueprintIndex.push({id,group});
+    }
+  }
+  const blueprintRows=typeof raw[BLUEPRINT_FILE]==='string'?parseBlueprintCSV(raw[BLUEPRINT_FILE]):null;
+  let blueprints=null;
+  if (blueprintRows) {
+    if (blueprintRows.size!==blueprintIds.size || [...blueprintIds].some(id=>!blueprintRows.has(id)) || [...blueprintRows.keys()].some(id=>!blueprintIds.has(id))) throw new Error('Blueprint IDs differ between item.json and items.decrypted.csv');
+    blueprints=blueprintIndex.map(({id,group})=>{
+      const row=blueprintRows.get(id), localizationKey=blueprintLocalizationKey(id,row);
+      if (!localizationKey || !i18n.has(localizationKey)) throw new Error(`Blueprint ${id} localization key is missing: ${localizationKey}`);
+      for (const cost of row.materials) if (!materialIds.has(cost.item)) throw new Error(`Blueprint ${id} references unknown material ${cost.item}`);
+      return {type:'blueprints',id,group,itemId:row.itemId,blueprintType:row.blueprintType,localizationKey,materials:row.materials};
+    }).sort((a,b)=>naturalCompare(a.id,b.id));
+  }
+  const enemyRows=typeof raw[ENEMY_FILE]==='string'?parseEnemyCSV(raw[ENEMY_FILE]):null;
+  const enemies=enemyRows?[...enemyRows.values()].sort((a,b)=>naturalCompare(a.key,b.key)):null;
+  return {version:version.version,i18n,charCodes,characters,pets,weapons:weaponEntities,materials,blueprints,blueprintCount:blueprintIds.size,enemies};
+}
+
+function naturalCompare(a,b) { return String(a).localeCompare(String(b),undefined,{numeric:true,sensitivity:'base'}); }
+function languageIndex(language=state.language) { return Math.max(0,LANGUAGES.indexOf(language)); }
+
+function localized(key, options={}) {
+  const {englishFallback='', language=state.language, visited=new Set()}=options;
+  const row=state.model?.i18n.get(key);
+  if (!row) return englishFallback ? {text:englishFallback,status:'English fallback',key} : {text:'Not localized',status:'missing',key};
+  const index=languageIndex(language);
+  let value=(row[index] ?? '').trim();
+  if (!value && index !== 0 && row[0]?.trim()) return resolveAlias(key,row[0].trim(),0,new Set(),{text:row[0].trim(),status:'English fallback',key});
+  if (!value && englishFallback) return {text:englishFallback,status:index===0?'JSON fallback':'English fallback',key};
+  if (!value) return {text:'Not localized',status:'missing',key};
+  return resolveAlias(key,value,index,visited,{text:value,status:'exact',key});
+}
+
+function resolveAlias(key,value,index,visited,fallback) {
+  const match=value.match(/^\{([A-Za-z][A-Za-z0-9_./-]*)\}$/);
+  if (!match) return fallback;
+  if (visited.has(key) || visited.size >= 24) return {text:value,status:'alias cycle',key};
+  const target=match[1], row=state.model?.i18n.get(target);
+  if (!row) return {text:value,status:'unresolved alias',key};
+  visited.add(key);
+  let next=(row[index] ?? '').trim();
+  let status='alias';
+  if (!next && index !== 0) { next=(row[0] ?? '').trim(); status='English fallback'; }
+  if (!next) return {text:value,status:'unresolved alias',key};
+  const resolved=resolveAlias(target,next,index,visited,{text:next,status,key});
+  return {...resolved,key,status:resolved.status==='exact'?status:resolved.status};
+}
+
+function formatTemplate(template,value) {
+  if (template.includes('{}')) return template.replace('{}',value);
+  if (template.includes('{0}')) return template.replace('{0}',value);
+  return '';
+}
+
+function inferMaterial(material, language=state.language) {
+  const exact=state.model.i18n.has(material.id);
+  if (exact) return localized(material.id,{language});
+  let match, sourceKey='', templateKey='';
+  if ((match=material.id.match(/^material_skin_fragment_c(\d+)_s(\d+)$/))) {
+    sourceKey=`Character${Number(match[1])}_name_skin${Number(match[2])}`; templateKey='material_skin_fragment';
+  } else if ((match=material.id.match(/^material_skin_fragment_(boss\d+)$/))) {
+    sourceKey=match[1]; templateKey='material_skin_fragment';
+  } else if (material.id === 'material_skin_fragment_shop') {
+    sourceKey='bossshop'; templateKey='material_skin_fragment';
+  } else if ((match=material.id.match(/^material_skill_(.+)_(\d+)$/))) {
+    const charIndex=state.model.charCodes.findIndex(code => code.toLowerCase() === match[1].toLowerCase());
+    if (charIndex >= 0) { sourceKey=`Character${charIndex}_skill_${Number(match[2])}_name`; templateKey='material_skill_fragment'; }
+  } else if ((match=material.id.match(/^material_mech_fragment_(.+)$/))) {
+    sourceKey=match[1]; templateKey='material_mech_fragment';
+  } else if ((match=material.id.match(/^material_weapon_fragment_(weapon_.+)$/))) {
+    sourceKey=`weapon/${match[1]}`;
+    templateKey=state.model.i18n.has('weapon_blueprint_fragment_2')?'weapon_blueprint_fragment_2':'weapon_blueprint_fragment_1';
+  }
+  if (sourceKey && templateKey && state.model.i18n.has(sourceKey) && state.model.i18n.has(templateKey)) {
+    const source=localized(sourceKey,{language}), template=localized(templateKey,{language});
+    const text=formatTemplate(template.text,source.text);
+    if (text) return {text,status:'inferred',key:material.id,sources:[sourceKey,templateKey]};
+  }
+  const aliases={
+    material_choose_hero_1:'material_choose_hero', material_choose_hero_return_player_1:'material_choose_hero',
+    material_choose_skin_1:'material_choose_skin', material_choose_skin_return_player_1:'material_choose_skin',
+    material_season_treasure_box:'material_season_tresure_box'
+  };
+  let alias=aliases[material.id];
+  if (!alias) {
+    const candidate=material.id.replace(/(?:_?\d+)$/,'');
+    if (candidate !== material.id && state.model.i18n.has(candidate)) alias=candidate;
+  }
+  if (alias && state.model.i18n.has(alias)) return {...localized(alias,{language}),status:'inferred',key:material.id,sources:[alias]};
+  return {text:material.id,status:'unresolved',key:material.id};
+}
+
+function badge(status) {
+  if (!status || status === 'exact' || status === 'alias') return null;
+  const kind=/missing|unresolved|cycle/.test(status)?'error':/fallback|inferred/.test(status)?'warn':'';
+  return el('span',{class:`badge ${kind}`.trim(),text:status});
+}
+
+function sourceKey(key) { return el('div',{class:'key',text:key}); }
+function titleBlock(title,subtitle='') { return el('div',{},el('h1',{text:title}),subtitle?el('p',{class:'muted',text:subtitle}):null); }
+function field(label,value,key='',status='') {
+  const dd=el('dd',{},value instanceof Node?value:document.createTextNode(value || 'Not available'));
+  const mark=badge(status); if (mark) dd.append(' ',mark);
+  if (key) dd.append(sourceKey(key));
+  return el('div',{class:'field'},el('dt',{text:label}),dd);
+}
+function card(href,title,meta='',status='') {
+  const heading=el('h3',{text:title}); const mark=badge(status); if (mark) heading.append(' ',mark);
+  return el('a',{class:'card',href},heading,meta?el('p',{class:'key',text:meta}):null);
+}
+function routeParts() {
+  try { return (location.hash.slice(1)||'/').split('?')[0].split('/').filter(Boolean).map(decodeURIComponent); }
+  catch { return ['invalid-route']; }
+}
+function currentPage() { return routeParts()[0] || 'home'; }
+function routeFor(type,id) { return `#/${type}/${encodeURIComponent(id)}`; }
+
+function characterName(character, language=state.language) { return localized(`Character${character.id}_name_skin0`,{language}); }
+function petName(pet, language=state.language) { return localized(`Pet_name_${pet.id}`,{language}); }
+function weaponName(weapon, language=state.language) { return localized(`weapon/${weapon.code}`,{language,englishFallback:weapon.english}); }
+function enemyName(enemy, language=state.language) {
+  if (!enemy.enemyId) return {text:enemy.key,status:'unresolved',key:'EnemyId'};
+  const value=localized(enemy.enemyId,{language,englishFallback:enemy.key});
+  return value.text==='Not localized'?{text:enemy.key,status:'unresolved',key:enemy.enemyId}:value;
+}
+function blueprintName(blueprint, language=state.language) {
+  const target=localized(blueprint.localizationKey,{language});
+  if (blueprint.blueprintType===4) {
+    const format=localized('blueprint_skill',{language}), text=formatTemplate(format.text,target.text);
+    return {text:text||target.text,status:format.status!=='exact'?format.status:target.status,key:`blueprint_skill + ${blueprint.localizationKey}`};
+  }
+  if (blueprint.blueprintType===8) {
+    const evolution=localized('weapon_evolution',{language});
+    return {text:`${evolution.text}: ${target.text}`,status:evolution.status!=='exact'?evolution.status:target.status,key:`weapon_evolution + ${blueprint.localizationKey}`};
+  }
+  return target;
+}
+
+function localizedSearch(key) {
+  return [localized(key).text,localized(key,{language:'English'}).text];
+}
+
+function entitySearch(entity) {
+  const values=[];
+  if (entity.type==='characters') {
+    values.push(entity.id,entity.code,...localizedSearch(`Character${entity.id}_name_skin0`));
+    for (const id of [entity.starting,entity.upgraded]) values.push(id,...localizedSearch(`weapon/${id}`));
+    for (const skinId of entity.skinIds) values.push(...localizedSearch(`Character${entity.id}_name_skin${skinId}`));
+    for (const skillId of entity.skillIds) for (const suffix of ['name','info','x']) values.push(...localizedSearch(`Character${entity.id}_skill_${skillId}_${suffix}`));
+  } else if (entity.type==='pets') { const a=petName(entity), b=petName(entity,'English'); values.push(entity.id,entity.code,a.text,b.text); }
+  else if (entity.type==='weapons') { const a=weaponName(entity), b=weaponName(entity,'English'); values.push(entity.code,entity.level,entity.weaponType,a.text,b.text,entity.english); }
+  else if (entity.type==='enemies') {
+    values.push(entity.key,entity.enemyId,entity.enemyType,entity.bossWeapon,entity.subspeciesBoss,enemyName(entity).text,enemyName(entity,'English').text);
+    const addDrop=drop=>values.push(drop.item,JSON.stringify(drop.conditions));
+    entity.drops.forEach(addDrop); entity.dropGroups.forEach(group=>group.drops.forEach(addDrop));
+  } else if (entity.type==='blueprints') {
+    values.push(entity.id,entity.itemId,entity.group,entity.localizationKey,blueprintName(entity).text,blueprintName(entity,'English').text);
+    for (const cost of entity.materials) { const material=state.model.materials.find(value=>value.id===cost.item); values.push(cost.item,material?inferMaterial(material).text:'',material?inferMaterial(material,'English').text:''); }
+  } else { const a=inferMaterial(entity); values.push(entity.id,entity.group,a.text); }
+  return values.join(' ').toLocaleLowerCase();
+}
+
+function filtered(entities) {
+  const query=state.search.trim().toLocaleLowerCase();
+  return query ? entities.filter(entity => entitySearch(entity).includes(query)) : entities;
+}
+
+function renderHome() {
+  const root=el('div',{},titleBlock('Soul Knight data wiki','Characters, pets, weapons, materials, blueprints, enemies. Localized from the latest complete main-branch snapshot.'));
+  root.append(el('section',{class:'status warn'},el('h2',{text:'Proof of concept'}),el('p',{text:'This page is an AI-generated proof of concept. Data is taken from game assets, localization, and configuration, and might not reflect the real game.'}),el('p',{},badge('inferred'),' Derived from related source data. ',badge('missing'),' / ',badge('unresolved'),' Required localization or related data could not be resolved. ',badge('English fallback'),' Selected-language text is unavailable; English is shown. ',badge('JSON fallback'),' Localization is unavailable; an English JSON name is shown where supported.')));
+  const groups=[['characters','Characters',state.model.characters],['pets','Pets',state.model.pets],['weapons','Weapons',state.model.weapons],['materials','Materials',state.model.materials],['blueprints','Blueprints',state.model.blueprints],['enemies','Enemies',state.model.enemies]];
+  if (!state.search.trim()) {
+    root.append(el('div',{class:'grid'},groups.map(([route,label,items]) => el('a',{class:'card',href:`#/${route}`},el('div',{class:'count',text:items?items.length:'Unavailable'}),el('h2',{text:label})))));
+  } else {
+    const all=groups.flatMap(([, ,items])=>items||[]), matches=filtered(all);
+    root.append(el('p',{class:'muted',text:`${matches.length} matches across all pages`}),renderCards(matches));
+  }
+  root.append(el('h2',{text:'Data source'}),el('dl',{class:'stack'},
+    field('Repository',REPO),field('Game version',state.model.version,'version.json'),field('Commit',state.snapshot.sha),field('Snapshot time',new Date(state.snapshot.fetchedAt).toLocaleString())
+  ));
+  return root;
+}
+
+function renderCards(entities) {
+  const shown=entities.slice(0,MAX_RESULTS);
+  const grid=el('div',{class:'grid'});
+  for (const entity of shown) {
+    if (entity.type==='characters') { const name=characterName(entity); grid.append(card(routeFor('characters',entity.id),name.text,`ID ${entity.id} · ${entity.code}`,name.status)); }
+    else if (entity.type==='pets') { const name=petName(entity); grid.append(card(routeFor('pets',entity.id),name.text,`ID ${entity.id} · ${entity.code}`,name.status)); }
+    else if (entity.type==='weapons') { const name=weaponName(entity); grid.append(card(routeFor('weapons',entity.code),name.text,`${entity.weaponType} · Rarity ${entity.level} · ${entity.code}`,name.status)); }
+    else if (entity.type==='blueprints') { const name=blueprintName(entity); grid.append(card(routeFor('blueprints',entity.id),name.text,`${entity.group} · ${entity.id} · ${entity.itemId}`,name.status)); }
+    else if (entity.type==='enemies') { const name=enemyName(entity); grid.append(card(routeFor('enemies',entity.key),name.text,`${entity.enemyType} · ${entity.key}${entity.enemyId?` · ${entity.enemyId}`:''}`,name.status)); }
+    else { const name=inferMaterial(entity); grid.append(card(routeFor('materials',entity.id),name.text,`${entity.group} · ${entity.id}`,name.status)); }
+  }
+  const wrapper=el('div',{});
+  if (entities.length>MAX_RESULTS) wrapper.append(el('p',{class:'muted',text:`Showing ${MAX_RESULTS} of ${entities.length} matches. Refine search.`}));
+  wrapper.append(grid);
+  return wrapper;
+}
+
+function renderList(title,entities) {
+  const matches=filtered(entities);
+  return el('div',{},el('div',{class:'section-head'},titleBlock(title),el('p',{class:'muted',text:`${matches.length} of ${entities.length}`})),matches.length?renderCards(matches):el('div',{class:'empty',text:'No matches.'}));
+}
+
+function renderCharacter(character) {
+  if (!character) return notFound();
+  const name=characterName(character), root=el('div',{},titleBlock(name.text,`Character ${character.id} · ${character.code}`));
+  root.append(el('dl',{class:'stack'},field('Character name',name.text,name.key,name.status),field('Code name',character.code,'char_code_name.json'),field('Numeric ID',String(character.id),'array index')));
+  const weaponFields=[['Starting weapon',character.starting],['Upgraded starting weapon',character.upgraded]].map(([label,id])=>{
+    const weapon=state.model.weapons.find(value=>value.code===id), weaponNameValue=weaponName(weapon);
+    return field(label,el('a',{href:routeFor('weapons',id),text:weaponNameValue.text}),`weapon/${id}`,weaponNameValue.status);
+  });
+  root.append(el('h2',{text:'Starting weapons'}),el('dl',{class:'stack'},weaponFields));
+  root.append(el('h2',{text:`Skins (${character.skinIds.length})`}));
+  const skins=el('div',{class:'grid'});
+  for (const id of character.skinIds) { const key=`Character${character.id}_name_skin${id}`, value=localized(key); skins.append(el('div',{class:'card'},el('h3',{text:value.text}),badge(value.status),el('p',{class:'muted',text:`Skin ID ${id}`}))); }
+  root.append(skins);
+  root.append(el('h2',{text:`Skills (${character.skillIds.length})`}));
+  const skills=el('div',{class:'stack'});
+  for (const id of character.skillIds) {
+    const base=`Character${character.id}_skill_${id}`, skillName=localized(`${base}_name`), info=localized(`${base}_info`), mentor=localized(`${base}_x`);
+    skills.append(el('section',{class:'field'},el('h3',{text:`${id}. ${skillName.text}`}),badge(skillName.status),sourceKey(`${base}_name`),el('dl',{class:'stack'},field('Description',info.text,'',info.status),field('Mentor upgrade',mentor.text,'',mentor.status))));
+  }
+  root.append(skills);
+  return root;
+}
+
+function renderPet(pet) {
+  if (!pet) return notFound();
+  const name=petName(pet), root=el('div',{},titleBlock(name.text,`Pet ${pet.id} · ${pet.code}`));
+  root.append(el('dl',{class:'stack'},field('Pet name',name.text,name.key,name.status),field('Code name',pet.code,'pet_code_name.json'),field('Numeric ID',String(pet.id),'array index')));
+  root.append(el('h2',{text:`Skills (${pet.skillIds.length})`}));
+  if (!pet.skillIds.length) root.append(el('div',{class:'empty',text:'No pet skill localization found.'}));
+  const skills=el('div',{class:'stack'});
+  for (const id of pet.skillIds) { const base=`pet_${pet.id}_skill_${id}`, skillName=localized(`${base}_name`), desc=localized(`${base}_desc`); skills.append(el('section',{class:'field'},el('h3',{text:`${id}. ${skillName.text}`}),badge(skillName.status),sourceKey(`${base}_name`),el('p',{text:desc.text}),badge(desc.status))); }
+  root.append(skills); return root;
+}
+
+function renderWeapon(weapon) {
+  if (!weapon) return notFound();
+  const name=weaponName(weapon), root=el('div',{},titleBlock(name.text,weapon.code));
+  root.append(el('dl',{class:'stack'},field('Weapon name',name.text,name.key,name.status),field('Weapon ID',weapon.code,'weapon_full.json → name'),field('Rarity',String(weapon.level),'weapon_full.json → level'),field('Weapon type',weapon.weaponType,'weapon_full.json → type')));
+  root.append(el('h2',{text:`Skins (${weapon.skinIds.length})`}));
+  if (!weapon.skinIds.length) root.append(el('div',{class:'empty',text:'No weapon skins.'}));
+  const skins=el('div',{class:'grid'});
+  for (const id of weapon.skinIds) { const value=localized(id), suffix=id.match(/_s_(\d+)$/)?.[1] || '?'; skins.append(el('div',{class:'card'},el('h3',{text:value.text}),badge(value.status),el('p',{class:'muted',text:`Skin ID ${suffix}`}))); }
+  root.append(skins);
+  root.append(el('h2',{text:'Evolution'}));
+  const evoKey=`desc_evolution_${weapon.code}`;
+  if (weapon.hasEvolution) { const evo=localized(evoKey); root.append(el('dl',{class:'stack'},field('Evolution description',evo.text,'',evo.status))); }
+  else root.append(el('div',{class:'empty',text:'No weapon evolution.'}));
+  return root;
+}
+
+function linkedValue(value,route,exists) {
+  return value && exists?el('a',{href:route,text:value}):document.createTextNode(value||'Not available');
+}
+
+function dropTarget(id) {
+  const material=state.model.materials.find(value=>value.id===id);
+  if (material) return {name:inferMaterial(material),route:routeFor('materials',id)};
+  const blueprint=state.model.blueprints?.find(value=>value.id===id);
+  if (blueprint) return {name:blueprintName(blueprint),route:routeFor('blueprints',id)};
+  const weapon=state.model.weapons.find(value=>value.code===id);
+  if (weapon) return {name:weaponName(weapon),route:routeFor('weapons',id)};
+  return {name:{text:id,status:''},route:''};
+}
+
+function renderDrops(drops) {
+  if (!drops.length) return el('div',{class:'empty',text:'No drops.'});
+  const grid=el('div',{class:'grid'});
+  for (const drop of drops) {
+    const target=dropTarget(drop.item), heading=target.route?el('a',{href:target.route,text:target.name.text}):el('h3',{text:target.name.text});
+    const content=el('div',{class:'card'},heading,badge(target.name.status),el('p',{class:'key',text:drop.item}),el('dl',{class:'stack'},field('Probability',String(drop.probability)),field('Guaranteed drop',drop.guaranteeDrop?'Yes':'No'),field('Guaranteed count',String(drop.guaranteeDropCount)),field('Conditions',drop.conditions.length?JSON.stringify(drop.conditions,null,2):'None')));
+    grid.append(content);
+  }
+  return grid;
+}
+
+function enemiesUnavailable() {
+  return el('div',{},titleBlock('Enemies'),el('div',{class:'status warn',text:'Enemy data is unavailable in this cached or historical repository snapshot. Refresh after loading a commit that contains enemies.decrypted.csv.'}));
+}
+
+function renderEnemy(enemy) {
+  if (!state.model.enemies) return enemiesUnavailable();
+  if (!enemy) return notFound();
+  const name=enemyName(enemy), root=el('div',{},titleBlock(name.text,`${enemy.enemyType} · ${enemy.key}`));
+  const weapon=state.model.weapons.some(value=>value.code===enemy.bossWeapon), subspecies=state.model.enemies.some(value=>value.key===enemy.subspeciesBoss);
+  root.append(el('dl',{class:'stack'},field('Enemy name',name.text,name.key,name.status),field('Enemy ID',enemy.key,'enemies.decrypted.csv → Key'),field('Localization ID',enemy.enemyId,'enemies.decrypted.csv → EnemyId'),field('Enemy type',enemy.enemyType),field('Boss weapon',linkedValue(enemy.bossWeapon,routeFor('weapons',enemy.bossWeapon),weapon)),field('Subspecies boss',linkedValue(enemy.subspeciesBoss,routeFor('enemies',enemy.subspeciesBoss),subspecies))));
+  root.append(el('h2',{text:`Drops (${enemy.drops.length})`}),renderDrops(enemy.drops));
+  root.append(el('h2',{text:`Drop groups (${enemy.dropGroups.length})`}));
+  if (!enemy.dropGroups.length) root.append(el('div',{class:'empty',text:'No drop groups.'}));
+  for (const [index,group] of enemy.dropGroups.entries()) root.append(el('section',{class:'field'},el('h3',{text:`Group ${index+1}`}),el('dl',{class:'stack'},field('Probability',String(group.probability)),field('Random order',group.randomOrder?'Yes':'No')),renderDrops(group.drops)));
+  return root;
+}
+
+function renderMaterial(material) {
+  if (!material) return notFound();
+  const name=inferMaterial(material), root=el('div',{},titleBlock(name.text,material.id));
+  root.append(el('dl',{class:'stack'},field('Material name',name.text,material.id,name.status),field('Material ID',material.id,'item.json'),field('Group',material.group,'item.json → material')));
+  if (name.sources?.length) root.append(el('h2',{text:'Inferred from'}),el('div',{class:'field'},...name.sources.map(sourceKey)));
+  return root;
+}
+
+function blueprintsUnavailable() {
+  return el('div',{},titleBlock('Blueprints'),el('div',{class:'status warn',text:'Blueprint data is unavailable in this cached or historical repository snapshot. Refresh after loading a commit that contains items.decrypted.csv.'}));
+}
+
+function renderBlueprint(blueprint) {
+  if (!state.model.blueprints) return blueprintsUnavailable();
+  if (!blueprint) return notFound();
+  const name=blueprintName(blueprint), root=el('div',{},titleBlock(name.text,blueprint.id));
+  root.append(el('dl',{class:'stack'},field('Blueprint name',name.text,name.key,name.status),field('Blueprint ID',blueprint.id,'item.json'),field('Item ID',blueprint.itemId,'items.decrypted.csv → DataStr.ItemName'),field('Group',blueprint.group,'item.json → blueprint')));
+  root.append(el('h2',{text:`Research materials (${blueprint.materials.length})`}));
+  if (!blueprint.materials.length) root.append(el('div',{class:'empty',text:'No research materials required.'}));
+  else {
+    const costs=el('div',{class:'grid'});
+    for (const cost of blueprint.materials) {
+      const material=state.model.materials.find(value=>value.id===cost.item), name=material?inferMaterial(material):{text:cost.item,status:'unresolved'};
+      costs.append(el('a',{class:'card',href:routeFor('materials',cost.item)},el('h3',{text:name.text}),badge(name.status),el('p',{class:'count',text:`× ${cost.num}`}),el('p',{class:'key',text:cost.item})));
+    }
+    root.append(costs);
+  }
+  return root;
+}
+
+function notFound() { return el('div',{},titleBlock('Not found'),el('p',{text:'The requested wiki entry does not exist.'}),el('a',{href:'#/',text:'Return home'})); }
+
+function updateSource() {
+  sourceBox.replaceChildren();
+  const link=el('a',{href:REPO_URL,target:'_blank',rel:'noopener noreferrer',text:REPO});
+  if (!state.snapshot) { sourceBox.append('Source: ',link); return; }
+  const commit=el('a',{href:`${REPO_URL}/tree/${state.snapshot.sha}`,target:'_blank',rel:'noopener noreferrer',text:state.snapshot.sha.slice(0,12)});
+  sourceBox.append('Source: ',link,' · commit ',commit,' · game ',state.model?.version || '?',' · ',state.sourceMode);
+}
+
+function render() {
+  document.documentElement.lang=languageCode(state.language);
+  document.documentElement.dir=RTL.has(state.language)?'rtl':'ltr';
+  searchInput.value=state.search;
+  const page=currentPage();
+  for (const link of navLinks) link.toggleAttribute('aria-current',link.dataset.page===page || (page==='home'&&link.dataset.page==='home'));
+  updateSource();
+  if (!state.model) return;
+  const parts=routeParts(); let view;
+  if (!parts.length) view=renderHome();
+  else if (parts[0]==='characters') view=parts.length>1?renderCharacter(state.model.characters.find(v=>v.id===Number(parts[1]))):renderList('Characters',state.model.characters);
+  else if (parts[0]==='pets') view=parts.length>1?renderPet(state.model.pets.find(v=>v.id===Number(parts[1]))):renderList('Pets',state.model.pets);
+  else if (parts[0]==='weapons') view=parts.length>1?renderWeapon(state.model.weapons.find(v=>v.code===parts[1])):renderList('Weapons',state.model.weapons);
+  else if (parts[0]==='materials') view=parts.length>1?renderMaterial(state.model.materials.find(v=>v.id===parts[1])):renderList('Materials',state.model.materials);
+  else if (parts[0]==='blueprints') view=!state.model.blueprints?blueprintsUnavailable():parts.length>1?renderBlueprint(state.model.blueprints.find(v=>v.id===parts[1])):renderList('Blueprints',state.model.blueprints);
+  else if (parts[0]==='enemies') view=!state.model.enemies?enemiesUnavailable():parts.length>1?renderEnemy(state.model.enemies.find(v=>v.key===parts[1])):renderList('Enemies',state.model.enemies);
+  else view=notFound();
+  app.replaceChildren(view);
+  document.title=`${parts.length ? (view.querySelector('h1')?.textContent || 'Wiki') : 'SKDFE Wiki'} · SKDFE`;
+}
+
+function languageCode(language) {
+  return {'English':'en','Chinese (Traditional)':'zh-Hant','Chinese (Simplified)':'zh-Hans','Japanese':'ja','Korean':'ko','Spanish':'es','German':'de','Portuguese':'pt','French':'fr','Russian':'ru','Polish':'pl','Persian':'fa','Arabic':'ar','Thai':'th','Vietnamese':'vi'}[language] || 'en';
+}
+
+function chooseLanguage() {
+  const requested=new URL(location.href).searchParams.get('lang');
+  if (LANGUAGES.includes(requested)) return requested;
+  const prefs=navigator.languages || [navigator.language];
+  for (const pref of prefs) {
+    const base=pref.toLowerCase();
+    if (base.startsWith('zh-')) return /(?:hans|cn|sg)(?:-|$)/.test(base)?'Chinese (Simplified)':'Chinese (Traditional)';
+    const found=LANGUAGES.find(lang=>languageCode(lang).toLowerCase()===base || languageCode(lang).toLowerCase().split('-')[0]===base.split('-')[0]);
+    if (found) return found;
+  }
+  return 'English';
+}
+
+function setLanguage(language) {
+  state.language=language;
+  if (location.protocol !== 'file:') { const url=new URL(location.href); url.searchParams.set('lang',language); history.replaceState(null,'',url.pathname+url.search+url.hash); }
+  render();
+}
+
+function requestResult(request) { return new Promise((resolve,reject)=>{ request.onsuccess=()=>resolve(request.result); request.onerror=()=>reject(request.error); }); }
+function transactionDone(tx) { return new Promise((resolve,reject)=>{ tx.oncomplete=()=>resolve(); tx.onerror=()=>reject(tx.error); tx.onabort=()=>reject(tx.error || new Error('IndexedDB transaction aborted')); }); }
+
+function openDatabase() {
+  return new Promise((resolve,reject)=>{
+    const request=indexedDB.open(DB_NAME,DB_VERSION);
+    request.onupgradeneeded=()=>{ const db=request.result; if (!db.objectStoreNames.contains('snapshots')) db.createObjectStore('snapshots',{keyPath:'sha'}); if (!db.objectStoreNames.contains('meta')) db.createObjectStore('meta'); };
+    request.onsuccess=()=>resolve(request.result); request.onerror=()=>reject(request.error);
+  });
+}
+
+async function readCache() {
+  if (!state.db) return null;
+  const tx=state.db.transaction(['meta','snapshots'],'readonly'), meta=tx.objectStore('meta'), snapshots=tx.objectStore('snapshots');
+  const pointers=await requestResult(meta.get('pointers')) || {};
+  for (const sha of [pointers.current,pointers.previous]) {
+    if (!sha) continue;
+    const snapshot=await requestResult(snapshots.get(sha));
+    if (!snapshot) continue;
+    try { return {snapshot,model:buildModel(snapshot),slot:sha===pointers.current?'cache-current':'cache-previous'}; }
+    catch (error) { console.warn(`Ignoring invalid cached snapshot ${sha}`,error); }
+  }
+  await transactionDone(tx);
+  return null;
+}
+
+async function saveCache(snapshot) {
+  if (!state.db) throw new Error('IndexedDB unavailable');
+  const readTx=state.db.transaction('meta','readonly');
+  const old=await requestResult(readTx.objectStore('meta').get('pointers')) || {};
+  await transactionDone(readTx);
+  const previous=old.current && old.current!==snapshot.sha ? old.current : old.previous;
+  const keep=new Set([snapshot.sha,previous].filter(Boolean));
+  const tx=state.db.transaction(['meta','snapshots'],'readwrite'), meta=tx.objectStore('meta'), snapshots=tx.objectStore('snapshots');
+  snapshots.put(snapshot);
+  meta.put({current:snapshot.sha,previous},'pointers');
+  const keys=await requestResult(snapshots.getAllKeys());
+  for (const key of keys) if (!keep.has(key)) snapshots.delete(key);
+  await transactionDone(tx);
+}
+
+async function fetchWithLimit(url,limit,accept='text/plain',optional=false) {
+  const controller=new AbortController(), timer=setTimeout(()=>controller.abort(),30000);
+  try {
+    const response=await fetch(url,{headers:{Accept:accept},signal:controller.signal,cache:'no-store'});
+    if (optional && response.status===404) return null;
+    if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+    const declared=Number(response.headers.get('content-length') || 0);
+    if (declared>limit) throw new Error(`Response exceeds ${limit} bytes`);
+    const bytes=await response.arrayBuffer();
+    if (bytes.byteLength>limit) throw new Error(`Response exceeds ${limit} bytes`);
+    return new TextDecoder().decode(bytes);
+  } finally { clearTimeout(timer); }
+}
+
+async function fetchLatestSha() {
+  const text=await fetchWithLimit(API_URL,1_000_000,'application/vnd.github+json');
+  const data=parseJSON(text,'GitHub commit response'), sha=String(data.sha||'').toLowerCase();
+  if (!/^[0-9a-f]{40}$/.test(sha)) throw new Error('GitHub returned an invalid main-branch SHA');
+  return sha;
+}
+
+async function downloadSnapshot(sha) {
+  const base=`https://raw.githubusercontent.com/${REPO}/${sha}/`;
+  const optional=[BLUEPRINT_FILE,ENEMY_FILE];
+  const values=await Promise.all([...FILES.map(async name=>[name,await fetchWithLimit(base+name,LIMITS[name])]),...optional.map(async name=>[name,await fetchWithLimit(base+name,LIMITS[name],'text/plain',true)])]);
+  return {sha,fetchedAt:new Date().toISOString(),blueprintFileChecked:true,enemyFileChecked:true,files:Object.fromEntries(values.filter(([,value])=>value!==null))};
+}
+
+async function refresh(force=false) {
+  if (state.refreshing) return;
+  if (!force && Date.now()-state.lastCheck<REFRESH_MS) return;
+  state.refreshing=true; refreshButton.disabled=true; setStatus('Checking latest main-branch commit…');
+  try {
+    const sha=await fetchLatestSha(); state.lastCheck=Date.now();
+    if (state.snapshot?.sha===sha && state.snapshot.blueprintFileChecked && state.snapshot.enemyFileChecked) { state.sourceMode=state.sourceMode.startsWith('cache')?'cache, current':'network, current'; setStatus(`Current · game ${state.model.version} · ${sha.slice(0,12)}`); updateSource(); return; }
+    setStatus('Downloading and validating the latest data…');
+    const snapshot=await downloadSnapshot(sha), model=buildModel(snapshot);
+    state.snapshot=snapshot; state.model=model; state.sourceMode='network'; render();
+    if (!CAN_PERSIST) setStatus(`Updated live · game ${model.version} · ${sha.slice(0,12)}`);
+    else try { await saveCache(snapshot); setStatus(`Updated and cached · game ${model.version} · ${sha.slice(0,12)}`); }
+    catch (error) { console.warn('Fresh data could not be cached',error); setStatus(`Updated live; cache unavailable · ${error.message}`,'warn'); }
+    updateSource();
+  } catch (error) {
+    console.error('Refresh failed',error);
+    if (state.model) setStatus(`Using last valid data · refresh failed: ${error.message}`,'warn');
+    else setStatus(`No wiki data available · ${error.message}`,'error');
+  } finally { state.refreshing=false; refreshButton.disabled=false; }
+}
+
+function runChecks() {
+  const rows=parseCSV('﻿a,b,c\r\n1,"two, too","quote ""ok"""\n2,"line\nwrap",');
+  if (rows.length!==3 || rows[1][1]!=='two, too' || rows[1][2]!=='quote "ok"' || rows[2][1]!=='line\nwrap' || rows[2][2]!=='') throw new Error('CSV self-check failed');
+  let rejected=false; try { parseCSV('a,"broken'); } catch { rejected=true; } if (!rejected) throw new Error('Malformed CSV self-check failed');
+  if (!/^\{([A-Za-z][A-Za-z0-9_./-]*)\}$/.test('{boss18}') || /^\{([A-Za-z][A-Za-z0-9_./-]*)\}$/.test('{0}') || formatTemplate('[{}] Skin Fragment','Knight')!=='[Knight] Skin Fragment') throw new Error('Localization self-check failed');
+  const data='{"Name":"blueprint_test","ItemName":"weapon_006","BlueprintType":7,"Hero":0,"SkinIndex":0,"SkillIndex":0,"Localization":"","ResearchMaterials":[{"item":"material_gem","num":400}]}'.replaceAll('"','""');
+  const blueprint=parseBlueprintCSV(`Key,Type,SubType,DataStr\nstring,string,string,string\nblueprint_test,BluePrint,Blueprint,"${data}"`).get('blueprint_test');
+  if (blueprint.itemId!=='weapon_006' || blueprint.materials[0].num!==400 || blueprintLocalizationKey('blueprint_weapon_223',{blueprintType:7,itemId:'weapon_223'})!=='weapon/weapon_223' || blueprintLocalizationKey('blueprint_evolution_weapon_404',{blueprintType:8})!=='weapon/weapon_404') throw new Error('Blueprint self-check failed');
+  rejected=false; try { parseBlueprintCSV(`Key,Type,SubType,DataStr\nstring,string,string,string\nwrong,BluePrint,Blueprint,"${data}"`); } catch { rejected=true; } if (!rejected) throw new Error('Blueprint validation self-check failed');
+  if ((location.protocol==='file:' && CAN_PERSIST) || (location.protocol!=='file:' && typeof indexedDB!=='undefined' && !CAN_PERSIST)) throw new Error('Persistence capability self-check failed');
+  const parsedWeapons=parseWeapons({weapons:[{name:'weapon_test',title:'Test',level:2,type:'Pistol'}]});
+  if (parsedWeapons.length!==1 || parsedWeapons[0].code!=='weapon_test' || parsedWeapons[0].level!==2 || parsedWeapons[0].weaponType!=='Pistol') throw new Error('Weapon parsing self-check failed');
+  rejected=false; try { parseWeapons({weapons:[{name:'weapon_test',level:-1,type:'Pistol'}]}); } catch { rejected=true; } if (!rejected) throw new Error('Weapon validation self-check failed');
+  const knightWeapons=characterWeaponIds('Knight'), chefWeapons=characterWeaponIds('LadyChef');
+  if (knightWeapons.starting!=='weapon_000' || knightWeapons.upgraded!=='weapon_000x' || chefWeapons.starting!=='weapon_init_ladychef' || chefWeapons.upgraded!=='weapon_init_ladychefx' || chefWeapons.starting===chefWeapons.upgraded) throw new Error('Character weapon self-check failed');
+  const drop={item:{item:'material_test'},probability:150,guaranteeDrop:true,guaranteeDropCount:2,conditions:[{type:1}]};
+  const group={probability:200,randomOrder:false,Drops:[drop]}, enemyRow=Array(23).fill('');
+  Object.assign(enemyRow,{0:'ex_test',4:'e_test',12:'True',21:JSON.stringify([drop]),22:JSON.stringify([group])});
+  const csvCell=value=>`"${String(value).replaceAll('"','""')}"`, enemy=parseEnemyCSV(`${ENEMY_HEADER.join(',')}\n${ENEMY_SCHEMA.map(csvCell).join(',')}\n${enemyRow.map(csvCell).join(',')}`).get('ex_test');
+  if (enemy.enemyType!=='Boss' || enemy.drops[0].probability!==150 || enemy.dropGroups[0].drops[0].guaranteeDropCount!==2 || enemy.drops[0].conditions[0].type!==1 || enemyType('ex_test',false)!=='Elite' || enemyType('e_test',false)!=='Normal') throw new Error('Enemy self-check failed');
+  rejected=false; try { const bad=[...enemyRow]; bad[12]='true'; parseEnemyCSV(`${ENEMY_HEADER.join(',')}\n${ENEMY_SCHEMA.map(csvCell).join(',')}\n${bad.map(csvCell).join(',')}`); } catch { rejected=true; } if (!rejected) throw new Error('Enemy validation self-check failed');
+  const probe=el('div',{text:'<img src=x onerror=alert(1)>'}); if (probe.children.length || probe.textContent[0]!=='<') throw new Error('Safe rendering self-check failed');
+}
+
+async function init() {
+  try { runChecks(); }
+  catch (error) { console.error(error); setStatus(`Internal self-check failed: ${error.message}`,'error'); app.replaceChildren(el('p',{text:'Wiki initialization stopped.'})); return; }
+  state.language=chooseLanguage();
+  for (const language of LANGUAGES) languageSelect.append(el('option',{value:language,text:language}));
+  languageSelect.value=state.language;
+  if (CAN_PERSIST) {
+    try { state.db=await openDatabase(); }
+    catch (error) { console.warn('IndexedDB unavailable',error); }
+  }
+  try {
+    const cached=await readCache();
+    if (cached) { state.snapshot=cached.snapshot; state.model=cached.model; state.sourceMode=cached.slot; setStatus(`Loaded cached game ${cached.model.version}; checking for updates…`,'warn'); render(); }
+  } catch (error) { console.warn('Cache read failed',error); }
+  updateSource();
+  await refresh(true);
+}
+
+searchInput.addEventListener('input',()=>{ state.search=searchInput.value; render(); });
+languageSelect.addEventListener('change',()=>setLanguage(languageSelect.value));
+refreshButton.addEventListener('click',()=>refresh(true));
+window.addEventListener('hashchange',()=>{ state.search=''; render(); app.focus({preventScroll:true}); });
+window.addEventListener('online',()=>refresh());
+document.addEventListener('visibilitychange',()=>{ if (!document.hidden) refresh(); });
+setInterval(()=>{ if (!document.hidden) refresh(); },REFRESH_MS);
+init();
+</script>
+</body>
+</html>
