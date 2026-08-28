@@ -53,6 +53,18 @@ class ProjectPaths:
         return self.data_dir / "config_export"
 
     @property
+    def code_name_export_dir(self) -> Path:
+        return self.data_dir / "code_name_exports"
+
+    @property
+    def character_dump_dir(self) -> Path:
+        return self.code_name_export_dir / "characters"
+
+    @property
+    def pet_discovery_path(self) -> Path:
+        return self.code_name_export_dir / "pet-discovery.json"
+
+    @property
     def asset_studio_zip(self) -> Path:
         return self.data_dir / "AssetStudio.zip"
 

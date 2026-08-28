@@ -6,6 +6,7 @@ from pathlib import Path
 
 from skdfe.acquisition import ensure_apk_extracted, ensure_asset_studio, get_latest_apk_info
 from skdfe.assetstudio import find_valid_i2_dat, find_weapon_info, run_asset_extractions
+from skdfe.code_names import discover_pet_sources, generate_char_code_names
 from skdfe.config import ProjectPaths
 from skdfe.config_exports import decrypt_config_exports
 from skdfe.derivations import build_dictionaries, build_needed_data, build_weapon_evo_data
@@ -37,6 +38,15 @@ def main(root: Path | None = None) -> None:
     except Exception as error:
         logging.error("Failed to prepare AssetStudio CLI: %s", error)
         sys.exit(1)
+    try:
+        generate_char_code_names(paths, sk_extracted, asset_studio_dir)
+    except Exception as error:
+        logging.error("Character code generation failed: %s", error)
+        sys.exit(1)
+    try:
+        discover_pet_sources(paths, sk_extracted)
+    except Exception as error:
+        logging.warning("Pet source discovery failed: %s", error)
     try:
         run_asset_extractions(paths, sk_extracted, asset_studio_dir)
     except Exception as error:

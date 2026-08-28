@@ -16,6 +16,7 @@ def run_asset_studio_cli(
     mode: str,
     filter_name: str,
     assembly_folder: Path | None = None,
+    extra_args: tuple[str, ...] = (),
 ) -> None:
     """Invoke AssetStudioModCLI using the established command contract."""
     if not unity_data_path.exists():
@@ -33,6 +34,7 @@ def run_asset_studio_cli(
         if not assembly_folder.exists() or not assembly_folder.is_dir():
             raise FileNotFoundError(f"Assembly folder not found: {assembly_folder}")
         command.extend(["--assembly-folder", str(assembly_folder)])
+    command.extend(extra_args)
     logging.info("Running AssetStudioModCLI: %s", " ".join(command))
     try:
         subprocess.run(command, check=True, cwd=asset_studio_dir)
