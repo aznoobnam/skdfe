@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src https://api.github.com https://raw.githubusercontent.com; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src https://api.github.com https://raw.githubusercontent.com; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src https://raw.githubusercontent.com data:; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <title>SKDFE Wiki</title>
   <style>
     :root { color-scheme: light dark; --bg:#f6f6f3; --panel:#fff; --text:#20211f; --muted:#666a64; --line:#d9dcd5; --accent:#245f45; --soft:#e7f0eb; --warn:#8a4b08; --danger:#9b2c2c; }
@@ -37,6 +37,9 @@
     .status.error { border-inline-start-color:var(--danger); }
     .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:.7rem; }
     .card { display:block; min-width:0; padding:.8rem; border:1px solid var(--line); background:var(--panel); text-decoration:none; color:var(--text); }
+    .card.card-thumb { display:flex; gap:.7rem; align-items:center; }
+    .card-info { min-width:0; flex:1; }
+    .sprite-preview { image-rendering:pixelated; object-fit:contain; width:48px; height:48px; flex-shrink:0; background:var(--soft); border-radius:.25rem; padding:2px; }
     a.card:hover { border-color:var(--accent); }
     .card p { margin:.3rem 0 0; }
     .count { font-size:1.7rem; font-weight:750; color:var(--accent); }
@@ -85,9 +88,10 @@
 <script>
 'use strict';
 
+const BRANCH = 'test-branch';
 const REPO = 'aznoobnam/skdfe';
 const REPO_URL = `https://github.com/${REPO}`;
-const API_URL = `https://api.github.com/repos/${REPO}/commits/main`;
+const API_URL = `https://api.github.com/repos/${REPO}/commits/${BRANCH}`;
 const FILES = ['version.json','char_code_name.json','pet_code_name.json','weapon_full.json','weapon_skins.json','item.json','I2language.csv'];
 const BLUEPRINT_FILE = 'items.decrypted.csv';
 const ENEMY_FILE = 'enemies.decrypted.csv';
@@ -101,6 +105,28 @@ const DB_VERSION = 2;
 const CAN_PERSIST = location.protocol !== 'file:' && typeof indexedDB !== 'undefined';
 const REFRESH_MS = 30 * 60 * 1000;
 const MAX_RESULTS = 300;
+
+const I18N_STATIC = {"home": ["Home", "首頁", "首页", "ホーム", "홈", "Inicio", "Startseite", "Início", "Accueil", "Главная", "Główna", "صفحه اصلی", "الرئيسية", "หน้าแรก", "Trang chủ"], "characters": ["Characters", "角色", "角色", "キャラクター", "캐릭터", "Personajes", "Charaktere", "Personagens", "Personnages", "Персонажи", "Postacie", "شخصیت‌ها", "الشخصيات", "ตัวละคร", "Nhân vật"], "pets": ["Pets", "寵物", "宠物", "ペット", "애완동물", "Mascotas", "Haustiere", "Mascotes", "Animaux", "Питомцы", "Zwierzaki", "حیوانات خانگی", "الحيوانات الأليفة", "สัตว์เลี้ยง", "Thú cưng"], "weapons": ["Weapons", "武器", "武器", "武器", "무기", "Armas", "Waffen", "Armas", "Armes", "Оружие", "Broń", "سلاح‌ها", "الأسلحة", "อาวุธ", "Vũ khí"], "materials": ["Materials", "材料", "材料", "材料", "재료", "Materiales", "Materialien", "Materiais", "Matériaux", "Материалы", "Materiały", "مواد", "المواد", "วัสดุ", "Nguyên liệu"], "blueprints": ["Blueprints", "藍圖", "蓝图", "設計図", "설계도", "Planos", "Baupläne", "Projetos", "Plans", "Чертежи", "Projekty", "طرح‌ها", "المخططات", "พิมพ์เขียว", "Bản thiết kế"], "enemies": ["Enemies", "敵人", "敌人", "敵", "적", "Enemigos", "Feinde", "Inimigos", "Ennemis", "Враги", "Wrogowie", "دشمنان", "الأعداء", "ศัตรู", "Kẻ thù"], "search": ["Search wiki", "搜尋百科", "搜索百科", "Wikiを検索", "위키 검색", "Buscar en wiki", "Wiki durchsuchen", "Pesquisar na wiki", "Rechercher sur le wiki", "Поиск по вики", "Szukaj w wiki", "جستجو در ویکی", "بحث في الويكي", "ค้นหาวิกิ", "Tìm kiếm wiki"], "refresh": ["Refresh", "重新整理", "刷新", "更新", "새로고침", "Actualizar", "Aktualisieren", "Atualizar", "Actualiser", "Обновить", "Odśwież", "تازه‌سازی", "تحديث", "รีเฟรช", "Làm mới"], "loading": ["Loading wiki…", "正在載入百科…", "正在加载百科…", "Wikiを読み込み中…", "위키 로딩 중…", "Cargando wiki…", "Wiki wird geladen…", "Carregando wiki…", "Chargement du wiki…", "Загрузка вики…", "Ładowanie wiki…", "در حال بارگذاری ویکی…", "جارٍ تحميل الويكي…", "กำลังโหลดวิกิ…", "Đang tải wiki…"], "not_found": ["Not found", "找不到頁面", "未找到", "見つかりません", "찾을 수 없음", "No encontrado", "Nicht gefunden", "Não encontrado", "Non trouvé", "Не найдено", "Nie znaleziono", "یافت نشد", "غير موجود", "ไม่พบ", "Không tìm thấy"], "not_found_desc": ["The requested wiki entry does not exist.", "請求的百科條目不存在。", "请求的百科条目不存在。", "要求されたWikiエントリは存在しません。", "요청한 위키 항목이 존재하지 않습니다.", "La entrada solicitada no existe.", "Der angeforderte Wiki-Eintrag existiert nicht.", "A entrada solicitada não existe.", "L'entrée demandée n'existe pas.", "Запрошенная запись не существует.", "Żądany wpis nie istnieje.", "مورد درخواستی در ویکی وجود ندارد.", "إدخال الويكي المطلوب غير موجود.", "ไม่มีรายการวิกินี้", "Mục wiki yêu cầu không tồn tại."], "return_home": ["Return home", "返回首頁", "返回首页", "ホームに戻る", "홈으로 돌아가기", "Volver al inicio", "Zurück zur Startseite", "Voltar ao início", "Retour à l'accueil", "На главную", "Wróć do strony głównej", "بازگشت به خانه", "العودة للرئيسية", "กลับหน้าแรก", "Về trang chủ"], "wiki_title": ["Soul Knight data wiki", "元氣騎士資料百科", "元气骑士数据百科", "ソウルナイト データWiki", "소울 나이트 데이터 위키", "Wiki de datos de Soul Knight", "Soul Knight Daten-Wiki", "Wiki de dados do Soul Knight", "Wiki de données Soul Knight", "Вики данных Soul Knight", "Wiki danych Soul Knight", "ویکی داده‌های شوالیه روح", "ويكي بيانات سول نايت", "วิกิข้อมูล Soul Knight", "Wiki dữ liệu Soul Knight"], "wiki_subtitle": ["Characters, pets, weapons, materials, blueprints, enemies.", "角色、寵物、武器、材料、藍圖、敵人。", "角色、宠物、武器、材料、蓝图、敌人。", "キャラクター、ペット、武器、材料、設計図、敵。", "캐릭터, 애완동물, 무기, 재료, 설계도, 적.", "Personajes, mascotas, armas, materiales, planos, enemigos.", "Charaktere, Haustiere, Waffen, Materialien, Baupläne, Feinde.", "Personagens, mascotes, armas, materiais, projetos, inimigos.", "Personnages, animaux, armes, matériaux, plans, ennemis.", "Персонажи, питомцы, оружие, материалы, чертежи, враги.", "Postacie, zwierzaki, broń, materiały, projekty, wrogowie.", "شخصیت‌ها، حیوانات، سلاح‌ها، مواد، طرح‌ها، دشمنان.", "الشخصيات، الحيوانات، الأسلحة، المواد، المخططات، الأعداء.", "ตัวละคร สัตว์เลี้ยง อาวุธ วัสดุ พิมพ์เขียว ศัตรู", "Nhân vật, thú cưng, vũ khí, nguyên liệu, bản thiết kế, kẻ thù."], "poc_title": ["Proof of concept", "概念驗證", "概念验证", "概念実証", "개념 증명", "Prueba de concepto", "Machbarkeitsnachweis", "Prova de conceito", "Preuve de concept", "Концепт", "Weryfikacja koncepcji", "اثبات مفهوم", "إثبات المفهوم", "การพิสูจน์แนวคิด", "Bản thử nghiệm khái niệm"], "poc_desc": ["This page is an AI-generated proof of concept. Data is taken from game assets, localization, and configuration, and might not reflect the real game.", "此頁面為 AI 生成的概念驗證。數據取自遊戲資源、本地化及設定檔，可能與實際遊戲有所出入。", "此页面为 AI 生成的概念验证。数据取自游戏资源、本地化及配置文件，可能与实际游戏有所出入。", "このページはAIによって生成された概念実証です。データはゲームアセット、ローカライゼーション、設定から取得されており、実際のゲームと異なる場合があります。", "이 페이지는 AI가 생성한 개념 증명입니다. 데이터는 게임 에셋, 번역 및 설정에서 가져왔으며 실제 게임과 다를 수 있습니다.", "Esta página es una prueba de concepto generada por IA. Los datos se obtienen de los recursos, la localización y la configuración del juego, y pueden no reflejar el juego real.", "Diese Seite ist ein KI-generierter Machbarkeitsnachweis. Die Daten stammen aus Spiel-Assets, Lokalisierung und Konfiguration und spiegeln möglicherweise nicht das tatsächliche Spiel wider.", "Esta página é uma prova de conceito gerada por IA. Os dados são extraídos dos recursos, localização e configuração do jogo, podendo não refletir o jogo real.", "Cette page est une preuve de concept générée par IA. Les données proviennent des ressources du jeu, de la localisation et de la configuration, et peuvent différer du jeu réel.", "Эта страница — концепт, созданный ИИ. Данные взяты из ресурсов игры, локализации и конфигурации и могут отличаться от игры.", "Ta strona to wygenerowana przez AI weryfikacja koncepcji. Dane pochodzą z zasobów gry, lokalizacji i konfiguracji i mogą różnić się od rzeczywistej gry.", "این صفحه اثبات مفهومی ایجاد شده توسط هوش مصنوعی است. داده‌ها از دارایی‌ها، بومی‌سازی و پیکربندی بازی گرفته شده‌اند و ممکن است بازتاب‌دهنده بازی واقعی نباشند.", "هذه الصفحة هي إثبات مفهوم تم إنشاؤه بواسطة الذكاء الاصطناعي. البيانات مأخوذة من ملفات اللعبة والترجمة والتكوين، وقد لا تعكس اللعبة الفعلية بدقة.", "หน้านี้เป็นการพิสูจน์แนวคิดที่สร้างโดย AI ข้อมูลนำมาจากทรัพยากรเกม การแปลภาษา และการกำหนดค่า และอาจไม่ตรงกับเกมจริง", "Trang này là bản thử nghiệm do AI tạo. Dữ liệu được lấy từ tài nguyên, bản địa hóa và cấu hình trò chơi, có thể không phản ánh đúng trò chơi thực tế."], "badge_inferred_desc": ["Derived from related source data.", "由相關源數據推導。", "由相关源数据推导。", "関連ソースデータから推測。", "관련 소스 데이터에서 유추됨.", "Derivado de datos fuente relacionados.", "Aus verwandten Quelldaten abgeleitet.", "Derivado de dados fonte relacionados.", "Dérivé des données sources associées.", "Получено из связанных данных.", "Pochodzi z powiązanych danych źródłowych.", "مشتق‌شده از داده‌های منبع مرتبط.", "مشتق من بيانات المصدر ذات الصلة.", "ได้มาจากข้อมูลต้นฉบับที่เกี่ยวข้อง", "Suy ra từ dữ liệu nguồn liên quan."], "badge_missing_desc": ["Required localization or related data could not be resolved.", "無法解析所需的本地化或相關數據。", "无法解析所需的本地化或相关数据。", "必要なローカライゼーションまたは関連データを解決できませんでした。", "필요한 번역 또는 관련 데이터를 확인할 수 없습니다.", "No se pudo resolver la localización requerida o los datos relacionados.", "Erforderliche Lokalisierung oder verwandte Daten konnten nicht aufgelöst werden.", "Não foi possível resolver a localização necessária ou dados relacionados.", "La localisation requise ou les données associées n'ont pas pu être résolues.", "Не удалось разрешить локализацию или связанные данные.", "Nie można rozpoznać wymaganej lokalizacji lub powiązanych danych.", "بومی‌سازی یا داده‌های مرتبط مورد نیاز حل نشد.", "تعذر حل الترجمة المطلوبة أو البيانات ذات الصلة.", "ไม่สามารถแปลภาษาหรือค้นหาข้อมูลที่เกี่ยวข้องได้", "Không thể giải quyết bản địa hóa hoặc dữ liệu liên quan."], "badge_english_desc": ["Selected-language text is unavailable; English is shown.", "所選語言文字不可用；顯示英文。", "所选语言文本不可用；显示英文。", "選択した言語のテキストは利用できません。英語が表示されます。", "선택한 언어의 텍스트를 사용할 수 없습니다. 영어가 표시됩니다.", "El texto en el idioma seleccionado no está disponible; se muestra en inglés.", "Text in der ausgewählten Sprache nicht verfügbar; Englisch wird angezeigt.", "Texto no idioma selecionado indisponível; exibido em inglês.", "Texte non disponible dans la langue sélectionnée; affiché en anglais.", "Текст на выбранном языке недоступен; показан английский.", "Tekst w wybranym języku jest niedostępny; wyświetlono język angielski.", "متن به زبان انتخابی در دسترس نیست؛ انگلیسی نمایش داده می‌شود.", "النص باللغة المحددة غير متوفر؛ تظهر الإنجليزية.", "ไม่มีข้อความในภาษาที่เลือก แสดงเป็นภาษาอังกฤษ", "Văn bản ngôn ngữ đã chọn không có sẵn; hiển thị tiếng Anh."], "badge_json_desc": ["Localization is unavailable; an English JSON name is shown where supported.", "本地化不可用；在受支援的情況下顯示英文 JSON 名稱。", "本地化不可用；在受支持的情况下显示英文 JSON 名称。", "ローカライゼーションが利用できません。サポートされている場合は英語のJSON名が表示されます。", "번역을 사용할 수 없습니다. 지원되는 경우 영어 JSON 이름이 표시됩니다.", "Localización no disponible; se muestra un nombre JSON en inglés donde se admite.", "Lokalisierung nicht verfügbar; ein englischer JSON-Name wird angezeigt, wo unterstützt.", "Localização indisponível; um nome JSON em inglês é exibido onde suportado.", "Localisation non disponible; un nom JSON en anglais est affiché si pris en charge.", "Локализация недоступна; где поддерживается, показано английское имя из JSON.", "Lokalizacja jest niedostępna; gdzie to możliwe, wyświetlana jest angielska nazwa JSON.", "بومی‌سازی در دسترس نیست؛ در صورت پشتیبانی، نام انگلیسی JSON نمایش داده می‌شود.", "الترجمة غير متوفرة؛ يظهر اسم JSON بالإنجليزية حيثما كان مدعوماً.", "ไม่มีการแปลภาษา แสดงชื่อ JSON ภาษาอังกฤษในส่วนที่รองรับ", "Bản địa hóa không có sẵn; tên JSON tiếng Anh được hiển thị nếu được hỗ trợ."], "data_source": ["Data source", "數據來源", "数据来源", "データソース", "데이터 소스", "Fuente de datos", "Datenquelle", "Fonte de dados", "Source de données", "Источник данных", "Źródło danych", "منبع داده", "مصدر البيانات", "แหล่งข้อมูล", "Nguồn dữ liệu"], "repository": ["Repository", "代碼庫", "代码库", "リポジトリ", "저장소", "Repositorio", "Repository", "Repositório", "Dépôt", "Репозиторий", "Repozytorium", "مخزن", "المستودع", "ที่เก็บโค้ด", "Kho lưu trữ"], "game_version": ["Game version", "遊戲版本", "游戏版本", "ゲームバージョン", "게임 버전", "Versión del juego", "Spielversion", "Versão do jogo", "Version du jeu", "Версия игры", "Wersja gry", "نسخه بازی", "إصدار اللعبة", "เวอร์ชันเกม", "Phiên bản game"], "commit": ["Commit", "提交", "提交", "コミット", "커밋", "Commit", "Commit", "Commit", "Commit", "Коммит", "Commit", "کامیت", "الالتزام", "คอมมิต", "Commit"], "snapshot_time": ["Snapshot time", "快照時間", "快照时间", "スナップショット日時", "스냅샷 시간", "Hora de instantánea", "Snapshot-Zeit", "Hora do snapshot", "Heure de capture", "Время снимка", "Czas migawki", "زمان اسنپ‌شات", "وقت اللقطة", "เวลาสแนปช็อต", "Thời gian chụp"], "matches_across_all": ["{0} matches across all pages", "所有頁面共找到 {0} 條符合項", "所有页面共找到 {0} 条匹配项", "全ページで {0} 件の一致", "모든 페이지에서 {0}개 일치", "{0} coincidencias en todas las páginas", "{0} Treffer über alle Seiten", "{0} correspondências em todas as páginas", "{0} correspondances sur toutes les pages", "{0} совпадений по всем страницам", "{0} wyników na wszystkich stronach", "{0} مورد منطبق در تمام صفحات", "{0} نتيجة مطابقة عبر جميع الصفحات", "พบ {0} รายการตรงกันในทุกหน้า", "{0} kết quả phù hợp trên tất cả các trang"], "showing_matches": ["Showing {0} of {1} matches. Refine search.", "顯示 {0} / {1} 條符合項。請縮小搜尋範圍。", "显示 {0} / {1} 条匹配项。请缩小搜索范围。", "{1} 件中 {0} 件を表示中。検索条件を絞り込んでください。", "{1}개 중 {0}개 표시 중. 검색어를 좁혀보세요.", "Mostrando {0} de {1} coincidencias. Refina la búsqueda.", "Zeige {0} von {1} Treffern. Suche verfeinern.", "Mostrando {0} de {1} correspondências. Refine a pesquisa.", "Affichage de {0} sur {1} correspondances. Affinez la recherche.", "Показано {0} из {1} совпадений. Уточните поиск.", "Wyświetlanie {0} z {1} wyników. Zawęź wyszukiwanie.", "نمایش {0} از {1} مورد. جستجو را محدودتر کنید.", "عرض {0} من أصل {1} نتيجة. يرجى تخصيص البحث.", "กำลังแสดง {0} จาก {1} รายการ โปรดระบุคำค้นหาเพิ่ม", "Đang hiển thị {0} trên {1} kết quả. Thu hẹp tìm kiếm."], "of_count": ["{0} of {1}", "{0} / {1}", "{0} / {1}", "{0} / {1}", "{0} / {1}", "{0} de {1}", "{0} von {1}", "{0} de {1}", "{0} sur {1}", "{0} из {1}", "{0} z {1}", "{0} از {1}", "{0} من {1}", "{0} จาก {1}", "{0} trên {1}"], "no_matches": ["No matches.", "沒有符合的項目。", "没有匹配的项。", "一致する項目がありません。", "일치하는 항목이 없습니다.", "Sin coincidencias.", "Keine Treffer.", "Nenhuma correspondência.", "Aucune correspondance.", "Нет совпадений.", "Brak wyników.", "هیچ موردی یافت نشد.", "لا توجد نتائج مطابقة.", "ไม่พบรายการที่ตรงกัน", "Không có kết quả phù hợp."], "char_name": ["Character name", "角色名稱", "角色名称", "キャラクター名", "캐릭터 이름", "Nombre del personaje", "Charaktername", "Nome do personagem", "Nom du personnage", "Имя персонажа", "Nazwa postaci", "نام شخصیت", "اسم الشخصية", "ชื่อตัวละคร", "Tên nhân vật"], "code_name": ["Code name", "代號", "代号", "コードネーム", "코드명", "Nombre clave", "Codename", "Codinome", "Nom de code", "Кодовое имя", "Nazwa kodowa", "نام کد", "الاسم الرمزي", "ชื่อโค้ด", "Tên mã"], "numeric_id": ["Numeric ID", "數值 ID", "数值 ID", "数値ID", "숫자 ID", "ID numérico", "Numerische ID", "ID numérico", "ID numérique", "Числовой ID", "ID numeryczne", "شناسه عددی", "المعرف الرقمي", "รหัสตัวเลข", "ID số"], "starting_weapons": ["Starting weapons", "初始武器", "初始武器", "初期武器", "시작 무기", "Armas iniciales", "Startwaffen", "Armas iniciais", "Armes de départ", "Начальное оружие", "Broń początkowa", "سلاح‌های اولیه", "الأسلحة الأولية", "อาวุธเริ่มต้น", "Vũ khí khởi đầu"], "starting_weapon": ["Starting weapon", "初始武器", "初始武器", "初期武器", "시작 무기", "Arma inicial", "Startwaffe", "Arma inicial", "Arme de départ", "Начальное оружие", "Broń początkowa", "سلاح اولیه", "السلاح الأولي", "อาวุธเริ่มต้น", "Vũ khí khởi đầu"], "upgraded_starting_weapon": ["Upgraded starting weapon", "升級初始武器", "升级初始武器", "アップグレード初期武器", "업그레이드된 시작 무기", "Arma inicial mejorada", "Aufgerüstete Startwaffe", "Arma inicial aprimorada", "Arme de départ améliorée", "Улучшенное начальное оружие", "Ulepszona broń początkowa", "سلاح اولیه ارتقایافته", "السلاح الأولي المطور", "อาวุธเริ่มต้นอัปเกรด", "Vũ khí khởi đầu nâng cấp"], "skins_count": ["Skins ({0})", "皮膚 ({0})", "皮肤 ({0})", "スキン ({0})", "스킨 ({0})", "Aspectos ({0})", "Skins ({0})", "Visuais ({0})", "Skins ({0})", "Облики ({0})", "Skórki ({0})", "پوسته‌ها ({0})", "المظاهر ({0})", "สกิน ({0})", "Trang phục ({0})"], "skin_id": ["Skin ID {0}", "皮膚 ID {0}", "皮肤 ID {0}", "スキンID {0}", "스킨 ID {0}", "ID de aspecto {0}", "Skin-ID {0}", "ID do visual {0}", "ID de skin {0}", "ID облика {0}", "ID skórki {0}", "شناسه پوسته {0}", "معرف المظهر {0}", "รหัสสกิน {0}", "ID trang phục {0}"], "skills_count": ["Skills ({0})", "技能 ({0})", "技能 ({0})", "スキル ({0})", "스킬 ({0})", "Habilidades ({0})", "Fähigkeiten ({0})", "Habilidades ({0})", "Compétences ({0})", "Навыки ({0})", "Umiejętności ({0})", "مهارت‌ها ({0})", "المهارات ({0})", "สกิล ({0})", "Kỹ năng ({0})"], "description": ["Description", "描述", "描述", "説明", "설명", "Descripción", "Beschreibung", "Descrição", "Description", "Описание", "Opis", "توضیحات", "الوصف", "คำอธิบาย", "Mô tả"], "mentor_upgrade": ["Mentor upgrade", "導師升級", "导师升级", "メンターアップグレード", "멘토 업그레이드", "Mejora del mentor", "Mentor-Upgrade", "Aprimoramento do mentor", "Amélioration du mentor", "Улучшение наставника", "Ulepszenie mentora", "ارتقای استاد", "ترقية المعلم", "การอัปเกรดของอาจารย์", "Nâng cấp từ sư phụ"], "pet_name": ["Pet name", "寵物名稱", "宠物名称", "ペット名", "애완동물 이름", "Nombre de la mascota", "Haustiername", "Nome do mascote", "Nom de l'animal", "Имя питомца", "Nazwa zwierzaka", "نام حیوان خانگی", "اسم الحيوان الأليف", "ชื่อสัตว์เลี้ยง", "Tên thú cưng"], "no_pet_skills": ["No pet skill localization found.", "未找到寵物技能本地化。", "未找到宠物技能本地化。", "ペットスキルのローカライゼーションが見つかりません。", "애완동물 스킬 번역을 찾을 수 없습니다.", "No se encontró la localización de habilidades de la mascota.", "Keine Haustier-Fähigkeiten-Lokalisierung gefunden.", "Nenhuma localização de habilidade de mascote encontrada.", "Aucune localisation de compétence d'animal trouvée.", "Локализация навыков питомца не найдена.", "Nie znaleziono lokalizacji umiejętności zwierzaka.", "بومی‌سازی مهارت حیوان خانگی یافت نشد.", "لم يتم العثور على ترجمة لمهارات الحيوان الأليف.", "ไม่พบการแปลภาษาสกิลสัตว์เลี้ยง", "Không tìm thấy bản địa hóa kỹ năng thú cưng."], "weapon_name": ["Weapon name", "武器名稱", "武器名称", "武器名", "무기 이름", "Nombre del arma", "Waffenname", "Nome da arma", "Nom de l'arme", "Название оружия", "Nazwa broni", "نام سلاح", "اسم السلاح", "ชื่ออาวุธ", "Tên vũ khí"], "weapon_id": ["Weapon ID", "武器 ID", "武器 ID", "武器ID", "무기 ID", "ID del arma", "Waffen-ID", "ID da arma", "ID de l'arme", "ID оружия", "ID broni", "شناسه سلاح", "معرف السلاح", "รหัสอาวุธ", "ID vũ khí"], "rarity": ["Rarity", "稀有度", "稀有度", "レア度", "희귀도", "Rareza", "Seltenheit", "Raridade", "Rareté", "Редкость", "Rzadkość", "کمیابی", "الندرة", "ระดับความหายาก", "Độ hiếm"], "rarity_n": ["Rarity {0}", "稀有度 {0}", "稀有度 {0}", "レア度 {0}", "희귀도 {0}", "Rareza {0}", "Seltenheit {0}", "Raridade {0}", "Rareté {0}", "Редкость {0}", "Rzadkość {0}", "کمیابی {0}", "الندرة {0}", "ความหายาก {0}", "Độ hiếm {0}"], "weapon_type": ["Weapon type", "武器類型", "武器类型", "武器タイプ", "무기 유형", "Tipo de arma", "Waffentyp", "Tipo de arma", "Type d'arme", "Тип оружия", "Typ broni", "نوع سلاح", "نوع السلاح", "ประเภทอาวุธ", "Loại vũ khí"], "no_weapon_skins": ["No weapon skins.", "無武器皮膚。", "无武器皮肤。", "武器スキンはありません。", "무기 스킨이 없습니다.", "Sin aspectos de arma.", "Keine Waffen-Skins.", "Nenhum visual de arma.", "Aucun skin d'arme.", "Нет обликов оружия.", "Brak skórek broni.", "پوسته‌ای برای سلاح وجود ندارد.", "لا توجد مظاهر للسلاح.", "ไม่มีสกินอาวุธ", "Không có trang phục vũ khí."], "evolution": ["Evolution", "進階/進化", "进阶/进化", "進化", "진화", "Evolución", "Evolution", "Evolução", "Évolution", "Эволюция", "Ewolucja", "تکامل", "التطور", "วิวัฒนาการ", "Tiến hóa"], "evolution_desc": ["Evolution description", "進化描述", "进化描述", "進化説明", "진화 설명", "Descripción de la evolución", "Evolutionsbeschreibung", "Descrição da evolução", "Description de l'évolution", "Описание эволюции", "Opis ewolucji", "توضیحات تکامل", "وصف التطور", "คำอธิบายวิวัฒนาการ", "Mô tả tiến hóa"], "no_weapon_evo": ["No weapon evolution.", "無武器進化。", "无武器进化。", "武器の進化はありません。", "무기 진화가 없습니다.", "Sin evolución de arma.", "Keine Waffen-Evolution.", "Nenhuma evolução de arma.", "Aucune évolution d'arme.", "Нет эволюции оружия.", "Brak ewolucji broni.", "تکاملی برای سلاح وجود ندارد.", "لا يوجد تطور للسلاح.", "ไม่มีการวิวัฒนาการอาวุธ", "Không có tiến hóa vũ khí."], "material_name": ["Material name", "材料名稱", "材料名称", "材料名", "재료 이름", "Nombre del material", "Materialname", "Nome do material", "Nom du matériau", "Название материала", "Nazwa materiału", "نام ماده", "اسم المادة", "ชื่อวัสดุ", "Tên nguyên liệu"], "material_id": ["Material ID", "材料 ID", "材料 ID", "材料ID", "재료 ID", "ID del material", "Material-ID", "ID do material", "ID du matériau", "ID материала", "ID materiału", "شناسه ماده", "معرف المادة", "รหัสวัสดุ", "ID nguyên liệu"], "group": ["Group", "分組", "分组", "グループ", "그룹", "Grupo", "Gruppe", "Grupo", "Groupe", "Группа", "Grupa", "گروه", "المجموعة", "กลุ่ม", "Nhóm"], "inferred_from": ["Inferred from", "推導自", "推导自", "推定元", "추론 출처", "Inferido de", "Abgeleitet von", "Inferido de", "Déduit de", "Получено из", "Wywnioskowano z", "مشتق‌شده از", "مشتق من", "อนุมานจาก", "Suy ra từ"], "blueprint_name": ["Blueprint name", "藍圖名稱", "蓝图名称", "設計図名", "설계도 이름", "Nombre del plano", "Bauplanname", "Nome do projeto", "Nom du plan", "Название чертежа", "Nazwa projektu", "نام طرح", "اسم المخطط", "ชื่อพิมพ์เขียว", "Tên bản thiết kế"], "blueprint_id": ["Blueprint ID", "藍圖 ID", "蓝图 ID", "設計図ID", "설계도 ID", "ID del plano", "Bauplan-ID", "ID do projeto", "ID du plan", "ID чертежа", "ID projektu", "شناسه طرح", "معرف المخطط", "รหัสพิมพ์เขียว", "ID bản thiết kế"], "item_id": ["Item ID", "物品 ID", "物品 ID", "アイテムID", "아이템 ID", "ID del objeto", "Objekt-ID", "ID do item", "ID de l'objet", "ID предмета", "ID przedmiotu", "شناسه آیتم", "معرف العنصر", "รหัสไอเทม", "ID vật phẩm"], "research_materials": ["Research materials ({0})", "研發材料 ({0})", "研发材料 ({0})", "研究材料 ({0})", "연구 재료 ({0})", "Materiales de investigación ({0})", "Forschungsmaterialien ({0})", "Materiais de pesquisa ({0})", "Matériaux de recherche ({0})", "Материалы для исследования ({0})", "Materiały do badań ({0})", "مواد تحقیق ({0})", "مواد البحث ({0})", "วัสดุวิจัย ({0})", "Nguyên liệu nghiên cứu ({0})"], "no_research_materials": ["No research materials required.", "不需要研發材料。", "不需要研发材料。", "研究材料は不要です。", "연구 재료가 필요하지 않습니다.", "No se requieren materiales de investigación.", "Keine Forschungsmaterialien erforderlich.", "Nenhum material de pesquisa necessário.", "Aucun matériau de recherche requis.", "Материалы для исследования не требуются.", "Materiały do badań nie są wymagane.", "نیازی به مواد تحقیق نیست.", "لا توجد مواد بحث مطلوبة.", "ไม่จำเป็นต้องใช้วัสดุวิจัย", "Không yêu cầu nguyên liệu nghiên cứu."], "blueprints_unavailable": ["Blueprint data is unavailable in this cached or historical repository snapshot. Refresh after loading a commit that contains items.decrypted.csv.", "在此快取或歷史快照中藍圖數據不可用。請在載入包含 items.decrypted.csv 的提交後重新整理。", "在此缓存或历史快照中蓝图数据不可用。请在加载包含 items.decrypted.csv 的提交后刷新。", "このキャッシュまたは過去のスナップショットでは設計図データを利用できません。items.decrypted.csvを含むコミットを読み込んでから更新してください。", "캐시되거나 과거 스냅샷에서는 설계도 데이터를 사용할 수 없습니다. items.decrypted.csv가 포함된 커밋을 로드한 후 새로고침하세요.", "Los datos de planos no están disponibles en esta instantánea en caché o histórica. Actualiza después de cargar un commit que contenga items.decrypted.csv.", "Bauplandaten sind in diesem zwischengespeicherten oder historischen Snapshot nicht verfügbar. Aktualisieren Sie nach dem Laden eines Commits mit items.decrypted.csv.", "Os dados do projeto não estão disponíveis neste snapshot em cache ou histórico. Atualize após carregar um commit que contenha items.decrypted.csv.", "Les données de plans ne sont pas disponibles dans cette capture mise en cache ou historique. Actualisez après avoir chargé un commit contenant items.decrypted.csv.", "Данные чертежей недоступны в этом снимке. Обновите после загрузки коммита с items.decrypted.csv.", "Dane projektów są niedostępne w tej migawce. Odśwież po załadowaniu commita zawierającego items.decrypted.csv.", "داده‌های طرح در این اسنپ‌شات ذخیره‌شده در دسترس نیست. پس از بارگذاری کامیت حاوی items.decrypted.csv تازه‌سازی کنید.", "بيانات المخططات غير متوفرة في هذه اللقطة المؤقتة. يرجى التحديث بعد تحميل التزام يحتوي على items.decrypted.csv.", "ข้อมูลพิมพ์เขียวไม่พร้อมใช้งานในสแนปช็อตนี้ โปรดรีเฟรชหลังจากโหลดคอมมิตที่มี items.decrypted.csv", "Dữ liệu bản thiết kế không có sẵn trong bản chụp này. Hãy làm mới sau khi tải một commit chứa items.decrypted.csv."], "enemy_name": ["Enemy name", "敵人名稱", "敌人名称", "敵の名前", "적 이름", "Nombre del enemigo", "Feindname", "Nome do inimigo", "Nom de l'ennemi", "Имя врага", "Nazwa wroga", "نام دشمن", "اسم العدو", "ชื่อศัตรู", "Tên kẻ thù"], "enemy_id": ["Enemy ID", "敵人 ID", "敌人 ID", "敵ID", "적 ID", "ID del enemigo", "Feind-ID", "ID do inimigo", "ID de l'ennemi", "ID врага", "ID wroga", "شناسه دشمن", "معرف العدو", "รหัสศัตรู", "ID kẻ thù"], "localization_id": ["Localization ID", "本地化 ID", "本地化 ID", "ローカライゼーションID", "번역 ID", "ID de localización", "Lokalisierungs-ID", "ID de localização", "ID de localisation", "ID локализации", "ID lokalizacji", "شناسه بومی‌سازی", "معرف الترجمة", "รหัสการแปลภาษา", "ID bản địa hóa"], "enemy_type": ["Enemy type", "敵人類型", "敌人类型", "敵タイプ", "적 유형", "Tipo de enemigo", "Feindtyp", "Tipo de inimigo", "Type d'ennemi", "Тип врага", "Typ wroga", "نوع دشمن", "نوع العدو", "ประเภทศัตรู", "Loại kẻ thù"], "boss_weapon": ["Boss weapon", "首領武器", "Boss武器", "ボス武器", "보스 무기", "Arma de jefe", "Boss-Waffe", "Arma de chefe", "Arme de boss", "Оружие босса", "Broń bossa", "سلاح رئیس", "سلاح الزعيم", "อาวุธบอส", "Vũ khí boss"], "subspecies_boss": ["Subspecies boss", "亞種首領", "亚种Boss", "亜種ボス", "아종 보스", "Jefe de subespecie", "Unterarten-Boss", "Chefe de subespécie", "Boss de sous-espèce", "Босс подвида", "Boss podgatunku", "رئیس زیرگونه", "زعيم النوع الفرعي", "บอสสายพันธุ์ย่อย", "Boss phân loài"], "drops_count": ["Drops ({0})", "掉落物 ({0})", "掉落物 ({0})", "ドロップ ({0})", "드롭 ({0})", "Botines ({0})", "Drops ({0})", "Drops ({0})", "Butins ({0})", "Дропы ({0})", "Łupy ({0})", "غنیمت‌ها ({0})", "الجوائز ({0})", "ไอเทมดรอป ({0})", "Rơi đồ ({0})"], "no_drops": ["No drops.", "無掉落物。", "无掉落物。", "ドロップはありません。", "드롭이 없습니다.", "Sin botines.", "Keine Drops.", "Nenhum drop.", "Aucun butin.", "Нет дропов.", "Brak łupów.", "هیچ غنیمتی وجود ندارد.", "لا توجد جوائز.", "ไม่มีไอเทมดรอป", "Không có đồ rơi."], "drop_groups_count": ["Drop groups ({0})", "掉落組 ({0})", "掉落组 ({0})", "ドロップグループ ({0})", "드롭 그룹 ({0})", "Grupos de botín ({0})", "Drop-Gruppen ({0})", "Grupos de drop ({0})", "Groupes de butin ({0})", "Группы дропа ({0})", "Grupy łupów ({0})", "گروه‌های غنیمت ({0})", "مجموعات الجوائز ({0})", "กลุ่มไอเทมดรอป ({0})", "Nhóm rơi đồ ({0})"], "no_drop_groups": ["No drop groups.", "無掉落組。", "无掉落组。", "ドロップグループはありません。", "드롭 그룹이 없습니다.", "Sin grupos de botín.", "Keine Drop-Gruppen.", "Nenhum grupo de drop.", "Aucun groupe de butin.", "Нет групп дропа.", "Brak grup łupów.", "هیچ گروه غنیمتی وجود ندارد.", "لا توجد مجموعات جوائز.", "ไม่มีกลุ่มไอเทมดรอป", "Không có nhóm rơi đồ."], "group_n": ["Group {0}", "第 {0} 組", "第 {0} 组", "グループ {0}", "그룹 {0}", "Grupo {0}", "Gruppe {0}", "Grupo {0}", "Groupe {0}", "Группа {0}", "Grupa {0}", "گروه {0}", "المجموعة {0}", "กลุ่ม {0}", "Nhóm {0}"], "probability": ["Probability", "機率", "概率", "確率", "확률", "Probabilidad", "Wahrscheinlichkeit", "Probabilidade", "Probabilité", "Вероятность", "Prawdopodobieństwo", "احتمال", "الاحتمالية", "ความน่าจะเป็น", "Tỷ lệ"], "guaranteed_drop": ["Guaranteed drop", "保底掉落", "保底掉落", "確定ドロップ", "확정 드롭", "Botín garantizado", "Garantierter Drop", "Drop garantido", "Butin garanti", "Гарантированный дроп", "Gwarantowany łup", "غنیمت تضمینی", "سقوط مضمون", "ดรอปแน่นอน", "Rơi chắc chắn"], "guaranteed_count": ["Guaranteed count", "保底數量", "保底数量", "確定数", "확정 수량", "Cantidad garantizada", "Garantierte Anzahl", "Quantidade garantida", "Quantité garantie", "Гарантированное количество", "Gwarantowana ilość", "تعداد تضمینی", "العدد المضمون", "จำนวนที่แน่นอน", "Số lượng chắc chắn"], "conditions": ["Conditions", "條件", "条件", "条件", "조건", "Condiciones", "Bedingungen", "Condições", "Conditions", "Условия", "Warunki", "شرایط", "الشروط", "เงื่อนไข", "Điều kiện"], "yes": ["Yes", "是", "是", "はい", "예", "Sí", "Ja", "Sim", "Oui", "Да", "Tak", "بله", "نعم", "ใช่", "Có"], "no": ["No", "否", "否", "いいえ", "아니요", "No", "Nein", "Não", "Non", "Нет", "Nie", "خیر", "لا", "ไม่", "Không"], "none": ["None", "無", "无", "なし", "없음", "Ninguno", "Keine", "Nenhum", "Aucun", "Нет", "Brak", "هیچ", "لا يوجد", "ไม่มี", "Không"], "not_available": ["Not available", "不可用", "不可用", "利用不可", "사용할 수 없음", "No disponible", "Nicht verfügbar", "Indisponível", "Indisponible", "Недоступно", "Niedostępne", "در دسترس نیست", "غير متوفر", "ไม่พร้อมใช้งาน", "Không có sẵn"], "enemies_unavailable": ["Enemy data is unavailable in this cached or historical repository snapshot. Refresh after loading a commit that contains enemies.decrypted.csv.", "在此快取或歷史快照中敵人數據不可用。請在載入包含 enemies.decrypted.csv 的提交後重新整理。", "在此缓存或历史快照中敌人数据不可用。请在加载包含 enemies.decrypted.csv 的提交后刷新。", "このキャッシュまたは過去のスナップショットでは敵データを利用できません。enemies.decrypted.csvを含むコミットを読み込んでから更新してください。", "캐시되거나 과거 스냅샷에서는 적 데이터를 사용할 수 없습니다. enemies.decrypted.csv가 포함된 커밋을 로드한 후 새로고침하세요.", "Los datos de enemigos no están disponibles en esta instantánea en caché o histórica. Actualiza después de cargar un commit que contenga enemies.decrypted.csv.", "Feinddaten sind in diesem zwischengespeicherten oder historischen Snapshot nicht verfügbar. Aktualisieren Sie nach dem Laden eines Commits mit enemies.decrypted.csv.", "Os dados do inimigo não estão disponíveis neste snapshot em cache ou histórico. Atualize após carregar um commit que contenha enemies.decrypted.csv.", "Les données d'ennemis ne sont pas disponibles dans cette capture mise en cache ou historique. Actualisez après avoir chargé un commit contenant enemies.decrypted.csv.", "Данные врагов недоступны в этом снимке. Обновите после загрузки коммита с enemies.decrypted.csv.", "Dane wrogów są niedostępne w tej migawce. Odśwież po załadowaniu commita zawierającego enemies.decrypted.csv.", "داده‌های دشمن در این اسنپ‌شات ذخیره‌شده در دسترس نیست. پس از بارگذاری کامیت حاوی enemies.decrypted.csv تازه‌سازی کنید.", "بيانات الأعداء غير متوفرة في هذه اللقطة المؤقتة. يرجى التحديث بعد تحميل التزام يحتوي على enemies.decrypted.csv.", "ข้อมูลศัตรูไม่พร้อมใช้งานในสแนปช็อตนี้ โปรดรีเฟรชหลังจากโหลดคอมมิตที่มี enemies.decrypted.csv", "Dữ liệu kẻ thù không có sẵn trong bản chụp này. Hãy làm mới sau khi tải một commit chứa enemies.decrypted.csv."], "badge_inferred": ["inferred", "推導", "推导", "推定", "유추됨", "inferido", "abgeleitet", "inferido", "déduit", "получено", "wywnioskowano", "مشتق‌شده", "مشتق", "อนุมาน", "suy ra"], "badge_missing": ["missing", "缺失", "缺失", "欠落", "누락됨", "falta", "fehlt", "ausente", "manquant", "отсутствует", "brak", "گم‌شده", "مفقود", "ขาดหาย", "thiếu"], "badge_unresolved": ["unresolved", "未解析", "未解析", "未解決", "해결되지 않음", "no resuelto", "ungelöst", "não resolvido", "non résolu", "не разрешено", "nierozpoznane", "حل‌نشده", "غير محلول", "ยังไม่ได้รับการแก้ไข", "chưa giải quyết"], "badge_english_fallback": ["English fallback", "英文後備", "英文后备", "英語フォールバック", "영어 대체", "Respaldo en inglés", "Englischer Fallback", "Fallback em inglês", "Repli anglais", "Английский фолбэк", "Zastępczy angielski", "جایگزین انگلیسی", "بديل إنجليزي", "สำรองภาษาอังกฤษ", "Dự phòng tiếng Anh"], "badge_json_fallback": ["JSON fallback", "JSON 後備", "JSON 后备", "JSONフォールバック", "JSON 대체", "Respaldo JSON", "JSON-Fallback", "Fallback JSON", "Repli JSON", "JSON фолбэк", "Zastępczy JSON", "جایگزین JSON", "بديل JSON", "สำรอง JSON", "Dự phòng JSON"]};
+
+function t(key, ...args) {
+  const row = I18N_STATIC[key];
+  if (!row) return key;
+  const idx = languageIndex(state.language);
+  let text = row[idx] || row[0] || key;
+  for (let i = 0; i < args.length; i++) text = text.replaceAll(`{${i}}`, String(args[i]));
+  return text;
+}
+
+function updateNav() {
+  const pages = [['home','home'],['characters','characters'],['pets','pets'],['weapons','weapons'],['materials','materials'],['blueprints','blueprints'],['enemies','enemies']];
+  for (const [page, key] of pages) {
+    const link = document.querySelector(`nav a[data-page="${page}"]`);
+    if (link) link.textContent = t(key);
+  }
+  searchInput.placeholder = t('search');
+  refreshButton.textContent = t('refresh');
+}
+
 
 const app = document.querySelector('#app');
 const statusBox = document.querySelector('#status');
@@ -318,7 +344,7 @@ function buildModel(snapshot) {
   if (!Array.isArray(charCodes) || charCodes.some(v => typeof v !== 'string')) throw new Error('char_code_name.json must be a string array');
   if (!Array.isArray(petCodes) || petCodes.some(v => typeof v !== 'string')) throw new Error('pet_code_name.json must be a string array');
   assertObject(weaponSkins,'weapon_skins.json'); assertObject(weaponSkins.weapons,'weapon_skins.json.weapons'); assertObject(items,'item.json'); assertObject(items.material,'item.json.material'); assertObject(items.blueprint,'item.json.blueprint');
-  if (!/^[0-9a-f]{40}$/.test(snapshot.sha)) throw new Error('Snapshot SHA is invalid');
+  if (!/^[0-9a-f]{40}$/.test(snapshot.sha) && !/^[a-zA-Z0-9_./-]+$/.test(snapshot.sha)) throw new Error('Snapshot ref/SHA is invalid');
   const i18n=parseLocalization(raw['I2language.csv']);
   const keys=[...i18n.keys()];
 
@@ -453,7 +479,12 @@ function inferMaterial(material, language=state.language) {
 function badge(status) {
   if (!status || status === 'exact' || status === 'alias') return null;
   const kind=/missing|unresolved|cycle/.test(status)?'error':/fallback|inferred/.test(status)?'warn':'';
-  return el('span',{class:`badge ${kind}`.trim(),text:status});
+  const label = status === 'inferred' ? t('badge_inferred') :
+                status === 'missing' ? t('badge_missing') :
+                status === 'unresolved' ? t('badge_unresolved') :
+                status === 'English fallback' ? t('badge_english_fallback') :
+                status === 'JSON fallback' ? t('badge_json_fallback') : status;
+  return el('span',{class:`badge ${kind}`.trim(),text:label});
 }
 
 function sourceKey(key) { return el('div',{class:'key',text:key}); }
@@ -464,8 +495,10 @@ function field(label,value,key='',status='') {
   if (key) dd.append(sourceKey(key));
   return el('div',{class:'field'},el('dt',{text:label}),dd);
 }
-function card(href,title,meta='',status='') {
+function card(href,title,meta='',status='',thumb=null) {
   const heading=el('h3',{text:title}); const mark=badge(status); if (mark) heading.append(' ',mark);
+  const info=el('div',{class:'card-info'},heading,meta?el('p',{class:'key',text:meta}):null);
+  if (thumb) return el('a',{class:'card card-thumb',href},thumb,info);
   return el('a',{class:'card',href},heading,meta?el('p',{class:'key',text:meta}):null);
 }
 function routeParts() {
@@ -474,6 +507,19 @@ function routeParts() {
 }
 function currentPage() { return routeParts()[0] || 'home'; }
 function routeFor(type,id) { return `#/${type}/${encodeURIComponent(id)}`; }
+
+function spriteUrl(code, skinIndex=0) {
+  if (!state.snapshot?.sha) return '';
+  return `https://raw.githubusercontent.com/${REPO}/${state.snapshot.sha}/character_sprite/${encodeURIComponent(code)}/skin_${skinIndex}.png`;
+}
+
+function spriteImg(code, skinIndex=0, alt='') {
+  const url=spriteUrl(code,skinIndex);
+  if (!url) return null;
+  const img=el('img',{src:url,alt:alt||`${code} skin ${skinIndex}`,class:'sprite-preview',loading:'lazy',width:'48',height:'48'});
+  img.onerror=()=>{ img.hidden=true; };
+  return img;
+}
 
 function characterName(character, language=state.language) { return localized(`Character${character.id}_name_skin0`,{language}); }
 function petName(pet, language=state.language) { return localized(`Pet_name_${pet.id}`,{language}); }
@@ -526,17 +572,17 @@ function filtered(entities) {
 }
 
 function renderHome() {
-  const root=el('div',{},titleBlock('Soul Knight data wiki','Characters, pets, weapons, materials, blueprints, enemies. Localized from the latest complete main-branch snapshot.'));
-  root.append(el('section',{class:'status warn'},el('h2',{text:'Proof of concept'}),el('p',{text:'This page is an AI-generated proof of concept. Data is taken from game assets, localization, and configuration, and might not reflect the real game.'}),el('p',{},badge('inferred'),' Derived from related source data. ',badge('missing'),' / ',badge('unresolved'),' Required localization or related data could not be resolved. ',badge('English fallback'),' Selected-language text is unavailable; English is shown. ',badge('JSON fallback'),' Localization is unavailable; an English JSON name is shown where supported.')));
-  const groups=[['characters','Characters',state.model.characters],['pets','Pets',state.model.pets],['weapons','Weapons',state.model.weapons],['materials','Materials',state.model.materials],['blueprints','Blueprints',state.model.blueprints],['enemies','Enemies',state.model.enemies]];
+  const root=el('div',{},titleBlock(t('wiki_title'),`${t('wiki_subtitle')} Localized from the latest complete ${BRANCH} snapshot.`));
+  root.append(el('section',{class:'status warn'},el('h2',{text:t('poc_title')}),el('p',{text:t('poc_desc')}),el('p',{},badge('inferred'),` ${t('badge_inferred_desc')} `,badge('missing'),' / ',badge('unresolved'),` ${t('badge_missing_desc')} `,badge('English fallback'),` ${t('badge_english_desc')} `,badge('JSON fallback'),` ${t('badge_json_desc')}`)));
+  const groups=[['characters',t('characters'),state.model.characters],['pets',t('pets'),state.model.pets],['weapons',t('weapons'),state.model.weapons],['materials',t('materials'),state.model.materials],['blueprints',t('blueprints'),state.model.blueprints],['enemies',t('enemies'),state.model.enemies]];
   if (!state.search.trim()) {
-    root.append(el('div',{class:'grid'},groups.map(([route,label,items]) => el('a',{class:'card',href:`#/${route}`},el('div',{class:'count',text:items?items.length:'Unavailable'}),el('h2',{text:label})))));
+    root.append(el('div',{class:'grid'},groups.map(([route,label,items]) => el('a',{class:'card',href:`#/${route}`},el('div',{class:'count',text:items?items.length:t('not_available')}),el('h2',{text:label})))));
   } else {
     const all=groups.flatMap(([, ,items])=>items||[]), matches=filtered(all);
-    root.append(el('p',{class:'muted',text:`${matches.length} matches across all pages`}),renderCards(matches));
+    root.append(el('p',{class:'muted',text:t('matches_across_all',matches.length)}),renderCards(matches));
   }
-  root.append(el('h2',{text:'Data source'}),el('dl',{class:'stack'},
-    field('Repository',REPO),field('Game version',state.model.version,'version.json'),field('Commit',state.snapshot.sha),field('Snapshot time',new Date(state.snapshot.fetchedAt).toLocaleString())
+  root.append(el('h2',{text:t('data_source')}),el('dl',{class:'stack'},
+    field(t('repository'),REPO),field(t('game_version'),state.model.version,'version.json'),field(t('commit'),state.snapshot.sha),field(t('snapshot_time'),new Date(state.snapshot.fetchedAt).toLocaleString())
   ));
   return root;
 }
@@ -545,42 +591,46 @@ function renderCards(entities) {
   const shown=entities.slice(0,MAX_RESULTS);
   const grid=el('div',{class:'grid'});
   for (const entity of shown) {
-    if (entity.type==='characters') { const name=characterName(entity); grid.append(card(routeFor('characters',entity.id),name.text,`ID ${entity.id} · ${entity.code}`,name.status)); }
+    if (entity.type==='characters') { const name=characterName(entity); const img=spriteImg(entity.code,0,name.text); grid.append(card(routeFor('characters',entity.id),name.text,`ID ${entity.id} · ${entity.code}`,name.status,img)); }
     else if (entity.type==='pets') { const name=petName(entity); grid.append(card(routeFor('pets',entity.id),name.text,`ID ${entity.id} · ${entity.code}`,name.status)); }
-    else if (entity.type==='weapons') { const name=weaponName(entity); grid.append(card(routeFor('weapons',entity.code),name.text,`${entity.weaponType} · Rarity ${entity.level} · ${entity.code}`,name.status)); }
+    else if (entity.type==='weapons') { const name=weaponName(entity); grid.append(card(routeFor('weapons',entity.code),name.text,`${entity.weaponType} · ${t('rarity_n',entity.level)} · ${entity.code}`,name.status)); }
     else if (entity.type==='blueprints') { const name=blueprintName(entity); grid.append(card(routeFor('blueprints',entity.id),name.text,`${entity.group} · ${entity.id} · ${entity.itemId}`,name.status)); }
     else if (entity.type==='enemies') { const name=enemyName(entity); grid.append(card(routeFor('enemies',entity.key),name.text,`${entity.enemyType} · ${entity.key}${entity.enemyId?` · ${entity.enemyId}`:''}`,name.status)); }
     else { const name=inferMaterial(entity); grid.append(card(routeFor('materials',entity.id),name.text,`${entity.group} · ${entity.id}`,name.status)); }
   }
   const wrapper=el('div',{});
-  if (entities.length>MAX_RESULTS) wrapper.append(el('p',{class:'muted',text:`Showing ${MAX_RESULTS} of ${entities.length} matches. Refine search.`}));
+  if (entities.length>MAX_RESULTS) wrapper.append(el('p',{class:'muted',text:t('showing_matches',MAX_RESULTS,entities.length)}));
   wrapper.append(grid);
   return wrapper;
 }
 
 function renderList(title,entities) {
   const matches=filtered(entities);
-  return el('div',{},el('div',{class:'section-head'},titleBlock(title),el('p',{class:'muted',text:`${matches.length} of ${entities.length}`})),matches.length?renderCards(matches):el('div',{class:'empty',text:'No matches.'}));
+  return el('div',{},el('div',{class:'section-head'},titleBlock(title),el('p',{class:'muted',text:t('of_count',matches.length,entities.length)})),matches.length?renderCards(matches):el('div',{class:'empty',text:t('no_matches')}));
 }
 
 function renderCharacter(character) {
   if (!character) return notFound();
   const name=characterName(character), root=el('div',{},titleBlock(name.text,`Character ${character.id} · ${character.code}`));
-  root.append(el('dl',{class:'stack'},field('Character name',name.text,name.key,name.status),field('Code name',character.code,'char_code_name.json'),field('Numeric ID',String(character.id),'array index')));
-  const weaponFields=[['Starting weapon',character.starting],['Upgraded starting weapon',character.upgraded]].map(([label,id])=>{
+  root.append(el('dl',{class:'stack'},field(t('char_name'),name.text,name.key,name.status),field(t('code_name'),character.code,'char_code_name.json'),field(t('numeric_id'),String(character.id),'array index')));
+  const weaponFields=[[t('starting_weapon'),character.starting],[t('upgraded_starting_weapon'),character.upgraded]].map(([label,id])=>{
     const weapon=state.model.weapons.find(value=>value.code===id), weaponNameValue=weaponName(weapon);
     return field(label,el('a',{href:routeFor('weapons',id),text:weaponNameValue.text}),`weapon/${id}`,weaponNameValue.status);
   });
-  root.append(el('h2',{text:'Starting weapons'}),el('dl',{class:'stack'},weaponFields));
-  root.append(el('h2',{text:`Skins (${character.skinIds.length})`}));
+  root.append(el('h2',{text:t('starting_weapons')}),el('dl',{class:'stack'},weaponFields));
+  root.append(el('h2',{text:t('skins_count',character.skinIds.length)}));
   const skins=el('div',{class:'grid'});
-  for (const id of character.skinIds) { const key=`Character${character.id}_name_skin${id}`, value=localized(key); skins.append(el('div',{class:'card'},el('h3',{text:value.text}),badge(value.status),el('p',{class:'muted',text:`Skin ID ${id}`}))); }
+  for (const id of character.skinIds) {
+    const key=`Character${character.id}_name_skin${id}`, value=localized(key);
+    const img=spriteImg(character.code,id,value.text);
+    skins.append(el('div',{class:'card card-thumb'},img,el('div',{class:'card-info'},el('h3',{text:value.text}),badge(value.status),el('p',{class:'muted',text:t('skin_id',id)}))));
+  }
   root.append(skins);
-  root.append(el('h2',{text:`Skills (${character.skillIds.length})`}));
+  root.append(el('h2',{text:t('skills_count',character.skillIds.length)}));
   const skills=el('div',{class:'stack'});
   for (const id of character.skillIds) {
     const base=`Character${character.id}_skill_${id}`, skillName=localized(`${base}_name`), info=localized(`${base}_info`), mentor=localized(`${base}_x`);
-    skills.append(el('section',{class:'field'},el('h3',{text:`${id}. ${skillName.text}`}),badge(skillName.status),sourceKey(`${base}_name`),el('dl',{class:'stack'},field('Description',info.text,'',info.status),field('Mentor upgrade',mentor.text,'',mentor.status))));
+    skills.append(el('section',{class:'field'},el('h3',{text:`${id}. ${skillName.text}`}),badge(skillName.status),sourceKey(`${base}_name`),el('dl',{class:'stack'},field(t('description'),info.text,'',info.status),field(t('mentor_upgrade'),mentor.text,'',mentor.status))));
   }
   root.append(skills);
   return root;
@@ -589,9 +639,9 @@ function renderCharacter(character) {
 function renderPet(pet) {
   if (!pet) return notFound();
   const name=petName(pet), root=el('div',{},titleBlock(name.text,`Pet ${pet.id} · ${pet.code}`));
-  root.append(el('dl',{class:'stack'},field('Pet name',name.text,name.key,name.status),field('Code name',pet.code,'pet_code_name.json'),field('Numeric ID',String(pet.id),'array index')));
-  root.append(el('h2',{text:`Skills (${pet.skillIds.length})`}));
-  if (!pet.skillIds.length) root.append(el('div',{class:'empty',text:'No pet skill localization found.'}));
+  root.append(el('dl',{class:'stack'},field(t('pet_name'),name.text,name.key,name.status),field(t('code_name'),pet.code,'pet_code_name.json'),field(t('numeric_id'),String(pet.id),'array index')));
+  root.append(el('h2',{text:t('skills_count',pet.skillIds.length)}));
+  if (!pet.skillIds.length) root.append(el('div',{class:'empty',text:t('no_pet_skills')}));
   const skills=el('div',{class:'stack'});
   for (const id of pet.skillIds) { const base=`pet_${pet.id}_skill_${id}`, skillName=localized(`${base}_name`), desc=localized(`${base}_desc`); skills.append(el('section',{class:'field'},el('h3',{text:`${id}. ${skillName.text}`}),badge(skillName.status),sourceKey(`${base}_name`),el('p',{text:desc.text}),badge(desc.status))); }
   root.append(skills); return root;
@@ -600,21 +650,21 @@ function renderPet(pet) {
 function renderWeapon(weapon) {
   if (!weapon) return notFound();
   const name=weaponName(weapon), root=el('div',{},titleBlock(name.text,weapon.code));
-  root.append(el('dl',{class:'stack'},field('Weapon name',name.text,name.key,name.status),field('Weapon ID',weapon.code,'weapon_full.json → name'),field('Rarity',String(weapon.level),'weapon_full.json → level'),field('Weapon type',weapon.weaponType,'weapon_full.json → type')));
-  root.append(el('h2',{text:`Skins (${weapon.skinIds.length})`}));
-  if (!weapon.skinIds.length) root.append(el('div',{class:'empty',text:'No weapon skins.'}));
+  root.append(el('dl',{class:'stack'},field(t('weapon_name'),name.text,name.key,name.status),field(t('weapon_id'),weapon.code,'weapon_full.json → name'),field(t('rarity'),String(weapon.level),'weapon_full.json → level'),field(t('weapon_type'),weapon.weaponType,'weapon_full.json → type')));
+  root.append(el('h2',{text:t('skins_count',weapon.skinIds.length)}));
+  if (!weapon.skinIds.length) root.append(el('div',{class:'empty',text:t('no_weapon_skins')}));
   const skins=el('div',{class:'grid'});
-  for (const id of weapon.skinIds) { const value=localized(id), suffix=id.match(/_s_(\d+)$/)?.[1] || '?'; skins.append(el('div',{class:'card'},el('h3',{text:value.text}),badge(value.status),el('p',{class:'muted',text:`Skin ID ${suffix}`}))); }
+  for (const id of weapon.skinIds) { const value=localized(id), suffix=id.match(/_s_(\d+)$/)?.[1] || '?'; skins.append(el('div',{class:'card'},el('h3',{text:value.text}),badge(value.status),el('p',{class:'muted',text:t('skin_id',suffix)}))); }
   root.append(skins);
-  root.append(el('h2',{text:'Evolution'}));
+  root.append(el('h2',{text:t('evolution')}));
   const evoKey=`desc_evolution_${weapon.code}`;
-  if (weapon.hasEvolution) { const evo=localized(evoKey); root.append(el('dl',{class:'stack'},field('Evolution description',evo.text,'',evo.status))); }
-  else root.append(el('div',{class:'empty',text:'No weapon evolution.'}));
+  if (weapon.hasEvolution) { const evo=localized(evoKey); root.append(el('dl',{class:'stack'},field(t('evolution_desc'),evo.text,'',evo.status))); }
+  else root.append(el('div',{class:'empty',text:t('no_weapon_evo')}));
   return root;
 }
 
 function linkedValue(value,route,exists) {
-  return value && exists?el('a',{href:route,text:value}):document.createTextNode(value||'Not available');
+  return value && exists?el('a',{href:route,text:value}):document.createTextNode(value||t('not_available'));
 }
 
 function dropTarget(id) {
@@ -628,18 +678,18 @@ function dropTarget(id) {
 }
 
 function renderDrops(drops) {
-  if (!drops.length) return el('div',{class:'empty',text:'No drops.'});
+  if (!drops.length) return el('div',{class:'empty',text:t('no_drops')});
   const grid=el('div',{class:'grid'});
   for (const drop of drops) {
     const target=dropTarget(drop.item), heading=target.route?el('a',{href:target.route,text:target.name.text}):el('h3',{text:target.name.text});
-    const content=el('div',{class:'card'},heading,badge(target.name.status),el('p',{class:'key',text:drop.item}),el('dl',{class:'stack'},field('Probability',String(drop.probability)),field('Guaranteed drop',drop.guaranteeDrop?'Yes':'No'),field('Guaranteed count',String(drop.guaranteeDropCount)),field('Conditions',drop.conditions.length?JSON.stringify(drop.conditions,null,2):'None')));
+    const content=el('div',{class:'card'},heading,badge(target.name.status),el('p',{class:'key',text:drop.item}),el('dl',{class:'stack'},field(t('probability'),String(drop.probability)),field(t('guaranteed_drop'),drop.guaranteeDrop?t('yes'):t('no')),field(t('guaranteed_count'),String(drop.guaranteeDropCount)),field(t('conditions'),drop.conditions.length?JSON.stringify(drop.conditions,null,2):t('none'))));
     grid.append(content);
   }
   return grid;
 }
 
 function enemiesUnavailable() {
-  return el('div',{},titleBlock('Enemies'),el('div',{class:'status warn',text:'Enemy data is unavailable in this cached or historical repository snapshot. Refresh after loading a commit that contains enemies.decrypted.csv.'}));
+  return el('div',{},titleBlock(t('enemies')),el('div',{class:'status warn',text:t('enemies_unavailable')}));
 }
 
 function renderEnemy(enemy) {
@@ -647,33 +697,33 @@ function renderEnemy(enemy) {
   if (!enemy) return notFound();
   const name=enemyName(enemy), root=el('div',{},titleBlock(name.text,`${enemy.enemyType} · ${enemy.key}`));
   const weapon=state.model.weapons.some(value=>value.code===enemy.bossWeapon), subspecies=state.model.enemies.some(value=>value.key===enemy.subspeciesBoss);
-  root.append(el('dl',{class:'stack'},field('Enemy name',name.text,name.key,name.status),field('Enemy ID',enemy.key,'enemies.decrypted.csv → Key'),field('Localization ID',enemy.enemyId,'enemies.decrypted.csv → EnemyId'),field('Enemy type',enemy.enemyType),field('Boss weapon',linkedValue(enemy.bossWeapon,routeFor('weapons',enemy.bossWeapon),weapon)),field('Subspecies boss',linkedValue(enemy.subspeciesBoss,routeFor('enemies',enemy.subspeciesBoss),subspecies))));
-  root.append(el('h2',{text:`Drops (${enemy.drops.length})`}),renderDrops(enemy.drops));
-  root.append(el('h2',{text:`Drop groups (${enemy.dropGroups.length})`}));
-  if (!enemy.dropGroups.length) root.append(el('div',{class:'empty',text:'No drop groups.'}));
-  for (const [index,group] of enemy.dropGroups.entries()) root.append(el('section',{class:'field'},el('h3',{text:`Group ${index+1}`}),el('dl',{class:'stack'},field('Probability',String(group.probability)),field('Random order',group.randomOrder?'Yes':'No')),renderDrops(group.drops)));
+  root.append(el('dl',{class:'stack'},field(t('enemy_name'),name.text,name.key,name.status),field(t('enemy_id'),enemy.key,'enemies.decrypted.csv → Key'),field(t('localization_id'),enemy.enemyId,'enemies.decrypted.csv → EnemyId'),field(t('enemy_type'),enemy.enemyType),field(t('boss_weapon'),linkedValue(enemy.bossWeapon,routeFor('weapons',enemy.bossWeapon),weapon)),field(t('subspecies_boss'),linkedValue(enemy.subspeciesBoss,routeFor('enemies',enemy.subspeciesBoss),subspecies))));
+  root.append(el('h2',{text:t('drops_count',enemy.drops.length)}),renderDrops(enemy.drops));
+  root.append(el('h2',{text:t('drop_groups_count',enemy.dropGroups.length)}));
+  if (!enemy.dropGroups.length) root.append(el('div',{class:'empty',text:t('no_drop_groups')}));
+  for (const [index,group] of enemy.dropGroups.entries()) root.append(el('section',{class:'field'},el('h3',{text:t('group_n',index+1)}),el('dl',{class:'stack'},field(t('probability'),String(group.probability)),field('Random order',group.randomOrder?t('yes'):t('no'))),renderDrops(group.drops)));
   return root;
 }
 
 function renderMaterial(material) {
   if (!material) return notFound();
   const name=inferMaterial(material), root=el('div',{},titleBlock(name.text,material.id));
-  root.append(el('dl',{class:'stack'},field('Material name',name.text,material.id,name.status),field('Material ID',material.id,'item.json'),field('Group',material.group,'item.json → material')));
-  if (name.sources?.length) root.append(el('h2',{text:'Inferred from'}),el('div',{class:'field'},...name.sources.map(sourceKey)));
+  root.append(el('dl',{class:'stack'},field(t('material_name'),name.text,material.id,name.status),field(t('material_id'),material.id,'item.json'),field(t('group'),material.group,'item.json → material')));
+  if (name.sources?.length) root.append(el('h2',{text:t('inferred_from')}),el('div',{class:'field'},...name.sources.map(sourceKey)));
   return root;
 }
 
 function blueprintsUnavailable() {
-  return el('div',{},titleBlock('Blueprints'),el('div',{class:'status warn',text:'Blueprint data is unavailable in this cached or historical repository snapshot. Refresh after loading a commit that contains items.decrypted.csv.'}));
+  return el('div',{},titleBlock(t('blueprints')),el('div',{class:'status warn',text:t('blueprints_unavailable')}));
 }
 
 function renderBlueprint(blueprint) {
   if (!state.model.blueprints) return blueprintsUnavailable();
   if (!blueprint) return notFound();
   const name=blueprintName(blueprint), root=el('div',{},titleBlock(name.text,blueprint.id));
-  root.append(el('dl',{class:'stack'},field('Blueprint name',name.text,name.key,name.status),field('Blueprint ID',blueprint.id,'item.json'),field('Item ID',blueprint.itemId,'items.decrypted.csv → DataStr.ItemName'),field('Group',blueprint.group,'item.json → blueprint')));
-  root.append(el('h2',{text:`Research materials (${blueprint.materials.length})`}));
-  if (!blueprint.materials.length) root.append(el('div',{class:'empty',text:'No research materials required.'}));
+  root.append(el('dl',{class:'stack'},field(t('blueprint_name'),name.text,name.key,name.status),field(t('blueprint_id'),blueprint.id,'item.json'),field(t('item_id'),blueprint.itemId,'items.decrypted.csv → DataStr.ItemName'),field(t('group'),blueprint.group,'item.json → blueprint')));
+  root.append(el('h2',{text:t('research_materials',blueprint.materials.length)}));
+  if (!blueprint.materials.length) root.append(el('div',{class:'empty',text:t('no_research_materials')}));
   else {
     const costs=el('div',{class:'grid'});
     for (const cost of blueprint.materials) {
@@ -685,7 +735,7 @@ function renderBlueprint(blueprint) {
   return root;
 }
 
-function notFound() { return el('div',{},titleBlock('Not found'),el('p',{text:'The requested wiki entry does not exist.'}),el('a',{href:'#/',text:'Return home'})); }
+function notFound() { return el('div',{},titleBlock(t('not_found')),el('p',{text:t('not_found_desc')}),el('a',{href:'#/',text:t('return_home')})); }
 
 function updateSource() {
   sourceBox.replaceChildren();
@@ -704,13 +754,14 @@ function render() {
   updateSource();
   if (!state.model) return;
   const parts=routeParts(); let view;
+  updateNav();
   if (!parts.length) view=renderHome();
-  else if (parts[0]==='characters') view=parts.length>1?renderCharacter(state.model.characters.find(v=>v.id===Number(parts[1]))):renderList('Characters',state.model.characters);
-  else if (parts[0]==='pets') view=parts.length>1?renderPet(state.model.pets.find(v=>v.id===Number(parts[1]))):renderList('Pets',state.model.pets);
-  else if (parts[0]==='weapons') view=parts.length>1?renderWeapon(state.model.weapons.find(v=>v.code===parts[1])):renderList('Weapons',state.model.weapons);
-  else if (parts[0]==='materials') view=parts.length>1?renderMaterial(state.model.materials.find(v=>v.id===parts[1])):renderList('Materials',state.model.materials);
-  else if (parts[0]==='blueprints') view=!state.model.blueprints?blueprintsUnavailable():parts.length>1?renderBlueprint(state.model.blueprints.find(v=>v.id===parts[1])):renderList('Blueprints',state.model.blueprints);
-  else if (parts[0]==='enemies') view=!state.model.enemies?enemiesUnavailable():parts.length>1?renderEnemy(state.model.enemies.find(v=>v.key===parts[1])):renderList('Enemies',state.model.enemies);
+  else if (parts[0]==='characters') view=parts.length>1?renderCharacter(state.model.characters.find(v=>v.id===Number(parts[1]))):renderList(t('characters'),state.model.characters);
+  else if (parts[0]==='pets') view=parts.length>1?renderPet(state.model.pets.find(v=>v.id===Number(parts[1]))):renderList(t('pets'),state.model.pets);
+  else if (parts[0]==='weapons') view=parts.length>1?renderWeapon(state.model.weapons.find(v=>v.code===parts[1])):renderList(t('weapons'),state.model.weapons);
+  else if (parts[0]==='materials') view=parts.length>1?renderMaterial(state.model.materials.find(v=>v.id===parts[1])):renderList(t('materials'),state.model.materials);
+  else if (parts[0]==='blueprints') view=!state.model.blueprints?blueprintsUnavailable():parts.length>1?renderBlueprint(state.model.blueprints.find(v=>v.id===parts[1])):renderList(t('blueprints'),state.model.blueprints);
+  else if (parts[0]==='enemies') view=!state.model.enemies?enemiesUnavailable():parts.length>1?renderEnemy(state.model.enemies.find(v=>v.key===parts[1])):renderList(t('enemies'),state.model.enemies);
   else view=notFound();
   app.replaceChildren(view);
   document.title=`${parts.length ? (view.querySelector('h1')?.textContent || 'Wiki') : 'SKDFE Wiki'} · SKDFE`;
@@ -795,10 +846,14 @@ async function fetchWithLimit(url,limit,accept='text/plain',optional=false) {
 }
 
 async function fetchLatestSha() {
-  const text=await fetchWithLimit(API_URL,1_000_000,'application/vnd.github+json');
-  const data=parseJSON(text,'GitHub commit response'), sha=String(data.sha||'').toLowerCase();
-  if (!/^[0-9a-f]{40}$/.test(sha)) throw new Error('GitHub returned an invalid main-branch SHA');
-  return sha;
+  try {
+    const text=await fetchWithLimit(API_URL,1_000_000,'application/vnd.github+json');
+    const data=parseJSON(text,'GitHub commit response'), sha=String(data.sha||'').toLowerCase();
+    if (/^[0-9a-f]{40}$/.test(sha)) return sha;
+  } catch (error) {
+    console.warn(`Could not resolve commit SHA from GitHub API (${error.message}); falling back to branch ref ${BRANCH}`);
+  }
+  return BRANCH;
 }
 
 async function downloadSnapshot(sha) {
@@ -811,7 +866,7 @@ async function downloadSnapshot(sha) {
 async function refresh(force=false) {
   if (state.refreshing) return;
   if (!force && Date.now()-state.lastCheck<REFRESH_MS) return;
-  state.refreshing=true; refreshButton.disabled=true; setStatus('Checking latest main-branch commit…');
+  state.refreshing=true; refreshButton.disabled=true; setStatus(`Checking latest ${BRANCH} commit…`);
   try {
     const sha=await fetchLatestSha(); state.lastCheck=Date.now();
     if (state.snapshot?.sha===sha && state.snapshot.blueprintFileChecked && state.snapshot.enemyFileChecked) { state.sourceMode=state.sourceMode.startsWith('cache')?'cache, current':'network, current'; setStatus(`Current · game ${state.model.version} · ${sha.slice(0,12)}`); updateSource(); return; }
@@ -839,6 +894,13 @@ function runChecks() {
   if (blueprint.itemId!=='weapon_006' || blueprint.materials[0].num!==400 || blueprintLocalizationKey('blueprint_weapon_223',{blueprintType:7,itemId:'weapon_223'})!=='weapon/weapon_223' || blueprintLocalizationKey('blueprint_evolution_weapon_404',{blueprintType:8})!=='weapon/weapon_404') throw new Error('Blueprint self-check failed');
   rejected=false; try { parseBlueprintCSV(`Key,Type,SubType,DataStr\nstring,string,string,string\nwrong,BluePrint,Blueprint,"${data}"`); } catch { rejected=true; } if (!rejected) throw new Error('Blueprint validation self-check failed');
   if ((location.protocol==='file:' && CAN_PERSIST) || (location.protocol!=='file:' && typeof indexedDB!=='undefined' && !CAN_PERSIST)) throw new Error('Persistence capability self-check failed');
+  state.snapshot={sha:'0123456789abcdef0123456789abcdef01234567'};
+  if (spriteUrl('Knight',0)!==`https://raw.githubusercontent.com/${REPO}/0123456789abcdef0123456789abcdef01234567/character_sprite/Knight/skin_0.png`) throw new Error('Sprite URL self-check failed');
+  state.snapshot=null;
+  if (t('home')!=='Home' || t('showing_matches',1,2)!=='Showing 1 of 2 matches. Refine search.') throw new Error('Static i18n self-check failed');
+  const prevLang=state.language; state.language='Vietnamese';
+  if (t('home')!=='Trang chủ' || t('showing_matches',1,2)!=='Đang hiển thị 1 trên 2 kết quả. Thu hẹp tìm kiếm.') throw new Error('Static i18n Vietnamese self-check failed');
+  state.language=prevLang;
   const parsedWeapons=parseWeapons({weapons:[{name:'weapon_test',title:'Test',level:2,type:'Pistol'}]});
   if (parsedWeapons.length!==1 || parsedWeapons[0].code!=='weapon_test' || parsedWeapons[0].level!==2 || parsedWeapons[0].weaponType!=='Pistol') throw new Error('Weapon parsing self-check failed');
   rejected=false; try { parseWeapons({weapons:[{name:'weapon_test',level:-1,type:'Pistol'}]}); } catch { rejected=true; } if (!rejected) throw new Error('Weapon validation self-check failed');
