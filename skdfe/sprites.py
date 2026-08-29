@@ -31,11 +31,11 @@ def _find_skin_bundles(
     return bundles
 
 
-def _try_export_sprite(
+def _export_sprites(
     asset_studio_dir: Path,
     bundle_path: Path,
     work_dir: Path,
-    extra_args: tuple[str, ...],
+    extra_args: tuple[str, ...] = (),
 ) -> list[Path]:
     """Export Sprite assets and return exported PNGs, or [] on failure."""
     if work_dir.exists():
@@ -65,6 +65,51 @@ def _pick_by_name(pngs: list[Path], target_stem: str) -> Path | None:
     return None
 
 
+def _pick_lowest_frame(pngs: list[Path]) -> Path | None:
+    """Pick the PNG with the lowest trailing numeric suffix."""
+    best = None
+    best_num = float("inf")
+    for p in pngs:
+        match = re.search(r"_(\d+)$", p.stem)
+        if match:
+            num = int(match.group(1))
+            if num < best_num:
+                best_num = num
+                best = p
+    return best
+
+
+def _pick_frame(pngs: list[Path], codename: str, skin_index: int) -> Path | None:
+    """Pick the best idle frame from exported PNGs.
+
+    Tries exact name match first, then falls back to lowest numeric suffix.
+    """
+    result = _pick_by_name(pngs, f"{codename}_{skin_index}_0")
+    if result is None:
+        result = _pick_lowest_frame(pngs)
+    return result
+
+
+# Container filter strategies, tried in priority order.
+# Each returns a tuple of extra_args for AssetStudio CLI.
+# Container paths inside bundles are always lowercase.
+def _container_strategies(codename: str, skin_index: int) -> list[tuple[str, ...]]:
+    """Return container filter args in priority order."""
+    lower = codename.lower()
+    prefix = f"assets/skin/character/{lower}/skin_{skin_index}"
+    return [
+        # 1. Exact idle animation
+        ("--filter-by-container", f"{prefix}/skin_{skin_index}_idle.anim"),
+        # 2. Any idle-related container (idle_long, idle_skill, idle_charge, etc.)
+        # AssetStudio filter is substring match, so "idle" in the prefix catches variants
+        ("--filter-by-container", f"{prefix}/skin_{skin_index}_idle"),
+        # 3. Run animation
+        ("--filter-by-container", f"{prefix}/skin_{skin_index}_run.anim"),
+        # 4. PNG sprite sheet container (sprite-sheet-only skins)
+        ("--filter-by-container", f"{prefix}/{lower}"),
+    ]
+
+
 def extract_character_sprites(
     paths: ProjectPaths,
     sk_extracted_path: Path,
@@ -75,14 +120,21 @@ def extract_character_sprites(
 
     Output: character_sprite/<codename>/skin_<X>.png
 
-    The first idle frame is the Sprite asset named ``{codename}_{skin_index}_0``.
-    Uses a three-pass strategy per bundle:
-    1. ``--filter-by-name {Codename}_{idx}_0`` — exports the exact sprite
-       (case-insensitive substring); pick by exact name from results.
-    2. ``--filter-by-container skin_{idx}/skin_{idx}_idle.anim`` (lowercase)
-       — for skins with misnamed assets; pick the lowest-numbered frame.
-    3. Export all sprites unfiltered — pick by exact name or lowest-numbered
-       frame as last resort.
+    Prioritises accuracy by filtering on container path (which animation
+    the sprite belongs to) rather than on asset name alone.  Container
+    strategies are tried in order:
+
+    1. Exact ``skin_X_idle.anim`` container — the canonical idle animation.
+    2. Any ``skin_X_idle*`` container — catches ``idle_long``, ``idle_skill``,
+       ``idle_charge`` variants.
+    3. Exact ``skin_X_run.anim`` — skins that have no idle sprites.
+    4. ``.png`` sprite-sheet container — skins whose sprites are not
+       referenced by any ``.anim``.
+    5. Export all sprites unfiltered — last resort.
+
+    At each step the first idle frame is selected by exact name
+    ``{codename}_{skin_index}_0`` (case-insensitive), falling back to the
+    sprite with the lowest numeric suffix.
 
     Skin index X comes from the bundle filename, not the asset name.
     """
@@ -105,40 +157,24 @@ def extract_character_sprites(
 
         for skin_index, bundle_path in bundles:
             result_png = None
-            target_stem = f"{codename}_{skin_index}_0"
 
-            # Pass 1: filter by sprite name
-            pngs = _try_export_sprite(
-                asset_studio_dir, bundle_path, work_dir,
-                ("--filter-by-name", target_stem),
-            )
-            if pngs:
-                result_png = _pick_by_name(pngs, target_stem)
-
-            # Pass 2: fallback to idle container filter (lowercase)
-            if result_png is None:
-                container_filter = (
-                    f"assets/skin/character/{codename.lower()}/"
-                    f"skin_{skin_index}/skin_{skin_index}_idle.anim"
+            # Try each container strategy in priority order
+            for extra_args in _container_strategies(codename, skin_index):
+                pngs = _export_sprites(
+                    asset_studio_dir, bundle_path, work_dir, extra_args,
                 )
-                pngs = _try_export_sprite(
+                if pngs:
+                    result_png = _pick_frame(pngs, codename, skin_index)
+                    if result_png is not None:
+                        break
+
+            # Last resort: export all sprites unfiltered
+            if result_png is None:
+                pngs = _export_sprites(
                     asset_studio_dir, bundle_path, work_dir,
-                    ("--filter-by-container", container_filter),
                 )
                 if pngs:
-                    result_png = _pick_by_name(pngs, target_stem)
-                    if result_png is None:
-                        result_png = _pick_lowest_frame(pngs)
-
-            # Pass 3: export all sprites, pick by name or lowest frame
-            if result_png is None:
-                pngs = _try_export_sprite(
-                    asset_studio_dir, bundle_path, work_dir, (),
-                )
-                if pngs:
-                    result_png = _pick_by_name(pngs, target_stem)
-                    if result_png is None:
-                        result_png = _pick_lowest_frame(pngs)
+                    result_png = _pick_frame(pngs, codename, skin_index)
 
             if result_png is None:
                 logging.debug(
@@ -160,17 +196,3 @@ def extract_character_sprites(
         extracted, output_root,
     )
     return output_root
-
-
-def _pick_lowest_frame(pngs: list[Path]) -> Path | None:
-    """Pick the PNG with the lowest trailing numeric suffix."""
-    best = None
-    best_num = float("inf")
-    for p in pngs:
-        match = re.search(r"_(\d+)$", p.stem)
-        if match:
-            num = int(match.group(1))
-            if num < best_num:
-                best_num = num
-                best = p
-    return best
