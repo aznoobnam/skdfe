@@ -78,6 +78,10 @@ class ProjectPaths:
     def apk_dir(self, version: str) -> Path:
         return self.data_dir / f"sk-{version}"
 
+    @property
+    def sprite_export_tmp(self) -> Path:
+        return self.data_dir / "sprite_export_tmp"
+
     def output(self, name: str) -> Path:
         """Return a stable public artifact path."""
         return self.root / name

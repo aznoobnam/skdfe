@@ -9,6 +9,7 @@ from skdfe.assetstudio import find_valid_i2_dat, find_weapon_info, run_asset_ext
 from skdfe.code_names import discover_pet_sources, generate_char_code_names
 from skdfe.config import ProjectPaths
 from skdfe.config_exports import decrypt_config_exports
+from skdfe.sprites import extract_character_sprites
 from skdfe.derivations import build_dictionaries, build_needed_data, build_weapon_evo_data
 from skdfe.i2 import load_language_maps, parse_i2_asset_file, write_i2_csv
 from skdfe.rendering import load_weapon_info, write_json, write_master_txt, write_weapon_full
@@ -43,6 +44,12 @@ def main(root: Path | None = None) -> None:
     except Exception as error:
         logging.error("Character code generation failed: %s", error)
         sys.exit(1)
+    try:
+        import json
+        codenames = json.loads(paths.output("char_code_name.json").read_text(encoding="utf-8"))
+        extract_character_sprites(paths, sk_extracted, asset_studio_dir, codenames)
+    except Exception as error:
+        logging.warning("Character sprite extraction failed: %s", error)
     try:
         discover_pet_sources(paths, sk_extracted)
     except Exception as error:
