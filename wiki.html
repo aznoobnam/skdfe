@@ -46,30 +46,37 @@
 /* Light Theme Variables */
 :root, [data-theme="light"] {
   color-scheme: light;
-  --bg: oklch(98% 0.005 240);
-  --bg-subtle: oklch(95.5% 0.008 240);
-  --surface: oklch(100% 0 0);
-  --surface-raised: oklch(100% 0 0);
-  --surface-hover: oklch(97% 0.01 240);
-  --border: oklch(88% 0.01 240);
-  --border-strong: oklch(78% 0.015 240);
+  --bg: oklch(92% 0.01 240);
+  --bg-subtle: oklch(88% 0.015 240);
+  --surface: oklch(95% 0.008 240);
+  --surface-raised: oklch(97% 0.008 240);
+  --surface-hover: oklch(91% 0.015 240);
+  --border: oklch(80% 0.015 240);
+  --border-strong: oklch(68% 0.02 240);
   --text: oklch(20% 0.015 240);
-  --text-muted: oklch(48% 0.015 240);
-  --text-dim: oklch(62% 0.01 240);
+  --text-muted: oklch(42% 0.015 240);
+  --text-dim: oklch(52% 0.01 240);
   
-  --shadow-sm: 0 1px 2px oklch(20% 0.02 240 / 0.04);
-  --shadow-md: 0 4px 12px oklch(20% 0.02 240 / 0.06), 0 1px 3px oklch(20% 0.02 240 / 0.04);
-  --shadow-lg: 0 12px 24px -4px oklch(20% 0.02 240 / 0.08);
+  --shadow-sm: 0 1px 2px oklch(15% 0.02 240 / 0.08);
+  --shadow-md: 0 4px 12px oklch(15% 0.02 240 / 0.1), 0 1px 3px oklch(15% 0.02 240 / 0.06);
+  --shadow-lg: 0 12px 24px -4px oklch(15% 0.02 240 / 0.12);
 
-  --warn-bg: oklch(95% 0.06 75);
-  --warn-text: oklch(45% 0.14 60);
-  --warn-border: oklch(85% 0.1 75);
+  --warn-bg: oklch(92% 0.08 75);
+  --warn-text: oklch(40% 0.15 60);
+  --warn-border: oklch(78% 0.12 75);
 
-  --danger-bg: oklch(95% 0.06 25);
-  --danger-text: oklch(48% 0.18 25);
-  --danger-border: oklch(85% 0.1 25);
+  --danger-bg: oklch(92% 0.08 25);
+  --danger-text: oklch(42% 0.2 25);
+  --danger-border: oklch(78% 0.12 25);
   
-  --focus-ring: oklch(50% 0.18 155);
+  --focus-ring: oklch(45% 0.18 155);
+
+  --text-outline: 
+    -1px -1px 0 rgba(0,0,0,0.85),
+     1px -1px 0 rgba(0,0,0,0.85),
+    -1px  1px 0 rgba(0,0,0,0.85),
+     1px  1px 0 rgba(0,0,0,0.85),
+     0 2px 4px rgba(0,0,0,0.5);
 }
 
 /* Dark Theme Variables */
@@ -102,6 +109,13 @@
     
     --focus-ring: oklch(72% 0.16 155);
     --cat-badge-text: oklch(85% 0.12 155);
+
+    --text-outline: 
+      -1px -1px 0 rgba(0,0,0,0.9),
+       1px -1px 0 rgba(0,0,0,0.9),
+      -1px  1px 0 rgba(0,0,0,0.9),
+       1px  1px 0 rgba(0,0,0,0.9),
+       0 2px 4px rgba(0,0,0,0.7);
   }
 }
 
@@ -110,6 +124,36 @@
   --bg: oklch(14% 0.01 250);
   --bg-subtle: oklch(18% 0.012 250);
   --surface: oklch(20% 0.014 250);
+  --surface-raised: oklch(24% 0.016 250);
+  --surface-hover: oklch(26% 0.018 250);
+  --border: oklch(30% 0.015 250);
+  --border-strong: oklch(40% 0.02 250);
+  --text: oklch(94% 0.005 240);
+  --text-muted: oklch(72% 0.01 240);
+  --text-dim: oklch(55% 0.01 240);
+  
+  --shadow-sm: 0 1px 2px oklch(5% 0.01 250 / 0.4);
+  --shadow-md: 0 4px 12px oklch(5% 0.01 250 / 0.5), 0 1px 3px oklch(5% 0.01 250 / 0.3);
+  --shadow-lg: 0 12px 24px -4px oklch(5% 0.01 250 / 0.6);
+
+  --warn-bg: oklch(28% 0.07 70);
+  --warn-text: oklch(85% 0.12 75);
+  --warn-border: oklch(42% 0.1 70);
+
+  --danger-bg: oklch(28% 0.08 25);
+  --danger-text: oklch(88% 0.14 25);
+  --danger-border: oklch(45% 0.12 25);
+  
+  --focus-ring: oklch(72% 0.16 155);
+  --cat-badge-text: oklch(85% 0.12 155);
+
+  --text-outline: 
+    -1px -1px 0 rgba(0,0,0,0.9),
+     1px -1px 0 rgba(0,0,0,0.9),
+    -1px  1px 0 rgba(0,0,0,0.9),
+     1px  1px 0 rgba(0,0,0,0.9),
+     0 2px 4px rgba(0,0,0,0.7);
+}
   --surface-raised: oklch(24% 0.016 250);
   --surface-hover: oklch(26% 0.018 250);
   --border: oklch(30% 0.015 250);
@@ -807,8 +851,10 @@ const RARITY_COLORS = {
   6: '#FF00AA'
 };
 
-function weaponRarityColor(level) {
-  return RARITY_COLORS[level] || '';
+function weaponRarityStyle(level) {
+  const color = RARITY_COLORS[level];
+  if (!color) return '';
+  return `color:${color};text-shadow:var(--text-outline);`;
 }
 const CAN_PERSIST = location.protocol !== 'file:' && typeof indexedDB !== 'undefined';
 const REFRESH_MS = 30 * 60 * 1000;
@@ -1237,9 +1283,9 @@ function field(label,value,key='',status='') {
   return el('div',{class:'field'},el('dt',{text:label}),dd);
 }
 
-function card(href,title,meta='',status='',thumb=null,titleColor='') {
+function card(href,title,meta='',status='',thumb=null,titleStyle='') {
   const headingAttrs = {text:title};
-  if (titleColor) headingAttrs.style = `color:${titleColor};`;
+  if (titleStyle) headingAttrs.style = titleStyle;
   const heading=el('h3',headingAttrs); const mark=badge(status); if (mark) heading.append(' ',mark);
   const info=el('div',{class:'card-info'},heading,meta?el('p',{class:'key',text:meta}):null);
   if (thumb) return el('a',{class:'card card-thumb',href},thumb,info);
@@ -1356,7 +1402,7 @@ function renderCards(entities) {
   for (const entity of shown) {
     if (entity.type==='characters') { const name=characterName(entity); const img=spriteImg(entity.code,0,name.text); grid.append(card(routeFor('characters',entity.id),name.text,`ID ${entity.id} · ${entity.code}`,name.status,img)); }
     else if (entity.type==='pets') { const name=petName(entity); grid.append(card(routeFor('pets',entity.id),name.text,`ID ${entity.id} · ${entity.code}`,name.status)); }
-    else if (entity.type==='weapons') { const name=weaponName(entity); grid.append(card(routeFor('weapons',entity.code),name.text,`${entity.weaponType} · ${t('rarity_n',entity.level)} · ${entity.code}`,name.status,null,weaponRarityColor(entity.level))); }
+    else if (entity.type==='weapons') { const name=weaponName(entity); grid.append(card(routeFor('weapons',entity.code),name.text,`${entity.weaponType} · ${t('rarity_n',entity.level)} · ${entity.code}`,name.status,null,weaponRarityStyle(entity.level))); }
     else if (entity.type==='blueprints') { const name=blueprintName(entity); grid.append(card(routeFor('blueprints',entity.id),name.text,`${entity.group} · ${entity.id} · ${entity.itemId}`,name.status)); }
     else if (entity.type==='enemies') { const name=enemyName(entity); grid.append(card(routeFor('enemies',entity.key),name.text,`${entity.enemyType} · ${entity.key}${entity.enemyId?` · ${entity.enemyId}`:''}`,name.status)); }
     else { const name=inferMaterial(entity); grid.append(card(routeFor('materials',entity.id),name.text,`${entity.group} · ${entity.id}`,name.status)); }
@@ -1378,9 +1424,9 @@ function renderCharacter(character) {
   root.append(el('dl',{class:'stack'},field(t('char_name'),name.text,name.key,name.status),field(t('code_name'),character.code,'char_code_name.json'),field(t('numeric_id'),String(character.id),'array index')));
   const weaponFields=[[t('starting_weapon'),character.starting],[t('upgraded_starting_weapon'),character.upgraded]].map(([label,id])=>{
     const weapon=state.model.weapons.find(value=>value.code===id), weaponNameValue=weaponName(weapon);
-    const color=weapon ? weaponRarityColor(weapon.level) : '';
+    const style=weapon ? weaponRarityStyle(weapon.level) : '';
     const linkAttrs={href:routeFor('weapons',id),text:weaponNameValue.text};
-    if (color) linkAttrs.style=`color:${color};font-weight:600;`;
+    if (style) linkAttrs.style=`${style};font-weight:600;`;
     return field(label,el('a',linkAttrs),`weapon/${id}`,weaponNameValue.status);
   });
   root.append(el('h2',{text:t('starting_weapons')}),el('dl',{class:'stack'},weaponFields));
@@ -1417,14 +1463,14 @@ function renderWeapon(weapon) {
   if (!weapon) return notFound();
   const name=weaponName(weapon), root=el('div',{},titleBlock(name.text,weapon.code));
   const titleH1=root.querySelector('h1');
-  const rarityColor=weaponRarityColor(weapon.level);
-  if (titleH1 && rarityColor) titleH1.style.color=rarityColor;
-  const nameFieldVal=rarityColor ? el('span',{style:`color:${rarityColor};font-weight:600;`,text:name.text}) : name.text;
+  const rarityStyle=weaponRarityStyle(weapon.level);
+  if (titleH1 && rarityStyle) titleH1.style.cssText=rarityStyle;
+  const nameFieldVal=rarityStyle ? el('span',{style:`${rarityStyle};font-weight:600;`,text:name.text}) : name.text;
   root.append(el('dl',{class:'stack'},field(t('weapon_name'),nameFieldVal,name.key,name.status),field(t('weapon_id'),weapon.code,'weapon_full.json → name'),field(t('rarity'),String(weapon.level),'weapon_full.json → level'),field(t('weapon_type'),weapon.weaponType,'weapon_full.json → type')));
   root.append(el('h2',{text:t('skins_count',weapon.skinIds.length)}));
   if (!weapon.skinIds.length) root.append(el('div',{class:'empty',text:t('no_weapon_skins')}));
   const skins=el('div',{class:'grid'});
-  for (const id of weapon.skinIds) { const value=localized(id), suffix=id.match(/_s_(\d+)$/)?.[1] || '?'; skins.append(el('div',{class:'card'},el('h3',{text:value.text,style:rarityColor?`color:${rarityColor};`:''}),badge(value.status),el('p',{class:'muted',text:t('skin_id',suffix)}))); }
+  for (const id of weapon.skinIds) { const value=localized(id), suffix=id.match(/_s_(\d+)$/)?.[1] || '?'; skins.append(el('div',{class:'card'},el('h3',{text:value.text,style:rarityStyle||''}),badge(value.status),el('p',{class:'muted',text:t('skin_id',suffix)}))); }
   root.append(skins);
   if (weapon.subWeapons.length) {
     root.append(el('h2',{text:`Sub weapons (${weapon.subWeapons.length})`}));
