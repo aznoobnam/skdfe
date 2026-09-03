@@ -7,55 +7,748 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src https://api.github.com https://raw.githubusercontent.com; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src https://raw.githubusercontent.com data:; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <title>SKDFE Wiki</title>
   <style>
-    :root { color-scheme: light dark; --bg:#f6f6f3; --panel:#fff; --text:#20211f; --muted:#666a64; --line:#d9dcd5; --accent:#245f45; --soft:#e7f0eb; --warn:#8a4b08; --danger:#9b2c2c; }
-    @media (prefers-color-scheme:dark) { :root { --bg:#161816; --panel:#20231f; --text:#eceee9; --muted:#aeb3aa; --line:#3b4039; --accent:#8fd4ae; --soft:#263b30; --warn:#ffc06a; --danger:#ff9a9a; } }
-    * { box-sizing:border-box; }
-    body { margin:0; background:var(--bg); color:var(--text); font:15px/1.55 system-ui,sans-serif; }
-    a { color:var(--accent); text-underline-offset:.18em; }
-    button,input,select { font:inherit; }
-    button,input,select,a { border-radius:.35rem; }
-    :focus-visible { outline:3px solid var(--accent); outline-offset:2px; }
-    header { position:sticky; top:0; z-index:2; background:color-mix(in srgb,var(--panel) 94%,transparent); border-bottom:1px solid var(--line); backdrop-filter:blur(8px); }
-    .bar { max-width:1180px; margin:auto; padding:.7rem 1rem; display:flex; gap:.65rem; align-items:center; flex-wrap:wrap; }
-    .brand { color:var(--text); font-weight:750; text-decoration:none; margin-inline-end:.35rem; }
-    nav { display:flex; gap:.25rem; flex-wrap:wrap; }
-    nav a { color:var(--muted); padding:.35rem .55rem; text-decoration:none; }
-    nav a[aria-current="page"] { background:var(--soft); color:var(--accent); }
-    .controls { display:flex; gap:.5rem; margin-inline-start:auto; flex:1; justify-content:flex-end; min-width:280px; }
-    input,select,button { border:1px solid var(--line); background:var(--panel); color:var(--text); padding:.42rem .58rem; }
-    input { width:min(23rem,100%); }
-    button { cursor:pointer; }
-    button:disabled { cursor:wait; opacity:.65; }
-    main,footer { max-width:1180px; margin:auto; padding:1.15rem 1rem; }
-    h1 { font-size:clamp(1.55rem,4vw,2.3rem); margin:.15rem 0 .25rem; }
-    h2 { font-size:1.2rem; margin:1.5rem 0 .55rem; }
-    h3 { margin:.1rem 0; font-size:1rem; }
-    .muted,.key { color:var(--muted); }
-    .key { font:12px/1.45 ui-monospace,SFMono-Regular,Consolas,monospace; overflow-wrap:anywhere; }
-    .status { margin:.75rem 0 1rem; padding:.65rem .8rem; border:1px solid var(--line); border-inline-start:4px solid var(--accent); background:var(--panel); }
-    .status.warn { border-inline-start-color:var(--warn); }
-    .status.error { border-inline-start-color:var(--danger); }
-    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:.7rem; }
-    .card { display:block; min-width:0; padding:.8rem; border:1px solid var(--line); background:var(--panel); text-decoration:none; color:var(--text); }
-    .card.card-thumb { display:flex; gap:.7rem; align-items:center; }
-    .card-info { min-width:0; flex:1; }
-    .sprite-preview { image-rendering:pixelated; object-fit:contain; width:48px; height:48px; flex-shrink:0; background:var(--soft); border-radius:.25rem; padding:2px; }
-    a.card:hover { border-color:var(--accent); }
-    .card p { margin:.3rem 0 0; }
-    .count { font-size:1.7rem; font-weight:750; color:var(--accent); }
-    .badge { display:inline-block; margin:.2rem .25rem .1rem 0; padding:.08rem .4rem; border-radius:999px; background:var(--soft); color:var(--accent); font-size:.76rem; }
-    .badge.warn { color:var(--warn); }
-    .badge.error { color:var(--danger); }
-    .stack { display:grid; gap:.55rem; }
-    .field { padding:.7rem .8rem; border:1px solid var(--line); background:var(--panel); }
-    .field dt { color:var(--muted); font-size:.8rem; }
-    .field dd { margin:.12rem 0 0; white-space:pre-wrap; overflow-wrap:anywhere; }
-    .section-head { display:flex; align-items:end; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
-    .empty { padding:2rem 1rem; text-align:center; color:var(--muted); border:1px dashed var(--line); }
-    footer { color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); }
-    [hidden] { display:none!important; }
-    @media (max-width:760px) { .controls { order:3; min-width:100%; justify-content:stretch; } input { flex:1; min-width:0; } select { max-width:42%; } .bar { padding:.55rem .7rem; } main,footer { padding-inline:.7rem; } }
-    @media (prefers-reduced-motion:no-preference) { a,button { transition:border-color .12s,background-color .12s; } }
+/* Hallmark · macrostructure: Workbench · tone: modern-minimal · anchor hue: emerald */
+/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 */
+:root {
+  --font-display: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Spacing Scale */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+
+  /* Radius Scale */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 150ms;
+  --dur-base: 220ms;
+
+  /* Category Theming Variables (Default: Workbench Neutral) */
+  --cat-accent: oklch(58% 0.16 155);
+  --cat-accent-subtle: oklch(58% 0.16 155 / 0.12);
+  --cat-glow: oklch(58% 0.16 155 / 0.2);
+  --cat-border: oklch(58% 0.16 155 / 0.3);
+  --cat-badge-bg: oklch(58% 0.16 155 / 0.14);
+  --cat-badge-text: oklch(35% 0.14 155);
+}
+
+/* Light Theme Variables */
+:root, [data-theme="light"] {
+  color-scheme: light;
+  --bg: oklch(98% 0.005 240);
+  --bg-subtle: oklch(95.5% 0.008 240);
+  --surface: oklch(100% 0 0);
+  --surface-raised: oklch(100% 0 0);
+  --surface-hover: oklch(97% 0.01 240);
+  --border: oklch(88% 0.01 240);
+  --border-strong: oklch(78% 0.015 240);
+  --text: oklch(20% 0.015 240);
+  --text-muted: oklch(48% 0.015 240);
+  --text-dim: oklch(62% 0.01 240);
+  
+  --shadow-sm: 0 1px 2px oklch(20% 0.02 240 / 0.04);
+  --shadow-md: 0 4px 12px oklch(20% 0.02 240 / 0.06), 0 1px 3px oklch(20% 0.02 240 / 0.04);
+  --shadow-lg: 0 12px 24px -4px oklch(20% 0.02 240 / 0.08);
+
+  --warn-bg: oklch(95% 0.06 75);
+  --warn-text: oklch(45% 0.14 60);
+  --warn-border: oklch(85% 0.1 75);
+
+  --danger-bg: oklch(95% 0.06 25);
+  --danger-text: oklch(48% 0.18 25);
+  --danger-border: oklch(85% 0.1 25);
+  
+  --focus-ring: oklch(50% 0.18 155);
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"],
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: oklch(14% 0.01 250);
+    --bg-subtle: oklch(18% 0.012 250);
+    --surface: oklch(20% 0.014 250);
+    --surface-raised: oklch(24% 0.016 250);
+    --surface-hover: oklch(26% 0.018 250);
+    --border: oklch(30% 0.015 250);
+    --border-strong: oklch(40% 0.02 250);
+    --text: oklch(94% 0.005 240);
+    --text-muted: oklch(72% 0.01 240);
+    --text-dim: oklch(55% 0.01 240);
+    
+    --shadow-sm: 0 1px 2px oklch(5% 0.01 250 / 0.4);
+    --shadow-md: 0 4px 12px oklch(5% 0.01 250 / 0.5), 0 1px 3px oklch(5% 0.01 250 / 0.3);
+    --shadow-lg: 0 12px 24px -4px oklch(5% 0.01 250 / 0.6);
+
+    --warn-bg: oklch(28% 0.07 70);
+    --warn-text: oklch(85% 0.12 75);
+    --warn-border: oklch(42% 0.1 70);
+
+    --danger-bg: oklch(28% 0.08 25);
+    --danger-text: oklch(88% 0.14 25);
+    --danger-border: oklch(45% 0.12 25);
+    
+    --focus-ring: oklch(72% 0.16 155);
+    --cat-badge-text: oklch(85% 0.12 155);
+  }
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: oklch(14% 0.01 250);
+  --bg-subtle: oklch(18% 0.012 250);
+  --surface: oklch(20% 0.014 250);
+  --surface-raised: oklch(24% 0.016 250);
+  --surface-hover: oklch(26% 0.018 250);
+  --border: oklch(30% 0.015 250);
+  --border-strong: oklch(40% 0.02 250);
+  --text: oklch(94% 0.005 240);
+  --text-muted: oklch(72% 0.01 240);
+  --text-dim: oklch(55% 0.01 240);
+  
+  --shadow-sm: 0 1px 2px oklch(5% 0.01 250 / 0.4);
+  --shadow-md: 0 4px 12px oklch(5% 0.01 250 / 0.5), 0 1px 3px oklch(5% 0.01 250 / 0.3);
+  --shadow-lg: 0 12px 24px -4px oklch(5% 0.01 250 / 0.6);
+
+  --warn-bg: oklch(28% 0.07 70);
+  --warn-text: oklch(85% 0.12 75);
+  --warn-border: oklch(42% 0.1 70);
+
+  --danger-bg: oklch(28% 0.08 25);
+  --danger-text: oklch(88% 0.14 25);
+  --danger-border: oklch(45% 0.12 25);
+  
+  --focus-ring: oklch(72% 0.16 155);
+  --cat-badge-text: oklch(85% 0.12 155);
+}
+
+/* ==========================================================================
+   Category-Unique Aesthetic Identities
+   ========================================================================== */
+/* 1. Characters: Cyber / Neon Indigo Emerald */
+body[data-page="characters"] {
+  --cat-accent: oklch(62% 0.19 255);
+  --cat-accent-subtle: oklch(62% 0.19 255 / 0.12);
+  --cat-glow: oklch(62% 0.19 255 / 0.22);
+  --cat-border: oklch(62% 0.19 255 / 0.35);
+  --cat-badge-bg: oklch(62% 0.19 255 / 0.15);
+  --cat-badge-text: oklch(42% 0.19 255);
+  --focus-ring: oklch(62% 0.19 255);
+}
+[data-theme="dark"] body[data-page="characters"],
+body[data-page="characters"]:not([data-theme="light"]) {
+  --cat-badge-text: oklch(85% 0.15 255);
+}
+
+/* 2. Pets: Nature / Organic Warm Amber-Teal */
+body[data-page="pets"] {
+  --cat-accent: oklch(68% 0.16 142);
+  --cat-accent-subtle: oklch(68% 0.16 142 / 0.12);
+  --cat-glow: oklch(68% 0.16 142 / 0.2);
+  --cat-border: oklch(68% 0.16 142 / 0.35);
+  --cat-badge-bg: oklch(68% 0.16 142 / 0.15);
+  --cat-badge-text: oklch(40% 0.15 142);
+  --focus-ring: oklch(68% 0.16 142);
+}
+[data-theme="dark"] body[data-page="pets"],
+body[data-page="pets"]:not([data-theme="light"]) {
+  --cat-badge-text: oklch(88% 0.14 142);
+}
+
+/* 3. Weapons: Forge / Fiery Crimson & Amber */
+body[data-page="weapons"] {
+  --cat-accent: oklch(64% 0.21 38);
+  --cat-accent-subtle: oklch(64% 0.21 38 / 0.12);
+  --cat-glow: oklch(64% 0.21 38 / 0.25);
+  --cat-border: oklch(64% 0.21 38 / 0.35);
+  --cat-badge-bg: oklch(64% 0.21 38 / 0.15);
+  --cat-badge-text: oklch(42% 0.2 38);
+  --focus-ring: oklch(64% 0.21 38);
+}
+[data-theme="dark"] body[data-page="weapons"],
+body[data-page="weapons"]:not([data-theme="light"]) {
+  --cat-badge-text: oklch(86% 0.16 38);
+}
+
+/* 4. Materials: Industrial / Raw Mineral Gold & Ochre */
+body[data-page="materials"] {
+  --cat-accent: oklch(68% 0.16 85);
+  --cat-accent-subtle: oklch(68% 0.16 85 / 0.12);
+  --cat-glow: oklch(68% 0.16 85 / 0.22);
+  --cat-border: oklch(68% 0.16 85 / 0.35);
+  --cat-badge-bg: oklch(68% 0.16 85 / 0.15);
+  --cat-badge-text: oklch(42% 0.15 85);
+  --focus-ring: oklch(68% 0.16 85);
+}
+[data-theme="dark"] body[data-page="materials"],
+body[data-page="materials"]:not([data-theme="light"]) {
+  --cat-badge-text: oklch(88% 0.14 85);
+}
+
+/* 5. Blueprints: Schematic / Blueprint Cyan */
+body[data-page="blueprints"] {
+  --cat-accent: oklch(65% 0.17 215);
+  --cat-accent-subtle: oklch(65% 0.17 215 / 0.12);
+  --cat-glow: oklch(65% 0.17 215 / 0.24);
+  --cat-border: oklch(65% 0.17 215 / 0.35);
+  --cat-badge-bg: oklch(65% 0.17 215 / 0.15);
+  --cat-badge-text: oklch(40% 0.16 215);
+  --focus-ring: oklch(65% 0.17 215);
+}
+[data-theme="dark"] body[data-page="blueprints"],
+body[data-page="blueprints"]:not([data-theme="light"]) {
+  --cat-badge-text: oklch(86% 0.14 215);
+}
+
+/* 6. Enemies: Danger / Void Purple & Dark Magenta */
+body[data-page="enemies"] {
+  --cat-accent: oklch(62% 0.22 320);
+  --cat-accent-subtle: oklch(62% 0.22 320 / 0.12);
+  --cat-glow: oklch(62% 0.22 320 / 0.25);
+  --cat-border: oklch(62% 0.22 320 / 0.35);
+  --cat-badge-bg: oklch(62% 0.22 320 / 0.15);
+  --cat-badge-text: oklch(40% 0.2 320);
+  --focus-ring: oklch(62% 0.22 320);
+}
+[data-theme="dark"] body[data-page="enemies"],
+body[data-page="enemies"]:not([data-theme="light"]) {
+  --cat-badge-text: oklch(88% 0.16 320);
+}
+
+/* ==========================================================================
+   Global Reset & Base
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: clip;
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  background-image: 
+    radial-gradient(ellipse 60% 40% at 50% -20%, var(--cat-glow), transparent 70%),
+    linear-gradient(to bottom, var(--bg-subtle), var(--bg) 280px);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 15px;
+  line-height: 1.55;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--cat-accent);
+  text-decoration: none;
+  text-underline-offset: 0.18em;
+  font-weight: 500;
+  transition: color var(--dur-fast) var(--ease-out), opacity var(--dur-fast) var(--ease-out);
+}
+a:hover {
+  text-decoration: underline;
+}
+
+button, input, select {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.bar {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: var(--space-sm) var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.015em;
+  text-decoration: none;
+  padding: var(--space-2xs) var(--space-xs);
+  border-radius: var(--radius-md);
+}
+.brand::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--cat-accent);
+  box-shadow: 0 0 8px var(--cat-accent);
+}
+.brand:hover {
+  text-decoration: none;
+  background: var(--surface-hover);
+}
+
+nav {
+  display: flex;
+  gap: 2px;
+  background: var(--bg-subtle);
+  padding: 3px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--text-muted);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all var(--dur-fast) var(--ease-out);
+}
+nav a:hover {
+  color: var(--text);
+  text-decoration: none;
+  background: var(--surface-hover);
+}
+nav a[aria-current="page"] {
+  background: var(--surface);
+  color: var(--cat-accent);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  font-weight: 600;
+}
+
+/* Controls Bar */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-inline-start: auto;
+  flex: 1;
+  justify-content: flex-end;
+  min-width: 320px;
+}
+
+.search-wrap {
+  position: relative;
+  flex: 1;
+  max-width: 320px;
+}
+
+input[type="search"], select, button {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  padding: 0.42rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+}
+
+input[type="search"] {
+  width: 100%;
+}
+input[type="search"]:focus {
+  border-color: var(--cat-accent);
+  box-shadow: 0 0 0 3px var(--cat-accent-subtle);
+}
+
+select {
+  cursor: pointer;
+  max-width: 150px;
+}
+select:focus {
+  border-color: var(--cat-accent);
+}
+
+button {
+  cursor: pointer;
+  font-weight: 500;
+  background: var(--surface);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+}
+button:hover:not(:disabled) {
+  background: var(--surface-hover);
+  border-color: var(--border-strong);
+}
+button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.theme-btn {
+  padding: 0.42rem 0.65rem;
+  font-size: 0.9rem;
+  line-height: 1;
+  border-radius: var(--radius-md);
+}
+
+/* ==========================================================================
+   Main & Layout Containers
+   ========================================================================= */
+main, footer {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Section Headings */
+.page-header {
+  margin-bottom: var(--space-xl);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: var(--space-md);
+}
+h1 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin: 0 0 var(--space-xs);
+  color: var(--text);
+  overflow-wrap: anywhere;
+  min-width: 0;
+  font-style: normal;
+}
+h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin: var(--space-xl) 0 var(--space-sm);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-style: normal;
+}
+h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  font-style: normal;
+}
+
+.muted {
+  color: var(--text-muted);
+  margin: 0;
+  font-size: 0.92rem;
+}
+.key {
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  overflow-wrap: anywhere;
+}
+
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: var(--space-sm);
+}
+
+/* ==========================================================================
+   Component Archetypes: Cards & Grid
+   ========================================================================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  gap: var(--space-md);
+}
+
+/* Category Hub Cards on Home */
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+  gap: var(--space-md);
+  margin: var(--space-xl) 0;
+}
+
+.hub-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-lg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: var(--text);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+.hub-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--card-accent, var(--cat-accent));
+}
+.hub-card:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+  border-color: var(--card-accent, var(--cat-accent));
+  box-shadow: var(--shadow-md);
+}
+.hub-card .count {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--card-accent, var(--cat-accent));
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+}
+.hub-card h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+/* Standard Data Card */
+.card {
+  display: block;
+  min-width: 0;
+  padding: var(--space-md);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: var(--text);
+  transition: transform var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+}
+a.card:hover {
+  text-decoration: none;
+  transform: translateY(-1px);
+  border-color: var(--cat-accent);
+  box-shadow: var(--shadow-md);
+}
+
+.card.card-thumb {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+}
+.card-info {
+  min-width: 0;
+  flex: 1;
+}
+.card p {
+  margin: var(--space-2xs) 0 0;
+}
+
+.sprite-preview {
+  image-rendering: pixelated;
+  object-fit: contain;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 4px;
+}
+
+/* ==========================================================================
+   Badges, Fields, and Tables
+   ========================================================================== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  margin: 0.15rem 0.25rem 0.15rem 0;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-full);
+  background: var(--cat-badge-bg);
+  color: var(--cat-badge-text);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+.badge.warn {
+  background: var(--warn-bg);
+  color: var(--warn-text);
+  border: 1px solid var(--warn-border);
+}
+.badge.error {
+  background: var(--danger-bg);
+  color: var(--danger-text);
+  border: 1px solid var(--danger-border);
+}
+
+.stack {
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.field {
+  padding: var(--space-md);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+.field dt {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-2xs);
+}
+.field dd {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: var(--text);
+}
+
+/* Callouts & Status */
+.status {
+  margin: var(--space-md) 0 var(--space-lg);
+  padding: var(--space-md) var(--space-lg);
+  border: 1px solid var(--border);
+  border-inline-start: 4px solid var(--cat-accent);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+.status.warn {
+  border-inline-start-color: var(--warn-text);
+  background: color-mix(in srgb, var(--warn-bg) 40%, var(--surface));
+}
+.status.error {
+  border-inline-start-color: var(--danger-text);
+  background: color-mix(in srgb, var(--danger-bg) 40%, var(--surface));
+}
+
+.empty {
+  padding: var(--space-2xl) var(--space-md);
+  text-align: center;
+  color: var(--text-muted);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  background: var(--bg-subtle);
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+footer {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-xl);
+}
+footer #source {
+  margin-top: var(--space-xs);
+  color: var(--text-dim);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 860px) {
+  .controls {
+    order: 3;
+    min-width: 100%;
+    justify-content: stretch;
+    margin-top: var(--space-xs);
+  }
+  .search-wrap {
+    max-width: 100%;
+  }
+  select {
+    max-width: 45%;
+  }
+  nav {
+    overflow-x: auto;
+    max-width: 100%;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .bar {
+    padding: var(--space-xs) var(--space-sm);
+    gap: var(--space-xs);
+  }
+  main, footer {
+    padding-inline: var(--space-sm);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
   </style>
 </head>
 <body>
@@ -72,10 +765,13 @@
         <a href="#/enemies" data-page="enemies">Enemies</a>
       </nav>
       <div class="controls">
-        <label hidden for="search">Search</label>
-        <input id="search" type="search" placeholder="Search wiki" autocomplete="off">
+        <div class="search-wrap">
+          <label hidden for="search">Search</label>
+          <input id="search" type="search" placeholder="Search wiki" autocomplete="off">
+        </div>
         <label hidden for="language">Language</label>
         <select id="language" aria-label="Language"></select>
+        <button id="theme-toggle" class="theme-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
         <button id="refresh" type="button">Refresh</button>
       </div>
     </div>
@@ -101,7 +797,19 @@ const ENEMY_SCHEMA = ['string','string','string','string','string','bool','bool'
 const LANGUAGES = ['English','Chinese (Traditional)','Chinese (Simplified)','Japanese','Korean','Spanish','German','Portuguese','French','Russian','Polish','Persian','Arabic','Thai','Vietnamese'];
 const RTL = new Set(['Persian','Arabic']);
 const DB_NAME = 'skdfe-wiki-v1';
-const DB_VERSION = 2;
+const RARITY_COLORS = {
+  0: '#FFFFFF',
+  1: '#3DE25A',
+  2: '#0EA5FF',
+  3: '#BE07C9',
+  4: '#FF8F01',
+  5: '#E11A1A',
+  6: '#FF00AA'
+};
+
+function weaponRarityColor(level) {
+  return RARITY_COLORS[level] || '';
+}
 const CAN_PERSIST = location.protocol !== 'file:' && typeof indexedDB !== 'undefined';
 const REFRESH_MS = 30 * 60 * 1000;
 const MAX_RESULTS = 300;
@@ -134,12 +842,31 @@ const sourceBox = document.querySelector('#source');
 const searchInput = document.querySelector('#search');
 const languageSelect = document.querySelector('#language');
 const refreshButton = document.querySelector('#refresh');
+const themeToggle = document.querySelector('#theme-toggle');
 const navLinks = [...document.querySelectorAll('nav a')];
 
 const state = {
   snapshot:null, model:null, language:'English', sourceMode:'none', message:'Starting…',
-  statusKind:'', refreshing:false, lastCheck:0, search:'', db:null
+  statusKind:'', refreshing:false, lastCheck:0, search:'', db:null,
+  theme: localStorage.getItem('skdfe-theme') || 'auto'
 };
+
+function applyTheme(theme) {
+  state.theme = theme;
+  if (theme === 'auto') {
+    document.documentElement.removeAttribute('data-theme');
+    themeToggle.textContent = '◐';
+  } else {
+    document.documentElement.setAttribute('data-theme', theme);
+    themeToggle.textContent = theme === 'dark' ? '☾' : '☼';
+  }
+  try { localStorage.setItem('skdfe-theme', theme); } catch {}
+}
+
+function cycleTheme() {
+  const next = state.theme === 'auto' ? 'dark' : state.theme === 'dark' ? 'light' : 'auto';
+  applyTheme(next);
+}
 
 function el(tag, attrs={}, ...children) {
   const node = document.createElement(tag);
@@ -315,6 +1042,11 @@ function characterWeaponIds(code) {
   return {starting,upgraded:`${starting}x`};
 }
 
+function subWeaponInfo(code) {
+  const match=code.match(/^(.*x)x(\d*)$/);
+  return match?{parent:match[1],skinId:Number(match[2]||1)}:null;
+}
+
 function parseWeapons(value) {
   assertObject(value,'weapon_full.json');
   if (!Array.isArray(value.weapons)) throw new Error('weapon_full.json.weapons must be an array');
@@ -361,7 +1093,10 @@ function buildModel(snapshot) {
   const characters=charCodes.map((code,id) => ({type:'characters',id,code,...characterWeaponIds(code),skinIds:[...(skinIds.get(id)||[])].sort((a,b)=>a-b),skillIds:[...(skillIds.get(id)||[])].sort((a,b)=>a-b)}));
   const pets=petCodes.map((code,id) => ({type:'pets',id,code,skillIds:[...(petSkillIds.get(id)||[])].sort((a,b)=>a-b)}));
   const evolutionIds=new Set(Array.isArray(items.blueprint?.evolution) ? items.blueprint.evolution.map(id => id.replace(/^blueprint_evolution_/,'')) : []);
-  const weaponEntities=weapons.map(weapon => ({type:'weapons',...weapon,skinIds:[...new Set(weaponSkins.weapons[weapon.code]?.UnlockedSkins || [])].sort(naturalCompare),hasEvolution:evolutionIds.has(weapon.code)||i18n.has(`desc_evolution_${weapon.code}`)})).sort((a,b)=>naturalCompare(a.code,b.code));
+  const weaponEntities=weapons.map(weapon => ({type:'weapons',...weapon,skinIds:[...new Set(weaponSkins.weapons[weapon.code]?.UnlockedSkins || [])].sort(naturalCompare),hasEvolution:evolutionIds.has(weapon.code)||i18n.has(`desc_evolution_${weapon.code}`),subWeapon:subWeaponInfo(weapon.code),subWeapons:[]})).sort((a,b)=>naturalCompare(a.code,b.code));
+  const weaponsByCode=new Map(weaponEntities.map(weapon=>[weapon.code,weapon]));
+  for (const weapon of weaponEntities) if (weapon.subWeapon) weaponsByCode.get(weapon.subWeapon.parent)?.subWeapons.push(weapon);
+  for (const weapon of weaponEntities) weapon.subWeapons.sort((a,b)=>a.subWeapon.skinId-b.subWeapon.skinId);
   const weaponIds=new Set(weaponEntities.map(weapon=>weapon.code));
   for (const character of characters) for (const id of [character.starting,character.upgraded]) {
     if (!weaponIds.has(id) || !i18n.has(`weapon/${id}`)) throw new Error(`Character ${character.code} starting weapon is missing: ${id}`);
@@ -399,7 +1134,7 @@ function buildModel(snapshot) {
   }
   const enemyRows=typeof raw[ENEMY_FILE]==='string'?parseEnemyCSV(raw[ENEMY_FILE]):null;
   const enemies=enemyRows?[...enemyRows.values()].sort((a,b)=>naturalCompare(a.key,b.key)):null;
-  return {version:version.version,i18n,charCodes,characters,pets,weapons:weaponEntities,materials,blueprints,blueprintCount:blueprintIds.size,enemies};
+  return {version:version.version,i18n,charCodes,characters,pets,weapons:weaponEntities,weaponList:weaponEntities.filter(weapon=>!weapon.subWeapon),materials,blueprints,blueprintCount:blueprintIds.size,enemies};
 }
 
 function naturalCompare(a,b) { return String(a).localeCompare(String(b),undefined,{numeric:true,sensitivity:'base'}); }
@@ -488,19 +1223,29 @@ function badge(status) {
 }
 
 function sourceKey(key) { return el('div',{class:'key',text:key}); }
-function titleBlock(title,subtitle='') { return el('div',{},el('h1',{text:title}),subtitle?el('p',{class:'muted',text:subtitle}):null); }
+function titleBlock(title,subtitle='') { 
+  return el('div',{class:'page-header'},
+    el('h1',{text:title}),
+    subtitle ? el('p',{class:'muted',text:subtitle}) : null
+  ); 
+}
+
 function field(label,value,key='',status='') {
   const dd=el('dd',{},value instanceof Node?value:document.createTextNode(value || 'Not available'));
   const mark=badge(status); if (mark) dd.append(' ',mark);
   if (key) dd.append(sourceKey(key));
   return el('div',{class:'field'},el('dt',{text:label}),dd);
 }
-function card(href,title,meta='',status='',thumb=null) {
-  const heading=el('h3',{text:title}); const mark=badge(status); if (mark) heading.append(' ',mark);
+
+function card(href,title,meta='',status='',thumb=null,titleColor='') {
+  const headingAttrs = {text:title};
+  if (titleColor) headingAttrs.style = `color:${titleColor};`;
+  const heading=el('h3',headingAttrs); const mark=badge(status); if (mark) heading.append(' ',mark);
   const info=el('div',{class:'card-info'},heading,meta?el('p',{class:'key',text:meta}):null);
   if (thumb) return el('a',{class:'card card-thumb',href},thumb,info);
   return el('a',{class:'card',href},heading,meta?el('p',{class:'key',text:meta}):null);
 }
+
 function routeParts() {
   try { return (location.hash.slice(1)||'/').split('?')[0].split('/').filter(Boolean).map(decodeURIComponent); }
   catch { return ['invalid-route']; }
@@ -574,13 +1319,31 @@ function filtered(entities) {
 function renderHome() {
   const root=el('div',{},titleBlock(t('wiki_title'),`${t('wiki_subtitle')} Localized from the latest complete ${BRANCH} snapshot.`));
   root.append(el('section',{class:'status warn'},el('h2',{text:t('poc_title')}),el('p',{text:t('poc_desc')}),el('p',{},badge('inferred'),` ${t('badge_inferred_desc')} `,badge('missing'),' / ',badge('unresolved'),` ${t('badge_missing_desc')} `,badge('English fallback'),` ${t('badge_english_desc')} `,badge('JSON fallback'),` ${t('badge_json_desc')}`)));
-  const groups=[['characters',t('characters'),state.model.characters],['pets',t('pets'),state.model.pets],['weapons',t('weapons'),state.model.weapons],['materials',t('materials'),state.model.materials],['blueprints',t('blueprints'),state.model.blueprints],['enemies',t('enemies'),state.model.enemies]];
+  
+  const groups=[
+    ['characters',t('characters'),state.model.characters,'oklch(62% 0.19 255)'],
+    ['pets',t('pets'),state.model.pets,'oklch(68% 0.16 142)'],
+    ['weapons',t('weapons'),state.model.weaponList,'oklch(64% 0.21 38)'],
+    ['materials',t('materials'),state.model.materials,'oklch(68% 0.16 85)'],
+    ['blueprints',t('blueprints'),state.model.blueprints,'oklch(65% 0.17 215)'],
+    ['enemies',t('enemies'),state.model.enemies,'oklch(62% 0.22 320)']
+  ];
+  
   if (!state.search.trim()) {
-    root.append(el('div',{class:'grid'},groups.map(([route,label,items]) => el('a',{class:'card',href:`#/${route}`},el('div',{class:'count',text:items?items.length:t('not_available')}),el('h2',{text:label})))));
+    const hubGrid = el('div',{class:'hub-grid'});
+    for (const [route, label, items, color] of groups) {
+      const cardEl = el('a',{class:'hub-card',href:`#/${route}`,style:`--card-accent: ${color}`},
+        el('div',{class:'count',text:items?String(items.length):t('not_available')}),
+        el('h2',{text:label})
+      );
+      hubGrid.append(cardEl);
+    }
+    root.append(hubGrid);
   } else {
-    const all=groups.flatMap(([, ,items])=>items||[]), matches=filtered(all);
+    const all=[...state.model.characters,...state.model.pets,...state.model.weapons,...state.model.materials,...(state.model.blueprints||[]),...(state.model.enemies||[])], matches=filtered(all);
     root.append(el('p',{class:'muted',text:t('matches_across_all',matches.length)}),renderCards(matches));
   }
+  
   root.append(el('h2',{text:t('data_source')}),el('dl',{class:'stack'},
     field(t('repository'),REPO),field(t('game_version'),state.model.version,'version.json'),field(t('commit'),state.snapshot.sha),field(t('snapshot_time'),new Date(state.snapshot.fetchedAt).toLocaleString())
   ));
@@ -593,7 +1356,7 @@ function renderCards(entities) {
   for (const entity of shown) {
     if (entity.type==='characters') { const name=characterName(entity); const img=spriteImg(entity.code,0,name.text); grid.append(card(routeFor('characters',entity.id),name.text,`ID ${entity.id} · ${entity.code}`,name.status,img)); }
     else if (entity.type==='pets') { const name=petName(entity); grid.append(card(routeFor('pets',entity.id),name.text,`ID ${entity.id} · ${entity.code}`,name.status)); }
-    else if (entity.type==='weapons') { const name=weaponName(entity); grid.append(card(routeFor('weapons',entity.code),name.text,`${entity.weaponType} · ${t('rarity_n',entity.level)} · ${entity.code}`,name.status)); }
+    else if (entity.type==='weapons') { const name=weaponName(entity); grid.append(card(routeFor('weapons',entity.code),name.text,`${entity.weaponType} · ${t('rarity_n',entity.level)} · ${entity.code}`,name.status,null,weaponRarityColor(entity.level))); }
     else if (entity.type==='blueprints') { const name=blueprintName(entity); grid.append(card(routeFor('blueprints',entity.id),name.text,`${entity.group} · ${entity.id} · ${entity.itemId}`,name.status)); }
     else if (entity.type==='enemies') { const name=enemyName(entity); grid.append(card(routeFor('enemies',entity.key),name.text,`${entity.enemyType} · ${entity.key}${entity.enemyId?` · ${entity.enemyId}`:''}`,name.status)); }
     else { const name=inferMaterial(entity); grid.append(card(routeFor('materials',entity.id),name.text,`${entity.group} · ${entity.id}`,name.status)); }
@@ -606,7 +1369,7 @@ function renderCards(entities) {
 
 function renderList(title,entities) {
   const matches=filtered(entities);
-  return el('div',{},el('div',{class:'section-head'},titleBlock(title),el('p',{class:'muted',text:t('of_count',matches.length,entities.length)})),matches.length?renderCards(matches):el('div',{class:'empty',text:t('no_matches')}));
+  return el('div',{},el('div',{class:'section-head'},el('div',{},el('h1',{text:title})),el('p',{class:'muted',text:t('of_count',matches.length,entities.length)})),matches.length?renderCards(matches):el('div',{class:'empty',text:t('no_matches')}));
 }
 
 function renderCharacter(character) {
@@ -615,7 +1378,10 @@ function renderCharacter(character) {
   root.append(el('dl',{class:'stack'},field(t('char_name'),name.text,name.key,name.status),field(t('code_name'),character.code,'char_code_name.json'),field(t('numeric_id'),String(character.id),'array index')));
   const weaponFields=[[t('starting_weapon'),character.starting],[t('upgraded_starting_weapon'),character.upgraded]].map(([label,id])=>{
     const weapon=state.model.weapons.find(value=>value.code===id), weaponNameValue=weaponName(weapon);
-    return field(label,el('a',{href:routeFor('weapons',id),text:weaponNameValue.text}),`weapon/${id}`,weaponNameValue.status);
+    const color=weapon ? weaponRarityColor(weapon.level) : '';
+    const linkAttrs={href:routeFor('weapons',id),text:weaponNameValue.text};
+    if (color) linkAttrs.style=`color:${color};font-weight:600;`;
+    return field(label,el('a',linkAttrs),`weapon/${id}`,weaponNameValue.status);
   });
   root.append(el('h2',{text:t('starting_weapons')}),el('dl',{class:'stack'},weaponFields));
   root.append(el('h2',{text:t('skins_count',character.skinIds.length)}));
@@ -650,12 +1416,20 @@ function renderPet(pet) {
 function renderWeapon(weapon) {
   if (!weapon) return notFound();
   const name=weaponName(weapon), root=el('div',{},titleBlock(name.text,weapon.code));
-  root.append(el('dl',{class:'stack'},field(t('weapon_name'),name.text,name.key,name.status),field(t('weapon_id'),weapon.code,'weapon_full.json → name'),field(t('rarity'),String(weapon.level),'weapon_full.json → level'),field(t('weapon_type'),weapon.weaponType,'weapon_full.json → type')));
+  const titleH1=root.querySelector('h1');
+  const rarityColor=weaponRarityColor(weapon.level);
+  if (titleH1 && rarityColor) titleH1.style.color=rarityColor;
+  const nameFieldVal=rarityColor ? el('span',{style:`color:${rarityColor};font-weight:600;`,text:name.text}) : name.text;
+  root.append(el('dl',{class:'stack'},field(t('weapon_name'),nameFieldVal,name.key,name.status),field(t('weapon_id'),weapon.code,'weapon_full.json → name'),field(t('rarity'),String(weapon.level),'weapon_full.json → level'),field(t('weapon_type'),weapon.weaponType,'weapon_full.json → type')));
   root.append(el('h2',{text:t('skins_count',weapon.skinIds.length)}));
   if (!weapon.skinIds.length) root.append(el('div',{class:'empty',text:t('no_weapon_skins')}));
   const skins=el('div',{class:'grid'});
-  for (const id of weapon.skinIds) { const value=localized(id), suffix=id.match(/_s_(\d+)$/)?.[1] || '?'; skins.append(el('div',{class:'card'},el('h3',{text:value.text}),badge(value.status),el('p',{class:'muted',text:t('skin_id',suffix)}))); }
+  for (const id of weapon.skinIds) { const value=localized(id), suffix=id.match(/_s_(\d+)$/)?.[1] || '?'; skins.append(el('div',{class:'card'},el('h3',{text:value.text,style:rarityColor?`color:${rarityColor};`:''}),badge(value.status),el('p',{class:'muted',text:t('skin_id',suffix)}))); }
   root.append(skins);
+  if (weapon.subWeapons.length) {
+    root.append(el('h2',{text:`Sub weapons (${weapon.subWeapons.length})`}));
+    root.append(renderCards(weapon.subWeapons));
+  }
   root.append(el('h2',{text:t('evolution')}));
   const evoKey=`desc_evolution_${weapon.code}`;
   if (weapon.hasEvolution) { const evo=localized(evoKey); root.append(el('dl',{class:'stack'},field(t('evolution_desc'),evo.text,'',evo.status))); }
@@ -750,6 +1524,7 @@ function render() {
   document.documentElement.dir=RTL.has(state.language)?'rtl':'ltr';
   searchInput.value=state.search;
   const page=currentPage();
+  document.body.setAttribute('data-page', page);
   for (const link of navLinks) link.toggleAttribute('aria-current',link.dataset.page===page || (page==='home'&&link.dataset.page==='home'));
   updateSource();
   if (!state.model) return;
@@ -758,7 +1533,7 @@ function render() {
   if (!parts.length) view=renderHome();
   else if (parts[0]==='characters') view=parts.length>1?renderCharacter(state.model.characters.find(v=>v.id===Number(parts[1]))):renderList(t('characters'),state.model.characters);
   else if (parts[0]==='pets') view=parts.length>1?renderPet(state.model.pets.find(v=>v.id===Number(parts[1]))):renderList(t('pets'),state.model.pets);
-  else if (parts[0]==='weapons') view=parts.length>1?renderWeapon(state.model.weapons.find(v=>v.code===parts[1])):renderList(t('weapons'),state.model.weapons);
+  else if (parts[0]==='weapons') view=parts.length>1?renderWeapon(state.model.weapons.find(v=>v.code===parts[1])):renderList(t('weapons'),state.search.trim()?state.model.weapons:state.model.weaponList);
   else if (parts[0]==='materials') view=parts.length>1?renderMaterial(state.model.materials.find(v=>v.id===parts[1])):renderList(t('materials'),state.model.materials);
   else if (parts[0]==='blueprints') view=!state.model.blueprints?blueprintsUnavailable():parts.length>1?renderBlueprint(state.model.blueprints.find(v=>v.id===parts[1])):renderList(t('blueprints'),state.model.blueprints);
   else if (parts[0]==='enemies') view=!state.model.enemies?enemiesUnavailable():parts.length>1?renderEnemy(state.model.enemies.find(v=>v.key===parts[1])):renderList(t('enemies'),state.model.enemies);
@@ -906,6 +1681,8 @@ function runChecks() {
   rejected=false; try { parseWeapons({weapons:[{name:'weapon_test',level:-1,type:'Pistol'}]}); } catch { rejected=true; } if (!rejected) throw new Error('Weapon validation self-check failed');
   const knightWeapons=characterWeaponIds('Knight'), chefWeapons=characterWeaponIds('LadyChef');
   if (knightWeapons.starting!=='weapon_000' || knightWeapons.upgraded!=='weapon_000x' || chefWeapons.starting!=='weapon_init_ladychef' || chefWeapons.upgraded!=='weapon_init_ladychefx' || chefWeapons.starting===chefWeapons.upgraded) throw new Error('Character weapon self-check failed');
+  const firstSkin=subWeaponInfo('weapon_000xx'), secondSkin=subWeaponInfo('weapon_000xx2'), necromancerSkin=subWeaponInfo('weapon_init_necromancerxx');
+  if (!firstSkin || firstSkin.parent!=='weapon_000x' || firstSkin.skinId!==1 || !secondSkin || secondSkin.skinId!==2 || !necromancerSkin || necromancerSkin.parent!=='weapon_init_necromancerx' || necromancerSkin.skinId!==1 || subWeaponInfo('weapon_000x')) throw new Error('Sub-weapon self-check failed');
   const drop={item:{item:'material_test'},probability:150,guaranteeDrop:true,guaranteeDropCount:2,conditions:[{type:1}]};
   const group={probability:200,randomOrder:false,Drops:[drop]}, enemyRow=Array(23).fill('');
   Object.assign(enemyRow,{0:'ex_test',4:'e_test',12:'True',21:JSON.stringify([drop]),22:JSON.stringify([group])});
@@ -916,6 +1693,7 @@ function runChecks() {
 }
 
 async function init() {
+  applyTheme(state.theme);
   try { runChecks(); }
   catch (error) { console.error(error); setStatus(`Internal self-check failed: ${error.message}`,'error'); app.replaceChildren(el('p',{text:'Wiki initialization stopped.'})); return; }
   state.language=chooseLanguage();
@@ -936,6 +1714,7 @@ async function init() {
 searchInput.addEventListener('input',()=>{ state.search=searchInput.value; render(); });
 languageSelect.addEventListener('change',()=>setLanguage(languageSelect.value));
 refreshButton.addEventListener('click',()=>refresh(true));
+themeToggle.addEventListener('click',cycleTheme);
 window.addEventListener('hashchange',()=>{ state.search=''; render(); app.focus({preventScroll:true}); });
 window.addEventListener('online',()=>refresh());
 document.addEventListener('visibilitychange',()=>{ if (!document.hidden) refresh(); });
