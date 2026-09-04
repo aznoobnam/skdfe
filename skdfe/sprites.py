@@ -9,6 +9,10 @@ from .assetstudio import run_asset_studio_cli
 from .config import ProjectPaths
 
 _SKIN_BUNDLE = re.compile(r"^skin_(\d+)\.ab$", re.I)
+_CHARACTER_DRAWING_EXCLUSIONS = {
+    "officer": {"officer_0_1"},
+    "shooter": {"sprite"},
+}
 
 
 def _find_skin_bundles(
@@ -108,6 +112,67 @@ def _container_strategies(codename: str, skin_index: int) -> list[tuple[str, ...
         # 4. PNG sprite sheet container (sprite-sheet-only skins)
         ("--filter-by-container", f"{prefix}/{lower}"),
     ]
+
+
+def extract_character_drawings(
+    paths: ProjectPaths,
+    sk_extracted_path: Path,
+    asset_studio_dir: Path,
+    codenames: list[str],
+) -> Path:
+    """Export every Sprite from each character drawing's skin_0 bundle.
+
+    Output: ``character_drawing/<codename>/<sprite_name>.png``.  The source
+    container is authoritative, so unusual names (such as ``mian``) and
+    multi-variant drawings (such as YinYang) are retained unchanged.
+    """
+    output_root = paths.output("character_drawing")
+    if output_root.exists():
+        shutil.rmtree(output_root)
+    output_root.mkdir(parents=True)
+
+    work_dir = paths.data_dir / "character_drawing_export_tmp"
+    extracted = 0
+    for codename in codenames:
+        lower = codename.lower()
+        bundle_path = (
+            sk_extracted_path
+            / "assets/AssetBundles/character_drawing"
+            / lower / "skin_0.ab"
+        )
+        if not bundle_path.is_file():
+            logging.debug("No character drawing bundle for %s", codename)
+            continue
+
+        pngs = _export_sprites(
+            asset_studio_dir,
+            bundle_path,
+            work_dir,
+            ("--filter-by-container",
+             f"assets/characterdrawing/{lower}/skin_0/"),
+        )
+        if not pngs:
+            logging.warning("No character drawings exported for %s", codename)
+            continue
+
+        char_dir = output_root / codename
+        char_dir.mkdir(parents=True, exist_ok=True)
+        excluded = _CHARACTER_DRAWING_EXCLUSIONS.get(lower, set())
+        for png in pngs:
+            if png.stem.lower() in excluded:
+                logging.info("Skipped non-drawing sprite %s", png.name)
+                continue
+            shutil.copy2(png, char_dir / png.name)
+            extracted += 1
+
+    if work_dir.exists():
+        shutil.rmtree(work_dir)
+    logging.info(
+        "Character drawing extraction complete: %d drawings in %s",
+        extracted,
+        output_root,
+    )
+    return output_root
 
 
 def extract_character_sprites(
