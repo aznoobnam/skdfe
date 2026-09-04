@@ -103,6 +103,7 @@ def decrypt_config_exports(paths: ProjectPaths) -> None:
     for asset_name, output_name in (
         ("enemies.csv", "enemies.decrypted.csv"),
         ("items.csv", "items.decrypted.csv"),
+        ("weapons.csv", "weapons.decrypted.csv"),
     ):
         export_path = find_exported_text_asset(
             paths.config_export_dir / Path(asset_name).stem, asset_name

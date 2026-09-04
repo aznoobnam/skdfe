@@ -92,7 +92,7 @@ def run_asset_extractions(
     run_asset_studio_cli(
         asset_studio_dir, unity_data, paths.export_dir, "textasset", "export", "WeaponInfo"
     )
-    for asset_name in ("enemies.csv", "items.csv"):
+    for asset_name in ("enemies.csv", "items.csv", "weapons.csv"):
         output_dir = paths.config_export_dir / Path(asset_name).stem
         if output_dir.exists():
             shutil.rmtree(output_dir)

@@ -83,6 +83,6 @@ jobs:
       run: |
         git config user.name  "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
-        git add I2language.csv Allinfo.txt char_code_name.json version.json weapon_full.json weapon_skins.json highest_skin_ids.json needed_data.json needed_data_cn.json enemies.decrypted.csv items.decrypted.csv enemy.json item.json character_sprite/ character_drawing/
+        git add I2language.csv Allinfo.txt char_code_name.json version.json weapon_full.json weapon_skins.json highest_skin_ids.json needed_data.json needed_data_cn.json enemies.decrypted.csv items.decrypted.csv weapons.decrypted.csv enemy.json item.json character_sprite/ character_drawing/
         git commit -m "Updated to ${{ steps.check_version.outputs.new_version }}" || echo "Nothing to commit"
         git push
