@@ -638,6 +638,177 @@ a.card:hover {
   margin: var(--space-2xs) 0 0;
 }
 
+/* Character Card Selection Grid & Cards */
+.char-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+  gap: var(--space-lg);
+}
+
+.char-select-card {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur-base) var(--ease-out),
+              border-color var(--dur-base) var(--ease-out),
+              box-shadow var(--dur-base) var(--ease-out);
+}
+
+a.char-select-card:hover {
+  text-decoration: none;
+  transform: translateY(-4px);
+  border-color: var(--cat-accent);
+  box-shadow: var(--shadow-lg), 0 0 20px color-mix(in srgb, var(--cat-accent) 20%, transparent);
+}
+
+.char-card-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.char-card-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--surface) 94%, transparent) 0%, color-mix(in srgb, var(--surface) 80%, transparent) 60%, transparent 100%);
+  margin: calc(-1 * var(--space-md)) calc(-1 * var(--space-md)) 0;
+  padding: var(--space-md) var(--space-md) var(--space-xl);
+  border-top-left-radius: var(--radius-lg);
+  border-top-right-radius: var(--radius-lg);
+}
+
+.char-card-title {
+  font-size: 1.1rem;
+  font-weight: 750;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.char-card-footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to top, color-mix(in srgb, var(--surface) 96%, transparent) 0%, color-mix(in srgb, var(--surface) 80%, transparent) 60%, transparent 100%);
+  margin: 0 calc(-1 * var(--space-md)) calc(-1 * var(--space-md));
+  padding: var(--space-xl) var(--space-md) var(--space-md);
+  border-bottom-left-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-lg);
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+.char-card-id {
+  font-weight: 700;
+  color: var(--cat-accent);
+}
+
+.char-card-code {
+  color: var(--text-dim);
+}
+
+/* Character Drawing Transitions */
+.char-drawing {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.char-drawing-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform var(--dur-base) var(--ease-out);
+  pointer-events: none;
+}
+
+.char-drawing-img.is-active {
+  opacity: 1;
+}
+
+.char-card-bg .char-drawing-img {
+  padding: var(--space-lg) var(--space-sm);
+}
+
+a.char-select-card:hover .char-drawing-img.is-active {
+  transform: scale(1.04);
+}
+
+.char-drawing-img.is-fallback {
+  image-rendering: pixelated;
+  width: auto;
+  height: auto;
+  max-width: 65%;
+  max-height: 65%;
+  margin: auto;
+}
+
+/* Individual Character Page Hero */
+.character-hero-header {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: var(--space-xl);
+  align-items: start;
+  padding: var(--space-lg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.character-hero-info {
+  min-width: 0;
+}
+
+.character-hero-drawing {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-height: 280px;
+  border-radius: var(--radius-md);
+  background: var(--surface-alt);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  position: relative;
+  align-self: center;
+}
+
+.character-hero-drawing .char-drawing-img {
+  padding: var(--space-sm);
+}
+
+@media (max-width: 768px) {
+  .character-hero-header {
+    grid-template-columns: 1fr;
+  }
+  .character-hero-drawing {
+    max-height: 220px;
+    order: -1;
+  }
+}
+
 .sprite-preview {
   image-rendering: pixelated;
   object-fit: contain;
@@ -1298,6 +1469,136 @@ function routeParts() {
 function currentPage() { return routeParts()[0] || 'home'; }
 function routeFor(type,id) { return `#/${type}/${encodeURIComponent(id)}`; }
 
+const CHARACTER_DRAWINGS = {
+  AiGirl: ['aigirl.png'],
+  Airbender: ['mian.png'],
+  Alchemist: ['alchemist_s0.png'],
+  ArcaneKnight: ['ArcaneKnight.png'],
+  Assassin: ['assassin_s0.png'],
+  Astrologist: ['Astromancer.png'],
+  Bard: ['bard_s0.png'],
+  Beheaded: ['Beheaded.png'],
+  Captain: ['captain_s0.png'],
+  CostumePrince: ['costumeprice_s0.png'],
+  Doctor: ['Physicist.png'],
+  Druid: ['druid_0.png'],
+  Elves: ['Elves_s0.png'],
+  Engineer: ['engineer_s0.png'],
+  Envoy: ['envoy_0.png'],
+  Fighter: ['Fighter.png'],
+  GunsExpert: ['GunsExpert.png'],
+  Joker: ['joker_0.png'],
+  Knight: ['knight_s0.png'],
+  LadyChef: ['ladychef.png'],
+  Lancer: ['lancer_0.png'],
+  Mage: ['mage_s0.png'],
+  Miner: ['miner_0.png'],
+  Necromancer: ['necromancer_s0.png'],
+  Ninja: ['ninja.png'],
+  Officer: ['Officer_0.png'],
+  Paladin: ['paladin_s0.png'],
+  Priest: ['priest_0.png'],
+  Ranger: ['ranger_s0.png'],
+  Robot: ['Robot_0.png'],
+  Shooter: ['shooter_s0.png'],
+  SpecialForces: ['SpecialForces.png'],
+  SwordMaster: ['swordmaster_s0.png'],
+  Taoist: ['Taoist_s0.png'],
+  Transcendent: ['main.png'],
+  TrapMaster: ['trap_master_0.png'],
+  Vampire: ['vampire_0.png'],
+  Viking: ['viking_s0.png'],
+  Warliege: ['main.png'],
+  Warlock: ['Warlock.png'],
+  Werewolf: ['werewolf_s0_0.png', 'werewolf_s0_1.png'],
+  YinYang: ['YinYangBlack.png', 'YinYangWhite.png']
+};
+
+let activeCyclingTimers = [];
+
+function clearCyclingTimers() {
+  for (const timer of activeCyclingTimers) clearInterval(timer);
+  activeCyclingTimers = [];
+}
+
+function characterDrawingUrls(code) {
+  if (!state.snapshot?.sha) return [];
+  const files = CHARACTER_DRAWINGS[code] || [];
+  return files.map(file => `https://raw.githubusercontent.com/${REPO}/${state.snapshot.sha}/character_drawing/${encodeURIComponent(code)}/${encodeURIComponent(file)}`);
+}
+
+function createCharacterDrawingElement(code, alt='', className='char-drawing') {
+  const container = el('div', {class: className});
+  const urls = characterDrawingUrls(code);
+  const fallbackUrl = spriteUrl(code, 0);
+
+  if (!urls.length) {
+    if (fallbackUrl) {
+      const img = el('img', {src: fallbackUrl, alt: alt || code, class: 'char-drawing-img is-fallback', loading: 'lazy'});
+      container.append(img);
+    }
+    return container;
+  }
+
+  const imgElements = urls.map((url, idx) => {
+    const img = el('img', {
+      src: url,
+      alt: alt ? `${alt} (${idx + 1})` : `${code} drawing ${idx + 1}`,
+      class: `char-drawing-img${idx === 0 ? ' is-active' : ''}`,
+      loading: 'lazy'
+    });
+    img.onerror = () => {
+      if (fallbackUrl && img.src !== fallbackUrl) {
+        img.src = fallbackUrl;
+        img.classList.add('is-fallback');
+      } else {
+        img.style.display = 'none';
+      }
+    };
+    return img;
+  });
+
+  for (const img of imgElements) {
+    container.append(img);
+  }
+
+  if (imgElements.length > 1) {
+    let currentIdx = 0;
+    const timer = setInterval(() => {
+      imgElements[currentIdx].classList.remove('is-active');
+      currentIdx = (currentIdx + 1) % imgElements.length;
+      imgElements[currentIdx].classList.add('is-active');
+    }, 5000);
+    activeCyclingTimers.push(timer);
+  }
+
+  return container;
+}
+
+function characterCard(character) {
+  const name = characterName(character);
+  const cardLink = el('a', {
+    class: 'char-select-card',
+    href: routeFor('characters', character.id),
+    'aria-label': `${name.text} (${character.code})`
+  });
+
+  const drawingBg = createCharacterDrawingElement(character.code, name.text, 'char-card-bg');
+
+  const topHeader = el('div', {class: 'char-card-header'},
+    el('h3', {class: 'char-card-title', text: name.text}),
+    badge(name.status)
+  );
+
+  const bottomFooter = el('div', {class: 'char-card-footer'},
+    el('span', {class: 'char-card-id', text: `ID ${character.id}`}),
+    el('span', {class: 'char-card-code', text: character.code})
+  );
+
+  cardLink.append(drawingBg, topHeader, bottomFooter);
+  return cardLink;
+}
+
 function spriteUrl(code, skinIndex=0) {
   if (!state.snapshot?.sha) return '';
   return `https://raw.githubusercontent.com/${REPO}/${state.snapshot.sha}/character_sprite/${encodeURIComponent(code)}/skin_${skinIndex}.png`;
@@ -1397,9 +1698,18 @@ function renderHome() {
 
 function renderCards(entities) {
   const shown=entities.slice(0,MAX_RESULTS);
-  const grid=el('div',{class:'grid'});
+  const isAllCharacters = shown.length > 0 && shown.every(e => e.type === 'characters');
+  const grid=el('div',{class:isAllCharacters ? 'char-grid' : 'grid'});
   for (const entity of shown) {
-    if (entity.type==='characters') { const name=characterName(entity); const img=spriteImg(entity.code,0,name.text); grid.append(card(routeFor('characters',entity.id),name.text,`ID ${entity.id} · ${entity.code}`,name.status,img)); }
+    if (entity.type==='characters') {
+      if (isAllCharacters) {
+        grid.append(characterCard(entity));
+      } else {
+        const name=characterName(entity);
+        const img=spriteImg(entity.code,0,name.text);
+        grid.append(card(routeFor('characters',entity.id),name.text,`ID ${entity.id} · ${entity.code}`,name.status,img));
+      }
+    }
     else if (entity.type==='pets') { const name=petName(entity); grid.append(card(routeFor('pets',entity.id),name.text,`ID ${entity.id} · ${entity.code}`,name.status)); }
     else if (entity.type==='weapons') { const name=weaponName(entity); grid.append(card(routeFor('weapons',entity.code),name.text,`${entity.weaponType} · ${t('rarity_n',entity.level)} · ${entity.code}`,name.status,null,weaponRarityStyle(entity.level))); }
     else if (entity.type==='blueprints') { const name=blueprintName(entity); grid.append(card(routeFor('blueprints',entity.id),name.text,`${entity.group} · ${entity.id} · ${entity.itemId}`,name.status)); }
@@ -1419,8 +1729,25 @@ function renderList(title,entities) {
 
 function renderCharacter(character) {
   if (!character) return notFound();
-  const name=characterName(character), root=el('div',{},titleBlock(name.text,`Character ${character.id} · ${character.code}`));
-  root.append(el('dl',{class:'stack'},field(t('char_name'),name.text,name.key,name.status),field(t('code_name'),character.code,'char_code_name.json'),field(t('numeric_id'),String(character.id),'array index')));
+  const name=characterName(character);
+  const root=el('div',{});
+
+  const drawingHero = createCharacterDrawingElement(character.code, name.text, 'character-hero-drawing');
+  const heroInfo = el('div', {class: 'character-hero-info'},
+    titleBlock(name.text, `Character ${character.id} · ${character.code}`),
+    el('dl', {class: 'stack', style: 'margin-top: var(--space-md);'},
+      field(t('char_name'), name.text, name.key, name.status),
+      field(t('code_name'), character.code, 'char_code_name.json'),
+      field(t('numeric_id'), String(character.id), 'array index')
+    )
+  );
+
+  const heroSection = el('section', {class: 'character-hero-header'},
+    heroInfo,
+    drawingHero
+  );
+  root.append(heroSection);
+
   const weaponFields=[[t('starting_weapon'),character.starting],[t('upgraded_starting_weapon'),character.upgraded]].map(([label,id])=>{
     const weapon=state.model.weapons.find(value=>value.code===id), weaponNameValue=weaponName(weapon);
     const style=weapon ? weaponRarityStyle(weapon.level) : '';
@@ -1565,6 +1892,7 @@ function updateSource() {
 }
 
 function render() {
+  clearCyclingTimers();
   document.documentElement.lang=languageCode(state.language);
   document.documentElement.dir=RTL.has(state.language)?'rtl':'ltr';
   searchInput.value=state.search;
@@ -1716,6 +2044,8 @@ function runChecks() {
   if ((location.protocol==='file:' && CAN_PERSIST) || (location.protocol!=='file:' && typeof indexedDB!=='undefined' && !CAN_PERSIST)) throw new Error('Persistence capability self-check failed');
   state.snapshot={sha:'0123456789abcdef0123456789abcdef01234567'};
   if (spriteUrl('Knight',0)!==`https://raw.githubusercontent.com/${REPO}/0123456789abcdef0123456789abcdef01234567/character_sprite/Knight/skin_0.png`) throw new Error('Sprite URL self-check failed');
+  if (characterDrawingUrls('Knight')[0]!==`https://raw.githubusercontent.com/${REPO}/0123456789abcdef0123456789abcdef01234567/character_drawing/Knight/knight_s0.png`) throw new Error('Character drawing URL self-check failed');
+  if (characterDrawingUrls('Werewolf').length!==2) throw new Error('Multi-drawing character self-check failed');
   state.snapshot=null;
   if (t('home')!=='Home' || t('showing_matches',1,2)!=='Showing 1 of 2 matches. Refine search.') throw new Error('Static i18n self-check failed');
   const prevLang=state.language; state.language='Vietnamese';
