@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src https://api.github.com https://raw.githubusercontent.com; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src https://raw.githubusercontent.com data:; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src https://api.github.com https://raw.githubusercontent.com; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src https://cdn.chillyroom.com https://raw.githubusercontent.com data:; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <title>SKDFE Wiki</title>
   <style>
 /* Hallmark · macrostructure: Workbench · tone: modern-minimal · anchor hue: emerald */
@@ -739,6 +739,7 @@ a.char-select-card:hover {
   height: 100%;
   object-fit: contain;
   object-position: center;
+  transform: scale(1.7);
   opacity: 0;
   transition: opacity 0.3s ease-in-out, transform var(--dur-base) var(--ease-out);
   pointer-events: none;
@@ -753,10 +754,11 @@ a.char-select-card:hover {
 }
 
 a.char-select-card:hover .char-drawing-img.is-active {
-  transform: scale(1.04);
+  transform: scale(1.77);
 }
 
 .char-drawing-img.is-fallback {
+  transform: scale(1);
   image-rendering: pixelated;
   width: auto;
   height: auto;
@@ -797,6 +799,10 @@ a.char-select-card:hover .char-drawing-img.is-active {
 
 .character-hero-drawing .char-drawing-img {
   padding: var(--space-sm);
+}
+
+.character-hero-drawing .char-drawing-img:not(.is-fallback) {
+  transform: scale(1.2);
 }
 
 @media (max-width: 768px) {
@@ -1527,51 +1533,32 @@ function characterDrawingUrls(code) {
   return files.map(file => `https://raw.githubusercontent.com/${REPO}/${state.snapshot.sha}/character_drawing/${encodeURIComponent(code)}/${encodeURIComponent(file)}`);
 }
 
+function characterDrawingCdnUrl(code) {
+  return `https://cdn.chillyroom.com/game/soulknight/drawing_card/${encodeURIComponent(code)}/sprite_0.png`;
+}
+
 function createCharacterDrawingElement(code, alt='', className='char-drawing') {
   const container = el('div', {class: className});
-  const urls = characterDrawingUrls(code);
-  const fallbackUrl = spriteUrl(code, 0);
-
-  if (!urls.length) {
-    if (fallbackUrl) {
-      const img = el('img', {src: fallbackUrl, alt: alt || code, class: 'char-drawing-img is-fallback', loading: 'lazy'});
-      container.append(img);
-    }
-    return container;
-  }
-
-  const imgElements = urls.map((url, idx) => {
-    const img = el('img', {
-      src: url,
-      alt: alt ? `${alt} (${idx + 1})` : `${code} drawing ${idx + 1}`,
-      class: `char-drawing-img${idx === 0 ? ' is-active' : ''}`,
-      loading: 'lazy'
-    });
-    img.onerror = () => {
-      if (fallbackUrl && img.src !== fallbackUrl) {
-        img.src = fallbackUrl;
-        img.classList.add('is-fallback');
-      } else {
-        img.style.display = 'none';
-      }
-    };
-    return img;
+  const githubUrl = characterDrawingUrls(code)[0];
+  const spriteFallbackUrl = spriteUrl(code, 0);
+  const img = el('img', {
+    src: characterDrawingCdnUrl(code),
+    alt: alt || code,
+    class: 'char-drawing-img is-active',
+    loading: 'lazy'
   });
-
-  for (const img of imgElements) {
-    container.append(img);
-  }
-
-  if (imgElements.length > 1) {
-    let currentIdx = 0;
-    const timer = setInterval(() => {
-      imgElements[currentIdx].classList.remove('is-active');
-      currentIdx = (currentIdx + 1) % imgElements.length;
-      imgElements[currentIdx].classList.add('is-active');
-    }, 5000);
-    activeCyclingTimers.push(timer);
-  }
-
+  const fallbacks = [githubUrl, spriteFallbackUrl].filter((url, index, urls) => url && urls.indexOf(url) === index);
+  let fallbackIndex = 0;
+  img.onerror = () => {
+    const fallback = fallbacks[fallbackIndex++];
+    if (fallback) {
+      img.src = fallback;
+      img.classList.add('is-fallback');
+    } else {
+      img.style.display = 'none';
+    }
+  };
+  container.append(img);
   return container;
 }
 
@@ -2044,8 +2031,8 @@ function runChecks() {
   if ((location.protocol==='file:' && CAN_PERSIST) || (location.protocol!=='file:' && typeof indexedDB!=='undefined' && !CAN_PERSIST)) throw new Error('Persistence capability self-check failed');
   state.snapshot={sha:'0123456789abcdef0123456789abcdef01234567'};
   if (spriteUrl('Knight',0)!==`https://raw.githubusercontent.com/${REPO}/0123456789abcdef0123456789abcdef01234567/character_sprite/Knight/skin_0.png`) throw new Error('Sprite URL self-check failed');
-  if (characterDrawingUrls('Knight')[0]!==`https://raw.githubusercontent.com/${REPO}/0123456789abcdef0123456789abcdef01234567/character_drawing/Knight/knight_s0.png`) throw new Error('Character drawing URL self-check failed');
-  if (characterDrawingUrls('Werewolf').length!==2) throw new Error('Multi-drawing character self-check failed');
+  if (characterDrawingCdnUrl('Knight')!=='https://cdn.chillyroom.com/game/soulknight/drawing_card/Knight/sprite_0.png') throw new Error('Character drawing CDN URL self-check failed');
+  if (characterDrawingUrls('Knight')[0]!==`https://raw.githubusercontent.com/${REPO}/0123456789abcdef0123456789abcdef01234567/character_drawing/Knight/knight_s0.png`) throw new Error('Character drawing GitHub fallback self-check failed');
   state.snapshot=null;
   if (t('home')!=='Home' || t('showing_matches',1,2)!=='Showing 1 of 2 matches. Refine search.') throw new Error('Static i18n self-check failed');
   const prevLang=state.language; state.language='Vietnamese';
