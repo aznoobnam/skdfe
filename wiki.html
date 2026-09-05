@@ -7,13 +7,12 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src https://api.github.com https://raw.githubusercontent.com; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src https://cdn.chillyroom.com https://raw.githubusercontent.com data:; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <title>SKDFE Wiki</title>
   <style>
-/* Hallmark · macrostructure: Workbench · tone: modern-minimal · anchor hue: emerald */
-/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 */
 :root {
-  --font-display: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-display: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
-  /* Spacing Scale */
+  /* Strict 4-pt Spacing Scale */
+  --space-3xs: 0.125rem;
   --space-2xs: 0.25rem;
   --space-xs: 0.5rem;
   --space-sm: 0.75rem;
@@ -21,62 +20,70 @@
   --space-lg: 1.5rem;
   --space-xl: 2rem;
   --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
 
-  /* Radius Scale */
+  /* Radius — Utilitarian crisp geometry */
+  --radius-none: 0px;
+  --radius-xs: 2px;
   --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  --radius-md: 6px;
   --radius-full: 9999px;
 
-  /* Motion */
+  /* Transitions */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --dur-fast: 150ms;
-  --dur-base: 220ms;
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
 
-  /* Category Theming Variables (Default: Workbench Neutral) */
-  --cat-accent: oklch(58% 0.16 155);
-  --cat-accent-subtle: oklch(58% 0.16 155 / 0.12);
-  --cat-glow: oklch(58% 0.16 155 / 0.2);
-  --cat-border: oklch(58% 0.16 155 / 0.3);
-  --cat-badge-bg: oklch(58% 0.16 155 / 0.14);
-  --cat-badge-text: oklch(35% 0.14 155);
+  /* Default Category Variable Anchor (Catalogue Amber-Ink) */
+  --cat-accent: oklch(65% 0.17 65);
+  --cat-accent-ink: oklch(98% 0.01 65);
+  --cat-accent-subtle: oklch(65% 0.17 65 / 0.10);
+  --cat-border: oklch(65% 0.17 65 / 0.35);
+  --cat-badge-bg: oklch(65% 0.17 65 / 0.12);
+  --cat-badge-text: oklch(36% 0.14 65);
+  --cat-glow: oklch(65% 0.17 65 / 0.16);
+
+  --header-height: 3.5rem;
 }
 
 /* Light Theme Variables */
 :root, [data-theme="light"] {
   color-scheme: light;
-  --bg: oklch(92% 0.01 240);
-  --bg-subtle: oklch(88% 0.015 240);
-  --surface: oklch(95% 0.008 240);
-  --surface-raised: oklch(97% 0.008 240);
-  --surface-hover: oklch(91% 0.015 240);
-  --border: oklch(80% 0.015 240);
-  --border-strong: oklch(68% 0.02 240);
-  --text: oklch(20% 0.015 240);
-  --text-muted: oklch(42% 0.015 240);
-  --text-dim: oklch(52% 0.01 240);
-  
-  --shadow-sm: 0 1px 2px oklch(15% 0.02 240 / 0.08);
-  --shadow-md: 0 4px 12px oklch(15% 0.02 240 / 0.1), 0 1px 3px oklch(15% 0.02 240 / 0.06);
-  --shadow-lg: 0 12px 24px -4px oklch(15% 0.02 240 / 0.12);
+  --bg: oklch(95% 0.008 75);
+  --bg-subtle: oklch(92% 0.012 75);
+  --surface: oklch(98% 0.004 75);
+  --surface-raised: oklch(100% 0 0);
+  --surface-hover: oklch(93% 0.01 75);
+  --surface-alt: oklch(90% 0.012 75);
+
+  --border: oklch(82% 0.012 75);
+  --border-strong: oklch(65% 0.02 75);
+  --border-light: oklch(88% 0.008 75);
+
+  --text: oklch(20% 0.018 60);
+  --text-muted: oklch(46% 0.018 60);
+  --text-dim: oklch(58% 0.014 60);
+
+  --shadow-sm: 0 1px 2px oklch(20% 0.02 60 / 0.05);
+  --shadow-md: 0 4px 10px oklch(20% 0.02 60 / 0.08);
+  --shadow-lg: 0 12px 24px -4px oklch(20% 0.02 60 / 0.10);
 
   --warn-bg: oklch(92% 0.08 75);
-  --warn-text: oklch(40% 0.15 60);
-  --warn-border: oklch(78% 0.12 75);
+  --warn-text: oklch(38% 0.14 60);
+  --warn-border: oklch(76% 0.12 75);
 
   --danger-bg: oklch(92% 0.08 25);
-  --danger-text: oklch(42% 0.2 25);
-  --danger-border: oklch(78% 0.12 25);
-  
-  --focus-ring: oklch(45% 0.18 155);
+  --danger-text: oklch(40% 0.18 25);
+  --danger-border: oklch(76% 0.12 25);
 
-  --text-outline: 
+  --focus-ring: oklch(52% 0.18 65);
+
+  --text-outline:
     -1px -1px 0 rgba(0,0,0,0.85),
      1px -1px 0 rgba(0,0,0,0.85),
     -1px  1px 0 rgba(0,0,0,0.85),
      1px  1px 0 rgba(0,0,0,0.85),
-     0 2px 4px rgba(0,0,0,0.5);
+     0 1px 3px rgba(0,0,0,0.4);
 }
 
 /* Dark Theme Variables */
@@ -84,33 +91,37 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: oklch(14% 0.01 250);
-    --bg-subtle: oklch(18% 0.012 250);
-    --surface: oklch(20% 0.014 250);
-    --surface-raised: oklch(24% 0.016 250);
-    --surface-hover: oklch(26% 0.018 250);
-    --border: oklch(30% 0.015 250);
-    --border-strong: oklch(40% 0.02 250);
-    --text: oklch(94% 0.005 240);
-    --text-muted: oklch(72% 0.01 240);
-    --text-dim: oklch(55% 0.01 240);
-    
-    --shadow-sm: 0 1px 2px oklch(5% 0.01 250 / 0.4);
-    --shadow-md: 0 4px 12px oklch(5% 0.01 250 / 0.5), 0 1px 3px oklch(5% 0.01 250 / 0.3);
-    --shadow-lg: 0 12px 24px -4px oklch(5% 0.01 250 / 0.6);
+    --bg: oklch(14% 0.012 260);
+    --bg-subtle: oklch(18% 0.014 260);
+    --surface: oklch(20% 0.016 260);
+    --surface-raised: oklch(25% 0.018 260);
+    --surface-hover: oklch(28% 0.02 260);
+    --surface-alt: oklch(17% 0.014 260);
 
-    --warn-bg: oklch(28% 0.07 70);
-    --warn-text: oklch(85% 0.12 75);
-    --warn-border: oklch(42% 0.1 70);
+    --border: oklch(32% 0.018 260);
+    --border-strong: oklch(44% 0.022 260);
+    --border-light: oklch(26% 0.015 260);
 
-    --danger-bg: oklch(28% 0.08 25);
+    --text: oklch(95% 0.006 75);
+    --text-muted: oklch(74% 0.012 75);
+    --text-dim: oklch(58% 0.01 75);
+
+    --shadow-sm: 0 1px 2px oklch(5% 0.01 260 / 0.4);
+    --shadow-md: 0 4px 12px oklch(5% 0.01 260 / 0.5);
+    --shadow-lg: 0 12px 24px -4px oklch(5% 0.01 260 / 0.6);
+
+    --warn-bg: oklch(26% 0.07 70);
+    --warn-text: oklch(86% 0.12 75);
+    --warn-border: oklch(44% 0.1 70);
+
+    --danger-bg: oklch(26% 0.08 25);
     --danger-text: oklch(88% 0.14 25);
-    --danger-border: oklch(45% 0.12 25);
-    
-    --focus-ring: oklch(72% 0.16 155);
-    --cat-badge-text: oklch(85% 0.12 155);
+    --danger-border: oklch(46% 0.12 25);
 
-    --text-outline: 
+    --focus-ring: oklch(74% 0.16 65);
+    --cat-badge-text: oklch(88% 0.12 65);
+
+    --text-outline:
       -1px -1px 0 rgba(0,0,0,0.9),
        1px -1px 0 rgba(0,0,0,0.9),
       -1px  1px 0 rgba(0,0,0,0.9),
@@ -121,153 +132,120 @@
 
 [data-theme="dark"] {
   color-scheme: dark;
-  --bg: oklch(14% 0.01 250);
-  --bg-subtle: oklch(18% 0.012 250);
-  --surface: oklch(20% 0.014 250);
-  --surface-raised: oklch(24% 0.016 250);
-  --surface-hover: oklch(26% 0.018 250);
-  --border: oklch(30% 0.015 250);
-  --border-strong: oklch(40% 0.02 250);
-  --text: oklch(94% 0.005 240);
-  --text-muted: oklch(72% 0.01 240);
-  --text-dim: oklch(55% 0.01 240);
-  
-  --shadow-sm: 0 1px 2px oklch(5% 0.01 250 / 0.4);
-  --shadow-md: 0 4px 12px oklch(5% 0.01 250 / 0.5), 0 1px 3px oklch(5% 0.01 250 / 0.3);
-  --shadow-lg: 0 12px 24px -4px oklch(5% 0.01 250 / 0.6);
+  --bg: oklch(14% 0.012 260);
+  --bg-subtle: oklch(18% 0.014 260);
+  --surface: oklch(20% 0.016 260);
+  --surface-raised: oklch(25% 0.018 260);
+  --surface-hover: oklch(28% 0.02 260);
+  --surface-alt: oklch(17% 0.014 260);
 
-  --warn-bg: oklch(28% 0.07 70);
-  --warn-text: oklch(85% 0.12 75);
-  --warn-border: oklch(42% 0.1 70);
+  --border: oklch(32% 0.018 260);
+  --border-strong: oklch(44% 0.022 260);
+  --border-light: oklch(26% 0.015 260);
 
-  --danger-bg: oklch(28% 0.08 25);
+  --text: oklch(95% 0.006 75);
+  --text-muted: oklch(74% 0.012 75);
+  --text-dim: oklch(58% 0.01 75);
+
+  --shadow-sm: 0 1px 2px oklch(5% 0.01 260 / 0.4);
+  --shadow-md: 0 4px 12px oklch(5% 0.01 260 / 0.5);
+  --shadow-lg: 0 12px 24px -4px oklch(5% 0.01 260 / 0.6);
+
+  --warn-bg: oklch(26% 0.07 70);
+  --warn-text: oklch(86% 0.12 75);
+  --warn-border: oklch(44% 0.1 70);
+
+  --danger-bg: oklch(26% 0.08 25);
   --danger-text: oklch(88% 0.14 25);
-  --danger-border: oklch(45% 0.12 25);
-  
-  --focus-ring: oklch(72% 0.16 155);
-  --cat-badge-text: oklch(85% 0.12 155);
+  --danger-border: oklch(46% 0.12 25);
 
-  --text-outline: 
-    -1px -1px 0 rgba(0,0,0,0.9),
-     1px -1px 0 rgba(0,0,0,0.9),
-    -1px  1px 0 rgba(0,0,0,0.9),
-     1px  1px 0 rgba(0,0,0,0.9),
-     0 2px 4px rgba(0,0,0,0.7);
-  --surface-raised: oklch(24% 0.016 250);
-  --surface-hover: oklch(26% 0.018 250);
-  --border: oklch(30% 0.015 250);
-  --border-strong: oklch(40% 0.02 250);
-  --text: oklch(94% 0.005 240);
-  --text-muted: oklch(72% 0.01 240);
-  --text-dim: oklch(55% 0.01 240);
-  
-  --shadow-sm: 0 1px 2px oklch(5% 0.01 250 / 0.4);
-  --shadow-md: 0 4px 12px oklch(5% 0.01 250 / 0.5), 0 1px 3px oklch(5% 0.01 250 / 0.3);
-  --shadow-lg: 0 12px 24px -4px oklch(5% 0.01 250 / 0.6);
-
-  --warn-bg: oklch(28% 0.07 70);
-  --warn-text: oklch(85% 0.12 75);
-  --warn-border: oklch(42% 0.1 70);
-
-  --danger-bg: oklch(28% 0.08 25);
-  --danger-text: oklch(88% 0.14 25);
-  --danger-border: oklch(45% 0.12 25);
-  
-  --focus-ring: oklch(72% 0.16 155);
-  --cat-badge-text: oklch(85% 0.12 155);
+  --focus-ring: oklch(74% 0.16 65);
+  --cat-badge-text: oklch(88% 0.12 65);
 }
 
-/* ==========================================================================
-   Category-Unique Aesthetic Identities
-   ========================================================================== */
-/* 1. Characters: Cyber / Neon Indigo Emerald */
+/* Category Chromatic Signatures */
 body[data-page="characters"] {
-  --cat-accent: oklch(62% 0.19 255);
-  --cat-accent-subtle: oklch(62% 0.19 255 / 0.12);
-  --cat-glow: oklch(62% 0.19 255 / 0.22);
-  --cat-border: oklch(62% 0.19 255 / 0.35);
-  --cat-badge-bg: oklch(62% 0.19 255 / 0.15);
-  --cat-badge-text: oklch(42% 0.19 255);
-  --focus-ring: oklch(62% 0.19 255);
+  --cat-accent: oklch(64% 0.18 245);
+  --cat-accent-ink: oklch(98% 0.01 245);
+  --cat-accent-subtle: oklch(64% 0.18 245 / 0.10);
+  --cat-border: oklch(64% 0.18 245 / 0.35);
+  --cat-badge-bg: oklch(64% 0.18 245 / 0.14);
+  --cat-badge-text: oklch(40% 0.17 245);
+  --focus-ring: oklch(64% 0.18 245);
 }
 [data-theme="dark"] body[data-page="characters"],
 body[data-page="characters"]:not([data-theme="light"]) {
-  --cat-badge-text: oklch(85% 0.15 255);
+  --cat-badge-text: oklch(86% 0.14 245);
 }
 
-/* 2. Pets: Nature / Organic Warm Amber-Teal */
 body[data-page="pets"] {
-  --cat-accent: oklch(68% 0.16 142);
-  --cat-accent-subtle: oklch(68% 0.16 142 / 0.12);
-  --cat-glow: oklch(68% 0.16 142 / 0.2);
-  --cat-border: oklch(68% 0.16 142 / 0.35);
-  --cat-badge-bg: oklch(68% 0.16 142 / 0.15);
-  --cat-badge-text: oklch(40% 0.15 142);
-  --focus-ring: oklch(68% 0.16 142);
+  --cat-accent: oklch(66% 0.16 145);
+  --cat-accent-ink: oklch(98% 0.01 145);
+  --cat-accent-subtle: oklch(66% 0.16 145 / 0.10);
+  --cat-border: oklch(66% 0.16 145 / 0.35);
+  --cat-badge-bg: oklch(66% 0.16 145 / 0.14);
+  --cat-badge-text: oklch(38% 0.15 145);
+  --focus-ring: oklch(66% 0.16 145);
 }
 [data-theme="dark"] body[data-page="pets"],
 body[data-page="pets"]:not([data-theme="light"]) {
-  --cat-badge-text: oklch(88% 0.14 142);
+  --cat-badge-text: oklch(88% 0.13 145);
 }
 
-/* 3. Weapons: Forge / Fiery Crimson & Amber */
 body[data-page="weapons"] {
-  --cat-accent: oklch(64% 0.21 38);
-  --cat-accent-subtle: oklch(64% 0.21 38 / 0.12);
-  --cat-glow: oklch(64% 0.21 38 / 0.25);
-  --cat-border: oklch(64% 0.21 38 / 0.35);
-  --cat-badge-bg: oklch(64% 0.21 38 / 0.15);
-  --cat-badge-text: oklch(42% 0.2 38);
-  --focus-ring: oklch(64% 0.21 38);
+  --cat-accent: oklch(65% 0.20 38);
+  --cat-accent-ink: oklch(98% 0.01 38);
+  --cat-accent-subtle: oklch(65% 0.20 38 / 0.10);
+  --cat-border: oklch(65% 0.20 38 / 0.35);
+  --cat-badge-bg: oklch(65% 0.20 38 / 0.14);
+  --cat-badge-text: oklch(40% 0.18 38);
+  --focus-ring: oklch(65% 0.20 38);
 }
 [data-theme="dark"] body[data-page="weapons"],
 body[data-page="weapons"]:not([data-theme="light"]) {
-  --cat-badge-text: oklch(86% 0.16 38);
+  --cat-badge-text: oklch(87% 0.15 38);
 }
 
-/* 4. Materials: Industrial / Raw Mineral Gold & Ochre */
 body[data-page="materials"] {
-  --cat-accent: oklch(68% 0.16 85);
-  --cat-accent-subtle: oklch(68% 0.16 85 / 0.12);
-  --cat-glow: oklch(68% 0.16 85 / 0.22);
-  --cat-border: oklch(68% 0.16 85 / 0.35);
-  --cat-badge-bg: oklch(68% 0.16 85 / 0.15);
-  --cat-badge-text: oklch(42% 0.15 85);
-  --focus-ring: oklch(68% 0.16 85);
+  --cat-accent: oklch(67% 0.16 85);
+  --cat-accent-ink: oklch(98% 0.01 85);
+  --cat-accent-subtle: oklch(67% 0.16 85 / 0.10);
+  --cat-border: oklch(67% 0.16 85 / 0.35);
+  --cat-badge-bg: oklch(67% 0.16 85 / 0.14);
+  --cat-badge-text: oklch(38% 0.14 85);
+  --focus-ring: oklch(67% 0.16 85);
 }
 [data-theme="dark"] body[data-page="materials"],
 body[data-page="materials"]:not([data-theme="light"]) {
   --cat-badge-text: oklch(88% 0.14 85);
 }
 
-/* 5. Blueprints: Schematic / Blueprint Cyan */
 body[data-page="blueprints"] {
-  --cat-accent: oklch(65% 0.17 215);
-  --cat-accent-subtle: oklch(65% 0.17 215 / 0.12);
-  --cat-glow: oklch(65% 0.17 215 / 0.24);
-  --cat-border: oklch(65% 0.17 215 / 0.35);
-  --cat-badge-bg: oklch(65% 0.17 215 / 0.15);
-  --cat-badge-text: oklch(40% 0.16 215);
-  --focus-ring: oklch(65% 0.17 215);
+  --cat-accent: oklch(66% 0.17 215);
+  --cat-accent-ink: oklch(98% 0.01 215);
+  --cat-accent-subtle: oklch(66% 0.17 215 / 0.10);
+  --cat-border: oklch(66% 0.17 215 / 0.35);
+  --cat-badge-bg: oklch(66% 0.17 215 / 0.14);
+  --cat-badge-text: oklch(38% 0.15 215);
+  --focus-ring: oklch(66% 0.17 215);
 }
 [data-theme="dark"] body[data-page="blueprints"],
 body[data-page="blueprints"]:not([data-theme="light"]) {
-  --cat-badge-text: oklch(86% 0.14 215);
+  --cat-badge-text: oklch(88% 0.13 215);
 }
 
-/* 6. Enemies: Danger / Void Purple & Dark Magenta */
 body[data-page="enemies"] {
-  --cat-accent: oklch(62% 0.22 320);
-  --cat-accent-subtle: oklch(62% 0.22 320 / 0.12);
-  --cat-glow: oklch(62% 0.22 320 / 0.25);
-  --cat-border: oklch(62% 0.22 320 / 0.35);
-  --cat-badge-bg: oklch(62% 0.22 320 / 0.15);
-  --cat-badge-text: oklch(40% 0.2 320);
-  --focus-ring: oklch(62% 0.22 320);
+  --cat-accent: oklch(62% 0.22 325);
+  --cat-accent-ink: oklch(98% 0.01 325);
+  --cat-accent-subtle: oklch(62% 0.22 325 / 0.10);
+  --cat-border: oklch(62% 0.22 325 / 0.35);
+  --cat-badge-bg: oklch(62% 0.22 325 / 0.14);
+  --cat-badge-text: oklch(38% 0.18 325);
+  --focus-ring: oklch(62% 0.22 325);
 }
 [data-theme="dark"] body[data-page="enemies"],
 body[data-page="enemies"]:not([data-theme="light"]) {
-  --cat-badge-text: oklch(88% 0.16 320);
+  --cat-badge-text: oklch(88% 0.15 325);
 }
 
 /* ==========================================================================
@@ -285,14 +263,15 @@ html, body {
 body {
   margin: 0;
   background-color: var(--bg);
-  background-image: 
-    radial-gradient(ellipse 60% 40% at 50% -20%, var(--cat-glow), transparent 70%),
-    linear-gradient(to bottom, var(--bg-subtle), var(--bg) 280px);
+  background-image:
+    linear-gradient(to right, var(--border-light) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-light) 1px, transparent 1px);
+  background-size: 40px 40px;
   background-attachment: fixed;
   color: var(--text);
   font-family: var(--font-display);
-  font-size: 15px;
-  line-height: 1.55;
+  font-size: 14px;
+  line-height: 1.5;
   display: flex;
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
@@ -302,9 +281,9 @@ body {
 a {
   color: var(--cat-accent);
   text-decoration: none;
-  text-underline-offset: 0.18em;
+  text-underline-offset: 2px;
   font-weight: 500;
-  transition: color var(--dur-fast) var(--ease-out), opacity var(--dur-fast) var(--ease-out);
+  transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
 }
 a:hover {
   text-decoration: underline;
@@ -317,30 +296,29 @@ button, input, select {
 
 :focus-visible {
   outline: 2px solid var(--focus-ring);
-  outline-offset: 2px;
+  outline-offset: 1px;
 }
 
 /* ==========================================================================
-   Header & Navigation
+   Navigation Archetype: N9 Edge-Aligned Technical Ledger
    ========================================================================== */
 header {
   position: sticky;
   top: 0;
-  z-index: 50;
-  background: color-mix(in srgb, var(--surface) 88%, transparent);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  z-index: 300;
+  background: var(--surface);
+  border-bottom: 2px solid var(--border-strong);
+  box-shadow: var(--shadow-sm);
 }
 
 .bar {
-  max-width: 1240px;
+  max-width: 1360px;
   margin: 0 auto;
-  padding: var(--space-sm) var(--space-md);
+  padding: 0 var(--space-md);
+  height: var(--header-height);
   display: flex;
   align-items: center;
   gap: var(--space-md);
-  flex-wrap: wrap;
 }
 
 .brand {
@@ -348,45 +326,54 @@ header {
   align-items: center;
   gap: var(--space-xs);
   color: var(--text);
-  font-weight: 700;
-  font-size: 1.05rem;
-  letter-spacing: -0.015em;
-  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
   padding: var(--space-2xs) var(--space-xs);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+  border-radius: var(--radius-xs);
+  white-space: nowrap;
 }
 .brand::before {
-  content: "";
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 2px;
-  background: var(--cat-accent);
-  box-shadow: 0 0 8px var(--cat-accent);
+  content: "■";
+  color: var(--cat-accent);
+  font-size: 0.75rem;
 }
 .brand:hover {
   text-decoration: none;
-  background: var(--surface-hover);
+  border-color: var(--cat-accent);
 }
 
 nav {
   display: flex;
-  gap: 2px;
-  background: var(--bg-subtle);
-  padding: 3px;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--border);
-  flex-wrap: wrap;
+  align-items: stretch;
+  height: 100%;
+  gap: 0;
+  border-inline: 1px solid var(--border);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+nav::-webkit-scrollbar {
+  display: none;
 }
 
 nav a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 var(--space-sm);
   color: var(--text-muted);
-  padding: 0.35rem 0.75rem;
-  border-radius: var(--radius-full);
-  font-size: 0.85rem;
-  font-weight: 500;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-family: var(--font-mono);
   white-space: nowrap;
-  transition: all var(--dur-fast) var(--ease-out);
+  border-inline-end: 1px solid var(--border);
+  border-top: 3px solid transparent;
+  transition: color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
 }
 nav a:hover {
   color: var(--text);
@@ -394,51 +381,48 @@ nav a:hover {
   background: var(--surface-hover);
 }
 nav a[aria-current="page"] {
-  background: var(--surface);
-  color: var(--cat-accent);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--border);
-  font-weight: 600;
+  color: var(--text);
+  background: var(--bg-subtle);
+  border-top-color: var(--cat-accent);
+  font-weight: 700;
 }
 
 /* Controls Bar */
 .controls {
   display: flex;
   align-items: center;
-  gap: var(--space-xs);
+  gap: var(--space-2xs);
   margin-inline-start: auto;
-  flex: 1;
-  justify-content: flex-end;
-  min-width: 320px;
+  flex-shrink: 0;
 }
 
 .search-wrap {
   position: relative;
-  flex: 1;
-  max-width: 320px;
 }
 
 input[type="search"], select, button {
   border: 1px solid var(--border);
   background: var(--surface);
   color: var(--text);
-  padding: 0.42rem 0.75rem;
-  border-radius: var(--radius-md);
-  font-size: 0.875rem;
-  transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+  height: 2rem;
+  padding: 0 var(--space-xs);
+  border-radius: var(--radius-xs);
+  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  transition: border-color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
 }
 
 input[type="search"] {
-  width: 100%;
+  width: 170px;
 }
 input[type="search"]:focus {
   border-color: var(--cat-accent);
-  box-shadow: 0 0 0 3px var(--cat-accent-subtle);
+  background: var(--surface-raised);
 }
 
 select {
   cursor: pointer;
-  max-width: 150px;
+  max-width: 130px;
 }
 select:focus {
   border-color: var(--cat-accent);
@@ -446,188 +430,212 @@ select:focus {
 
 button {
   cursor: pointer;
-  font-weight: 500;
-  background: var(--surface);
+  font-weight: 600;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-xs);
+  white-space: nowrap;
+  padding: 0 var(--space-sm);
 }
 button:hover:not(:disabled) {
   background: var(--surface-hover);
   border-color: var(--border-strong);
 }
 button:active:not(:disabled) {
+  background: var(--bg-subtle);
   transform: translateY(1px);
 }
 button:disabled {
   cursor: wait;
-  opacity: 0.65;
+  opacity: 0.55;
 }
 
 .theme-btn {
-  padding: 0.42rem 0.65rem;
-  font-size: 0.9rem;
-  line-height: 1;
-  border-radius: var(--radius-md);
+  padding: 0 var(--space-2xs);
+  width: 2rem;
 }
 
 /* ==========================================================================
    Main & Layout Containers
-   ========================================================================= */
-main, footer {
-  max-width: 1240px;
+   ========================================================================== */
+main {
+  max-width: 1360px;
   width: 100%;
   margin: 0 auto;
-  padding: var(--space-xl) var(--space-md);
-}
-
-main {
+  padding: var(--space-lg) var(--space-md);
   flex: 1;
   min-width: 0;
 }
 
-/* Section Headings */
+/* Catalogue Inventory Headings */
 .page-header {
-  margin-bottom: var(--space-xl);
-  border-bottom: 1px solid var(--border);
-  padding-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-inline-start: 4px solid var(--cat-accent);
+  border-radius: var(--radius-xs);
 }
+
 h1 {
-  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-size: 1.4rem;
   font-weight: 800;
-  letter-spacing: -0.025em;
-  margin: 0 0 var(--space-xs);
+  letter-spacing: -0.015em;
+  margin: 0;
   color: var(--text);
   overflow-wrap: anywhere;
   min-width: 0;
   font-style: normal;
+  line-height: 1.2;
 }
+
 h2 {
-  font-size: 1.25rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  letter-spacing: -0.015em;
-  margin: var(--space-xl) 0 var(--space-sm);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: var(--space-lg) 0 var(--space-xs);
   color: var(--text);
+  font-style: normal;
   display: flex;
   align-items: center;
   gap: var(--space-xs);
-  font-style: normal;
 }
+h2::before {
+  content: "//";
+  color: var(--cat-accent);
+  font-family: var(--font-mono);
+}
+
 h3 {
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.92rem;
   font-weight: 600;
-  letter-spacing: -0.01em;
   font-style: normal;
 }
 
 .muted {
   color: var(--text-muted);
-  margin: 0;
-  font-size: 0.92rem;
+  margin: var(--space-3xs) 0 0;
+  font-size: 0.85rem;
 }
+
 .key {
   color: var(--text-dim);
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   overflow-wrap: anywhere;
+  letter-spacing: -0.01em;
 }
 
+/* Section Header Bar */
 .section-head {
   display: flex;
-  align-items: flex-end;
+  align-items: baseline;
   justify-content: space-between;
   gap: var(--space-md);
-  flex-wrap: wrap;
-  margin-bottom: var(--space-lg);
-  border-bottom: 1px solid var(--border);
-  padding-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-2xs);
+  border-bottom: 1px solid var(--border-strong);
+}
+.section-head h1 {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.section-head .muted {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
 /* ==========================================================================
-   Component Archetypes: Cards & Grid
+   Catalogue Grid & Inventory Cards
    ========================================================================== */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
-  gap: var(--space-md);
+  grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
 }
 
-/* Category Hub Cards on Home */
+/* Hub Category Cards */
 .hub-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
   gap: var(--space-md);
-  margin: var(--space-xl) 0;
+  margin: var(--space-md) 0 var(--space-xl);
 }
 
 .hub-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: var(--space-lg);
+  padding: var(--space-md);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xs);
   background: var(--surface);
-  box-shadow: var(--shadow-sm);
   text-decoration: none;
   color: var(--text);
   position: relative;
-  overflow: hidden;
-  transition: transform var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+  transition: border-color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
 }
 .hub-card::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  height: 4px;
+  width: 4px;
+  height: 100%;
   background: var(--card-accent, var(--cat-accent));
 }
 .hub-card:hover {
   text-decoration: none;
-  transform: translateY(-2px);
   border-color: var(--card-accent, var(--cat-accent));
-  box-shadow: var(--shadow-md);
+  background: var(--surface-raised);
 }
 .hub-card .count {
-  font-size: 2.2rem;
+  font-family: var(--font-mono);
+  font-size: 2rem;
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
   color: var(--card-accent, var(--cat-accent));
   line-height: 1;
   margin-bottom: var(--space-xs);
+  font-variant-numeric: tabular-nums;
 }
 .hub-card h2 {
   margin: 0;
-  font-size: 1.15rem;
+  font-size: 0.95rem;
+}
+.hub-card h2::before {
+  display: none;
 }
 
-/* Standard Data Card */
+/* Standard Specimen Card */
 .card {
   display: block;
   min-width: 0;
-  padding: var(--space-md);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
   background: var(--surface);
-  box-shadow: var(--shadow-sm);
   text-decoration: none;
   color: var(--text);
-  transition: transform var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
 }
 a.card:hover {
   text-decoration: none;
-  transform: translateY(-1px);
-  border-color: var(--cat-accent);
-  box-shadow: var(--shadow-md);
+  background: var(--surface-hover);
+}
+a.card:active {
+  background: var(--bg-subtle);
 }
 
 .card.card-thumb {
   display: flex;
-  gap: var(--space-md);
+  gap: var(--space-sm);
   align-items: center;
 }
 .card-info {
@@ -635,50 +643,48 @@ a.card:hover {
   flex: 1;
 }
 .card p {
-  margin: var(--space-2xs) 0 0;
+  margin: var(--space-3xs) 0 0;
 }
 
-/* Weapon Fusion Recipe Cards */
+/* Fusion Recipes */
 .fusion-recipe {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: var(--space-xs);
-  padding: var(--space-sm) var(--space-md);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  padding: var(--space-xs) var(--space-sm);
   background: var(--surface);
-  font-size: 0.95rem;
+  font-size: 0.88rem;
+  font-family: var(--font-mono);
 }
 .fusion-sources {
   display: inline-flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: var(--space-2xs);
+  gap: var(--space-3xs);
 }
 .fusion-range-block {
   display: inline-flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: var(--space-2xs);
-  padding: 0.15rem 0.4rem;
+  gap: var(--space-3xs);
+  padding: 0.1rem 0.35rem;
   background: var(--bg-subtle);
-  border: 1px dashed var(--border);
-  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
 }
 .fusion-range-label {
   color: var(--text-muted);
-  font-size: 0.85rem;
-  font-style: italic;
+  font-size: 0.78rem;
 }
 .fusion-range-sep {
   color: var(--text-dim);
-  font-size: 0.85rem;
+  font-size: 0.78rem;
 }
 .fusion-op {
   color: var(--text-muted);
   font-weight: 700;
-  margin: 0 0.15rem;
+  margin: 0 0.1rem;
 }
 .fusion-arrow {
   color: var(--cat-accent);
@@ -686,17 +692,17 @@ a.card:hover {
   margin: 0 var(--space-xs);
 }
 
-/* Character Card Selection Grid & Cards */
+/* Character Card Selection Grid */
 .char-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
-  gap: var(--space-lg);
+  grid-template-columns: repeat(auto-fill, minmax(min(190px, 100%), 1fr));
+  gap: var(--space-sm);
 }
 
 .char-select-card {
   position: relative;
-  aspect-ratio: 2 / 3;
-  border-radius: var(--radius-lg);
+  aspect-ratio: 5 / 7;
+  border-radius: var(--radius-xs);
   border: 1px solid var(--border);
   background: var(--surface);
   overflow: hidden;
@@ -705,18 +711,14 @@ a.card:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: var(--space-md);
+  padding: var(--space-sm);
   box-shadow: var(--shadow-sm);
-  transition: transform var(--dur-base) var(--ease-out),
-              border-color var(--dur-base) var(--ease-out),
-              box-shadow var(--dur-base) var(--ease-out);
+  transition: border-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
 }
-
 a.char-select-card:hover {
   text-decoration: none;
-  transform: translateY(-4px);
   border-color: var(--cat-accent);
-  box-shadow: var(--shadow-lg), 0 0 20px color-mix(in srgb, var(--cat-accent) 20%, transparent);
+  transform: translateY(-2px);
 }
 
 .char-card-bg {
@@ -731,19 +733,18 @@ a.char-select-card:hover {
   z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  background: linear-gradient(to bottom, color-mix(in srgb, var(--surface) 94%, transparent) 0%, color-mix(in srgb, var(--surface) 80%, transparent) 60%, transparent 100%);
-  margin: calc(-1 * var(--space-md)) calc(-1 * var(--space-md)) 0;
-  padding: var(--space-md) var(--space-md) var(--space-xl);
-  border-top-left-radius: var(--radius-lg);
-  border-top-right-radius: var(--radius-lg);
+  gap: 1px;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  border-bottom: 1px solid var(--border-light);
+  margin: calc(-1 * var(--space-sm)) calc(-1 * var(--space-sm)) 0;
+  padding: var(--space-xs) var(--space-sm);
 }
 
 .char-card-title {
-  font-size: 1.1rem;
-  font-weight: 750;
+  font-size: 0.95rem;
+  font-weight: 700;
   color: var(--text);
-  line-height: 1.25;
+  line-height: 1.2;
 }
 
 .char-card-footer {
@@ -752,12 +753,11 @@ a.char-select-card:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(to top, color-mix(in srgb, var(--surface) 96%, transparent) 0%, color-mix(in srgb, var(--surface) 80%, transparent) 60%, transparent 100%);
-  margin: 0 calc(-1 * var(--space-md)) calc(-1 * var(--space-md));
-  padding: var(--space-xl) var(--space-md) var(--space-md);
-  border-bottom-left-radius: var(--radius-lg);
-  border-bottom-right-radius: var(--radius-lg);
-  font-size: 0.8rem;
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  border-top: 1px solid var(--border-light);
+  margin: 0 calc(-1 * var(--space-sm)) calc(-1 * var(--space-sm));
+  padding: var(--space-xs) var(--space-sm);
+  font-size: 0.74rem;
   font-family: var(--font-mono);
   color: var(--text-muted);
 }
@@ -766,7 +766,6 @@ a.char-select-card:hover {
   font-weight: 700;
   color: var(--cat-accent);
 }
-
 .char-card-code {
   color: var(--text-dim);
 }
@@ -787,46 +786,38 @@ a.char-select-card:hover {
   height: 100%;
   object-fit: contain;
   object-position: center;
-  transform: scale(1.7);
+  transform: scale(1.6);
   opacity: 0;
-  transition: opacity 0.3s ease-in-out, transform var(--dur-base) var(--ease-out);
+  transition: opacity 0.2s ease-in-out;
   pointer-events: none;
 }
-
 .char-drawing-img.is-active {
   opacity: 1;
 }
-
 .char-card-bg .char-drawing-img {
-  padding: var(--space-lg) var(--space-sm);
+  padding: var(--space-md) var(--space-2xs);
 }
-
-a.char-select-card:hover .char-drawing-img.is-active {
-  transform: scale(1.77);
-}
-
 .char-drawing-img.is-fallback {
   transform: scale(1);
   image-rendering: pixelated;
   width: auto;
   height: auto;
-  max-width: 65%;
-  max-height: 65%;
+  max-width: 60%;
+  max-height: 60%;
   margin: auto;
 }
 
-/* Individual Character Page Hero */
+/* Character Detail Dossier */
 .character-hero-header {
   display: grid;
-  grid-template-columns: 1fr 280px;
-  gap: var(--space-xl);
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: var(--space-lg);
   align-items: start;
-  padding: var(--space-lg);
+  padding: var(--space-md);
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  margin-bottom: var(--space-xl);
+  border-radius: var(--radius-xs);
+  margin-bottom: var(--space-lg);
 }
 
 .character-hero-info {
@@ -836,59 +827,48 @@ a.char-select-card:hover .char-drawing-img.is-active {
 .character-hero-drawing {
   width: 100%;
   aspect-ratio: 1 / 1;
-  max-height: 280px;
-  border-radius: var(--radius-md);
+  max-height: 260px;
   background: var(--surface-alt);
   border: 1px solid var(--border-light);
+  border-radius: var(--radius-xs);
   overflow: hidden;
   position: relative;
-  align-self: center;
 }
-
 .character-hero-drawing .char-drawing-img {
-  padding: var(--space-sm);
+  padding: var(--space-xs);
 }
-
 .character-hero-drawing .char-drawing-img:not(.is-fallback) {
-  transform: scale(1.2);
-}
-
-@media (max-width: 768px) {
-  .character-hero-header {
-    grid-template-columns: 1fr;
-  }
-  .character-hero-drawing {
-    max-height: 220px;
-    order: -1;
-  }
+  transform: scale(1.15);
 }
 
 .sprite-preview {
   image-rendering: pixelated;
   object-fit: contain;
-  width: 52px;
-  height: 52px;
+  width: 44px;
+  height: 44px;
   flex-shrink: 0;
   background: var(--bg-subtle);
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 4px;
+  border-radius: var(--radius-xs);
+  padding: 2px;
 }
 
 /* ==========================================================================
-   Badges, Fields, and Tables
+   Badges, Fields, and Tables (Tabular Ledger Data)
    ========================================================================== */
 .badge {
   display: inline-flex;
   align-items: center;
-  margin: 0.15rem 0.25rem 0.15rem 0;
-  padding: 0.15rem 0.55rem;
-  border-radius: var(--radius-full);
+  margin: 0.1rem 0.2rem 0.1rem 0;
+  padding: 0.08rem 0.4rem;
+  border-radius: var(--radius-xs);
   background: var(--cat-badge-bg);
   color: var(--cat-badge-text);
-  font-size: 0.74rem;
-  font-weight: 600;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
   letter-spacing: 0.02em;
+  text-transform: uppercase;
   line-height: 1.3;
 }
 .badge.warn {
@@ -904,73 +884,90 @@ a.char-select-card:hover .char-drawing-img.is-active {
 
 .stack {
   display: grid;
-  gap: var(--space-xs);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
 }
 
 .field {
-  padding: var(--space-md);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  padding: var(--space-xs) var(--space-sm);
   background: var(--surface);
-  box-shadow: var(--shadow-sm);
 }
 .field dt {
   color: var(--text-muted);
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.74rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: var(--space-2xs);
+  letter-spacing: 0.05em;
+  font-family: var(--font-mono);
+  margin-bottom: var(--space-3xs);
 }
 .field dd {
   margin: 0;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   color: var(--text);
+  font-size: 0.88rem;
 }
 
 /* Callouts & Status */
 .status {
-  margin: var(--space-md) 0 var(--space-lg);
-  padding: var(--space-md) var(--space-lg);
+  margin: var(--space-sm) 0 var(--space-md);
+  padding: var(--space-sm) var(--space-md);
   border: 1px solid var(--border);
-  border-inline-start: 4px solid var(--cat-accent);
-  border-radius: var(--radius-md);
+  border-inline-start: 3px solid var(--cat-accent);
   background: var(--surface);
-  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-xs);
+  font-size: 0.85rem;
 }
 .status.warn {
   border-inline-start-color: var(--warn-text);
-  background: color-mix(in srgb, var(--warn-bg) 40%, var(--surface));
+  background: color-mix(in srgb, var(--warn-bg) 25%, var(--surface));
 }
 .status.error {
   border-inline-start-color: var(--danger-text);
-  background: color-mix(in srgb, var(--danger-bg) 40%, var(--surface));
+  background: color-mix(in srgb, var(--danger-bg) 25%, var(--surface));
 }
 
 .empty {
-  padding: var(--space-2xl) var(--space-md);
+  padding: var(--space-xl) var(--space-md);
   text-align: center;
   color: var(--text-muted);
   border: 1px dashed var(--border-strong);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xs);
   background: var(--bg-subtle);
-  font-size: 0.95rem;
+  font-size: 0.88rem;
+  font-family: var(--font-mono);
 }
 
 /* ==========================================================================
-   Footer
+   Footer Archetype: Ft4 Dense Archival Colophon
    ========================================================================== */
 footer {
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  border-top: 1px solid var(--border);
+  width: 100%;
   margin-top: auto;
-  padding-top: var(--space-lg);
-  padding-bottom: var(--space-xl);
+  border-top: 2px solid var(--border-strong);
+  background: var(--surface);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+.footer-inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: var(--space-md);
+}
+footer .status {
+  margin: 0;
+  padding: var(--space-2xs) var(--space-xs);
+  border: none;
+  background: transparent;
+  font-size: 0.76rem;
 }
 footer #source {
-  margin-top: var(--space-xs);
+  margin-top: var(--space-2xs);
   color: var(--text-dim);
 }
 
@@ -982,30 +979,45 @@ footer #source {
    Responsive Adaptations
    ========================================================================== */
 @media (max-width: 860px) {
-  .controls {
-    order: 3;
-    min-width: 100%;
-    justify-content: stretch;
-    margin-top: var(--space-xs);
-  }
-  .search-wrap {
-    max-width: 100%;
-  }
-  select {
-    max-width: 45%;
-  }
-  nav {
-    overflow-x: auto;
-    max-width: 100%;
-    padding-bottom: 4px;
-    -webkit-overflow-scrolling: touch;
+  header {
+    height: auto;
+    padding-bottom: var(--space-xs);
   }
   .bar {
+    height: auto;
+    flex-wrap: wrap;
     padding: var(--space-xs) var(--space-sm);
     gap: var(--space-xs);
   }
-  main, footer {
-    padding-inline: var(--space-sm);
+  nav {
+    order: 3;
+    width: 100%;
+    border-inline: none;
+    border-block: 1px solid var(--border);
+    height: 2.4rem;
+  }
+  .controls {
+    order: 2;
+    min-width: 0;
+  }
+  input[type="search"] {
+    width: 120px;
+  }
+  .character-hero-header {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .character-hero-drawing {
+    max-height: 220px;
+    order: -1;
+  }
+}
+
+@media (max-width: 480px) {
+  input[type="search"] {
+    width: 90px;
+  }
+  select {
+    max-width: 95px;
   }
 }
 
@@ -1029,6 +1041,7 @@ footer #source {
         <a href="#/pets" data-page="pets">Pets</a>
         <a href="#/weapons" data-page="weapons">Weapons</a>
         <a href="#/materials" data-page="materials">Materials</a>
+        <a href="#/seeds" data-page="seeds">Seeds</a>
         <a href="#/blueprints" data-page="blueprints">Blueprints</a>
         <a href="#/enemies" data-page="enemies">Enemies</a>
       </nav>
@@ -1046,8 +1059,10 @@ footer #source {
   </header>
   <main id="app" tabindex="-1"><p>Loading wiki…</p></main>
   <footer>
-    <div id="status" class="status" role="status" aria-live="polite">Starting…</div>
-    <div id="source"></div>
+    <div class="footer-inner">
+      <div id="status" class="status" role="status" aria-live="polite">Starting…</div>
+      <div id="source"></div>
+    </div>
   </footer>
 <script>
 'use strict';
@@ -1086,7 +1101,7 @@ const CAN_PERSIST = location.protocol !== 'file:' && typeof indexedDB !== 'undef
 const REFRESH_MS = 30 * 60 * 1000;
 const MAX_RESULTS = 300;
 
-const I18N_STATIC = {"home": ["Home", "首頁", "首页", "ホーム", "홈", "Inicio", "Startseite", "Início", "Accueil", "Главная", "Główna", "صفحه اصلی", "الرئيسية", "หน้าแรก", "Trang chủ"], "characters": ["Characters", "角色", "角色", "キャラクター", "캐릭터", "Personajes", "Charaktere", "Personagens", "Personnages", "Персонажи", "Postacie", "شخصیت‌ها", "الشخصيات", "ตัวละคร", "Nhân vật"], "pets": ["Pets", "寵物", "宠物", "ペット", "애완동물", "Mascotas", "Haustiere", "Mascotes", "Animaux", "Питомцы", "Zwierzaki", "حیوانات خانگی", "الحيوانات الأليفة", "สัตว์เลี้ยง", "Thú cưng"], "weapons": ["Weapons", "武器", "武器", "武器", "무기", "Armas", "Waffen", "Armas", "Armes", "Оружие", "Broń", "سلاح‌ها", "الأسلحة", "อาวุธ", "Vũ khí"], "materials": ["Materials", "材料", "材料", "材料", "재료", "Materiales", "Materialien", "Materiais", "Matériaux", "Материалы", "Materiały", "مواد", "المواد", "วัสดุ", "Nguyên liệu"], "blueprints": ["Blueprints", "藍圖", "蓝图", "設計図", "설계도", "Planos", "Baupläne", "Projetos", "Plans", "Чертежи", "Projekty", "طرح‌ها", "المخططات", "พิมพ์เขียว", "Bản thiết kế"], "enemies": ["Enemies", "敵人", "敌人", "敵", "적", "Enemigos", "Feinde", "Inimigos", "Ennemis", "Враги", "Wrogowie", "دشمنان", "الأعداء", "ศัตรู", "Kẻ thù"], "search": ["Search wiki", "搜尋百科", "搜索百科", "Wikiを検索", "위키 검색", "Buscar en wiki", "Wiki durchsuchen", "Pesquisar na wiki", "Rechercher sur le wiki", "Поиск по вики", "Szukaj w wiki", "جستجو در ویکی", "بحث في الويكي", "ค้นหาวิกิ", "Tìm kiếm wiki"], "refresh": ["Refresh", "重新整理", "刷新", "更新", "새로고침", "Actualizar", "Aktualisieren", "Atualizar", "Actualiser", "Обновить", "Odśwież", "تازه‌سازی", "تحديث", "รีเฟรช", "Làm mới"], "loading": ["Loading wiki…", "正在載入百科…", "正在加载百科…", "Wikiを読み込み中…", "위키 로딩 중…", "Cargando wiki…", "Wiki wird geladen…", "Carregando wiki…", "Chargement du wiki…", "Загрузка вики…", "Ładowanie wiki…", "در حال بارگذاری ویکی…", "جارٍ تحميل الويكي…", "กำลังโหลดวิกิ…", "Đang tải wiki…"], "not_found": ["Not found", "找不到頁面", "未找到", "見つかりません", "찾을 수 없음", "No encontrado", "Nicht gefunden", "Não encontrado", "Non trouvé", "Не найдено", "Nie znaleziono", "یافت نشد", "غير موجود", "ไม่พบ", "Không tìm thấy"], "not_found_desc": ["The requested wiki entry does not exist.", "請求的百科條目不存在。", "请求的百科条目不存在。", "要求されたWikiエントリは存在しません。", "요청한 위키 항목이 존재하지 않습니다.", "La entrada solicitada no existe.", "Der angeforderte Wiki-Eintrag existiert nicht.", "A entrada solicitada não existe.", "L'entrée demandée n'existe pas.", "Запрошенная запись не существует.", "Żądany wpis nie istnieje.", "مورد درخواستی در ویکی وجود ندارد.", "إدخال الويكي المطلوب غير موجود.", "ไม่มีรายการวิกินี้", "Mục wiki yêu cầu không tồn tại."], "return_home": ["Return home", "返回首頁", "返回首页", "ホームに戻る", "홈으로 돌아가기", "Volver al inicio", "Zurück zur Startseite", "Voltar ao início", "Retour à l'accueil", "На главную", "Wróć do strony głównej", "بازگشت به خانه", "العودة للرئيسية", "กลับหน้าแรก", "Về trang chủ"], "wiki_title": ["Soul Knight data wiki", "元氣騎士資料百科", "元气骑士数据百科", "ソウルナイト データWiki", "소울 나이트 데이터 위키", "Wiki de datos de Soul Knight", "Soul Knight Daten-Wiki", "Wiki de dados do Soul Knight", "Wiki de données Soul Knight", "Вики данных Soul Knight", "Wiki danych Soul Knight", "ویکی داده‌های شوالیه روح", "ويكي بيانات سول نايت", "วิกิข้อมูล Soul Knight", "Wiki dữ liệu Soul Knight"], "wiki_subtitle": ["Characters, pets, weapons, materials, blueprints, enemies.", "角色、寵物、武器、材料、藍圖、敵人。", "角色、宠物、武器、材料、蓝图、敌人。", "キャラクター、ペット、武器、材料、設計図、敵。", "캐릭터, 애완동물, 무기, 재료, 설계도, 적.", "Personajes, mascotas, armas, materiales, planos, enemigos.", "Charaktere, Haustiere, Waffen, Materialien, Baupläne, Feinde.", "Personagens, mascotes, armas, materiais, projetos, inimigos.", "Personnages, animaux, armes, matériaux, plans, ennemis.", "Персонажи, питомцы, оружие, материалы, чертежи, враги.", "Postacie, zwierzaki, broń, materiały, projekty, wrogowie.", "شخصیت‌ها، حیوانات، سلاح‌ها، مواد، طرح‌ها، دشمنان.", "الشخصيات، الحيوانات، الأسلحة، المواد، المخططات، الأعداء.", "ตัวละคร สัตว์เลี้ยง อาวุธ วัสดุ พิมพ์เขียว ศัตรู", "Nhân vật, thú cưng, vũ khí, nguyên liệu, bản thiết kế, kẻ thù."], "poc_title": ["Proof of concept", "概念驗證", "概念验证", "概念実証", "개념 증명", "Prueba de concepto", "Machbarkeitsnachweis", "Prova de conceito", "Preuve de concept", "Концепт", "Weryfikacja koncepcji", "اثبات مفهوم", "إثبات المفهوم", "การพิสูจน์แนวคิด", "Bản thử nghiệm khái niệm"], "poc_desc": ["This page is an AI-generated proof of concept. Data is taken from game assets, localization, and configuration, and might not reflect the real game.", "此頁面為 AI 生成的概念驗證。數據取自遊戲資源、本地化及設定檔，可能與實際遊戲有所出入。", "此页面为 AI 生成的概念验证。数据取自游戏资源、本地化及配置文件，可能与实际游戏有所出入。", "このページはAIによって生成された概念実証です。データはゲームアセット、ローカライゼーション、設定から取得されており、実際のゲームと異なる場合があります。", "이 페이지는 AI가 생성한 개념 증명입니다. 데이터는 게임 에셋, 번역 및 설정에서 가져왔으며 실제 게임과 다를 수 있습니다.", "Esta página es una prueba de concepto generada por IA. Los datos se obtienen de los recursos, la localización y la configuración del juego, y pueden no reflejar el juego real.", "Diese Seite ist ein KI-generierter Machbarkeitsnachweis. Die Daten stammen aus Spiel-Assets, Lokalisierung und Konfiguration und spiegeln möglicherweise nicht das tatsächliche Spiel wider.", "Esta página é uma prova de conceito gerada por IA. Os dados são extraídos dos recursos, localização e configuração do jogo, podendo não refletir o jogo real.", "Cette page est une preuve de concept générée par IA. Les données proviennent des ressources du jeu, de la localisation et de la configuration, et peuvent différer du jeu réel.", "Эта страница — концепт, созданный ИИ. Данные взяты из ресурсов игры, локализации и конфигурации и могут отличаться от игры.", "Ta strona to wygenerowana przez AI weryfikacja koncepcji. Dane pochodzą z zasobów gry, lokalizacji i konfiguracji i mogą różnić się od rzeczywistej gry.", "این صفحه اثبات مفهومی ایجاد شده توسط هوش مصنوعی است. داده‌ها از دارایی‌ها، بومی‌سازی و پیکربندی بازی گرفته شده‌اند و ممکن است بازتاب‌دهنده بازی واقعی نباشند.", "هذه الصفحة هي إثبات مفهوم تم إنشاؤه بواسطة الذكاء الاصطناعي. البيانات مأخوذة من ملفات اللعبة والترجمة والتكوين، وقد لا تعكس اللعبة الفعلية بدقة.", "หน้านี้เป็นการพิสูจน์แนวคิดที่สร้างโดย AI ข้อมูลนำมาจากทรัพยากรเกม การแปลภาษา และการกำหนดค่า และอาจไม่ตรงกับเกมจริง", "Trang này là bản thử nghiệm do AI tạo. Dữ liệu được lấy từ tài nguyên, bản địa hóa và cấu hình trò chơi, có thể không phản ánh đúng trò chơi thực tế."], "badge_inferred_desc": ["Derived from related source data.", "由相關源數據推導。", "由相关源数据推导。", "関連ソースデータから推測。", "관련 소스 데이터에서 유추됨.", "Derivado de datos fuente relacionados.", "Aus verwandten Quelldaten abgeleitet.", "Derivado de dados fonte relacionados.", "Dérivé des données sources associées.", "Получено из связанных данных.", "Pochodzi z powiązanych danych źródłowych.", "مشتق‌شده از داده‌های منبع مرتبط.", "مشتق من بيانات المصدر ذات الصلة.", "ได้มาจากข้อมูลต้นฉบับที่เกี่ยวข้อง", "Suy ra từ dữ liệu nguồn liên quan."], "badge_missing_desc": ["Required localization or related data could not be resolved.", "無法解析所需的本地化或相關數據。", "无法解析所需的本地化或相关数据。", "必要なローカライゼーションまたは関連データを解決できませんでした。", "필요한 번역 또는 관련 데이터를 확인할 수 없습니다.", "No se pudo resolver la localización requerida o los datos relacionados.", "Erforderliche Lokalisierung oder verwandte Daten konnten nicht aufgelöst werden.", "Não foi possível resolver a localização necessária ou dados relacionados.", "La localisation requise ou les données associées n'ont pas pu être résolues.", "Не удалось разрешить локализацию или связанные данные.", "Nie można rozpoznać wymaganej lokalizacji lub powiązanych danych.", "بومی‌سازی یا داده‌های مرتبط مورد نیاز حل نشد.", "تعذر حل الترجمة المطلوبة أو البيانات ذات الصلة.", "ไม่สามารถแปลภาษาหรือค้นหาข้อมูลที่เกี่ยวข้องได้", "Không thể giải quyết bản địa hóa hoặc dữ liệu liên quan."], "badge_english_desc": ["Selected-language text is unavailable; English is shown.", "所選語言文字不可用；顯示英文。", "所选语言文本不可用；显示英文。", "選択した言語のテキストは利用できません。英語が表示されます。", "선택한 언어의 텍스트를 사용할 수 없습니다. 영어가 표시됩니다.", "El texto en el idioma seleccionado no está disponible; se muestra en inglés.", "Text in der ausgewählten Sprache nicht verfügbar; Englisch wird angezeigt.", "Texto no idioma selecionado indisponível; exibido em inglês.", "Texte non disponible dans la langue sélectionnée; affiché en anglais.", "Текст на выбранном языке недоступен; показан английский.", "Tekst w wybranym języku jest niedostępny; wyświetlono język angielski.", "متن به زبان انتخابی در دسترس نیست؛ انگلیسی نمایش داده می‌شود.", "النص باللغة المحددة غير متوفر؛ تظهر الإنجليزية.", "ไม่มีข้อความในภาษาที่เลือก แสดงเป็นภาษาอังกฤษ", "Văn bản ngôn ngữ đã chọn không có sẵn; hiển thị tiếng Anh."], "badge_json_desc": ["Localization is unavailable; an English JSON name is shown where supported.", "本地化不可用；在受支援的情況下顯示英文 JSON 名稱。", "本地化不可用；在受支持的情况下显示英文 JSON 名称。", "ローカライゼーションが利用できません。サポートされている場合は英語のJSON名が表示されます。", "번역을 사용할 수 없습니다. 지원되는 경우 영어 JSON 이름이 표시됩니다.", "Localización no disponible; se muestra un nombre JSON en inglés donde se admite.", "Lokalisierung nicht verfügbar; ein englischer JSON-Name wird angezeigt, wo unterstützt.", "Localização indisponível; um nome JSON em inglês é exibido onde suportado.", "Localisation non disponible; un nom JSON en anglais est affiché si pris en charge.", "Локализация недоступна; где поддерживается, показано английское имя из JSON.", "Lokalizacja jest niedostępna; gdzie to możliwe, wyświetlana jest angielska nazwa JSON.", "بومی‌سازی در دسترس نیست؛ در صورت پشتیبانی، نام انگلیسی JSON نمایش داده می‌شود.", "الترجمة غير متوفرة؛ يظهر اسم JSON بالإنجليزية حيثما كان مدعوماً.", "ไม่มีการแปลภาษา แสดงชื่อ JSON ภาษาอังกฤษในส่วนที่รองรับ", "Bản địa hóa không có sẵn; tên JSON tiếng Anh được hiển thị nếu được hỗ trợ."], "data_source": ["Data source", "數據來源", "数据来源", "データソース", "데이터 소스", "Fuente de datos", "Datenquelle", "Fonte de dados", "Source de données", "Источник данных", "Źródło danych", "منبع داده", "مصدر البيانات", "แหล่งข้อมูล", "Nguồn dữ liệu"], "repository": ["Repository", "代碼庫", "代码库", "リポジトリ", "저장소", "Repositorio", "Repository", "Repositório", "Dépôt", "Репозиторий", "Repozytorium", "مخزن", "المستودع", "ที่เก็บโค้ด", "Kho lưu trữ"], "game_version": ["Game version", "遊戲版本", "游戏版本", "ゲームバージョン", "게임 버전", "Versión del juego", "Spielversion", "Versão do jogo", "Version du jeu", "Версия игры", "Wersja gry", "نسخه بازی", "إصدار اللعبة", "เวอร์ชันเกม", "Phiên bản game"], "commit": ["Commit", "提交", "提交", "コミット", "커밋", "Commit", "Commit", "Commit", "Commit", "Коммит", "Commit", "کامیت", "الالتزام", "คอมมิต", "Commit"], "snapshot_time": ["Snapshot time", "快照時間", "快照时间", "スナップショット日時", "스냅샷 시간", "Hora de instantánea", "Snapshot-Zeit", "Hora do snapshot", "Heure de capture", "Время снимка", "Czas migawki", "زمان اسنپ‌شات", "وقت اللقطة", "เวลาสแนปช็อต", "Thời gian chụp"], "matches_across_all": ["{0} matches across all pages", "所有頁面共找到 {0} 條符合項", "所有页面共找到 {0} 条匹配项", "全ページで {0} 件の一致", "모든 페이지에서 {0}개 일치", "{0} coincidencias en todas las páginas", "{0} Treffer über alle Seiten", "{0} correspondências em todas as páginas", "{0} correspondances sur toutes les pages", "{0} совпадений по всем страницам", "{0} wyników na wszystkich stronach", "{0} مورد منطبق در تمام صفحات", "{0} نتيجة مطابقة عبر جميع الصفحات", "พบ {0} รายการตรงกันในทุกหน้า", "{0} kết quả phù hợp trên tất cả các trang"], "showing_matches": ["Showing {0} of {1} matches. Refine search.", "顯示 {0} / {1} 條符合項。請縮小搜尋範圍。", "显示 {0} / {1} 条匹配项。请缩小搜索范围。", "{1} 件中 {0} 件を表示中。検索条件を絞り込んでください。", "{1}개 중 {0}개 표시 중. 검색어를 좁혀보세요.", "Mostrando {0} de {1} coincidencias. Refina la búsqueda.", "Zeige {0} von {1} Treffern. Suche verfeinern.", "Mostrando {0} de {1} correspondências. Refine a pesquisa.", "Affichage de {0} sur {1} correspondances. Affinez la recherche.", "Показано {0} из {1} совпадений. Уточните поиск.", "Wyświetlanie {0} z {1} wyników. Zawęź wyszukiwanie.", "نمایش {0} از {1} مورد. جستجو را محدودتر کنید.", "عرض {0} من أصل {1} نتيجة. يرجى تخصيص البحث.", "กำลังแสดง {0} จาก {1} รายการ โปรดระบุคำค้นหาเพิ่ม", "Đang hiển thị {0} trên {1} kết quả. Thu hẹp tìm kiếm."], "of_count": ["{0} of {1}", "{0} / {1}", "{0} / {1}", "{0} / {1}", "{0} / {1}", "{0} de {1}", "{0} von {1}", "{0} de {1}", "{0} sur {1}", "{0} из {1}", "{0} z {1}", "{0} از {1}", "{0} من {1}", "{0} จาก {1}", "{0} trên {1}"], "no_matches": ["No matches.", "沒有符合的項目。", "没有匹配的项。", "一致する項目がありません。", "일치하는 항목이 없습니다.", "Sin coincidencias.", "Keine Treffer.", "Nenhuma correspondência.", "Aucune correspondance.", "Нет совпадений.", "Brak wyników.", "هیچ موردی یافت نشد.", "لا توجد نتائج مطابقة.", "ไม่พบรายการที่ตรงกัน", "Không có kết quả phù hợp."], "char_name": ["Character name", "角色名稱", "角色名称", "キャラクター名", "캐릭터 이름", "Nombre del personaje", "Charaktername", "Nome do personagem", "Nom du personnage", "Имя персонажа", "Nazwa postaci", "نام شخصیت", "اسم الشخصية", "ชื่อตัวละคร", "Tên nhân vật"], "code_name": ["Code name", "代號", "代号", "コードネーム", "코드명", "Nombre clave", "Codename", "Codinome", "Nom de code", "Кодовое имя", "Nazwa kodowa", "نام کد", "الاسم الرمزي", "ชื่อโค้ด", "Tên mã"], "numeric_id": ["Numeric ID", "數值 ID", "数值 ID", "数値ID", "숫자 ID", "ID numérico", "Numerische ID", "ID numérico", "ID numérique", "Числовой ID", "ID numeryczne", "شناسه عددی", "المعرف الرقمي", "รหัสตัวเลข", "ID số"], "starting_weapons": ["Starting weapons", "初始武器", "初始武器", "初期武器", "시작 무기", "Armas iniciales", "Startwaffen", "Armas iniciais", "Armes de départ", "Начальное оружие", "Broń początkowa", "سلاح‌های اولیه", "الأسلحة الأولية", "อาวุธเริ่มต้น", "Vũ khí khởi đầu"], "starting_weapon": ["Starting weapon", "初始武器", "初始武器", "初期武器", "시작 무기", "Arma inicial", "Startwaffe", "Arma inicial", "Arme de départ", "Начальное оружие", "Broń początkowa", "سلاح اولیه", "السلاح الأولي", "อาวุธเริ่มต้น", "Vũ khí khởi đầu"], "upgraded_starting_weapon": ["Upgraded starting weapon", "升級初始武器", "升级初始武器", "アップグレード初期武器", "업그레이드된 시작 무기", "Arma inicial mejorada", "Aufgerüstete Startwaffe", "Arma inicial aprimorada", "Arme de départ améliorée", "Улучшенное начальное оружие", "Ulepszona broń początkowa", "سلاح اولیه ارتقایافته", "السلاح الأولي المطور", "อาวุธเริ่มต้นอัปเกรด", "Vũ khí khởi đầu nâng cấp"], "skins_count": ["Skins ({0})", "皮膚 ({0})", "皮肤 ({0})", "スキン ({0})", "스킨 ({0})", "Aspectos ({0})", "Skins ({0})", "Visuais ({0})", "Skins ({0})", "Облики ({0})", "Skórki ({0})", "پوسته‌ها ({0})", "المظاهر ({0})", "สกิน ({0})", "Trang phục ({0})"], "skin_id": ["Skin ID {0}", "皮膚 ID {0}", "皮肤 ID {0}", "スキンID {0}", "스킨 ID {0}", "ID de aspecto {0}", "Skin-ID {0}", "ID do visual {0}", "ID de skin {0}", "ID облика {0}", "ID skórki {0}", "شناسه پوسته {0}", "معرف المظهر {0}", "รหัสสกิน {0}", "ID trang phục {0}"], "skills_count": ["Skills ({0})", "技能 ({0})", "技能 ({0})", "スキル ({0})", "스킬 ({0})", "Habilidades ({0})", "Fähigkeiten ({0})", "Habilidades ({0})", "Compétences ({0})", "Навыки ({0})", "Umiejętności ({0})", "مهارت‌ها ({0})", "المهارات ({0})", "สกิล ({0})", "Kỹ năng ({0})"], "description": ["Description", "描述", "描述", "説明", "설명", "Descripción", "Beschreibung", "Descrição", "Description", "Описание", "Opis", "توضیحات", "الوصف", "คำอธิบาย", "Mô tả"], "mentor_upgrade": ["Mentor upgrade", "導師升級", "导师升级", "メンターアップグレード", "멘토 업그레이드", "Mejora del mentor", "Mentor-Upgrade", "Aprimoramento do mentor", "Amélioration du mentor", "Улучшение наставника", "Ulepszenie mentora", "ارتقای استاد", "ترقية المعلم", "การอัปเกรดของอาจารย์", "Nâng cấp từ sư phụ"], "pet_name": ["Pet name", "寵物名稱", "宠物名称", "ペット名", "애완동물 이름", "Nombre de la mascota", "Haustiername", "Nome do mascote", "Nom de l'animal", "Имя питомца", "Nazwa zwierzaka", "نام حیوان خانگی", "اسم الحيوان الأليف", "ชื่อสัตว์เลี้ยง", "Tên thú cưng"], "no_pet_skills": ["No pet skill localization found.", "未找到寵物技能本地化。", "未找到宠物技能本地化。", "ペットスキルのローカライゼーションが見つかりません。", "애완동물 스킬 번역을 찾을 수 없습니다.", "No se encontró la localización de habilidades de la mascota.", "Keine Haustier-Fähigkeiten-Lokalisierung gefunden.", "Nenhuma localização de habilidade de mascote encontrada.", "Aucune localisation de compétence d'animal trouvée.", "Локализация навыков питомца не найдена.", "Nie znaleziono lokalizacji umiejętności zwierzaka.", "بومی‌سازی مهارت حیوان خانگی یافت نشد.", "لم يتم العثور على ترجمة لمهارات الحيوان الأليف.", "ไม่พบการแปลภาษาสกิลสัตว์เลี้ยง", "Không tìm thấy bản địa hóa kỹ năng thú cưng."], "weapon_name": ["Weapon name", "武器名稱", "武器名称", "武器名", "무기 이름", "Nombre del arma", "Waffenname", "Nome da arma", "Nom de l'arme", "Название оружия", "Nazwa broni", "نام سلاح", "اسم السلاح", "ชื่ออาวุธ", "Tên vũ khí"], "weapon_id": ["Weapon ID", "武器 ID", "武器 ID", "武器ID", "무기 ID", "ID del arma", "Waffen-ID", "ID da arma", "ID de l'arme", "ID оружия", "ID broni", "شناسه سلاح", "معرف السلاح", "รหัสอาวุธ", "ID vũ khí"], "rarity": ["Rarity", "稀有度", "稀有度", "レア度", "희귀도", "Rareza", "Seltenheit", "Raridade", "Rareté", "Редкость", "Rzadkość", "کمیابی", "الندرة", "ระดับความหายาก", "Độ hiếm"], "rarity_n": ["Rarity {0}", "稀有度 {0}", "稀有度 {0}", "レア度 {0}", "희귀도 {0}", "Rareza {0}", "Seltenheit {0}", "Raridade {0}", "Rareté {0}", "Редкость {0}", "Rzadkość {0}", "کمیابی {0}", "الندرة {0}", "ความหายาก {0}", "Độ hiếm {0}"], "weapon_type": ["Weapon type", "武器類型", "武器类型", "武器タイプ", "무기 유형", "Tipo de arma", "Waffentyp", "Tipo de arma", "Type d'arme", "Тип оружия", "Typ broni", "نوع سلاح", "نوع السلاح", "ประเภทอาวุธ", "Loại vũ khí"], "no_weapon_skins": ["No weapon skins.", "無武器皮膚。", "无武器皮肤。", "武器スキンはありません。", "무기 스킨이 없습니다.", "Sin aspectos de arma.", "Keine Waffen-Skins.", "Nenhum visual de arma.", "Aucun skin d'arme.", "Нет обликов оружия.", "Brak skórek broni.", "پوسته‌ای برای سلاح وجود ندارد.", "لا توجد مظاهر للسلاح.", "ไม่มีสกินอาวุธ", "Không có trang phục vũ khí."], "evolution": ["Evolution", "進階/進化", "进阶/进化", "進化", "진화", "Evolución", "Evolution", "Evolução", "Évolution", "Эволюция", "Ewolucja", "تکامل", "التطور", "วิวัฒนาการ", "Tiến hóa"], "evolution_desc": ["Evolution description", "進化描述", "进化描述", "進化説明", "진화 설명", "Descripción de la evolución", "Evolutionsbeschreibung", "Descrição da evolução", "Description de l'évolution", "Описание эволюции", "Opis ewolucji", "توضیحات تکامل", "وصف التطور", "คำอธิบายวิวัฒนาการ", "Mô tả tiến hóa"], "no_weapon_evo": ["No weapon evolution.", "無武器進化。", "无武器进化。", "武器の進化はありません。", "무기 진화가 없습니다.", "Sin evolución de arma.", "Keine Waffen-Evolution.", "Nenhuma evolução de arma.", "Aucune évolution d'arme.", "Нет эволюции оружия.", "Brak ewolucji broni.", "تکاملی برای سلاح وجود ندارد.", "لا يوجد تطور للسلاح.", "ไม่มีการวิวัฒนาการอาวุธ", "Không có tiến hóa vũ khí."], "material_name": ["Material name", "材料名稱", "材料名称", "材料名", "재료 이름", "Nombre del material", "Materialname", "Nome do material", "Nom du matériau", "Название материала", "Nazwa materiału", "نام ماده", "اسم المادة", "ชื่อวัสดุ", "Tên nguyên liệu"], "material_id": ["Material ID", "材料 ID", "材料 ID", "材料ID", "재료 ID", "ID del material", "Material-ID", "ID do material", "ID du matériau", "ID материала", "ID materiału", "شناسه ماده", "معرف المادة", "รหัสวัสดุ", "ID nguyên liệu"], "group": ["Group", "分組", "分组", "グループ", "그룹", "Grupo", "Gruppe", "Grupo", "Groupe", "Группа", "Grupa", "گروه", "المجموعة", "กลุ่ม", "Nhóm"], "inferred_from": ["Inferred from", "推導自", "推导自", "推定元", "추론 출처", "Inferido de", "Abgeleitet von", "Inferido de", "Déduit de", "Получено из", "Wywnioskowano z", "مشتق‌شده از", "مشتق من", "อนุมานจาก", "Suy ra từ"], "blueprint_name": ["Blueprint name", "藍圖名稱", "蓝图名称", "設計図名", "설계도 이름", "Nombre del plano", "Bauplanname", "Nome do projeto", "Nom du plan", "Название чертежа", "Nazwa projektu", "نام طرح", "اسم المخطط", "ชื่อพิมพ์เขียว", "Tên bản thiết kế"], "blueprint_id": ["Blueprint ID", "藍圖 ID", "蓝图 ID", "設計図ID", "설계도 ID", "ID del plano", "Bauplan-ID", "ID do projeto", "ID du plan", "ID чертежа", "ID projektu", "شناسه طرح", "معرف المخطط", "รหัสพิมพ์เขียว", "ID bản thiết kế"], "item_id": ["Item ID", "物品 ID", "物品 ID", "アイテムID", "아이템 ID", "ID del objeto", "Objekt-ID", "ID do item", "ID de l'objet", "ID предмета", "ID przedmiotu", "شناسه آیتم", "معرف العنصر", "รหัสไอเทม", "ID vật phẩm"], "research_materials": ["Research materials ({0})", "研發材料 ({0})", "研发材料 ({0})", "研究材料 ({0})", "연구 재료 ({0})", "Materiales de investigación ({0})", "Forschungsmaterialien ({0})", "Materiais de pesquisa ({0})", "Matériaux de recherche ({0})", "Материалы для исследования ({0})", "Materiały do badań ({0})", "مواد تحقیق ({0})", "مواد البحث ({0})", "วัสดุวิจัย ({0})", "Nguyên liệu nghiên cứu ({0})"], "no_research_materials": ["No research materials required.", "不需要研發材料。", "不需要研发材料。", "研究材料は不要です。", "연구 재료가 필요하지 않습니다.", "No se requieren materiales de investigación.", "Keine Forschungsmaterialien erforderlich.", "Nenhum material de pesquisa necessário.", "Aucun matériau de recherche requis.", "Материалы для исследования не требуются.", "Materiały do badań nie są wymagane.", "نیازی به مواد تحقیق نیست.", "لا توجد مواد بحث مطلوبة.", "ไม่จำเป็นต้องใช้วัสดุวิจัย", "Không yêu cầu nguyên liệu nghiên cứu."], "blueprints_unavailable": ["Blueprint data is unavailable in this cached or historical repository snapshot. Refresh after loading a commit that contains items.decrypted.csv.", "在此快取或歷史快照中藍圖數據不可用。請在載入包含 items.decrypted.csv 的提交後重新整理。", "在此缓存或历史快照中蓝图数据不可用。请在加载包含 items.decrypted.csv 的提交后刷新。", "このキャッシュまたは過去のスナップショットでは設計図データを利用できません。items.decrypted.csvを含むコミットを読み込んでから更新してください。", "캐시되거나 과거 스냅샷에서는 설계도 데이터를 사용할 수 없습니다. items.decrypted.csv가 포함된 커밋을 로드한 후 새로고침하세요.", "Los datos de planos no están disponibles en esta instantánea en caché o histórica. Actualiza después de cargar un commit que contenga items.decrypted.csv.", "Bauplandaten sind in diesem zwischengespeicherten oder historischen Snapshot nicht verfügbar. Aktualisieren Sie nach dem Laden eines Commits mit items.decrypted.csv.", "Os dados do projeto não estão disponíveis neste snapshot em cache ou histórico. Atualize após carregar um commit que contenha items.decrypted.csv.", "Les données de plans ne sont pas disponibles dans cette capture mise en cache ou historique. Actualisez après avoir chargé un commit contenant items.decrypted.csv.", "Данные чертежей недоступны в этом снимке. Обновите после загрузки коммита с items.decrypted.csv.", "Dane projektów są niedostępne w tej migawce. Odśwież po załadowaniu commita zawierającego items.decrypted.csv.", "داده‌های طرح در این اسنپ‌شات ذخیره‌شده در دسترس نیست. پس از بارگذاری کامیت حاوی items.decrypted.csv تازه‌سازی کنید.", "بيانات المخططات غير متوفرة في هذه اللقطة المؤقتة. يرجى التحديث بعد تحميل التزام يحتوي على items.decrypted.csv.", "ข้อมูลพิมพ์เขียวไม่พร้อมใช้งานในสแนปช็อตนี้ โปรดรีเฟรชหลังจากโหลดคอมมิตที่มี items.decrypted.csv", "Dữ liệu bản thiết kế không có sẵn trong bản chụp này. Hãy làm mới sau khi tải một commit chứa items.decrypted.csv."], "enemy_name": ["Enemy name", "敵人名稱", "敌人名称", "敵の名前", "적 이름", "Nombre del enemigo", "Feindname", "Nome do inimigo", "Nom de l'ennemi", "Имя врага", "Nazwa wroga", "نام دشمن", "اسم العدو", "ชื่อศัตรู", "Tên kẻ thù"], "enemy_id": ["Enemy ID", "敵人 ID", "敌人 ID", "敵ID", "적 ID", "ID del enemigo", "Feind-ID", "ID do inimigo", "ID de l'ennemi", "ID врага", "ID wroga", "شناسه دشمن", "معرف العدو", "รหัสศัตรู", "ID kẻ thù"], "localization_id": ["Localization ID", "本地化 ID", "本地化 ID", "ローカライゼーションID", "번역 ID", "ID de localización", "Lokalisierungs-ID", "ID de localização", "ID de localisation", "ID локализации", "ID lokalizacji", "شناسه بومی‌سازی", "معرف الترجمة", "รหัสการแปลภาษา", "ID bản địa hóa"], "enemy_type": ["Enemy type", "敵人類型", "敌人类型", "敵タイプ", "적 유형", "Tipo de enemigo", "Feindtyp", "Tipo de inimigo", "Type d'ennemi", "Тип врага", "Typ wroga", "نوع دشمن", "نوع العدو", "ประเภทศัตรู", "Loại kẻ thù"], "boss_weapon": ["Boss weapon", "首領武器", "Boss武器", "ボス武器", "보스 무기", "Arma de jefe", "Boss-Waffe", "Arma de chefe", "Arme de boss", "Оружие босса", "Broń bossa", "سلاح رئیس", "سلاح الزعيم", "อาวุธบอส", "Vũ khí boss"], "subspecies_boss": ["Subspecies boss", "亞種首領", "亚种Boss", "亜種ボス", "아종 보스", "Jefe de subespecie", "Unterarten-Boss", "Chefe de subespécie", "Boss de sous-espèce", "Босс подвида", "Boss podgatunku", "رئیس زیرگونه", "زعيم النوع الفرعي", "บอสสายพันธุ์ย่อย", "Boss phân loài"], "drops_count": ["Drops ({0})", "掉落物 ({0})", "掉落物 ({0})", "ドロップ ({0})", "드롭 ({0})", "Botines ({0})", "Drops ({0})", "Drops ({0})", "Butins ({0})", "Дропы ({0})", "Łupy ({0})", "غنیمت‌ها ({0})", "الجوائز ({0})", "ไอเทมดรอป ({0})", "Rơi đồ ({0})"], "no_drops": ["No drops.", "無掉落物。", "无掉落物。", "ドロップはありません。", "드롭이 없습니다.", "Sin botines.", "Keine Drops.", "Nenhum drop.", "Aucun butin.", "Нет дропов.", "Brak łupów.", "هیچ غنیمتی وجود ندارد.", "لا توجد جوائز.", "ไม่มีไอเทมดรอป", "Không có đồ rơi."], "drop_groups_count": ["Drop groups ({0})", "掉落組 ({0})", "掉落组 ({0})", "ドロップグループ ({0})", "드롭 그룹 ({0})", "Grupos de botín ({0})", "Drop-Gruppen ({0})", "Grupos de drop ({0})", "Groupes de butin ({0})", "Группы дропа ({0})", "Grupy łupów ({0})", "گروه‌های غنیمت ({0})", "مجموعات الجوائز ({0})", "กลุ่มไอเทมดรอป ({0})", "Nhóm rơi đồ ({0})"], "no_drop_groups": ["No drop groups.", "無掉落組。", "无掉落组。", "ドロップグループはありません。", "드롭 그룹이 없습니다.", "Sin grupos de botín.", "Keine Drop-Gruppen.", "Nenhum grupo de drop.", "Aucun groupe de butin.", "Нет групп дропа.", "Brak grup łupów.", "هیچ گروه غنیمتی وجود ندارد.", "لا توجد مجموعات جوائز.", "ไม่มีกลุ่มไอเทมดรอป", "Không có nhóm rơi đồ."], "group_n": ["Group {0}", "第 {0} 組", "第 {0} 组", "グループ {0}", "그룹 {0}", "Grupo {0}", "Gruppe {0}", "Grupo {0}", "Groupe {0}", "Группа {0}", "Grupa {0}", "گروه {0}", "المجموعة {0}", "กลุ่ม {0}", "Nhóm {0}"], "probability": ["Probability", "機率", "概率", "確率", "확률", "Probabilidad", "Wahrscheinlichkeit", "Probabilidade", "Probabilité", "Вероятность", "Prawdopodobieństwo", "احتمال", "الاحتمالية", "ความน่าจะเป็น", "Tỷ lệ"], "guaranteed_drop": ["Guaranteed drop", "保底掉落", "保底掉落", "確定ドロップ", "확정 드롭", "Botín garantizado", "Garantierter Drop", "Drop garantido", "Butin garanti", "Гарантированный дроп", "Gwarantowany łup", "غنیمت تضمینی", "سقوط مضمون", "ดรอปแน่นอน", "Rơi chắc chắn"], "guaranteed_count": ["Guaranteed count", "保底數量", "保底数量", "確定数", "확정 수량", "Cantidad garantizada", "Garantierte Anzahl", "Quantidade garantida", "Quantité garantie", "Гарантированное количество", "Gwarantowana ilość", "تعداد تضمینی", "العدد المضمون", "จำนวนที่แน่นอน", "Số lượng chắc chắn"], "conditions": ["Conditions", "條件", "条件", "条件", "조건", "Condiciones", "Bedingungen", "Condições", "Conditions", "Условия", "Warunki", "شرایط", "الشروط", "เงื่อนไข", "Điều kiện"], "yes": ["Yes", "是", "是", "はい", "예", "Sí", "Ja", "Sim", "Oui", "Да", "Tak", "بله", "نعم", "ใช่", "Có"], "no": ["No", "否", "否", "いいえ", "아니요", "No", "Nein", "Não", "Non", "Нет", "Nie", "خیر", "لا", "ไม่", "Không"], "none": ["None", "無", "无", "なし", "없음", "Ninguno", "Keine", "Nenhum", "Aucun", "Нет", "Brak", "هیچ", "لا يوجد", "ไม่มี", "Không"], "not_available": ["Not available", "不可用", "不可用", "利用不可", "사용할 수 없음", "No disponible", "Nicht verfügbar", "Indisponível", "Indisponible", "Недоступно", "Niedostępne", "در دسترس نیست", "غير متوفر", "ไม่พร้อมใช้งาน", "Không có sẵn"], "enemies_unavailable": ["Enemy data is unavailable in this cached or historical repository snapshot. Refresh after loading a commit that contains enemies.decrypted.csv.", "在此快取或歷史快照中敵人數據不可用。請在載入包含 enemies.decrypted.csv 的提交後重新整理。", "在此缓存或历史快照中敌人数据不可用。请在加载包含 enemies.decrypted.csv 的提交后刷新。", "このキャッシュまたは過去のスナップショットでは敵データを利用できません。enemies.decrypted.csvを含むコミットを読み込んでから更新してください。", "캐시되거나 과거 스냅샷에서는 적 데이터를 사용할 수 없습니다. enemies.decrypted.csv가 포함된 커밋을 로드한 후 새로고침하세요.", "Los datos de enemigos no están disponibles en esta instantánea en caché o histórica. Actualiza después de cargar un commit que contenga enemies.decrypted.csv.", "Feinddaten sind in diesem zwischengespeicherten oder historischen Snapshot nicht verfügbar. Aktualisieren Sie nach dem Laden eines Commits mit enemies.decrypted.csv.", "Os dados do inimigo não estão disponíveis neste snapshot em cache ou histórico. Atualize após carregar um commit que contenha enemies.decrypted.csv.", "Les données d'ennemis ne sont pas disponibles dans cette capture mise en cache ou historique. Actualisez après avoir chargé un commit contenant enemies.decrypted.csv.", "Данные врагов недоступны в этом снимке. Обновите после загрузки коммита с enemies.decrypted.csv.", "Dane wrogów są niedostępne w tej migawce. Odśwież po załadowaniu commita zawierającego enemies.decrypted.csv.", "داده‌های دشمن در این اسنپ‌شات ذخیره‌شده در دسترس نیست. پس از بارگذاری کامیت حاوی enemies.decrypted.csv تازه‌سازی کنید.", "بيانات الأعداء غير متوفرة في هذه اللقطة المؤقتة. يرجى التحديث بعد تحميل التزام يحتوي على enemies.decrypted.csv.", "ข้อมูลศัตรูไม่พร้อมใช้งานในสแนปช็อตนี้ โปรดรีเฟรชหลังจากโหลดคอมมิตที่มี enemies.decrypted.csv", "Dữ liệu kẻ thù không có sẵn trong bản chụp này. Hãy làm mới sau khi tải một commit chứa enemies.decrypted.csv."], "badge_inferred": ["inferred", "推導", "推导", "推定", "유추됨", "inferido", "abgeleitet", "inferido", "déduit", "получено", "wywnioskowano", "مشتق‌شده", "مشتق", "อนุมาน", "suy ra"], "badge_missing": ["missing", "缺失", "缺失", "欠落", "누락됨", "falta", "fehlt", "ausente", "manquant", "отсутствует", "brak", "گم‌شده", "مفقود", "ขาดหาย", "thiếu"], "badge_unresolved": ["unresolved", "未解析", "未解析", "未解決", "해결되지 않음", "no resuelto", "ungelöst", "não resolvido", "non résolu", "не разрешено", "nierozpoznane", "حل‌نشده", "غير محلول", "ยังไม่ได้รับการแก้ไข", "chưa giải quyết"], "badge_english_fallback": ["English fallback", "英文後備", "英文后备", "英語フォールバック", "영어 대체", "Respaldo en inglés", "Englischer Fallback", "Fallback em inglês", "Repli anglais", "Английский фолбэк", "Zastępczy angielski", "جایگزین انگلیسی", "بديل إنجليزي", "สำรองภาษาอังกฤษ", "Dự phòng tiếng Anh"], "badge_json_fallback": ["JSON fallback", "JSON 後備", "JSON 后备", "JSONフォールバック", "JSON 대체", "Respaldo JSON", "JSON-Fallback", "Fallback JSON", "Repli JSON", "JSON фолбэк", "Zastępczy JSON", "جایگزین JSON", "بديل JSON", "สำรอง JSON", "Dự phòng JSON"], "main_weapon": ["Main weapon", "主武器", "主武器", "メイン武器", "주 무기", "Arma principal", "Hauptwaffe", "Arma principal", "Arme principale", "Основное оружие", "Broń główna", "سلاح اصلی", "السلاح الرئيسي", "อาวุธหลัก", "Vũ khí chính"], "sub_weapons_count": ["Sub weapons ({0})", "子武器 ({0})", "子武器 ({0})", "サブ武器 ({0})", "보조 무기 ({0})", "Subarmas ({0})", "Unterwaffen ({0})", "Subarmas ({0})", "Armes secondaires ({0})", "Подоружие ({0})", "Broń poboczna ({0})", "سلاح‌های فرعی ({0})", "الأسلحة الفرعية ({0})", "อาวุธรอง ({0})", "Vũ khí phụ ({0})"], "crafting_materials_count": ["Crafting materials ({0})", "鍛造材料 ({0})", "锻造材料 ({0})", "作成材料 ({0})", "제작 재료 ({0})", "Materiales de fabricación ({0})", "Herstellungsmaterialien ({0})", "Materiais de fabricação ({0})", "Matériaux de fabrication ({0})", "Материалы для создания ({0})", "Materiały do wytwarzania ({0})", "مواد ساخت ({0})", "مواد الصنع ({0})", "วัสดุสร้าง ({0})", "Nguyên liệu chế tạo ({0})"], "fusion_recipes_target": ["Created by fusion ({0})", "武器合成配方 ({0})", "武器合成配方 ({0})", "合成による作成 ({0})", "합성 제작법 ({0})", "Creado por fusión ({0})", "Durch Fusion erstellt ({0})", "Criado por fusão ({0})", "Créé par fusion ({0})", "Создается слиянием ({0})", "Utworzono przez fuzję ({0})", "ساخته‌شده از ادغام ({0})", "تم إنشاؤه بالدمج ({0})", "สร้างโดยการหลอมรวม ({0})", "Tạo bằng hợp nhất ({0})"], "fusion_recipes_source": ["Weapon fusion ({0})", "可合成武器 ({0})", "可合成武器 ({0})", "武器の合成 ({0})", "무기 합성 ({0})", "Fusión de armas ({0})", "Waffenfusion ({0})", "Fusão de armas ({0})", "Fusion d'armes ({0})", "Слияние оружия ({0})", "Fuzja broni ({0})", "ادغام سلاح ({0})", "دمج الأسلحة ({0})", "การหลอมรวมอาวุธ ({0})", "Hợp nhất vũ khí ({0})"], "any_n_of": ["any {0} of", "任選 {0} 個", "任选 {0} 个", "いずれか {0} 個", "다음 중 {0}개", "cualquiera {0} de", "beliebige {0} von", "qualquer {0} de", "n'importe quel {0} parmi", "любые {0} из", "dowolne {0} z", "هر {0} مورد از", "أي {0} من", "ใดๆ {0} ชิ้นจาก", "bất kỳ {0} trong"]};
+const I18N_STATIC = {"home": ["Home", "首頁", "首页", "ホーム", "홈", "Inicio", "Startseite", "Início", "Accueil", "Главная", "Główna", "صفحه اصلی", "الرئيسية", "หน้าแรก", "Trang chủ"], "characters": ["Characters", "角色", "角色", "キャラクター", "캐릭터", "Personajes", "Charaktere", "Personagens", "Personnages", "Персонажи", "Postacie", "شخصیت‌ها", "الشخصيات", "ตัวละคร", "Nhân vật"], "pets": ["Pets", "寵物", "宠物", "ペット", "애완동물", "Mascotas", "Haustiere", "Mascotes", "Animaux", "Питомцы", "Zwierzaki", "حیوانات خانگی", "الحيوانات الأليفة", "สัตว์เลี้ยง", "Thú cưng"], "weapons": ["Weapons", "武器", "武器", "武器", "무기", "Armas", "Waffen", "Armas", "Armes", "Оружие", "Broń", "سلاح‌ها", "الأسلحة", "อาวุธ", "Vũ khí"], "materials": ["Materials", "材料", "材料", "材料", "재료", "Materiales", "Materialien", "Materiais", "Matériaux", "Материалы", "Materiały", "مواد", "المواد", "วัสดุ", "Nguyên liệu"], "blueprints": ["Blueprints", "藍圖", "蓝图", "設計図", "설계도", "Planos", "Baupläne", "Projetos", "Plans", "Чертежи", "Projekty", "طرح‌ها", "المخططات", "พิมพ์เขียว", "Bản thiết kế"], "enemies": ["Enemies", "敵人", "敌人", "敵", "적", "Enemigos", "Feinde", "Inimigos", "Ennemis", "Враги", "Wrogowie", "دشمنان", "الأعداء", "ศัตรู", "Kẻ thù"], "search": ["Search wiki", "搜尋百科", "搜索百科", "Wikiを検索", "위키 검색", "Buscar en wiki", "Wiki durchsuchen", "Pesquisar na wiki", "Rechercher sur le wiki", "Поиск по вики", "Szukaj w wiki", "جستجو در ویکی", "بحث في الويكي", "ค้นหาวิกิ", "Tìm kiếm wiki"], "refresh": ["Refresh", "重新整理", "刷新", "更新", "새로고침", "Actualizar", "Aktualisieren", "Atualizar", "Actualiser", "Обновить", "Odśwież", "تازه‌سازی", "تحديث", "รีเฟรช", "Làm mới"], "loading": ["Loading wiki…", "正在載入百科…", "正在加载百科…", "Wikiを読み込み中…", "위키 로딩 중…", "Cargando wiki…", "Wiki wird geladen…", "Carregando wiki…", "Chargement du wiki…", "Загрузка вики…", "Ładowanie wiki…", "در حال بارگذاری ویکی…", "جارٍ تحميل الويكي…", "กำลังโหลดวิกิ…", "Đang tải wiki…"], "not_found": ["Not found", "找不到頁面", "未找到", "見つかりません", "찾을 수 없음", "No encontrado", "Nicht gefunden", "Não encontrado", "Non trouvé", "Не найдено", "Nie znaleziono", "یافت نشد", "غير موجود", "ไม่พบ", "Không tìm thấy"], "not_found_desc": ["The requested wiki entry does not exist.", "請求的百科條目不存在。", "请求的百科条目不存在。", "要求されたWikiエントリは存在しません。", "요청한 위키 항목이 존재하지 않습니다.", "La entrada solicitada no existe.", "Der angeforderte Wiki-Eintrag existiert nicht.", "A entrada solicitada não existe.", "L'entrée demandée n'existe pas.", "Запрошенная запись не существует.", "Żądany wpis nie istnieje.", "مورد درخواستی در ویکی وجود ندارد.", "إدخال الويكي المطلوب غير موجود.", "ไม่มีรายการวิกินี้", "Mục wiki yêu cầu không tồn tại."], "return_home": ["Return home", "返回首頁", "返回首页", "ホームに戻る", "홈으로 돌아가기", "Volver al inicio", "Zurück zur Startseite", "Voltar ao início", "Retour à l'accueil", "На главную", "Wróć do strony głównej", "بازگشت به خانه", "العودة للرئيسية", "กลับหน้าแรก", "Về trang chủ"], "wiki_title": ["Soul Knight data wiki", "元氣騎士資料百科", "元气骑士数据百科", "ソウルナイト データWiki", "소울 나이트 데이터 위키", "Wiki de datos de Soul Knight", "Soul Knight Daten-Wiki", "Wiki de dados do Soul Knight", "Wiki de données Soul Knight", "Вики данных Soul Knight", "Wiki danych Soul Knight", "ویکی داده‌های شوالیه روح", "ويكي بيانات سول نايت", "วิกิข้อมูล Soul Knight", "Wiki dữ liệu Soul Knight"], "wiki_subtitle": ["Characters, pets, weapons, materials, blueprints, enemies.", "角色、寵物、武器、材料、藍圖、敵人。", "角色、宠物、武器、材料、蓝图、敌人。", "キャラクター、ペット、武器、材料、設計図、敵。", "캐릭터, 애완동물, 무기, 재료, 설계도, 적.", "Personajes, mascotas, armas, materiales, planos, enemigos.", "Charaktere, Haustiere, Waffen, Materialien, Baupläne, Feinde.", "Personagens, mascotes, armas, materiais, projetos, inimigos.", "Personnages, animaux, armes, matériaux, plans, ennemis.", "Персонажи, питомцы, оружие, материалы, чертежи, враги.", "Postacie, zwierzaki, broń, materiały, projekty, wrogowie.", "شخصیت‌ها، حیوانات، سلاح‌ها، مواد، طرح‌ها، دشمنان.", "الشخصيات، الحيوانات، الأسلحة، المواد، المخططات، الأعداء.", "ตัวละคร สัตว์เลี้ยง อาวุธ วัสดุ พิมพ์เขียว ศัตรู", "Nhân vật, thú cưng, vũ khí, nguyên liệu, bản thiết kế, kẻ thù."], "poc_title": ["Proof of concept", "概念驗證", "概念验证", "概念実証", "개념 증명", "Prueba de concepto", "Machbarkeitsnachweis", "Prova de conceito", "Preuve de concept", "Концепт", "Weryfikacja koncepcji", "اثبات مفهوم", "إثبات المفهوم", "การพิสูจน์แนวคิด", "Bản thử nghiệm khái niệm"], "poc_desc": ["This page is an AI-generated proof of concept. Data is taken from game assets, localization, and configuration, and might not reflect the real game.", "此頁面為 AI 生成的概念驗證。數據取自遊戲資源、本地化及設定檔，可能與實際遊戲有所出入。", "此页面为 AI 生成的概念验证。数据取自游戏资源、本地化及配置文件，可能与实际游戏有所出入。", "このページはAIによって生成された概念実証です。データはゲームアセット、ローカライゼーション、設定から取得されており、実際のゲームと異なる場合があります。", "이 페이지는 AI가 생성한 개념 증명입니다. 데이터는 게임 에셋, 번역 및 설정에서 가져왔으며 실제 게임과 다를 수 있습니다.", "Esta página es una prueba de concepto generada por IA. Los datos se obtienen de los recursos, la localización y la configuración del juego, y pueden no reflejar el juego real.", "Diese Seite ist ein KI-generierter Machbarkeitsnachweis. Die Daten stammen aus Spiel-Assets, Lokalisierung und Konfiguration und spiegeln möglicherweise nicht das tatsächliche Spiel wider.", "Esta página é uma prova de conceito gerada por IA. Os dados são extraídos dos recursos, localização e configuração do jogo, podendo não refletir o jogo real.", "Cette page est une preuve de concept générée par IA. Les données proviennent des ressources du jeu, de la localisation et de la configuration, et peuvent différer du jeu réel.", "Эта страница — концепт, созданный ИИ. Данные взяты из ресурсов игры, локализации и конфигурации и могут отличаться от игры.", "Ta strona to wygenerowana przez AI weryfikacja koncepcji. Dane pochodzą z zasobów gry, lokalizacji i konfiguracji i mogą różnić się od rzeczywistej gry.", "این صفحه اثبات مفهومی ایجاد شده توسط هوش مصنوعی است. داده‌ها از دارایی‌ها، بومی‌سازی و پیکربندی بازی گرفته شده‌اند و ممکن است بازتاب‌دهنده بازی واقعی نباشند.", "هذه الصفحة هي إثبات مفهوم تم إنشاؤه بواسطة الذكاء الاصطناعي. البيانات مأخوذة من ملفات اللعبة والترجمة والتكوين، وقد لا تعكس اللعبة الفعلية بدقة.", "หน้านี้เป็นการพิสูจน์แนวคิดที่สร้างโดย AI ข้อมูลนำมาจากทรัพยากรเกม การแปลภาษา และการกำหนดค่า และอาจไม่ตรงกับเกมจริง", "Trang này là bản thử nghiệm do AI tạo. Dữ liệu được lấy từ tài nguyên, bản địa hóa và cấu hình trò chơi, có thể không phản ánh đúng trò chơi thực tế."], "badge_inferred_desc": ["Derived from related source data.", "由相關源數據推導。", "由相关源数据推导。", "関連ソースデータから推測。", "관련 소스 데이터에서 유추됨.", "Derivado de datos fuente relacionados.", "Aus verwandten Quelldaten abgeleitet.", "Derivado de dados fonte relacionados.", "Dérivé des données sources associées.", "Получено из связанных данных.", "Pochodzi z powiązanych danych źródłowych.", "مشتق‌شده از داده‌های منبع مرتبط.", "مشتق من بيانات المصدر ذات الصلة.", "ได้มาจากข้อมูลต้นฉบับที่เกี่ยวข้อง", "Suy ra từ dữ liệu nguồn liên quan."], "badge_missing_desc": ["Required localization or related data could not be resolved.", "無法解析所需的本地化或相關數據。", "无法解析所需的本地化或相关数据。", "必要なローカライゼーションまたは関連データを解決できませんでした。", "필요한 번역 또는 관련 데이터를 확인할 수 없습니다.", "No se pudo resolver la localización requerida o los datos relacionados.", "Erforderliche Lokalisierung oder verwandte Daten konnten nicht aufgelöst werden.", "Não foi possível resolver a localização necessária ou dados relacionados.", "La localisation requise ou les données associées n'ont pas pu être résolues.", "Не удалось разрешить локализацию или связанные данные.", "Nie można rozpoznać wymaganej lokalizacji lub powiązanych danych.", "بومی‌سازی یا داده‌های مرتبط مورد نیاز حل نشد.", "تعذر حل الترجمة المطلوبة أو البيانات ذات الصلة.", "ไม่สามารถแปลภาษาหรือค้นหาข้อมูลที่เกี่ยวข้องได้", "Không thể giải quyết bản địa hóa hoặc dữ liệu liên quan."], "badge_english_desc": ["Selected-language text is unavailable; English is shown.", "所選語言文字不可用；顯示英文。", "所选语言文本不可用；显示英文。", "選択した言語のテキストは利用できません。英語が表示されます。", "선택한 언어의 텍스트를 사용할 수 없습니다. 영어가 표시됩니다.", "El texto en el idioma seleccionado no está disponible; se muestra en inglés.", "Text in der ausgewählten Sprache nicht verfügbar; Englisch wird angezeigt.", "Texto no idioma selecionado indisponível; exibido em inglês.", "Texte non disponible dans la langue sélectionnée; affiché en anglais.", "Текст на выбранном языке недоступен; показан английский.", "Tekst w wybranym języku jest niedostępny; wyświetlono język angielski.", "متن به زبان انتخابی در دسترس نیست؛ انگلیسی نمایش داده می‌شود.", "النص باللغة المحددة غير متوفر؛ تظهر الإنجليزية.", "ไม่มีข้อความในภาษาที่เลือก แสดงเป็นภาษาอังกฤษ", "Văn bản ngôn ngữ đã chọn không có sẵn; hiển thị tiếng Anh."], "badge_json_desc": ["Localization is unavailable; an English JSON name is shown where supported.", "本地化不可用；在受支援的情況下顯示英文 JSON 名稱。", "本地化不可用；在受支持的情况下显示英文 JSON 名称。", "ローカライゼーションが利用できません。サポートされている場合は英語のJSON名が表示されます。", "번역을 사용할 수 없습니다. 지원되는 경우 영어 JSON 이름이 표시됩니다.", "Localización no disponible; se muestra un nombre JSON en inglés donde se admite.", "Lokalisierung nicht verfügbar; ein englischer JSON-Name wird angezeigt, wo unterstützt.", "Localização indisponível; um nome JSON em inglês é exibido onde suportado.", "Localisation non disponible; un nom JSON en anglais est affiché si pris en charge.", "Локализация недоступна; где поддерживается, показано английское имя из JSON.", "Lokalizacja jest niedostępna; gdzie to możliwe, wyświetlana jest angielska nazwa JSON.", "بومی‌سازی در دسترس نیست؛ در صورت پشتیبانی، نام انگلیسی JSON نمایش داده می‌شود.", "الترجمة غير متوفرة؛ يظهر اسم JSON بالإنجليزية حيثما كان مدعوماً.", "ไม่มีการแปลภาษา แสดงชื่อ JSON ภาษาอังกฤษในส่วนที่รองรับ", "Bản địa hóa không có sẵn; tên JSON tiếng Anh được hiển thị nếu được hỗ trợ."], "data_source": ["Data source", "數據來源", "数据来源", "データソース", "데이터 소스", "Fuente de datos", "Datenquelle", "Fonte de dados", "Source de données", "Источник данных", "Źródło danych", "منبع داده", "مصدر البيانات", "แหล่งข้อมูล", "Nguồn dữ liệu"], "repository": ["Repository", "代碼庫", "代码库", "リポジトリ", "저장소", "Repositorio", "Repository", "Repositório", "Dépôt", "Репозиторий", "Repozytorium", "مخزن", "المستودع", "ที่เก็บโค้ด", "Kho lưu trữ"], "game_version": ["Game version", "遊戲版本", "游戏版本", "ゲームバージョン", "게임 버전", "Versión del juego", "Spielversion", "Versão do jogo", "Version du jeu", "Версия игры", "Wersja gry", "نسخه بازی", "إصدار اللعبة", "เวอร์ชันเกม", "Phiên bản game"], "commit": ["Commit", "提交", "提交", "コミット", "커밋", "Commit", "Commit", "Commit", "Commit", "Коммит", "Commit", "کامیت", "الالتزام", "คอมมิต", "Commit"], "snapshot_time": ["Snapshot time", "快照時間", "快照时间", "スナップショット日時", "스냅샷 시간", "Hora de instantánea", "Snapshot-Zeit", "Hora do snapshot", "Heure de capture", "Время снимка", "Czas migawki", "زمان اسنپ‌شات", "وقت اللقطة", "เวลาสแนปช็อต", "Thời gian chụp"], "matches_across_all": ["{0} matches across all pages", "所有頁面共找到 {0} 條符合項", "所有页面共找到 {0} 条匹配项", "全ページで {0} 件の一致", "모든 페이지에서 {0}개 일치", "{0} coincidencias en todas las páginas", "{0} Treffer über alle Seiten", "{0} correspondências em todas as páginas", "{0} correspondances sur toutes les pages", "{0} совпадений по всем страницам", "{0} wyników na wszystkich stronach", "{0} مورد منطبق در تمام صفحات", "{0} نتيجة مطابقة عبر جميع الصفحات", "พบ {0} รายการตรงกันในทุกหน้า", "{0} kết quả phù hợp trên tất cả các trang"], "showing_matches": ["Showing {0} of {1} matches. Refine search.", "顯示 {0} / {1} 條符合項。請縮小搜尋範圍。", "显示 {0} / {1} 条匹配项。请缩小搜索范围。", "{1} 件中 {0} 件を表示中。検索条件を絞り込んでください。", "{1}개 중 {0}개 표시 중. 검색어를 좁혀보세요.", "Mostrando {0} de {1} coincidencias. Refina la búsqueda.", "Zeige {0} von {1} Treffern. Suche verfeinern.", "Mostrando {0} de {1} correspondências. Refine a pesquisa.", "Affichage de {0} sur {1} correspondances. Affinez la recherche.", "Показано {0} из {1} совпадений. Уточните поиск.", "Wyświetlanie {0} z {1} wyników. Zawęź wyszukiwanie.", "نمایش {0} از {1} مورد. جستجو را محدودتر کنید.", "عرض {0} من أصل {1} نتيجة. يرجى تخصيص البحث.", "กำลังแสดง {0} จาก {1} รายการ โปรดระบุคำค้นหาเพิ่ม", "Đang hiển thị {0} trên {1} kết quả. Thu hẹp tìm kiếm."], "of_count": ["{0} of {1}", "{0} / {1}", "{0} / {1}", "{0} / {1}", "{0} / {1}", "{0} de {1}", "{0} von {1}", "{0} de {1}", "{0} sur {1}", "{0} из {1}", "{0} z {1}", "{0} از {1}", "{0} من {1}", "{0} จาก {1}", "{0} trên {1}"], "no_matches": ["No matches.", "沒有符合的項目。", "没有匹配的项。", "一致する項目がありません。", "일치하는 항목이 없습니다.", "Sin coincidencias.", "Keine Treffer.", "Nenhuma correspondência.", "Aucune correspondance.", "Нет совпадений.", "Brak wyników.", "هیچ موردی یافت نشد.", "لا توجد نتائج مطابقة.", "ไม่พบรายการที่ตรงกัน", "Không có kết quả phù hợp."], "char_name": ["Character name", "角色名稱", "角色名称", "キャラクター名", "캐릭터 이름", "Nombre del personaje", "Charaktername", "Nome do personagem", "Nom du personnage", "Имя персонажа", "Nazwa postaci", "نام شخصیت", "اسم الشخصية", "ชื่อตัวละคร", "Tên nhân vật"], "code_name": ["Code name", "代號", "代号", "コードネーム", "코드명", "Nombre clave", "Codename", "Codinome", "Nom de code", "Кодовое имя", "Nazwa kodowa", "نام کد", "الاسم الرمزي", "ชื่อโค้ด", "Tên mã"], "numeric_id": ["Numeric ID", "數值 ID", "数值 ID", "数値ID", "숫자 ID", "ID numérico", "Numerische ID", "ID numérico", "ID numérique", "Числовой ID", "ID numeryczne", "شناسه عددی", "المعرف الرقمي", "รหัสตัวเลข", "ID số"], "starting_weapons": ["Starting weapons", "初始武器", "初始武器", "初期武器", "시작 무기", "Armas iniciales", "Startwaffen", "Armas iniciais", "Armes de départ", "Начальное оружие", "Broń początkowa", "سلاح‌های اولیه", "الأسلحة الأولية", "อาวุธเริ่มต้น", "Vũ khí khởi đầu"], "starting_weapon": ["Starting weapon", "初始武器", "初始武器", "初期武器", "시작 무기", "Arma inicial", "Startwaffe", "Arma inicial", "Arme de départ", "Начальное оружие", "Broń początkowa", "سلاح اولیه", "السلاح الأولي", "อาวุธเริ่มต้น", "Vũ khí khởi đầu"], "upgraded_starting_weapon": ["Upgraded starting weapon", "升級初始武器", "升级初始武器", "アップグレード初期武器", "업그레이드된 시작 무기", "Arma inicial mejorada", "Aufgerüstete Startwaffe", "Arma inicial aprimorada", "Arme de départ améliorée", "Улучшенное начальное оружие", "Ulepszona broń początkowa", "سلاح اولیه ارتقایافته", "السلاح الأولي المطور", "อาวุธเริ่มต้นอัปเกรด", "Vũ khí khởi đầu nâng cấp"], "skins_count": ["Skins ({0})", "皮膚 ({0})", "皮肤 ({0})", "スキン ({0})", "스킨 ({0})", "Aspectos ({0})", "Skins ({0})", "Visuais ({0})", "Skins ({0})", "Облики ({0})", "Skórki ({0})", "پوسته‌ها ({0})", "المظاهر ({0})", "สกิน ({0})", "Trang phục ({0})"], "skin_id": ["Skin ID {0}", "皮膚 ID {0}", "皮肤 ID {0}", "スキンID {0}", "스킨 ID {0}", "ID de aspecto {0}", "Skin-ID {0}", "ID do visual {0}", "ID de skin {0}", "ID облика {0}", "ID skórki {0}", "شناسه پوسته {0}", "معرف المظهر {0}", "รหัสสกิน {0}", "ID trang phục {0}"], "skills_count": ["Skills ({0})", "技能 ({0})", "技能 ({0})", "スキル ({0})", "스킬 ({0})", "Habilidades ({0})", "Fähigkeiten ({0})", "Habilidades ({0})", "Compétences ({0})", "Навыки ({0})", "Umiejętności ({0})", "مهارت‌ها ({0})", "المهارات ({0})", "สกิล ({0})", "Kỹ năng ({0})"], "description": ["Description", "描述", "描述", "説明", "설명", "Descripción", "Beschreibung", "Descrição", "Description", "Описание", "Opis", "توضیحات", "الوصف", "คำอธิบาย", "Mô tả"], "mentor_upgrade": ["Mentor upgrade", "導師升級", "导师升级", "メンターアップグレード", "멘토 업그레이드", "Mejora del mentor", "Mentor-Upgrade", "Aprimoramento do mentor", "Amélioration du mentor", "Улучшение наставника", "Ulepszenie mentora", "ارتقای استاد", "ترقية المعلم", "การอัปเกรดของอาจารย์", "Nâng cấp từ sư phụ"], "pet_name": ["Pet name", "寵物名稱", "宠物名称", "ペット名", "애완동물 이름", "Nombre de la mascota", "Haustiername", "Nome do mascote", "Nom de l'animal", "Имя питомца", "Nazwa zwierzaka", "نام حیوان خانگی", "اسم الحيوان الأليف", "ชื่อสัตว์เลี้ยง", "Tên thú cưng"], "no_pet_skills": ["No pet skill localization found.", "未找到寵物技能本地化。", "未找到宠物技能本地化。", "ペットスキルのローカライゼーションが見つかりません。", "애완동물 스킬 번역을 찾을 수 없습니다.", "No se encontró la localización de habilidades de la mascota.", "Keine Haustier-Fähigkeiten-Lokalisierung gefunden.", "Nenhuma localização de habilidade de mascote encontrada.", "Aucune localisation de compétence d'animal trouvée.", "Локализация навыков питомца не найдена.", "Nie znaleziono lokalizacji umiejętności zwierzaka.", "بومی‌سازی مهارت حیوان خانگی یافت نشد.", "لم يتم العثور على ترجمة لمهارات الحيوان الأليف.", "ไม่พบการแปลภาษาสกิลสัตว์เลี้ยง", "Không tìm thấy bản địa hóa kỹ năng thú cưng."], "weapon_name": ["Weapon name", "武器名稱", "武器名称", "武器名", "무기 이름", "Nombre del arma", "Waffenname", "Nome da arma", "Nom de l'arme", "Название оружия", "Nazwa broni", "نام سلاح", "اسم السلاح", "ชื่ออาวุธ", "Tên vũ khí"], "weapon_id": ["Weapon ID", "武器 ID", "武器 ID", "武器ID", "무기 ID", "ID del arma", "Waffen-ID", "ID da arma", "ID de l'arme", "ID оружия", "ID broni", "شناسه سلاح", "معرف السلاح", "รหัสอาวุธ", "ID vũ khí"], "rarity": ["Rarity", "稀有度", "稀有度", "レア度", "희귀도", "Rareza", "Seltenheit", "Raridade", "Rareté", "Редкость", "Rzadkość", "کمیابی", "الندرة", "ระดับความหายาก", "Độ hiếm"], "rarity_n": ["Rarity {0}", "稀有度 {0}", "稀有度 {0}", "レア度 {0}", "희귀도 {0}", "Rareza {0}", "Seltenheit {0}", "Raridade {0}", "Rareté {0}", "Редкость {0}", "Rzadkość {0}", "کمیابی {0}", "الندرة {0}", "ความหายาก {0}", "Độ hiếm {0}"], "weapon_type": ["Weapon type", "武器類型", "武器类型", "武器タイプ", "무기 유형", "Tipo de arma", "Waffentyp", "Tipo de arma", "Type d'arme", "Тип оружия", "Typ broni", "نوع سلاح", "نوع السلاح", "ประเภทอาวุธ", "Loại vũ khí"], "no_weapon_skins": ["No weapon skins.", "無武器皮膚。", "无武器皮肤。", "武器スキンはありません。", "무기 스킨이 없습니다.", "Sin aspectos de arma.", "Keine Waffen-Skins.", "Nenhum visual de arma.", "Aucun skin d'arme.", "Нет обликов оружия.", "Brak skórek broni.", "پوسته‌ای برای سلاح وجود ندارد.", "لا توجد مظاهر للسلاح.", "ไม่มีสกินอาวุธ", "Không có trang phục vũ khí."], "evolution": ["Evolution", "進階/進化", "进阶/进化", "進化", "진화", "Evolución", "Evolution", "Evolução", "Évolution", "Эволюция", "Ewolucja", "تکامل", "التطور", "วิวัฒนาการ", "Tiến hóa"], "evolution_desc": ["Evolution description", "進化描述", "进化描述", "進化説明", "진화 설명", "Descripción de la evolución", "Evolutionsbeschreibung", "Descrição da evolução", "Description de l'évolution", "Описание эволюции", "Opis ewolucji", "توضیحات تکامل", "وصف التطور", "คำอธิบายวิวัฒนาการ", "Mô tả tiến hóa"], "no_weapon_evo": ["No weapon evolution.", "無武器進化。", "无武器进化。", "武器の進化はありません。", "무기 진화가 없습니다.", "Sin evolución de arma.", "Keine Waffen-Evolution.", "Nenhuma evolução de arma.", "Aucune évolution d'arme.", "Нет эволюции оружия.", "Brak ewolucji broni.", "تکاملی برای سلاح وجود ندارد.", "لا يوجد تطور للسلاح.", "ไม่มีการวิวัฒนาการอาวุธ", "Không có tiến hóa vũ khí."], "material_name": ["Material name", "材料名稱", "材料名称", "材料名", "재료 이름", "Nombre del material", "Materialname", "Nome do material", "Nom du matériau", "Название материала", "Nazwa materiału", "نام ماده", "اسم المادة", "ชื่อวัสดุ", "Tên nguyên liệu"], "material_id": ["Material ID", "材料 ID", "材料 ID", "材料ID", "재료 ID", "ID del material", "Material-ID", "ID do material", "ID du matériau", "ID материала", "ID materiału", "شناسه ماده", "معرف المادة", "รหัสวัสดุ", "ID nguyên liệu"], "group": ["Group", "分組", "分组", "グループ", "그룹", "Grupo", "Gruppe", "Grupo", "Groupe", "Группа", "Grupa", "گروه", "المجموعة", "กลุ่ม", "Nhóm"], "inferred_from": ["Inferred from", "推導自", "推导自", "推定元", "추론 출처", "Inferido de", "Abgeleitet von", "Inferido de", "Déduit de", "Получено из", "Wywnioskowano z", "مشتق‌شده از", "مشتق من", "อนุมานจาก", "Suy ra từ"], "blueprint_name": ["Blueprint name", "藍圖名稱", "蓝图名称", "設計図名", "설계도 이름", "Nombre del plano", "Bauplanname", "Nome do projeto", "Nom du plan", "Название чертежа", "Nazwa projektu", "نام طرح", "اسم المخطط", "ชื่อพิมพ์เขียว", "Tên bản thiết kế"], "blueprint_id": ["Blueprint ID", "藍圖 ID", "蓝图 ID", "設計図ID", "설계도 ID", "ID del plano", "Bauplan-ID", "ID do projeto", "ID du plan", "ID чертежа", "ID projektu", "شناسه طرح", "معرف المخطط", "รหัสพิมพ์เขียว", "ID bản thiết kế"], "item_id": ["Item ID", "物品 ID", "物品 ID", "アイテムID", "아이템 ID", "ID del objeto", "Objekt-ID", "ID do item", "ID de l'objet", "ID предмета", "ID przedmiotu", "شناسه آیتم", "معرف العنصر", "รหัสไอเทม", "ID vật phẩm"], "research_materials": ["Research materials ({0})", "研發材料 ({0})", "研发材料 ({0})", "研究材料 ({0})", "연구 재료 ({0})", "Materiales de investigación ({0})", "Forschungsmaterialien ({0})", "Materiais de pesquisa ({0})", "Matériaux de recherche ({0})", "Материалы для исследования ({0})", "Materiały do badań ({0})", "مواد تحقیق ({0})", "مواد البحث ({0})", "วัสดุวิจัย ({0})", "Nguyên liệu nghiên cứu ({0})"], "no_research_materials": ["No research materials required.", "不需要研發材料。", "不需要研发材料。", "研究材料は不要です。", "연구 재료가 필요하지 않습니다.", "No se requieren materiales de investigación.", "Keine Forschungsmaterialien erforderlich.", "Nenhum material de pesquisa necessário.", "Aucun matériau de recherche requis.", "Материалы для исследования не требуются.", "Materiały do badań nie są wymagane.", "نیازی به مواد تحقیق نیست.", "لا توجد مواد بحث مطلوبة.", "ไม่จำเป็นต้องใช้วัสดุวิจัย", "Không yêu cầu nguyên liệu nghiên cứu."], "blueprints_unavailable": ["Blueprint data is unavailable in this cached or historical repository snapshot. Refresh after loading a commit that contains items.decrypted.csv.", "在此快取或歷史快照中藍圖數據不可用。請在載入包含 items.decrypted.csv 的提交後重新整理。", "在此缓存或历史快照中蓝图数据不可用。请在加载包含 items.decrypted.csv 的提交后刷新。", "このキャッシュまたは過去のスナップショットでは設計図データを利用できません。items.decrypted.csvを含むコミットを読み込んでから更新してください。", "캐시되거나 과거 스냅샷에서는 설계도 데이터를 사용할 수 없습니다. items.decrypted.csv가 포함된 커밋을 로드한 후 새로고침하세요.", "Los datos de planos no están disponibles en esta instantánea en caché o histórica. Actualiza después de cargar un commit que contenga items.decrypted.csv.", "Bauplandaten sind in diesem zwischengespeicherten oder historischen Snapshot nicht verfügbar. Aktualisieren Sie nach dem Laden eines Commits mit items.decrypted.csv.", "Os dados do projeto não estão disponíveis neste snapshot em cache ou histórico. Atualize após carregar um commit que contenha items.decrypted.csv.", "Les données de plans ne sont pas disponibles dans cette capture mise en cache ou historique. Actualisez après avoir chargé un commit contenant items.decrypted.csv.", "Данные чертежей недоступны в этом снимке. Обновите после загрузки коммита с items.decrypted.csv.", "Dane projektów są niedostępne w tej migawce. Odśwież po załadowaniu commita zawierającego items.decrypted.csv.", "داده‌های طرح در این اسنپ‌شات ذخیره‌شده در دسترس نیست. پس از بارگذاری کامیت حاوی items.decrypted.csv تازه‌سازی کنید.", "بيانات المخططات غير متوفرة في هذه اللقطة المؤقتة. يرجى التحديث بعد تحميل التزام يحتوي على items.decrypted.csv.", "ข้อมูลพิมพ์เขียวไม่พร้อมใช้งานในสแนปช็อตนี้ โปรดรีเฟรชหลังจากโหลดคอมมิตที่มี items.decrypted.csv", "Dữ liệu bản thiết kế không có sẵn trong bản chụp này. Hãy làm mới sau khi tải một commit chứa items.decrypted.csv."], "enemy_name": ["Enemy name", "敵人名稱", "敌人名称", "敵の名前", "적 이름", "Nombre del enemigo", "Feindname", "Nome do inimigo", "Nom de l'ennemi", "Имя врага", "Nazwa wroga", "نام دشمن", "اسم العدو", "ชื่อศัตรู", "Tên kẻ thù"], "enemy_id": ["Enemy ID", "敵人 ID", "敌人 ID", "敵ID", "적 ID", "ID del enemigo", "Feind-ID", "ID do inimigo", "ID de l'ennemi", "ID врага", "ID wroga", "شناسه دشمن", "معرف العدو", "รหัสศัตรู", "ID kẻ thù"], "localization_id": ["Localization ID", "本地化 ID", "本地化 ID", "ローカライゼーションID", "번역 ID", "ID de localización", "Lokalisierungs-ID", "ID de localização", "ID de localisation", "ID локализации", "ID lokalizacji", "شناسه بومی‌سازی", "معرف الترجمة", "รหัสการแปลภาษา", "ID bản địa hóa"], "enemy_type": ["Enemy type", "敵人類型", "敌人类型", "敵タイプ", "적 유형", "Tipo de enemigo", "Feindtyp", "Tipo de inimigo", "Type d'ennemi", "Тип врага", "Typ wroga", "نوع دشمن", "نوع العدو", "ประเภทศัตรู", "Loại kẻ thù"], "boss_weapon": ["Boss weapon", "首領武器", "Boss武器", "ボス武器", "보스 무기", "Arma de jefe", "Boss-Waffe", "Arma de chefe", "Arme de boss", "Оружие босса", "Broń bossa", "سلاح رئیس", "سلاح الزعيم", "อาวุธบอส", "Vũ khí boss"], "subspecies_boss": ["Subspecies boss", "亞種首領", "亚种Boss", "亜種ボス", "아종 보스", "Jefe de subespecie", "Unterarten-Boss", "Chefe de subespécie", "Boss de sous-espèce", "Босс подвида", "Boss podgatunku", "رئیس زیرگونه", "زعيم النوع الفرعي", "บอสสายพันธุ์ย่อย", "Boss phân loài"], "drops_count": ["Drops ({0})", "掉落物 ({0})", "掉落物 ({0})", "ドロップ ({0})", "드롭 ({0})", "Botines ({0})", "Drops ({0})", "Drops ({0})", "Butins ({0})", "Дропы ({0})", "Łupy ({0})", "غنیمت‌ها ({0})", "الجوائز ({0})", "ไอเทมดรอป ({0})", "Rơi đồ ({0})"], "no_drops": ["No drops.", "無掉落物。", "无掉落物。", "ドロップはありません。", "드롭이 없습니다.", "Sin botines.", "Keine Drops.", "Nenhum drop.", "Aucun butin.", "Нет дропов.", "Brak łupów.", "هیچ غنیمتی وجود ندارد.", "لا توجد جوائز.", "ไม่มีไอเทมดรอป", "Không có đồ rơi."], "drop_groups_count": ["Drop groups ({0})", "掉落組 ({0})", "掉落组 ({0})", "ドロップグループ ({0})", "드롭 그룹 ({0})", "Grupos de botín ({0})", "Drop-Gruppen ({0})", "Grupos de drop ({0})", "Groupes de butin ({0})", "Группы дропа ({0})", "Grupy łupów ({0})", "گروه‌های غنیمت ({0})", "مجموعات الجوائز ({0})", "กลุ่มไอเทมดรอป ({0})", "Nhóm rơi đồ ({0})"], "no_drop_groups": ["No drop groups.", "無掉落組。", "无掉落组。", "ドロップグループはありません。", "드롭 그룹이 없습니다.", "Sin grupos de botín.", "Keine Drop-Gruppen.", "Nenhum grupo de drop.", "Aucun groupe de butin.", "Нет групп дропа.", "Brak grup łupów.", "هیچ گروه غنیمتی وجود ندارد.", "لا توجد مجموعات جوائز.", "ไม่มีกลุ่มไอเทมดรอป", "Không có nhóm rơi đồ."], "group_n": ["Group {0}", "第 {0} 組", "第 {0} 组", "グループ {0}", "그룹 {0}", "Grupo {0}", "Gruppe {0}", "Grupo {0}", "Groupe {0}", "Группа {0}", "Grupa {0}", "گروه {0}", "المجموعة {0}", "กลุ่ม {0}", "Nhóm {0}"], "probability": ["Probability", "機率", "概率", "確率", "확률", "Probabilidad", "Wahrscheinlichkeit", "Probabilidade", "Probabilité", "Вероятность", "Prawdopodobieństwo", "احتمال", "الاحتمالية", "ความน่าจะเป็น", "Tỷ lệ"], "guaranteed_drop": ["Guaranteed drop", "保底掉落", "保底掉落", "確定ドロップ", "확정 드롭", "Botín garantizado", "Garantierter Drop", "Drop garantido", "Butin garanti", "Гарантированный дроп", "Gwarantowany łup", "غنیمت تضمینی", "سقوط مضمون", "ดรอปแน่นอน", "Rơi chắc chắn"], "guaranteed_count": ["Guaranteed count", "保底數量", "保底数量", "確定数", "확정 수량", "Cantidad garantizada", "Garantierte Anzahl", "Quantidade garantida", "Quantité garantie", "Гарантированное количество", "Gwarantowana ilość", "تعداد تضمینی", "العدد المضمون", "จำนวนที่แน่นอน", "Số lượng chắc chắn"], "conditions": ["Conditions", "條件", "条件", "条件", "조건", "Condiciones", "Bedingungen", "Condições", "Conditions", "Условия", "Warunki", "شرایط", "الشروط", "เงื่อนไข", "Điều kiện"], "yes": ["Yes", "是", "是", "はい", "예", "Sí", "Ja", "Sim", "Oui", "Да", "Tak", "بله", "نعم", "ใช่", "Có"], "no": ["No", "否", "否", "いいえ", "아니요", "No", "Nein", "Não", "Non", "Нет", "Nie", "خیر", "لا", "ไม่", "Không"], "none": ["None", "無", "无", "なし", "없음", "Ninguno", "Keine", "Nenhum", "Aucun", "Нет", "Brak", "هیچ", "لا يوجد", "ไม่มี", "Không"], "not_available": ["Not available", "不可用", "不可用", "利用不可", "사용할 수 없음", "No disponible", "Nicht verfügbar", "Indisponível", "Indisponible", "Недоступно", "Niedostępne", "در دسترس نیست", "غير متوفر", "ไม่พร้อมใช้งาน", "Không có sẵn"], "enemies_unavailable": ["Enemy data is unavailable in this cached or historical repository snapshot. Refresh after loading a commit that contains enemies.decrypted.csv.", "在此快取或歷史快照中敵人數據不可用。請在載入包含 enemies.decrypted.csv 的提交後重新整理。", "在此缓存或历史快照中敌人数据不可用。请在加载包含 enemies.decrypted.csv 的提交后刷新。", "このキャッシュまたは過去のスナップショットでは敵データを利用できません。enemies.decrypted.csvを含むコミットを読み込んでから更新してください。", "캐시되거나 과거 스냅샷에서는 적 데이터를 사용할 수 없습니다. enemies.decrypted.csv가 포함된 커밋을 로드한 후 새로고침하세요.", "Los datos de enemigos no están disponibles en esta instantánea en caché o histórica. Actualiza después de cargar un commit que contenga enemies.decrypted.csv.", "Feinddaten sind in diesem zwischengespeicherten oder historischen Snapshot nicht verfügbar. Aktualisieren Sie nach dem Laden eines Commits mit enemies.decrypted.csv.", "Os dados do inimigo não estão disponíveis neste snapshot em cache ou histórico. Atualize após carregar um commit que contenha enemies.decrypted.csv.", "Les données d'ennemis ne sont pas disponibles dans cette capture mise en cache ou historique. Actualisez après avoir chargé un commit contenant enemies.decrypted.csv.", "Данные врагов недоступны в этом снимке. Обновите после загрузки коммита с enemies.decrypted.csv.", "Dane wrogów są niedostępne w tej migawce. Odśwież po załadowaniu commita zawierającego enemies.decrypted.csv.", "داده‌های دشمن در این اسنپ‌شات ذخیره‌شده در دسترس نیست. پس از بارگذاری کامیت حاوی enemies.decrypted.csv تازه‌سازی کنید.", "بيانات الأعداء غير متوفرة في هذه اللقطة المؤقتة. يرجى التحديث بعد تحميل التزام يحتوي على enemies.decrypted.csv.", "ข้อมูลศัตรูไม่พร้อมใช้งานในสแนปช็อตนี้ โปรดรีเฟรชหลังจากโหลดคอมมิตที่มี enemies.decrypted.csv", "Dữ liệu kẻ thù không có sẵn trong bản chụp này. Hãy làm mới sau khi tải một commit chứa enemies.decrypted.csv."], "badge_inferred": ["inferred", "推導", "推导", "推定", "유추됨", "inferido", "abgeleitet", "inferido", "déduit", "получено", "wywnioskowano", "مشتق‌شده", "مشتق", "อนุมาน", "suy ra"], "badge_missing": ["missing", "缺失", "缺失", "欠落", "누락됨", "falta", "fehlt", "ausente", "manquant", "отсутствует", "brak", "گم‌شده", "مفقود", "ขาดหาย", "thiếu"], "badge_unresolved": ["unresolved", "未解析", "未解析", "未解決", "해결되지 않음", "no resuelto", "ungelöst", "não resolvido", "non résolu", "не разрешено", "nierozpoznane", "حل‌نشده", "غير محلول", "ยังไม่ได้รับการแก้ไข", "chưa giải quyết"], "badge_english_fallback": ["English fallback", "英文後備", "英文后备", "英語フォールバック", "영어 대체", "Respaldo en inglés", "Englischer Fallback", "Fallback em inglês", "Repli anglais", "Английский фолбэк", "Zastępczy angielski", "جایگزین انگلیسی", "بديل إنجليزي", "สำรองภาษาอังกฤษ", "Dự phòng tiếng Anh"], "badge_json_fallback": ["JSON fallback", "JSON 後備", "JSON 后备", "JSONフォールバック", "JSON 대체", "Respaldo JSON", "JSON-Fallback", "Fallback JSON", "Repli JSON", "JSON фолбэк", "Zastępczy JSON", "جایگزین JSON", "بديل JSON", "สำรอง JSON", "Dự phòng JSON"], "main_weapon": ["Main weapon", "主武器", "主武器", "メイン武器", "주 무기", "Arma principal", "Hauptwaffe", "Arma principal", "Arme principale", "Основное оружие", "Broń główna", "سلاح اصلی", "السلاح الرئيسي", "อาวุธหลัก", "Vũ khí chính"], "sub_weapons_count": ["Sub weapons ({0})", "子武器 ({0})", "子武器 ({0})", "サブ武器 ({0})", "보조 무기 ({0})", "Subarmas ({0})", "Unterwaffen ({0})", "Subarmas ({0})", "Armes secondaires ({0})", "Подоружие ({0})", "Broń poboczna ({0})", "سلاح‌های فرعی ({0})", "الأسلحة الفرعية ({0})", "อาวุธรอง ({0})", "Vũ khí phụ ({0})"], "crafting_materials_count": ["Crafting materials ({0})", "鍛造材料 ({0})", "锻造材料 ({0})", "作成材料 ({0})", "제작 재료 ({0})", "Materiales de fabricación ({0})", "Herstellungsmaterialien ({0})", "Materiais de fabricação ({0})", "Matériaux de fabrication ({0})", "Материалы для создания ({0})", "Materiały do wytwarzania ({0})", "مواد ساخت ({0})", "مواد الصنع ({0})", "วัสดุสร้าง ({0})", "Nguyên liệu chế tạo ({0})"], "fusion_recipes_target": ["Created by fusion ({0})", "武器合成配方 ({0})", "武器合成配方 ({0})", "合成による作成 ({0})", "합성 제작법 ({0})", "Creado por fusión ({0})", "Durch Fusion erstellt ({0})", "Criado por fusão ({0})", "Créé par fusion ({0})", "Создается слиянием ({0})", "Utworzono przez fuzję ({0})", "ساخته‌شده از ادغام ({0})", "تم إنشاؤه بالدمج ({0})", "สร้างโดยการหลอมรวม ({0})", "Tạo bằng hợp nhất ({0})"], "fusion_recipes_source": ["Weapon fusion ({0})", "可合成武器 ({0})", "可合成武器 ({0})", "武器の合成 ({0})", "무기 합성 ({0})", "Fusión de armas ({0})", "Waffenfusion ({0})", "Fusão de armas ({0})", "Fusion d'armes ({0})", "Слияние оружия ({0})", "Fuzja broni ({0})", "ادغام سلاح ({0})", "دمج الأسلحة ({0})", "การหลอมรวมอาวุธ ({0})", "Hợp nhất vũ khí ({0})"], "any_n_of": ["any {0} of", "任選 {0} 個", "任选 {0} 个", "いずれか {0} 個", "다음 중 {0}개", "cualquiera {0} de", "beliebige {0} von", "qualquer {0} de", "n'importe quel {0} parmi", "любые {0} из", "dowolne {0} z", "هر {0} مورد از", "أي {0} من", "ใดๆ {0} ชิ้นจาก", "bất kỳ {0} trong"], "seeds": ["Seeds", "種子", "种子", "種", "씨앗", "Semillas", "Samen", "Sementes", "Graines", "Семена", "Nasiona", "بذرها", "البذور", "เมล็ดพันธุ์", "Hạt giống"], "seed_name": ["Seed name", "種子名稱", "种子名称", "種の名前", "씨앗 이름", "Nombre de la semilla", "Samenname", "Nome da semente", "Nom de la graine", "Название семени", "Nazwa nasiona", "نام بذر", "اسم البذرة", "ชื่อเมล็ดพันธุ์", "Tên hạt giống"], "seed_id": ["Seed ID", "種子 ID", "种子 ID", "種ID", "씨앗 ID", "ID de la semilla", "Samen-ID", "ID da semente", "ID de la graine", "ID семени", "ID nasiona", "شناسه بذر", "معرف البذرة", "รหัสเมล็ดพันธุ์", "ID hạt giống"], "item_value": ["Value", "價值", "价值", "価値", "가치", "Valor", "Wert", "Valor", "Valeur", "Стоимость", "Wartość", "ارزش", "القيمة", "มูลค่า", "Giá trị"], "seeds_unavailable": ["Seed data is unavailable in this cached or historical repository snapshot. Refresh after loading a commit that contains items.decrypted.csv.", "在此快取或歷史快照中種子數據不可用。請在載入包含 items.decrypted.csv 的提交後重新整理。", "在此缓存或历史快照中种子数据不可用。请在加载包含 items.decrypted.csv 的提交后刷新。", "このキャッシュまたは過去のスナップショットでは種データを利用できません。items.decrypted.csvを含むコミットを読み込んでから更新してください。", "캐시되거나 과거 스냅샷에서는 씨앗 데이터를 사용할 수 없습니다. items.decrypted.csv가 포함된 커밋을 로드한 후 새로고침하세요.", "Los datos de semillas no están disponibles en esta instantánea en caché o histórica. Actualiza después de cargar un commit que contenga items.decrypted.csv.", "Samendaten sind in diesem zwischengespeicherten oder historischen Snapshot nicht verfügbar. Aktualisieren Sie nach dem Laden eines Commits mit items.decrypted.csv.", "Os dados das sementes não estão disponíveis neste snapshot em cache ou histórico. Atualize após carregar um commit que contenha items.decrypted.csv.", "Les données de graines ne sont pas disponibles dans cette capture mise en cache ou historique. Actualisez après avoir chargé un commit contenant items.decrypted.csv.", "Данные семян недоступны в этом снимке. Обновите после загрузки коммита с items.decrypted.csv.", "Dane nasion są niedostępne w tej migawce. Odśwież po załadowaniu commita zawierającego items.decrypted.csv.", "داده‌های بذر در این اسنپ‌شات ذخیره‌شده در دسترس نیست. پس از بارگذاری کامیت حاوی items.decrypted.csv تازه‌سازی کنید.", "بيانات البذور غير متوفرة في هذه اللقطة المؤقتة. يرجى التحديث بعد تحميل التزام يحتوي على items.decrypted.csv.", "ข้อมูลเมล็ดพันธุ์ไม่พร้อมใช้งานในสแนปช็อตนี้ โปรดรีเฟรชหลังจากโหลดคอมมิตที่มี items.decrypted.csv", "Dữ liệu hạt giống không có sẵn trong bản chụp này. Hãy làm mới sau khi tải một commit chứa items.decrypted.csv."]};
 
 function t(key, ...args) {
   const row = I18N_STATIC[key];
@@ -1098,7 +1113,7 @@ function t(key, ...args) {
 }
 
 function updateNav() {
-  const pages = [['home','home'],['characters','characters'],['pets','pets'],['weapons','weapons'],['materials','materials'],['blueprints','blueprints'],['enemies','enemies']];
+  const pages = [['home','home'],['characters','characters'],['pets','pets'],['weapons','weapons'],['materials','materials'],['seeds','seeds'],['blueprints','blueprints'],['enemies','enemies']];
   for (const [page, key] of pages) {
     const link = document.querySelector(`nav a[data-page="${page}"]`);
     if (link) link.textContent = t(key);
@@ -1246,13 +1261,13 @@ function parseEnemyCSV(text) {
   return enemies;
 }
 
-function parseBlueprintCSV(text) {
+function parseItemsCSV(text) {
   const rows=parseCSV(text);
   const header=['Key','Type','SubType','DataStr'];
   const schema=['string','string','string','string'];
   if (rows.length<3 || header.some((value,index)=>rows[0]?.[index]!==value) || rows[0].length!==4) throw new Error('Unexpected items CSV header');
   if (schema.some((value,index)=>rows[1]?.[index]!==value) || rows[1].length!==4) throw new Error('Unexpected items CSV schema row');
-  const keys=new Set(), blueprints=new Map();
+  const keys=new Set(), blueprints=new Map(), seeds=new Map(), materialLevels=new Map();
   for (let index=2; index<rows.length; index++) {
     const row=rows[index];
     if (row.length!==4) throw new Error(`Items CSV row ${index+1} has ${row.length} fields`);
@@ -1260,27 +1275,49 @@ function parseBlueprintCSV(text) {
     if (!key.trim()) throw new Error(`Items CSV row ${index+1} has an empty Key`);
     if (keys.has(key)) throw new Error(`Duplicate item Key: ${key}`);
     keys.add(key);
-    if (type!=='BluePrint' || subType!=='Blueprint') continue;
-    const data=parseJSON(dataText,`items CSV ${key}`);
-    assertObject(data,`items CSV ${key} DataStr`);
-    if (data.Name!==key) throw new Error(`Blueprint ${key} Name does not match Key`);
-    if (typeof data.ItemName!=='string' || !data.ItemName) throw new Error(`Blueprint ${key} has an invalid ItemName`);
-    if (!Number.isInteger(data.BlueprintType)) throw new Error(`Blueprint ${key} has an invalid BlueprintType`);
-    for (const field of ['Hero','SkinIndex','SkillIndex']) if (!Number.isSafeInteger(data[field]) || data[field]<0) throw new Error(`Blueprint ${key} has an invalid ${field}`);
-    if (typeof data.Localization!=='string') throw new Error(`Blueprint ${key} has an invalid Localization`);
-    if (!Array.isArray(data.ResearchMaterials)) throw new Error(`Blueprint ${key} has invalid ResearchMaterials`);
-    const seenMaterials=new Set();
-    const materials=data.ResearchMaterials.map((entry,materialIndex)=>{
-      assertObject(entry,`Blueprint ${key} ResearchMaterials[${materialIndex}]`);
-      if (typeof entry.item!=='string' || !entry.item) throw new Error(`Blueprint ${key} has an invalid research material ID`);
-      if (!Number.isSafeInteger(entry.num) || entry.num<=0) throw new Error(`Blueprint ${key} has an invalid research quantity`);
-      if (seenMaterials.has(entry.item)) throw new Error(`Blueprint ${key} repeats research material ${entry.item}`);
-      seenMaterials.add(entry.item);
-      return {item:entry.item,num:entry.num};
-    });
-    blueprints.set(key,{itemId:data.ItemName,blueprintType:data.BlueprintType,hero:data.Hero,skinIndex:data.SkinIndex,skillIndex:data.SkillIndex,localization:data.Localization,materials});
+    if (type==='BluePrint' && subType==='Blueprint') {
+      const data=parseJSON(dataText,`items CSV ${key}`);
+      assertObject(data,`items CSV ${key} DataStr`);
+      if (data.Name!==key) throw new Error(`Blueprint ${key} Name does not match Key`);
+      if (typeof data.ItemName!=='string' || !data.ItemName) throw new Error(`Blueprint ${key} has an invalid ItemName`);
+      if (!Number.isInteger(data.BlueprintType)) throw new Error(`Blueprint ${key} has an invalid BlueprintType`);
+      for (const field of ['Hero','SkinIndex','SkillIndex']) if (!Number.isSafeInteger(data[field]) || data[field]<0) throw new Error(`Blueprint ${key} has an invalid ${field}`);
+      if (typeof data.Localization!=='string') throw new Error(`Blueprint ${key} has an invalid Localization`);
+      if (!Array.isArray(data.ResearchMaterials)) throw new Error(`Blueprint ${key} has invalid ResearchMaterials`);
+      const seenMaterials=new Set();
+      const materials=data.ResearchMaterials.map((entry,materialIndex)=>{
+        assertObject(entry,`Blueprint ${key} ResearchMaterials[${materialIndex}]`);
+        if (typeof entry.item!=='string' || !entry.item) throw new Error(`Blueprint ${key} has an invalid research material ID`);
+        if (!Number.isSafeInteger(entry.num) || entry.num<=0) throw new Error(`Blueprint ${key} has an invalid research quantity`);
+        if (seenMaterials.has(entry.item)) throw new Error(`Blueprint ${key} repeats research material ${entry.item}`);
+        seenMaterials.add(entry.item);
+        return {item:entry.item,num:entry.num};
+      });
+      blueprints.set(key,{itemId:data.ItemName,blueprintType:data.BlueprintType,hero:data.Hero,skinIndex:data.SkinIndex,skillIndex:data.SkillIndex,localization:data.Localization,materials});
+    } else if (type==='Seed') {
+      const data=parseJSON(dataText,`items CSV ${key}`);
+      assertObject(data,`items CSV ${key} DataStr`);
+      const level=Number.isInteger(data.ItemLevel)?data.ItemLevel:0;
+      const value=Number.isInteger(data.ItemValue)?data.ItemValue:0;
+      const localizationKey=key.replace(/_seed$/,'');
+      seeds.set(key,{type:'seeds',id:key,level,value,localizationKey});
+    } else if (type==='Material') {
+      const data=parseJSON(dataText,`items CSV ${key}`);
+      if (data && Number.isInteger(data.ItemLevel)) {
+        materialLevels.set(key, data.ItemLevel);
+      }
+    }
   }
-  return blueprints;
+  return {blueprints, seeds, materialLevels};
+}
+
+function parseBlueprintCSV(text) {
+  return parseItemsCSV(text).blueprints;
+}
+
+function seedName(seed, language=state.language) {
+  const value=localized(seed.localizationKey,{language,englishFallback:seed.id});
+  return value.text==='Not localized'?{text:seed.id,status:'unresolved',key:seed.localizationKey}:value;
 }
 
 function blueprintLocalizationKey(id,row) {
@@ -1493,13 +1530,17 @@ function buildModel(snapshot) {
   for (const character of characters) for (const id of [character.starting,character.upgraded]) {
     if (!weaponIds.has(id) || !i18n.has(`weapon/${id}`)) throw new Error(`Character ${character.code} starting weapon is missing: ${id}`);
   }
+  const itemsParsed=typeof raw[BLUEPRINT_FILE]==='string'?parseItemsCSV(raw[BLUEPRINT_FILE]):null;
+  const materialLevels=itemsParsed?.materialLevels;
   const materials=[], materialIds=new Set();
   for (const [group,values] of Object.entries(items.material)) {
     if (!Array.isArray(values)) throw new Error(`item.json material.${group} must be an array`);
     for (const id of values) {
       if (typeof id!=='string' || !id) throw new Error(`item.json material.${group} contains an invalid ID`);
       if (materialIds.has(id)) throw new Error(`Duplicate material ID: ${id}`);
-      materialIds.add(id); materials.push({type:'materials',id,group});
+      materialIds.add(id);
+      const level=materialLevels?.get(id) ?? 0;
+      materials.push({type:'materials',id,group,level});
     }
   }
   materials.sort((a,b)=>naturalCompare(a.id,b.id));
@@ -1513,9 +1554,9 @@ function buildModel(snapshot) {
       blueprintIds.add(id); blueprintIndex.push({id,group});
     }
   }
-  const blueprintRows=typeof raw[BLUEPRINT_FILE]==='string'?parseBlueprintCSV(raw[BLUEPRINT_FILE]):null;
   let blueprints=null;
-  if (blueprintRows) {
+  if (itemsParsed?.blueprints) {
+    const blueprintRows=itemsParsed.blueprints;
     if (blueprintRows.size!==blueprintIds.size || [...blueprintIds].some(id=>!blueprintRows.has(id)) || [...blueprintRows.keys()].some(id=>!blueprintIds.has(id))) throw new Error('Blueprint IDs differ between item.json and items.decrypted.csv');
     blueprints=blueprintIndex.map(({id,group})=>{
       const row=blueprintRows.get(id), localizationKey=blueprintLocalizationKey(id,row);
@@ -1524,9 +1565,10 @@ function buildModel(snapshot) {
       return {type:'blueprints',id,group,itemId:row.itemId,blueprintType:row.blueprintType,localizationKey,materials:row.materials};
     }).sort((a,b)=>naturalCompare(a.id,b.id));
   }
+  const seeds=itemsParsed?[...itemsParsed.seeds.values()].sort((a,b)=>naturalCompare(a.id,b.id)):null;
   const enemyRows=typeof raw[ENEMY_FILE]==='string'?parseEnemyCSV(raw[ENEMY_FILE]):null;
   const enemies=enemyRows?[...enemyRows.values()].sort((a,b)=>naturalCompare(a.key,b.key)):null;
-  return {version:version.version,i18n,charCodes,characters,pets,weapons:weaponEntities,weaponList:weaponEntities.filter(weapon=>!weapon.originalWeapon),materials,blueprints,blueprintCount:blueprintIds.size,enemies};
+  return {version:version.version,i18n,charCodes,characters,pets,weapons:weaponEntities,weaponList:weaponEntities.filter(weapon=>!weapon.originalWeapon),materials,seeds,blueprints,blueprintCount:blueprintIds.size,enemies};
 }
 
 function naturalCompare(a,b) { return String(a).localeCompare(String(b),undefined,{numeric:true,sensitivity:'base'}); }
@@ -1807,6 +1849,9 @@ function entitySearch(entity) {
     values.push(entity.key,entity.enemyId,entity.enemyType,entity.bossWeapon,entity.subspeciesBoss,enemyName(entity).text,enemyName(entity,'English').text);
     const addDrop=drop=>values.push(drop.item,JSON.stringify(drop.conditions));
     entity.drops.forEach(addDrop); entity.dropGroups.forEach(group=>group.drops.forEach(addDrop));
+  } else if (entity.type==='seeds') {
+    const a=seedName(entity), b=seedName(entity,'English');
+    values.push(entity.id,entity.level,a.text,b.text);
   } else if (entity.type==='blueprints') {
     values.push(entity.id,entity.itemId,entity.group,entity.localizationKey,blueprintName(entity).text,blueprintName(entity,'English').text);
     for (const cost of entity.materials) { const material=state.model.materials.find(value=>value.id===cost.item); values.push(cost.item,material?inferMaterial(material).text:'',material?inferMaterial(material,'English').text:''); }
@@ -1828,6 +1873,7 @@ function renderHome() {
     ['pets',t('pets'),state.model.pets,'oklch(68% 0.16 142)'],
     ['weapons',t('weapons'),state.model.weaponList,'oklch(64% 0.21 38)'],
     ['materials',t('materials'),state.model.materials,'oklch(68% 0.16 85)'],
+    ['seeds',t('seeds'),state.model.seeds,'oklch(66% 0.18 150)'],
     ['blueprints',t('blueprints'),state.model.blueprints,'oklch(65% 0.17 215)'],
     ['enemies',t('enemies'),state.model.enemies,'oklch(62% 0.22 320)']
   ];
@@ -1843,7 +1889,7 @@ function renderHome() {
     }
     root.append(hubGrid);
   } else {
-    const all=[...state.model.characters,...state.model.pets,...state.model.weapons,...state.model.materials,...(state.model.blueprints||[]),...(state.model.enemies||[])], matches=filtered(all);
+    const all=[...state.model.characters,...state.model.pets,...state.model.weapons,...state.model.materials,...(state.model.seeds||[]),...(state.model.blueprints||[]),...(state.model.enemies||[])], matches=filtered(all);
     root.append(el('p',{class:'muted',text:t('matches_across_all',matches.length)}),renderCards(matches));
   }
   
@@ -1871,7 +1917,8 @@ function renderCards(entities) {
     else if (entity.type==='weapons') { const name=weaponName(entity); grid.append(card(routeFor('weapons',entity.code),name.text,`${entity.weaponType} · ${t('rarity_n',entity.level)} · ${entity.code}`,name.status,null,weaponRarityStyle(entity.level))); }
     else if (entity.type==='blueprints') { const name=blueprintName(entity); grid.append(card(routeFor('blueprints',entity.id),name.text,`${entity.group} · ${entity.id} · ${entity.itemId}`,name.status)); }
     else if (entity.type==='enemies') { const name=enemyName(entity); grid.append(card(routeFor('enemies',entity.key),name.text,`${entity.enemyType} · ${entity.key}${entity.enemyId?` · ${entity.enemyId}`:''}`,name.status)); }
-    else { const name=inferMaterial(entity); grid.append(card(routeFor('materials',entity.id),name.text,`${entity.group} · ${entity.id}`,name.status)); }
+    else if (entity.type==='seeds') { const name=seedName(entity); grid.append(card(routeFor('seeds',entity.id),name.text,`${t('rarity_n',entity.level)} · ${entity.id}`,name.status,null,weaponRarityStyle(entity.level))); }
+    else { const name=inferMaterial(entity); grid.append(card(routeFor('materials',entity.id),name.text,`${t('rarity_n',entity.level ?? 0)} · ${entity.group} · ${entity.id}`,name.status,null,weaponRarityStyle(entity.level ?? 0))); }
   }
   const wrapper=el('div',{});
   if (entities.length>MAX_RESULTS) wrapper.append(el('p',{class:'muted',text:t('showing_matches',MAX_RESULTS,entities.length)}));
@@ -1966,8 +2013,11 @@ function renderWeapon(weapon) {
     for (const cost of weapon.materials) {
       const material=state.model.materials.find(value=>value.id===cost.item);
       const matName=material?inferMaterial(material):{text:cost.item,status:'unresolved'};
+      const matStyle=material?weaponRarityStyle(material.level):'';
+      const h3Attrs={text:matName.text};
+      if (matStyle) h3Attrs.style=matStyle;
       matGrid.append(el('a',{class:'card',href:routeFor('materials',cost.item)},
-        el('h3',{text:matName.text}),
+        el('h3',h3Attrs),
         badge(matName.status),
         el('p',{class:'count',text:`× ${cost.num}`}),
         el('p',{class:'key',text:cost.item})
@@ -2012,11 +2062,13 @@ function linkedValue(value,route,exists) {
 
 function dropTarget(id) {
   const material=state.model.materials.find(value=>value.id===id);
-  if (material) return {name:inferMaterial(material),route:routeFor('materials',id)};
+  if (material) return {name:inferMaterial(material),route:routeFor('materials',id),level:material.level};
+  const seed=state.model.seeds?.find(value=>value.id===id);
+  if (seed) return {name:seedName(seed),route:routeFor('seeds',id),level:seed.level};
   const blueprint=state.model.blueprints?.find(value=>value.id===id);
   if (blueprint) return {name:blueprintName(blueprint),route:routeFor('blueprints',id)};
   const weapon=state.model.weapons.find(value=>value.code===id);
-  if (weapon) return {name:weaponName(weapon),route:routeFor('weapons',id)};
+  if (weapon) return {name:weaponName(weapon),route:routeFor('weapons',id),level:weapon.level};
   return {name:{text:id,status:''},route:''};
 }
 
@@ -2024,7 +2076,11 @@ function renderDrops(drops) {
   if (!drops.length) return el('div',{class:'empty',text:t('no_drops')});
   const grid=el('div',{class:'grid'});
   for (const drop of drops) {
-    const target=dropTarget(drop.item), heading=target.route?el('a',{href:target.route,text:target.name.text}):el('h3',{text:target.name.text});
+    const target=dropTarget(drop.item);
+    const headingStyle=target.level!=null?weaponRarityStyle(target.level):'';
+    const headingAttrs={text:target.name.text};
+    if (headingStyle) headingAttrs.style=`${headingStyle};font-weight:600;`;
+    const heading=target.route?el('a',{href:target.route,...headingAttrs}):el('h3',headingAttrs);
     const content=el('div',{class:'card'},heading,badge(target.name.status),el('p',{class:'key',text:drop.item}),el('dl',{class:'stack'},field(t('probability'),String(drop.probability)),field(t('guaranteed_drop'),drop.guaranteeDrop?t('yes'):t('no')),field(t('guaranteed_count'),String(drop.guaranteeDropCount)),field(t('conditions'),drop.conditions.length?JSON.stringify(drop.conditions,null,2):t('none'))));
     grid.append(content);
   }
@@ -2051,8 +2107,38 @@ function renderEnemy(enemy) {
 function renderMaterial(material) {
   if (!material) return notFound();
   const name=inferMaterial(material), root=el('div',{},titleBlock(name.text,material.id));
-  root.append(el('dl',{class:'stack'},field(t('material_name'),name.text,material.id,name.status),field(t('material_id'),material.id,'item.json'),field(t('group'),material.group,'item.json → material')));
+  const titleH1=root.querySelector('h1');
+  const rarityStyle=weaponRarityStyle(material.level ?? 0);
+  if (titleH1 && rarityStyle) titleH1.style.cssText=rarityStyle;
+  const nameFieldVal=rarityStyle ? el('span',{style:`${rarityStyle};font-weight:600;`,text:name.text}) : name.text;
+  root.append(el('dl',{class:'stack'},
+    field(t('material_name'),nameFieldVal,material.id,name.status),
+    field(t('material_id'),material.id,'item.json'),
+    field(t('rarity'),String(material.level ?? 0),'items.decrypted.csv → DataStr.ItemLevel'),
+    field(t('group'),material.group,'item.json → material')
+  ));
   if (name.sources?.length) root.append(el('h2',{text:t('inferred_from')}),el('div',{class:'field'},...name.sources.map(sourceKey)));
+  return root;
+}
+
+function seedsUnavailable() {
+  return el('div',{},titleBlock(t('seeds')),el('div',{class:'status warn',text:t('seeds_unavailable')}));
+}
+
+function renderSeed(seed) {
+  if (!state.model.seeds) return seedsUnavailable();
+  if (!seed) return notFound();
+  const name=seedName(seed), root=el('div',{},titleBlock(name.text,seed.id));
+  const titleH1=root.querySelector('h1');
+  const rarityStyle=weaponRarityStyle(seed.level);
+  if (titleH1 && rarityStyle) titleH1.style.cssText=rarityStyle;
+  const nameFieldVal=rarityStyle ? el('span',{style:`${rarityStyle};font-weight:600;`,text:name.text}) : name.text;
+  root.append(el('dl',{class:'stack'},
+    field(t('seed_name'),nameFieldVal,seed.localizationKey,name.status),
+    field(t('seed_id'),seed.id,'items.decrypted.csv → Key'),
+    field(t('rarity'),String(seed.level),'items.decrypted.csv → DataStr.ItemLevel'),
+    field(t('item_value'),String(seed.value),'items.decrypted.csv → DataStr.ItemValue')
+  ));
   return root;
 }
 
@@ -2071,7 +2157,10 @@ function renderBlueprint(blueprint) {
     const costs=el('div',{class:'grid'});
     for (const cost of blueprint.materials) {
       const material=state.model.materials.find(value=>value.id===cost.item), name=material?inferMaterial(material):{text:cost.item,status:'unresolved'};
-      costs.append(el('a',{class:'card',href:routeFor('materials',cost.item)},el('h3',{text:name.text}),badge(name.status),el('p',{class:'count',text:`× ${cost.num}`}),el('p',{class:'key',text:cost.item})));
+      const matStyle=material?weaponRarityStyle(material.level):'';
+      const h3Attrs={text:name.text};
+      if (matStyle) h3Attrs.style=matStyle;
+      costs.append(el('a',{class:'card',href:routeFor('materials',cost.item)},el('h3',h3Attrs),badge(name.status),el('p',{class:'count',text:`× ${cost.num}`}),el('p',{class:'key',text:cost.item})));
     }
     root.append(costs);
   }
@@ -2105,6 +2194,7 @@ function render() {
   else if (parts[0]==='pets') view=parts.length>1?renderPet(state.model.pets.find(v=>v.id===Number(parts[1]))):renderList(t('pets'),state.model.pets);
   else if (parts[0]==='weapons') view=parts.length>1?renderWeapon(state.model.weapons.find(v=>v.code===parts[1])):renderList(t('weapons'),state.search.trim()?state.model.weapons:state.model.weaponList);
   else if (parts[0]==='materials') view=parts.length>1?renderMaterial(state.model.materials.find(v=>v.id===parts[1])):renderList(t('materials'),state.model.materials);
+  else if (parts[0]==='seeds') view=!state.model.seeds?seedsUnavailable():parts.length>1?renderSeed(state.model.seeds.find(v=>v.id===parts[1])):renderList(t('seeds'),state.model.seeds);
   else if (parts[0]==='blueprints') view=!state.model.blueprints?blueprintsUnavailable():parts.length>1?renderBlueprint(state.model.blueprints.find(v=>v.id===parts[1])):renderList(t('blueprints'),state.model.blueprints);
   else if (parts[0]==='enemies') view=!state.model.enemies?enemiesUnavailable():parts.length>1?renderEnemy(state.model.enemies.find(v=>v.key===parts[1])):renderList(t('enemies'),state.model.enemies);
   else view=notFound();
@@ -2237,6 +2327,9 @@ function runChecks() {
   const data='{"Name":"blueprint_test","ItemName":"weapon_006","BlueprintType":7,"Hero":0,"SkinIndex":0,"SkillIndex":0,"Localization":"","ResearchMaterials":[{"item":"material_gem","num":400}]}'.replaceAll('"','""');
   const blueprint=parseBlueprintCSV(`Key,Type,SubType,DataStr\nstring,string,string,string\nblueprint_test,BluePrint,Blueprint,"${data}"`).get('blueprint_test');
   if (blueprint.itemId!=='weapon_006' || blueprint.materials[0].num!==400 || blueprintLocalizationKey('blueprint_weapon_223',{blueprintType:7,itemId:'weapon_223'})!=='weapon/weapon_223' || blueprintLocalizationKey('blueprint_evolution_weapon_404',{blueprintType:8})!=='weapon/weapon_404') throw new Error('Blueprint self-check failed');
+  const seedCSV=`Key,Type,SubType,DataStr\nstring,string,string,string\nplant_test_seed,Seed,Seed,"{""ItemLevel"":3,""ItemValue"":500}"\nmat_test,Material,Material,"{""ItemLevel"":2}"`;
+  const itemsCheck=parseItemsCSV(seedCSV);
+  if (!itemsCheck.seeds.has('plant_test_seed') || itemsCheck.seeds.get('plant_test_seed').localizationKey!=='plant_test' || itemsCheck.seeds.get('plant_test_seed').level!==3 || itemsCheck.materialLevels.get('mat_test')!==2) throw new Error('Items CSV seed/material self-check failed');
   rejected=false; try { parseBlueprintCSV(`Key,Type,SubType,DataStr\nstring,string,string,string\nwrong,BluePrint,Blueprint,"${data}"`); } catch { rejected=true; } if (!rejected) throw new Error('Blueprint validation self-check failed');
   if ((location.protocol==='file:' && CAN_PERSIST) || (location.protocol!=='file:' && typeof indexedDB!=='undefined' && !CAN_PERSIST)) throw new Error('Persistence capability self-check failed');
   state.snapshot={sha:'0123456789abcdef0123456789abcdef01234567'};
