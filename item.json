@@ -1,4 +1,8 @@
 {
+  "active": [
+    "active_star",
+    "active_weekly_point"
+  ],
   "blueprint": {
     "evolution": [
       "blueprint_evolution_weapon_006",
@@ -42,6 +46,7 @@
       "blueprint_evolution_weapon_139",
       "blueprint_evolution_weapon_140",
       "blueprint_evolution_weapon_141",
+      "blueprint_evolution_weapon_145",
       "blueprint_evolution_weapon_146",
       "blueprint_evolution_weapon_156",
       "blueprint_evolution_weapon_159",
@@ -87,6 +92,7 @@
       "blueprint_evolution_weapon_317",
       "blueprint_evolution_weapon_320",
       "blueprint_evolution_weapon_323",
+      "blueprint_evolution_weapon_325",
       "blueprint_evolution_weapon_326",
       "blueprint_evolution_weapon_327",
       "blueprint_evolution_weapon_329",
@@ -94,6 +100,7 @@
       "blueprint_evolution_weapon_343",
       "blueprint_evolution_weapon_345",
       "blueprint_evolution_weapon_346",
+      "blueprint_evolution_weapon_357",
       "blueprint_evolution_weapon_366",
       "blueprint_evolution_weapon_367",
       "blueprint_evolution_weapon_370",
@@ -308,12 +315,14 @@
       "material_activity_coin_reborn_egg",
       "material_activity_coin_school",
       "material_activity_coin_school_1",
+      "material_activity_coin_talent",
       "material_activity_coin_zongzi",
       "material_activity_coin_zongzi2026"
     ],
     "others": [
       "material_ancient_weapon_fragment",
       "material_battery",
+      "material_bp_point",
       "material_c17_book_1",
       "material_c17_book_2",
       "material_c18_book_1",
@@ -447,6 +456,7 @@
       "material_tape_civilization",
       "material_tape_dark",
       "material_tape_defence",
+      "material_tape_doctor_12",
       "material_tape_doctor_6",
       "material_tape_dragon_boy",
       "material_tape_easter",
@@ -538,6 +548,7 @@
       "material_weapon_fragment_weapon_139",
       "material_weapon_fragment_weapon_140",
       "material_weapon_fragment_weapon_141",
+      "material_weapon_fragment_weapon_145",
       "material_weapon_fragment_weapon_146",
       "material_weapon_fragment_weapon_156",
       "material_weapon_fragment_weapon_159",
@@ -583,6 +594,7 @@
       "material_weapon_fragment_weapon_317",
       "material_weapon_fragment_weapon_320",
       "material_weapon_fragment_weapon_323",
+      "material_weapon_fragment_weapon_325",
       "material_weapon_fragment_weapon_326",
       "material_weapon_fragment_weapon_327",
       "material_weapon_fragment_weapon_329",
@@ -590,6 +602,7 @@
       "material_weapon_fragment_weapon_343",
       "material_weapon_fragment_weapon_345",
       "material_weapon_fragment_weapon_346",
+      "material_weapon_fragment_weapon_357",
       "material_weapon_fragment_weapon_366",
       "material_weapon_fragment_weapon_367",
       "material_weapon_fragment_weapon_370",

@@ -123,6 +123,13 @@ weapon_000xx14
     Rarity    : 1
     Type      : Pistol
 
+weapon_000xx15
+    Name      : Keeper's Standard Rifle
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Pistol
+
 weapon_000xx2
     Name      : Serpent Spear
     Forgeable : False
@@ -3259,6 +3266,13 @@ weapon_init_aigirlxx5
     Rarity    : 1
     Type      : Strange
 
+weapon_init_aigirlxx6
+    Name      : Machina
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Strange
+
 weapon_init_airbender
     Name      : Qian-kun Punch
     Forgeable : False
@@ -3721,6 +3735,13 @@ weapon_init_bardxx5
     Rarity    : 1
     Type      : ShotGun
 
+weapon_init_bardxx6
+    Name      : Bard
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : ShotGun
+
 weapon_init_beheaded
     Name      : Vorpan
     Forgeable : True
@@ -3933,6 +3954,13 @@ weapon_init_doctorxx6
 
 weapon_init_doctorxx7
     Name      : Physicist
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Pistol
+
+weapon_init_doctorxx8
+    Name      : Threnody
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -4295,6 +4323,13 @@ weapon_init_envoyxx2
     Rarity    : 1
     Type      : Staff
 
+weapon_init_envoyxx3
+    Name      : [Name Not Found]
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
 weapon_init_fighter
     Name      : Qi Punch
     Forgeable : True
@@ -4388,6 +4423,13 @@ weapon_init_gunsexpertxx
 
 weapon_init_gunsexpertxx2
     Name      : Arms Expert
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Laser
+
+weapon_init_gunsexpertxx3
+    Name      : Feral Blaze
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -4689,6 +4731,13 @@ weapon_init_minerxx11
 
 weapon_init_minerxx12
     Name      : Miner
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Axe
+
+weapon_init_minerxx13
+    Name      : Rock Pick MK-III
     Forgeable : False
     Is melee  : True
     Rarity    : 1
@@ -5170,6 +5219,13 @@ weapon_init_priestxx14
     Rarity    : 1
     Type      : Staff
 
+weapon_init_priestxx15
+    Name      : Moonlit Fan
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
 weapon_init_priestxx2
     Name      : Flower Rain
     Forgeable : False
@@ -5291,6 +5347,13 @@ weapon_init_rangerxx15
 
 weapon_init_rangerxx16
     Name      : Blades of Sheen
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Throw
+
+weapon_init_rangerxx17
+    Name      : Roadblock
     Forgeable : False
     Is melee  : True
     Rarity    : 1
@@ -5487,6 +5550,13 @@ weapon_init_shooterxx3
 
 weapon_init_shooterxx4
     Name      : Downfall
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Rifle
+
+weapon_init_shooterxx5
+    Name      : Gunner
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -5842,6 +5912,13 @@ weapon_init_vampirexx12
     Rarity    : 1
     Type      : Strange
 
+weapon_init_vampirexx13
+    Name      : Night Vein
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Strange
+
 weapon_init_vampirexx2
     Name      : Soul Shackles & Soul Leading Flag
     Forgeable : False
@@ -6110,6 +6187,13 @@ weapon_init_warlockxx
 
 weapon_init_warlockxx10
     Name      : Demantoid Staff
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
+weapon_init_warlockxx11
+    Name      : Crimson Halberd
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -6838,6 +6922,7 @@ c0 = Knight
     c0_skin34 = Bad Pistol
     c0_skin35 = K□ight
     c0_skin36 = Zongzi Knight
+    c0_skin37 = D01 Gatekeeper
 
 c1 = Rogue
     c1_skin0 = Rogue
@@ -6874,6 +6959,7 @@ c1 = Rogue
     c1_skin31 = Jack and Mary
     c1_skin32 = R□g□e
     c1_skin33 = Malachite
+    c1_skin34 = Skater Scott
 
 c10 = Priestess
     c10_skin0 = Priestess
@@ -6905,6 +6991,7 @@ c10 = Priestess
     c10_skin26 = Rotweaver Ravena
     c10_skin27 = Pri□st□ss
     c10_skin28 = Wooden Cross
+    c10_skin29 = Evermoon
 
 c11 = Druid
     c11_skin0 = Druid
@@ -7092,12 +7179,14 @@ c17 = Inter-dimension Traveler
     c17_skin3 = Inter-dimension Travara
     c17_skin4 = Dimensional Grip
     c17_skin5 = Serenith
+    c17_skin6 = Int□r-dimensi□n Tr□veler
 
 c18 = Element Envoy
     c18_skin0 = Element Envoy
     c18_skin1 = Amethyne Sirena
     c18_skin2 = Olement Onvoy
     c18_skin3 = Visage of Elemental Power
+    c18_skin4 = El□ment Env□y
 
 c19 = The Beheaded
     c19_skin0 = The Beheaded
@@ -7145,6 +7234,7 @@ c20 = Time Traveling Ninja
     c20_skin4 = Sandspecter Shahya
     c20_skin5 = Molecule Ichimonji
     c20_skin6 = Ireva
+    c20_skin7 = Tim□ Tr□veling N□nja
 
 c21 = Special Forces
     c21_skin0 = Special Forces
@@ -7191,6 +7281,7 @@ c23 = Demonmancer
     c23_skin15 = Key of the Faint Star
     c23_skin16 = Lamentra
     c23_skin17 = Demantoid
+    c23_skin18 = Unfledged Ravenlet
 
 c24 = Miner
     c24_skin0 = Miner
@@ -7212,6 +7303,7 @@ c24 = Miner
     c24_skin16 = Wavechant Nerissa
     c24_skin17 = Pickaxe
     c24_skin18 = Min□r
+    c24_skin19 = M25 Pebble
 
 c25 = Trap Master
     c25_skin0 = Trap Master
@@ -7260,6 +7352,7 @@ c27 = Physicist
     c27_skin9 = Physybara
     c27_skin10 = Athena, Goddess of Wisdom
     c27_skin11 = Ion Excitator
+    c27_skin12 = Placidine
 
 c28 = Sword Master
     c28_skin0 = Sword Master
@@ -7407,6 +7500,7 @@ c35 = Bard
     c35_skin7 = Purgatory Pyrelia
     c35_skin8 = 日□rd
     c35_skin9 = Calliope, Muse of Epic Poetry
+    c35_skin10 = Forest Melody
 
 c36 = Gunner
     c36_skin0 = Gunner
@@ -7417,6 +7511,7 @@ c36 = Gunner
     c36_skin5 = Theophil the Bishop
     c36_skin6 = Sharpshooter Syrus
     c36_skin7 = Blackout
+    c36_skin8 = Jackdaw
 
 c37 = Machina
     c37_skin0 = Machina
@@ -7428,6 +7523,7 @@ c37 = Machina
     c37_skin6 = Rustbud Vita
     c37_skin7 = M□chin□
     c37_skin8 = Cryptidist Curiosa
+    c37_skin9 = Sparking Gemini
 
 c38 = Captain
     c38_skin0 = Captain
@@ -7486,6 +7582,7 @@ c40 = Arms Expert
     c40_skin3 = Armament Array: Scintilla
     c40_skin4 = Arms-041
     c40_skin5 = A□ms Exp□rt
+    c40_skin6 = C41 Blazon
 
 c41 = Lady Chef
     c41_skin0 = Lady Chef
@@ -7553,6 +7650,7 @@ c6 = Vampire
     c6_skin23 = Spider Pepper
     c6_skin24 = V□mpir□
     c6_skin25 = Crimson Wine Glass
+    c6_skin26 = R07 Nightlock
 
 c7 = Paladin
     c7_skin0 = Paladin
@@ -7811,6 +7909,9 @@ c9 = Werewolf
 55
     Display name : Mecha Chilly
 
+56
+    Display name : Mad Monki
+
 6
     Display name : BonBon
 
@@ -7990,8 +8091,8 @@ c9 = Werewolf
     Description : Defeated enemies may drop ingredients. Consuming them grants unique buffs.
 
 11
-    Name        : Healing Surge
-    Description : Improve potion effectiveness
+    Name        : Recovery Boost
+    Description : Gain +{0}% recovery effectiveness.
 
 12
     Name        : Mana Harvest
@@ -8435,7 +8536,7 @@ c9 = Werewolf
 
 40
     Name        : Electric Pulse
-    Description : Crit hit rate +5%. Critical hits summon lightning upon the target.
+    Description : Increases crit hit rate by {0}%. Casting a skill or landing a critical hit summons lightning upon the target.
 
 41
     Name        : [Name Not Found]
@@ -9114,6 +9215,9 @@ material_ancient_weapon_fragment
 material_battery
     Display name : Battery
 
+material_bp_point
+    Display name : Training Points
+
 material_c17_book_1
     Display name : Shepherd's Book
 
@@ -9362,6 +9466,9 @@ material_tape_dark
 
 material_tape_defence
     Display name : Till the End of Dawn
+
+material_tape_doctor_12
+    Display name : Placid Rhapsody
 
 material_tape_doctor_6
     Display name : Drum - Pulses of Vibrancy
