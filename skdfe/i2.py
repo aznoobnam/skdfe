@@ -1,11 +1,11 @@
 """I2 localization asset parsing and map loading."""
 
 import csv
+import json
 import re
 from pathlib import Path
 
 from .config import LANGUAGES, ProjectPaths
-
 
 I2Record = tuple[str, list[str]]
 
@@ -17,10 +17,60 @@ def sanitize_text(text: str) -> str:
     return text.strip()
 
 
+def parse_i2_json_file(
+    file_path: Path, filter_patterns: list[re.Pattern[str]] | None = None
+) -> tuple[list[I2Record], tuple[str, ...]]:
+    """Parse I2 Languages from exported I2LanguagesFull.json."""
+    if not file_path.exists():
+        raise FileNotFoundError(f"I2 JSON file not found: {file_path}")
+    data = json.loads(file_path.read_text(encoding="utf-8"))
+    source = data.get("mSource", data)
+    terms = source.get("mTerms", [])
+    m_languages = source.get("mLanguages", [])
+    lang_map_indices = None
+    if m_languages and len(m_languages) == len(LANGUAGES):
+        name_map = {
+            "Farsi (Iran)": "Persian",
+            "Arabic (Egypt)": "Arabic",
+        }
+        file_langs = [
+            name_map.get(m.get("Name", ""), m.get("Name", ""))
+            for m in m_languages
+        ]
+        if tuple(file_langs) != LANGUAGES and all(lang in file_langs for lang in LANGUAGES):
+            lang_map_indices = [file_langs.index(lang) for lang in LANGUAGES]
+
+    records: list[I2Record] = []
+    seen = set()
+    for item in terms:
+        key = item.get("Term", "").strip()
+        if not key:
+            continue
+        if key in seen:
+            continue
+        seen.add(key)
+        languages = item.get("Languages", [])
+        if len(languages) < len(LANGUAGES):
+            raise ValueError(
+                f"I2 term {key!r}: expected {len(LANGUAGES)} languages, found {len(languages)}"
+            )
+        if lang_map_indices:
+            raw_fields = [languages[idx] for idx in lang_map_indices]
+        else:
+            raw_fields = languages[: len(LANGUAGES)]
+        fields = [sanitize_text(str(val)) for val in raw_fields]
+        if not filter_patterns or not any(pattern.match(key) for pattern in filter_patterns):
+            records.append((key, fields))
+    records.sort(key=lambda record: record[0])
+    return records, LANGUAGES
+
+
 def parse_i2_asset_file(
     file_path: Path, filter_patterns: list[re.Pattern[str]] | None = None
 ) -> tuple[list[I2Record], tuple[str, ...]]:
-    """Parse the supported I2 Languages binary format."""
+    """Parse the supported I2 Languages file (.json or legacy .dat)."""
+    if file_path.suffix.lower() == ".json":
+        return parse_i2_json_file(file_path, filter_patterns)
     if not file_path.exists():
         raise FileNotFoundError(f"I2 .dat file not found: {file_path}")
     data = file_path.read_bytes()

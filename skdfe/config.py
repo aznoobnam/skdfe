@@ -82,6 +82,10 @@ class ProjectPaths:
     def sprite_export_tmp(self) -> Path:
         return self.data_dir / "sprite_export_tmp"
 
+    @property
+    def i2_json_path(self) -> Path:
+        return self.data_dir / "MonoBehaviour" / "I2LanguagesFull.json"
+
     def output(self, name: str) -> Path:
         """Return a stable public artifact path."""
         return self.root / name

@@ -52,6 +52,7 @@ def run_asset_extractions(
     unity_data = sk_extracted_path / "assets/bin/Data/data.unity3d"
     managed_folder = sk_extracted_path / "assets/bin/Data/Managed"
     config_bundle = sk_extracted_path / "assets/AssetBundles/config.ab"
+    localization_bundle = sk_extracted_path / "assets/AssetBundles/localization.ab"
     if not unity_data.exists():
         raise FileNotFoundError(f"Unity data file missing: {unity_data}")
     if not managed_folder.exists() or not managed_folder.is_dir():
@@ -59,35 +60,59 @@ def run_asset_extractions(
     if not config_bundle.exists():
         raise FileNotFoundError(f"Config asset bundle missing: {config_bundle}")
 
-    try:
-        paths.export_dir.mkdir(parents=True, exist_ok=True)
-        for dat_file in paths.export_dir.rglob("I2Languages*.dat"):
-            dat_file.unlink()
-    except Exception as error:
-        raise RuntimeError(
-            f"Could not refresh I2 exports under {paths.export_dir}: {error}"
-        ) from error
-
-    run_asset_studio_cli(
-        asset_studio_dir, unity_data, paths.export_dir, "monobehaviour", "raw",
-        "i2language", managed_folder,
-    )
-    removed_any = False
-    for dat_file in paths.export_dir.rglob("I2Languages*.dat"):
-        try:
-            size = dat_file.stat().st_size
-        except OSError as error:
-            logging.warning("Could not stat file %s: %s", dat_file, error)
-            continue
-        if size < 2_000_000:
+    if localization_bundle.is_file():
+        i2_json_target = paths.data_dir / "MonoBehaviour" / "I2LanguagesFull.json"
+        if i2_json_target.exists():
             try:
+                i2_json_target.unlink()
+            except OSError as error:
+                logging.warning("Could not remove old %s: %s", i2_json_target, error)
+        run_asset_studio_cli(
+            asset_studio_dir,
+            localization_bundle,
+            paths.data_dir,
+            "monobehaviour",
+            "export",
+            "I2LanguagesFull",
+            managed_folder,
+            extra_args=("-g", "type"),
+        )
+    else:
+        try:
+            paths.export_dir.mkdir(parents=True, exist_ok=True)
+            for dat_file in paths.export_dir.rglob("I2Languages*.dat"):
                 dat_file.unlink()
-                logging.info("Removed SMALL I2 file: %s (%s bytes)", dat_file.name, size)
-                removed_any = True
-            except Exception as error:
-                logging.warning("Failed to remove %s: %s", dat_file, error)
-    if not removed_any:
-        logging.info("No SMALL I2Languages*.dat files were found to remove.")
+        except Exception as error:
+            raise RuntimeError(
+                f"Could not refresh I2 exports under {paths.export_dir}: {error}"
+            ) from error
+
+        run_asset_studio_cli(
+            asset_studio_dir, unity_data, paths.export_dir, "monobehaviour", "raw",
+            "i2language", managed_folder,
+        )
+        removed_any = False
+        for dat_file in paths.export_dir.rglob("I2Languages*.dat"):
+            try:
+                size = dat_file.stat().st_size
+            except OSError as error:
+                logging.warning("Could not stat file %s: %s", dat_file, error)
+                continue
+            if size < 2_000_000:
+                try:
+                    dat_file.unlink()
+                    logging.info("Removed SMALL I2 file: %s (%s bytes)", dat_file.name, size)
+                    removed_any = True
+                except Exception as error:
+                    logging.warning("Failed to remove %s: %s", dat_file, error)
+        if not removed_any:
+            logging.info("No SMALL I2Languages*.dat files were found to remove.")
+
+    for old_weapon in paths.export_dir.rglob("*WeaponInfo*.txt"):
+        try:
+            old_weapon.unlink()
+        except OSError as error:
+            logging.warning("Could not remove %s: %s", old_weapon, error)
 
     run_asset_studio_cli(
         asset_studio_dir, unity_data, paths.export_dir, "textasset", "export", "WeaponInfo"
@@ -103,8 +128,31 @@ def run_asset_extractions(
         )
 
 
+def find_valid_i2_json(search_dir: Path) -> Path:
+    """Find the exported I2LanguagesFull.json."""
+    candidates = [
+        search_dir / "MonoBehaviour" / "I2LanguagesFull.json",
+        search_dir / "I2LanguagesFull.json",
+        search_dir.parent / "MonoBehaviour" / "I2LanguagesFull.json",
+    ]
+    for path in candidates:
+        if path.is_file() and path.stat().st_size > 0:
+            logging.info("Found valid I2 json: %s (%s bytes)", path.name, path.stat().st_size)
+            return path
+    for json_file in sorted(search_dir.rglob("*I2Languages*.json")):
+        try:
+            if json_file.is_file() and json_file.stat().st_size > 0:
+                logging.info(
+                    "Found valid I2 json: %s (%s bytes)", json_file.name, json_file.stat().st_size
+                )
+                return json_file
+        except OSError:
+            continue
+    raise FileNotFoundError(f"No valid I2Languages JSON file found under {search_dir}.")
+
+
 def find_valid_i2_dat(export_dir: Path) -> Path:
-    """Find the canonical or sole large I2Languages export."""
+    """Find the canonical or sole large I2Languages export, falling back to JSON."""
     candidates = []
     for dat_file in sorted(export_dir.rglob("I2Languages*.dat")):
         try:
@@ -112,18 +160,22 @@ def find_valid_i2_dat(export_dir: Path) -> Path:
                 candidates.append(dat_file)
         except OSError:
             continue
-    if not candidates:
-        raise FileNotFoundError("No valid (≥2 MB) I2Languages .dat file found under export/.")
-    canonical = [path for path in candidates if path.name == "I2Languages.dat"]
-    if len(canonical) == 1:
-        selected = canonical[0]
-    elif len(candidates) == 1:
-        selected = candidates[0]
-    else:
-        paths = ", ".join(str(path) for path in candidates)
-        raise RuntimeError(f"Ambiguous I2Languages exports: {paths}")
-    logging.info("Found valid I2 dat: %s (%s bytes)", selected.name, selected.stat().st_size)
-    return selected
+    if candidates:
+        canonical = [path for path in candidates if path.name == "I2Languages.dat"]
+        if len(canonical) == 1:
+            selected = canonical[0]
+        elif len(candidates) == 1:
+            selected = candidates[0]
+        else:
+            paths = ", ".join(str(path) for path in candidates)
+            raise RuntimeError(f"Ambiguous I2Languages exports: {paths}")
+        logging.info("Found valid I2 dat: %s (%s bytes)", selected.name, selected.stat().st_size)
+        return selected
+
+    try:
+        return find_valid_i2_json(export_dir)
+    except FileNotFoundError:
+        raise FileNotFoundError("No valid (≥2 MB) I2Languages .dat or JSON file found under export/.")
 
 
 def find_exported_text_asset(output_dir: Path, asset_name: str) -> Path:

@@ -5,13 +5,23 @@ import sys
 from pathlib import Path
 
 from skdfe.acquisition import ensure_apk_extracted, ensure_asset_studio, get_latest_apk_info
-from skdfe.assetstudio import find_valid_i2_dat, find_weapon_info, run_asset_extractions
+from skdfe.assetstudio import (
+    find_valid_i2_dat,
+    find_valid_i2_json,
+    find_weapon_info,
+    run_asset_extractions,
+)
 from skdfe.code_names import discover_pet_sources, generate_char_code_names
 from skdfe.config import ProjectPaths
 from skdfe.config_exports import decrypt_config_exports
 from skdfe.sprites import extract_character_drawings, extract_character_sprites
 from skdfe.derivations import build_dictionaries, build_needed_data, build_weapon_evo_data
-from skdfe.i2 import load_language_maps, parse_i2_asset_file, write_i2_csv
+from skdfe.i2 import (
+    load_language_maps,
+    parse_i2_asset_file,
+    parse_i2_json_file,
+    write_i2_csv,
+)
 from skdfe.rendering import load_weapon_info, write_json, write_master_txt, write_weapon_full
 
 logging.basicConfig(
@@ -69,10 +79,14 @@ def main(root: Path | None = None) -> None:
         logging.error("Config export failed: %s", error)
         sys.exit(1)
     try:
-        i2_dat = find_valid_i2_dat(paths.export_dir)
-        records, _ = parse_i2_asset_file(i2_dat)
+        try:
+            i2_source = find_valid_i2_json(paths.data_dir)
+            records, _ = parse_i2_json_file(i2_source)
+        except FileNotFoundError:
+            i2_source = find_valid_i2_dat(paths.export_dir)
+            records, _ = parse_i2_asset_file(i2_source)
     except Exception as error:
-        logging.error("Failed to parse I2 .dat: %s", error)
+        logging.error("Failed to parse I2 localization: %s", error)
         sys.exit(1)
     try:
         csv_path = write_i2_csv(paths, records)
