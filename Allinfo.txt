@@ -978,14 +978,14 @@ weapon_113
     Type      : Staff
 
 weapon_114
-    Name      : Staff Of Thunder
+    Name      : Staff of Thunder
     Forgeable : True
     Is melee  : False
     Rarity    : 3
     Type      : Staff
 
 weapon_115
-    Name      : Staff Of Nature
+    Name      : Staff of Nature
     Forgeable : True
     Is melee  : False
     Rarity    : 0
@@ -999,21 +999,21 @@ weapon_116
     Type      : Staff
 
 weapon_117
-    Name      : Staff Of Frost
+    Name      : Staff of Frost
     Forgeable : True
     Is melee  : False
     Rarity    : 2
     Type      : Staff
 
 weapon_118
-    Name      : Staff Of Flame
+    Name      : Staff of Flame
     Forgeable : True
     Is melee  : False
     Rarity    : 2
     Type      : Staff
 
 weapon_119
-    Name      : Staff Of Light
+    Name      : Staff of Light
     Forgeable : True
     Is melee  : False
     Rarity    : 1
@@ -1202,7 +1202,7 @@ weapon_144
     Type      : Spear
 
 weapon_145
-    Name      : Staff Of Wizard
+    Name      : Staff of Wizard
     Forgeable : True
     Is melee  : False
     Rarity    : 5
@@ -3420,6 +3420,13 @@ weapon_init_alchemistxx13
     Rarity    : 1
     Type      : ShotGun
 
+weapon_init_alchemistxx14
+    Name      : Serpent Venom
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : ShotGun
+
 weapon_init_alchemistxx2
     Name      : [Name Not Found]
     Forgeable : False
@@ -3527,6 +3534,20 @@ weapon_init_arcaneknightxx5
 
 weapon_init_arcaneknightxx6
     Name      : Scrap Conductor
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
+weapon_init_arcaneknightxx7
+    Name      : Flare Scepter
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
+weapon_init_arcaneknightxx8
+    Name      : [Name Not Found]
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -3814,6 +3835,13 @@ weapon_init_captainxx6
 
 weapon_init_captainxx7
     Name      : Captain
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_captainxx8
+    Name      : Windchaser
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -4862,6 +4890,13 @@ weapon_init_necromancerxx15
     Rarity    : 1
     Type      : Staff
 
+weapon_init_necromancerxx16
+    Name      : Ruby Rosette
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
 weapon_init_necromancerxx2
     Name      : Green Snake Sword
     Forgeable : False
@@ -5221,6 +5256,13 @@ weapon_init_priestxx14
 
 weapon_init_priestxx15
     Name      : Moonlit Fan
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
+weapon_init_priestxx16
+    Name      : Handmade IV Stand
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -6283,6 +6325,13 @@ weapon_init_werewolfxx10
     Rarity    : 1
     Type      : Strange
 
+weapon_init_werewolfxx11
+    Name      : Chef's Set
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Strange
+
 weapon_init_werewolfxx2
     Name      : Fire-tipped Spear & Universe Ring
     Forgeable : False
@@ -6992,6 +7041,7 @@ c10 = Priestess
     c10_skin27 = Pri□st□ss
     c10_skin28 = Wooden Cross
     c10_skin29 = Evermoon
+    c10_skin30 = Seacurer Thalassia
 
 c11 = Druid
     c11_skin0 = Druid
@@ -7087,6 +7137,7 @@ c13 = Berserker
     c13_skin29 = Boxing Gloves
     c13_skin30 = Paragon Aureon
     c13_skin31 = Hookhand Baro
+    c13_skin32 = MooMoo
 
 c14 = Necromancer
     c14_skin0 = Necromancer
@@ -7115,6 +7166,7 @@ c14 = Necromancer
     c14_skin23 = Pearlbloom Perrine
     c14_skin24 = Staff of Plague
     c14_skin25 = Jadesheen Celestin
+    c14_skin26 = Ruby
 
 c15 = Officer
     c15_skin0 = Officer
@@ -7338,6 +7390,7 @@ c26 = Costume Prince
     c26_skin13 = Eidolonwaker Loiseth
     c26_skin14 = Plastic Mucus Gun
     c26_skin15 = Mechtrix Stellan
+    c26_skin16 = C□stum□ Pri□ce
 
 c27 = Physicist
     c27_skin0 = Physicist
@@ -7353,6 +7406,7 @@ c27 = Physicist
     c27_skin10 = Athena, Goddess of Wisdom
     c27_skin11 = Ion Excitator
     c27_skin12 = Placidine
+    c27_skin13 = Ph□sic□st
 
 c28 = Sword Master
     c28_skin0 = Sword Master
@@ -7448,6 +7502,7 @@ c31 = Arcane Knight
     c31_skin8 = Detective Doyle
     c31_skin9 = Arc□ne K□ight
     c31_skin10 = Violetta
+    c31_skin11 = Flareplume: Vermilion Bird
 
 c32 = Astromancer
     c32_skin0 = Astromancer
@@ -7512,6 +7567,7 @@ c36 = Gunner
     c36_skin6 = Sharpshooter Syrus
     c36_skin7 = Blackout
     c36_skin8 = Jackdaw
+    c36_skin9 = G□nn□r
 
 c37 = Machina
     c37_skin0 = Machina
@@ -7537,6 +7593,7 @@ c38 = Captain
     c38_skin8 = Apatite
     c38_skin9 = Cutlass & Flintlock
     c38_skin10 = C□ptain
+    c38_skin11 = Lightrack Leon
 
 c39 = Yin-Yang Adept
     c39_skin0 = Yin-Yang Adept
@@ -7574,6 +7631,7 @@ c4 = Alchemist
     c4_skin24 = Dormant Bubble Machine
     c4_skin25 = Grainkeeper Thatch
     c4_skin26 = Al□h□mist
+    c4_skin27 = Serpentine
 
 c40 = Arms Expert
     c40_skin0 = Arms Expert
@@ -7749,6 +7807,7 @@ c9 = Werewolf
     c9_skin30 = W□r□w□lf
     c9_skin31 = Flaring Claw
     c9_skin32 = Frostreign Gale
+    c9_skin33 = Chef Chelik
 
 ██████  ███████ ████████
 ██   ██ ██         ██   
@@ -7912,6 +7971,9 @@ c9 = Werewolf
 56
     Display name : Mad Monki
 
+57
+    Display name : Fish Chip King
+
 6
     Display name : BonBon
 
@@ -7996,7 +8058,7 @@ c9 = Werewolf
 
 1006
     Name        : [Name Not Found]
-    Description : A Great Owl pet follows you around. It disappears for a while if you take any damage. Exclusive to this character.
+    Description : A Great Owl pet follows you around. It disappears for a while if you take any damage.
 
 1007
     Name        : [Name Not Found]

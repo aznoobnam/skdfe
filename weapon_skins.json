@@ -3,6 +3,14 @@
   "favorWeapons": [],
   "lastOpenMachineHistoryStr0": "",
   "weapons": {
+    "weapon_002": {
+      "CurrentSkinIndex": 1,
+      "Level": 0,
+      "Name": "weapon_002",
+      "UnlockedSkins": [
+        "weapon_002_s_1"
+      ]
+    },
     "weapon_003": {
       "CurrentSkinIndex": 1,
       "Level": 0,
@@ -67,6 +75,14 @@
       "Name": "weapon_015",
       "UnlockedSkins": [
         "weapon_015_s_1"
+      ]
+    },
+    "weapon_018": {
+      "CurrentSkinIndex": 1,
+      "Level": 1,
+      "Name": "weapon_018",
+      "UnlockedSkins": [
+        "weapon_018_s_1"
       ]
     },
     "weapon_025": {
@@ -640,6 +656,14 @@
         "weapon_171_s_1"
       ]
     },
+    "weapon_172": {
+      "CurrentSkinIndex": 1,
+      "Level": 0,
+      "Name": "weapon_172",
+      "UnlockedSkins": [
+        "weapon_172_s_1"
+      ]
+    },
     "weapon_175": {
       "CurrentSkinIndex": 1,
       "Level": 1,
@@ -818,6 +842,14 @@
         "weapon_233_s_1"
       ]
     },
+    "weapon_237": {
+      "CurrentSkinIndex": 1,
+      "Level": 0,
+      "Name": "weapon_237",
+      "UnlockedSkins": [
+        "weapon_237_s_1"
+      ]
+    },
     "weapon_239": {
       "CurrentSkinIndex": 1,
       "Level": 1,
@@ -867,6 +899,14 @@
         "weapon_260_s_1"
       ]
     },
+    "weapon_268": {
+      "CurrentSkinIndex": 1,
+      "Level": 0,
+      "Name": "weapon_268",
+      "UnlockedSkins": [
+        "weapon_268_s_1"
+      ]
+    },
     "weapon_270": {
       "CurrentSkinIndex": 1,
       "Level": 1,
@@ -905,6 +945,14 @@
       "Name": "weapon_278",
       "UnlockedSkins": [
         "weapon_278_s_1"
+      ]
+    },
+    "weapon_292": {
+      "CurrentSkinIndex": 1,
+      "Level": 0,
+      "Name": "weapon_292",
+      "UnlockedSkins": [
+        "weapon_292_s_1"
       ]
     },
     "weapon_298": {
@@ -1220,6 +1268,22 @@
       "Name": "weapon_377",
       "UnlockedSkins": [
         "weapon_377_s_1"
+      ]
+    },
+    "weapon_378": {
+      "CurrentSkinIndex": 1,
+      "Level": 1,
+      "Name": "weapon_378",
+      "UnlockedSkins": [
+        "weapon_378_s_1"
+      ]
+    },
+    "weapon_388": {
+      "CurrentSkinIndex": 1,
+      "Level": 1,
+      "Name": "weapon_388",
+      "UnlockedSkins": [
+        "weapon_388_s_1"
       ]
     },
     "weapon_399": {
