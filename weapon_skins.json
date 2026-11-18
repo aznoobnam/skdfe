@@ -93,6 +93,14 @@
         "weapon_025_s_1"
       ]
     },
+    "weapon_026": {
+      "CurrentSkinIndex": 1,
+      "Level": 0,
+      "Name": "weapon_026",
+      "UnlockedSkins": [
+        "weapon_026_s_1"
+      ]
+    },
     "weapon_028": {
       "CurrentSkinIndex": 1,
       "Level": 1,
@@ -760,6 +768,14 @@
         "weapon_200_s_1"
       ]
     },
+    "weapon_203": {
+      "CurrentSkinIndex": 1,
+      "Level": 1,
+      "Name": "weapon_203",
+      "UnlockedSkins": [
+        "weapon_203_s_1"
+      ]
+    },
     "weapon_205": {
       "CurrentSkinIndex": 1,
       "Level": 0,
@@ -883,12 +899,28 @@
         "weapon_247_s_1"
       ]
     },
+    "weapon_250": {
+      "CurrentSkinIndex": 1,
+      "Level": 1,
+      "Name": "weapon_250",
+      "UnlockedSkins": [
+        "weapon_250_s_1"
+      ]
+    },
     "weapon_253": {
       "CurrentSkinIndex": 1,
       "Level": 1,
       "Name": "weapon_253",
       "UnlockedSkins": [
         "weapon_253_s_1"
+      ]
+    },
+    "weapon_255": {
+      "CurrentSkinIndex": 1,
+      "Level": 1,
+      "Name": "weapon_255",
+      "UnlockedSkins": [
+        "weapon_255_s_1"
       ]
     },
     "weapon_260": {
@@ -1189,6 +1221,14 @@
         "weapon_361_s_1"
       ]
     },
+    "weapon_363": {
+      "CurrentSkinIndex": 1,
+      "Level": 0,
+      "Name": "weapon_363",
+      "UnlockedSkins": [
+        "weapon_363_s_1"
+      ]
+    },
     "weapon_365": {
       "CurrentSkinIndex": 1,
       "Level": 0,
@@ -1286,6 +1326,14 @@
         "weapon_388_s_1"
       ]
     },
+    "weapon_392": {
+      "CurrentSkinIndex": 1,
+      "Level": 0,
+      "Name": "weapon_392",
+      "UnlockedSkins": [
+        "weapon_392_s_1"
+      ]
+    },
     "weapon_399": {
       "CurrentSkinIndex": 1,
       "Level": 1,
@@ -1347,6 +1395,14 @@
       "Name": "weapon_406",
       "UnlockedSkins": [
         "weapon_406_s_1"
+      ]
+    },
+    "weapon_407": {
+      "CurrentSkinIndex": 1,
+      "Level": 0,
+      "Name": "weapon_407",
+      "UnlockedSkins": [
+        "weapon_407_s_1"
       ]
     },
     "weapon_411": {

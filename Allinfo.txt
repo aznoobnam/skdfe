@@ -3540,14 +3540,14 @@ weapon_init_arcaneknightxx6
     Type      : Staff
 
 weapon_init_arcaneknightxx7
-    Name      : Flare Scepter
+    Name      : [Name Not Found]
     Forgeable : False
     Is melee  : False
     Rarity    : 1
     Type      : Staff
 
 weapon_init_arcaneknightxx8
-    Name      : [Name Not Found]
+    Name      : Flare Scepter
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -3707,6 +3707,13 @@ weapon_init_astrologistxx5
     Rarity    : 1
     Type      : Staff
 
+weapon_init_astrologistxx6
+    Name      : Arcade Joystick
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
 weapon_init_bard
     Name      : Forest Melody
     Forgeable : True
@@ -3758,6 +3765,13 @@ weapon_init_bardxx5
 
 weapon_init_bardxx6
     Name      : Bard
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : ShotGun
+
+weapon_init_bardxx7
+    Name      : Embroidered Ball
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -3842,6 +3856,13 @@ weapon_init_captainxx7
 
 weapon_init_captainxx8
     Name      : Windchaser
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Strange
+
+weapon_init_captainxx9
+    Name      : Recurve Warbow
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -4358,6 +4379,13 @@ weapon_init_envoyxx3
     Rarity    : 1
     Type      : Staff
 
+weapon_init_envoyxx4
+    Name      : Sensory Strainer
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
 weapon_init_fighter
     Name      : Qi Punch
     Forgeable : True
@@ -4661,6 +4689,13 @@ weapon_init_magexx14
 
 weapon_init_magexx15
     Name      : Terra Sphere
+    Forgeable : False
+    Is melee  : False
+    Rarity    : 1
+    Type      : Staff
+
+weapon_init_magexx16
+    Name      : Butterfly Book
     Forgeable : False
     Is melee  : False
     Rarity    : 1
@@ -6332,6 +6367,13 @@ weapon_init_werewolfxx11
     Rarity    : 1
     Type      : Strange
 
+weapon_init_werewolfxx12
+    Name      : Stormfang
+    Forgeable : False
+    Is melee  : True
+    Rarity    : 1
+    Type      : Strange
+
 weapon_init_werewolfxx2
     Name      : Fire-tipped Spear & Universe Ring
     Forgeable : False
@@ -6972,6 +7014,7 @@ c0 = Knight
     c0_skin35 = K□ight
     c0_skin36 = Zongzi Knight
     c0_skin37 = D01 Gatekeeper
+    c0_skin38 = Knight Bus
 
 c1 = Rogue
     c1_skin0 = Rogue
@@ -7009,6 +7052,7 @@ c1 = Rogue
     c1_skin32 = R□g□e
     c1_skin33 = Malachite
     c1_skin34 = Skater Scott
+    c1_skin35 = TV Rocycler
 
 c10 = Priestess
     c10_skin0 = Priestess
@@ -7239,6 +7283,7 @@ c18 = Element Envoy
     c18_skin2 = Olement Onvoy
     c18_skin3 = Visage of Elemental Power
     c18_skin4 = El□ment Env□y
+    c18_skin5 = C19 Seal
 
 c19 = The Beheaded
     c19_skin0 = The Beheaded
@@ -7277,6 +7322,8 @@ c2 = Witch
     c2_skin30 = Ashenseer Voojaa
     c2_skin31 = The Code
     c2_skin32 = Gaia, Goddess of the Earth
+    c2_skin33 = Labradorite
+    c2_skin34 = Witch Flavor
 
 c20 = Time Traveling Ninja
     c20_skin0 = Time Traveling Ninja
@@ -7473,6 +7520,7 @@ c3 = Assassin
     c3_skin28 = Blood Blade
     c3_skin29 = Ass□ssi□
     c3_skin30 = Ashenborn Valerian
+    c3_skin31 = Assassin Chassis
 
 c30 = Warliege
     c30_skin0 = Warliege
@@ -7515,6 +7563,7 @@ c32 = Astromancer
     c32_skin7 = Tentacled Samuel
     c32_skin8 = Astraltide Aster
     c32_skin9 = Astr□m□nc□r
+    c32_skin10 = Arcade Ace Lorr
 
 c33 = Fighter
     c33_skin0 = Fighter
@@ -7556,6 +7605,7 @@ c35 = Bard
     c35_skin8 = 日□rd
     c35_skin9 = Calliope, Muse of Epic Poetry
     c35_skin10 = Forest Melody
+    c35_skin11 = Zhuluan the Threadweaver
 
 c36 = Gunner
     c36_skin0 = Gunner
@@ -7594,6 +7644,7 @@ c38 = Captain
     c38_skin9 = Cutlass & Flintlock
     c38_skin10 = C□ptain
     c38_skin11 = Lightrack Leon
+    c38_skin12 = Odysseus
 
 c39 = Yin-Yang Adept
     c39_skin0 = Yin-Yang Adept
@@ -7808,6 +7859,7 @@ c9 = Werewolf
     c9_skin31 = Flaring Claw
     c9_skin32 = Frostreign Gale
     c9_skin33 = Chef Chelik
+    c9_skin34 = A10 Riftclaw
 
 ██████  ███████ ████████
 ██   ██ ██         ██   
@@ -8018,7 +8070,7 @@ c9 = Werewolf
 
 06
     Name        : Trap Shield
-    Description : Immune to traps, and immune to collision damage
+    Description : Immune to traps and collision damage. Upon contact, deals damage to enemies based on your current max HP and size.
 
 07
     Name        : Poison Shield
@@ -8845,12 +8897,12 @@ FireElementShard
 
 FireFrostGloves
     Name        : [Name Not Found]
-    Title       : Jolly Reindeer Bell
+    Title       : Champion's Fist
     Description : Weapon damage +{0}% upon casting any skill while in the Power Up state. Lasts for {1}s.
 
 FireIceCrown
     Name        : [Name Not Found]
-    Title       : Yeti's Heavy Gauntlets
+    Title       : Arcade Gauntlets
     Description : Melee attacks are enhanced and may stun enemies while in the Power Up state.
 
 FireMasterDiary
@@ -8860,12 +8912,12 @@ FireMasterDiary
 
 FireSnowGlobe
     Name        : [Name Not Found]
-    Title       : Snow Squad Badge
+    Title       : Pixel Squad Badge
     Description : All followers and summons gain greatly increased attack and survivability while in the Power Up state.
 
 FireSnowShoes
     Name        : [Name Not Found]
-    Title       : Santa's Sleigh
+    Title       : Power of Ice
     Description : Upon moving {0} units of distance while in the Power Up state, unleashes a freezing strike on nearby enemies, with a special effect activating at high speed.
 
 FloorCrack

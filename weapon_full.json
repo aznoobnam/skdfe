@@ -184,19 +184,6 @@
     },
     {
       "cantExchangeByToken": false,
-      "dropLevel": 0,
-      "forgeable": true,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 0,
-      "name": "weapon_002",
-      "tags": [],
-      "title": "阿卡47",
-      "type": "Gun"
-    },
-    {
-      "cantExchangeByToken": false,
       "dropLevel": -1,
       "forgeable": true,
       "indroduce": null,
@@ -206,6 +193,19 @@
       "name": "weapon_pet_2",
       "tags": [],
       "title": "头套英雄机枪",
+      "type": "Gun"
+    },
+    {
+      "cantExchangeByToken": false,
+      "dropLevel": 0,
+      "forgeable": true,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 0,
+      "name": "weapon_002",
+      "tags": [],
+      "title": "阿卡47",
       "type": "Gun"
     },
     {
@@ -1021,11 +1021,11 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 0,
-      "name": "weapon_init_paladin",
+      "name": "weapon_init_miner",
       "tags": [
         "InitWeapon"
       ],
-      "title": "神圣连枷",
+      "title": "铁镐",
       "type": "Axe"
     },
     {
@@ -1036,11 +1036,11 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 0,
-      "name": "weapon_init_miner",
+      "name": "weapon_init_paladin",
       "tags": [
         "InitWeapon"
       ],
-      "title": "铁镐",
+      "title": "神圣连枷",
       "type": "Axe"
     },
     {
@@ -1127,13 +1127,13 @@
       "forgeable": true,
       "indroduce": null,
       "indroduceAuthor": null,
-      "isMelle": false,
+      "isMelle": true,
       "level": 0,
-      "name": "weapon_init_druid",
+      "name": "weapon_init_ranger",
       "tags": [
         "InitWeapon"
       ],
-      "title": "嘎嘣脆的骨头",
+      "title": "小明小红",
       "type": "Throw"
     },
     {
@@ -1157,13 +1157,13 @@
       "forgeable": true,
       "indroduce": null,
       "indroduceAuthor": null,
-      "isMelle": true,
+      "isMelle": false,
       "level": 0,
-      "name": "weapon_init_ranger",
+      "name": "weapon_init_druid",
       "tags": [
         "InitWeapon"
       ],
-      "title": "小明小红",
+      "title": "嘎嘣脆的骨头",
       "type": "Throw"
     },
     {
@@ -1465,6 +1465,21 @@
       "forgeable": true,
       "indroduce": null,
       "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 0,
+      "name": "weapon_init_aigirl",
+      "tags": [
+        "InitWeapon"
+      ],
+      "title": "极电双星",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": false,
+      "dropLevel": -1,
+      "forgeable": true,
+      "indroduce": null,
+      "indroduceAuthor": null,
       "isMelle": true,
       "level": 0,
       "name": "weapon_init_werewolf",
@@ -1473,34 +1488,6 @@
         "HideHand"
       ],
       "title": "灼热爪刃",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": false,
-      "dropLevel": -1,
-      "forgeable": true,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 0,
-      "name": "weapon_fertilizer",
-      "tags": [],
-      "title": "肥料",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": false,
-      "dropLevel": -1,
-      "forgeable": true,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 0,
-      "name": "weapon_init_aigirl",
-      "tags": [
-        "InitWeapon"
-      ],
-      "title": "极电双星",
       "type": "Strange"
     },
     {
@@ -1543,6 +1530,19 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 0,
+      "name": "weapon_fertilizer",
+      "tags": [],
+      "title": "肥料",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": false,
+      "dropLevel": -1,
+      "forgeable": true,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 0,
       "name": "weapon_init_vampire",
       "tags": [
         "InitWeapon"
@@ -1558,24 +1558,9 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 0,
-      "name": "weapon_init_specialforces",
-      "tags": [
-        "InitWeapon"
-      ],
-      "title": "特种作战武器",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": false,
-      "dropLevel": -1,
-      "forgeable": true,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 0,
-      "name": "weapon_init_yinyang",
+      "name": "weapon_shower",
       "tags": [],
-      "title": "阴阳",
+      "title": "水壶",
       "type": "Strange"
     },
     {
@@ -1617,9 +1602,25 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 0,
-      "name": "weapon_shower",
+      "name": "weapon_init_transcendent",
+      "tags": [
+        "InitWeapon",
+        "HideHand"
+      ],
+      "title": "次元之握",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": false,
+      "dropLevel": -1,
+      "forgeable": true,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 0,
+      "name": "weapon_init_yinyang",
       "tags": [],
-      "title": "水壶",
+      "title": "阴阳",
       "type": "Strange"
     },
     {
@@ -1630,12 +1631,11 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 0,
-      "name": "weapon_init_transcendent",
+      "name": "weapon_init_specialforces",
       "tags": [
-        "InitWeapon",
-        "HideHand"
+        "InitWeapon"
       ],
-      "title": "次元之握",
+      "title": "特种作战武器",
       "type": "Strange"
     },
     {
@@ -1925,30 +1925,9 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 0,
-      "name": "weapon_troop_defence",
+      "name": "weapon_troop_reborn",
       "tags": [],
       "title": null,
-      "type": "Default"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 0,
-      "name": "weapon_init_airbender",
-      "tags": [
-        "NotReforgeResult",
-        "NotReforge",
-        "Unstorable",
-        "InitWeapon",
-        "NotOccupied",
-        "NoEquipment",
-        "CantExchangeByToken"
-      ],
-      "title": "天地通意拳",
       "type": "Default"
     },
     {
@@ -1959,7 +1938,7 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 0,
-      "name": "weapon_troop_statue_engineer",
+      "name": "weapon_troop_whistle",
       "tags": [],
       "title": null,
       "type": "Default"
@@ -2037,7 +2016,20 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 0,
-      "name": "weapon_troop_cd",
+      "name": "weapon_troop_statue_paladin",
+      "tags": [],
+      "title": null,
+      "type": "Default"
+    },
+    {
+      "cantExchangeByToken": false,
+      "dropLevel": 0,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 0,
+      "name": "weapon_troop_statue_wizzard",
       "tags": [],
       "title": null,
       "type": "Default"
@@ -2063,7 +2055,7 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 0,
-      "name": "weapon_troop_whistle",
+      "name": "weapon_troop_critic",
       "tags": [],
       "title": null,
       "type": "Default"
@@ -2076,7 +2068,7 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 0,
-      "name": "weapon_troop_statue_assassin",
+      "name": "weapon_troop_cd",
       "tags": [],
       "title": null,
       "type": "Default"
@@ -2102,33 +2094,41 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 0,
+      "name": "weapon_troop_statue_engineer",
+      "tags": [],
+      "title": null,
+      "type": "Default"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 0,
+      "name": "weapon_init_airbender",
+      "tags": [
+        "NotReforgeResult",
+        "NotReforge",
+        "Unstorable",
+        "InitWeapon",
+        "NotOccupied",
+        "NoEquipment",
+        "CantExchangeByToken"
+      ],
+      "title": "天地通意拳",
+      "type": "Default"
+    },
+    {
+      "cantExchangeByToken": false,
+      "dropLevel": 0,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 0,
       "name": "weapon_troop_atk_speed",
-      "tags": [],
-      "title": null,
-      "type": "Default"
-    },
-    {
-      "cantExchangeByToken": false,
-      "dropLevel": 0,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 0,
-      "name": "weapon_troop_statue_paladin",
-      "tags": [],
-      "title": null,
-      "type": "Default"
-    },
-    {
-      "cantExchangeByToken": false,
-      "dropLevel": 0,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 0,
-      "name": "weapon_troop_statue_wizzard",
       "tags": [],
       "title": null,
       "type": "Default"
@@ -2206,7 +2206,7 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 0,
-      "name": "weapon_troop_reborn",
+      "name": "weapon_troop_statue_assassin",
       "tags": [],
       "title": null,
       "type": "Default"
@@ -2219,7 +2219,7 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 0,
-      "name": "weapon_troop_critic",
+      "name": "weapon_troop_defence",
       "tags": [],
       "title": null,
       "type": "Default"
@@ -2292,12 +2292,104 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_doctorxx8",
+      "name": "weapon_init_doctorxx2",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "安魂曲",
+      "title": "裁决者",
+      "type": "Pistol"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_officerxx2",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "亡者小径",
+      "type": "Pistol"
+    },
+    {
+      "cantExchangeByToken": false,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_000xx5",
+      "tags": [
+        "InitWeapon"
+      ],
+      "title": "崭新的小手枪",
+      "type": "Pistol"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_officerxx10",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "棒球搭档",
+      "type": "Pistol"
+    },
+    {
+      "cantExchangeByToken": false,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_000xx9",
+      "tags": [
+        "InitWeapon"
+      ],
+      "title": "忠魂弓",
+      "type": "Pistol"
+    },
+    {
+      "cantExchangeByToken": false,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_000xx11",
+      "tags": [
+        "InitWeapon"
+      ],
+      "title": "灼魂审判",
+      "type": "Pistol"
+    },
+    {
+      "cantExchangeByToken": false,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_000xx",
+      "tags": [
+        "InitWeapon"
+      ],
+      "title": "崭新的手枪",
       "type": "Pistol"
     },
     {
@@ -2324,12 +2416,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_doctorxx3",
+      "name": "weapon_init_officerxx7",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "绮梦灯火",
+      "title": "勇气手枪",
       "type": "Pistol"
     },
     {
@@ -2340,12 +2432,28 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_doctorxx6",
+      "name": "weapon_init_officerxx12",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "常胜将军",
+      "title": "雷霆权杖",
+      "type": "Pistol"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_doctorxx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "血刃枪丸",
       "type": "Pistol"
     },
     {
@@ -2361,6 +2469,21 @@
         "InitWeapon"
       ],
       "title": "制式防线枪",
+      "type": "Pistol"
+    },
+    {
+      "cantExchangeByToken": false,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_000xx6",
+      "tags": [
+        "InitWeapon"
+      ],
+      "title": "烈焰",
       "type": "Pistol"
     },
     {
@@ -2395,6 +2518,53 @@
       "type": "Pistol"
     },
     {
+      "cantExchangeByToken": false,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_000xx7",
+      "tags": [
+        "InitWeapon"
+      ],
+      "title": "金弓银弹",
+      "type": "Pistol"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_doctorxx8",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "安魂曲",
+      "type": "Pistol"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_doctorxx6",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "常胜将军",
+      "type": "Pistol"
+    },
+    {
       "cantExchangeByToken": true,
       "dropLevel": -1,
       "forgeable": false,
@@ -2418,199 +2588,104 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_doctorxx2",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "裁决者",
-      "type": "Pistol"
-    },
-    {
-      "cantExchangeByToken": false,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_000xx11",
-      "tags": [
-        "InitWeapon"
-      ],
-      "title": "灼魂审判",
-      "type": "Pistol"
-    },
-    {
-      "cantExchangeByToken": false,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_000xx5",
-      "tags": [
-        "InitWeapon"
-      ],
-      "title": "崭新的小手枪",
-      "type": "Pistol"
-    },
-    {
-      "cantExchangeByToken": false,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_000xx9",
-      "tags": [
-        "InitWeapon"
-      ],
-      "title": "忠魂弓",
-      "type": "Pistol"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_officerxx10",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "棒球搭档",
-      "type": "Pistol"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_doctorxx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "血刃枪丸",
-      "type": "Pistol"
-    },
-    {
-      "cantExchangeByToken": false,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_000xx7",
-      "tags": [
-        "InitWeapon"
-      ],
-      "title": "金弓银弹",
-      "type": "Pistol"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_officerxx7",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "勇气手枪",
-      "type": "Pistol"
-    },
-    {
-      "cantExchangeByToken": false,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_000xx6",
-      "tags": [
-        "InitWeapon"
-      ],
-      "title": "烈焰",
-      "type": "Pistol"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_officerxx2",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "亡者小径",
-      "type": "Pistol"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_officerxx12",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "雷霆权杖",
-      "type": "Pistol"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_officerx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "罪恶克星",
-      "type": "Pistol"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
       "name": "weapon_init_doctorxx5",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
       "title": "紫魂噬星",
+      "type": "Pistol"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_officerxx4",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "天怒神剑",
+      "type": "Pistol"
+    },
+    {
+      "cantExchangeByToken": false,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_000xx4",
+      "tags": [
+        "InitWeapon"
+      ],
+      "title": "罗慕路斯的短剑",
+      "type": "Pistol"
+    },
+    {
+      "cantExchangeByToken": false,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_000xx14",
+      "tags": [
+        "InitWeapon"
+      ],
+      "title": "骑士",
+      "type": "Pistol"
+    },
+    {
+      "cantExchangeByToken": false,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_000xx8",
+      "tags": [
+        "InitWeapon"
+      ],
+      "title": "正义侍者",
+      "type": "Pistol"
+    },
+    {
+      "cantExchangeByToken": false,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_000x",
+      "tags": [
+        "InitWeapon"
+      ],
+      "title": "崭新的手枪",
+      "type": "Pistol"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_officerxx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "铜钱剑",
       "type": "Pistol"
     },
     {
@@ -2625,7 +2700,23 @@
       "tags": [
         "InitWeapon"
       ],
-      "title": "",
+      "title": null,
+      "type": "Pistol"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_officerxx6",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "虎头湛金枪",
       "type": "Pistol"
     },
     {
@@ -2657,6 +2748,37 @@
         "CantExchangeByToken"
       ],
       "title": "离子聚变枪",
+      "type": "Pistol"
+    },
+    {
+      "cantExchangeByToken": false,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_000xx13",
+      "tags": [
+        "InitWeapon"
+      ],
+      "title": "跃影狮铳",
+      "type": "Pistol"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_officerxx3",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "制裁",
       "type": "Pistol"
     },
     {
@@ -2699,57 +2821,28 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
+      "name": "weapon_init_officerx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "罪恶克星",
+      "type": "Pistol"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
       "name": "weapon_init_doctorxx7",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
       "title": "博士",
-      "type": "Pistol"
-    },
-    {
-      "cantExchangeByToken": false,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_000xx",
-      "tags": [
-        "InitWeapon"
-      ],
-      "title": "崭新的手枪",
-      "type": "Pistol"
-    },
-    {
-      "cantExchangeByToken": false,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_000xx13",
-      "tags": [
-        "InitWeapon"
-      ],
-      "title": "跃影狮铳",
-      "type": "Pistol"
-    },
-    {
-      "cantExchangeByToken": false,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_000xx4",
-      "tags": [
-        "InitWeapon"
-      ],
-      "title": "罗慕路斯的短剑",
       "type": "Pistol"
     },
     {
@@ -2775,105 +2868,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_officerxx3",
+      "name": "weapon_init_doctorxx3",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "制裁",
-      "type": "Pistol"
-    },
-    {
-      "cantExchangeByToken": false,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_000xx8",
-      "tags": [
-        "InitWeapon"
-      ],
-      "title": "正义侍者",
-      "type": "Pistol"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_officerxx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "铜钱剑",
-      "type": "Pistol"
-    },
-    {
-      "cantExchangeByToken": false,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_000x",
-      "tags": [
-        "InitWeapon"
-      ],
-      "title": "崭新的手枪",
-      "type": "Pistol"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_officerxx6",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "虎头湛金枪",
-      "type": "Pistol"
-    },
-    {
-      "cantExchangeByToken": false,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_000xx14",
-      "tags": [
-        "InitWeapon"
-      ],
-      "title": "骑士",
-      "type": "Pistol"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_officerxx4",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "天怒神剑",
+      "title": "绮梦灯火",
       "type": "Pistol"
     },
     {
@@ -2962,39 +2962,6 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_engineerxx5",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "",
-      "type": "Gun"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_trapmasterxx2",
-      "tags": [
-        "InitWeapon",
-        "NotReforgeResult",
-        "CantExchangeByToken"
-      ],
-      "title": "星空撕裂者",
-      "type": "Gun"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
       "name": "weapon_init_costumeprincexx4",
       "tags": [
         "InitWeapon",
@@ -3021,20 +2988,16 @@
       "type": "Gun"
     },
     {
-      "cantExchangeByToken": true,
+      "cantExchangeByToken": false,
       "dropLevel": -1,
-      "forgeable": false,
+      "forgeable": true,
       "indroduce": null,
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_trapmasterxx",
-      "tags": [
-        "InitWeapon",
-        "NotReforgeResult",
-        "CantExchangeByToken"
-      ],
-      "title": "追魂钩",
+      "name": "weapon_cg_0",
+      "tags": [],
+      "title": "黄巾军步枪",
       "type": "Gun"
     },
     {
@@ -3045,79 +3008,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_costumeprincexx3",
-      "tags": [
-        "InitWeapon",
-        "NotReforgeResult",
-        "CantExchangeByToken"
-      ],
-      "title": "汽水（大杯）",
-      "type": "Gun"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_engineerxx",
+      "name": "weapon_init_engineerxx10",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "欠时代冲锋枪",
-      "type": "Gun"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_costumeprincexx2",
-      "tags": [
-        "InitWeapon",
-        "NotReforgeResult",
-        "CantExchangeByToken"
-      ],
-      "title": "降妖宝杖",
-      "type": "Gun"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_engineerxx4",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "伪装巨炮",
-      "type": "Gun"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_trapmasterxx4",
-      "tags": [
-        "InitWeapon",
-        "NotReforgeResult",
-        "CantExchangeByToken"
-      ],
-      "title": "百里",
+      "title": "发明家电钻",
       "type": "Gun"
     },
     {
@@ -3145,12 +3041,29 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_engineerxx12",
+      "name": "weapon_init_costumeprincexx3",
+      "tags": [
+        "InitWeapon",
+        "NotReforgeResult",
+        "CantExchangeByToken"
+      ],
+      "title": "汽水（大杯）",
+      "type": "Gun"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_engineerxx5",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "工程师",
+      "title": null,
       "type": "Gun"
     },
     {
@@ -3178,13 +3091,13 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_trapmasterxx5",
+      "name": "weapon_init_trapmasterxx2",
       "tags": [
         "InitWeapon",
         "NotReforgeResult",
         "CantExchangeByToken"
       ],
-      "title": "鬼火诡索",
+      "title": "星空撕裂者",
       "type": "Gun"
     },
     {
@@ -3201,6 +3114,22 @@
         "CantExchangeByToken"
       ],
       "title": "梦想科技枪",
+      "type": "Gun"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_engineerxx4",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "伪装巨炮",
       "type": "Gun"
     },
     {
@@ -3228,45 +3157,13 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_engineerxx10",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "发明家电钻",
-      "type": "Gun"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_engineerxx3",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "天星铜铸锤",
-      "type": "Gun"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_trapmasterx",
+      "name": "weapon_init_trapmasterxx",
       "tags": [
         "InitWeapon",
         "NotReforgeResult",
         "CantExchangeByToken"
       ],
-      "title": "精密勾索枪",
+      "title": "追魂钩",
       "type": "Gun"
     },
     {
@@ -3287,19 +3184,6 @@
       "type": "Gun"
     },
     {
-      "cantExchangeByToken": false,
-      "dropLevel": -1,
-      "forgeable": true,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_cg_0",
-      "tags": [],
-      "title": "黄巾军步枪",
-      "type": "Gun"
-    },
-    {
       "cantExchangeByToken": true,
       "dropLevel": -1,
       "forgeable": false,
@@ -3307,29 +3191,63 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_engineerxx11",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "恒压罪火",
-      "type": "Gun"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_costumeprincexx6",
+      "name": "weapon_init_trapmasterxx5",
       "tags": [
         "InitWeapon",
         "NotReforgeResult",
         "CantExchangeByToken"
       ],
-      "title": "虹光之笔",
+      "title": "鬼火诡索",
+      "type": "Gun"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_costumeprincexx2",
+      "tags": [
+        "InitWeapon",
+        "NotReforgeResult",
+        "CantExchangeByToken"
+      ],
+      "title": "降妖宝杖",
+      "type": "Gun"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_costumeprincexx9",
+      "tags": [
+        "InitWeapon",
+        "NotReforgeResult",
+        "CantExchangeByToken"
+      ],
+      "title": "星火",
+      "type": "Gun"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_engineerxx13",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "醉浪铳",
       "type": "Gun"
     },
     {
@@ -3357,38 +3275,6 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_engineerxx2",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "霸王枪",
-      "type": "Gun"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_engineerxx6",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "葫芦崽崽",
-      "type": "Gun"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
       "name": "weapon_init_costumeprincexx7",
       "tags": [
         "InitWeapon",
@@ -3406,45 +3292,93 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_engineerxx13",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "醉浪铳",
-      "type": "Gun"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_engineerx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "欠时代冲锋枪",
-      "type": "Gun"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_costumeprincexx9",
+      "name": "weapon_init_trapmasterxx4",
       "tags": [
         "InitWeapon",
         "NotReforgeResult",
         "CantExchangeByToken"
       ],
-      "title": "星火",
+      "title": "百里",
+      "type": "Gun"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_engineerxx12",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "工程师",
+      "type": "Gun"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_engineerxx2",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "霸王枪",
+      "type": "Gun"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_engineerxx3",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "天星铜铸锤",
+      "type": "Gun"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_engineerxx11",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "恒压罪火",
+      "type": "Gun"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_engineerxx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "欠时代冲锋枪",
       "type": "Gun"
     },
     {
@@ -3495,6 +3429,72 @@
         "CantExchangeByToken"
       ],
       "title": "陷阱大师",
+      "type": "Gun"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_trapmasterx",
+      "tags": [
+        "InitWeapon",
+        "NotReforgeResult",
+        "CantExchangeByToken"
+      ],
+      "title": "精密勾索枪",
+      "type": "Gun"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_engineerx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "欠时代冲锋枪",
+      "type": "Gun"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_engineerxx6",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "葫芦崽崽",
+      "type": "Gun"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_costumeprincexx6",
+      "tags": [
+        "InitWeapon",
+        "NotReforgeResult",
+        "CantExchangeByToken"
+      ],
+      "title": "虹光之笔",
       "type": "Gun"
     },
     {
@@ -3783,12 +3783,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_alchemistxx6",
+      "name": "weapon_init_bardxx5",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "相思木",
+      "title": "载诗者",
       "type": "ShotGun"
     },
     {
@@ -3805,22 +3805,6 @@
         "CantExchangeByToken"
       ],
       "title": "爆酿火炮",
-      "type": "ShotGun"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_bardxx4",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "灼谣",
       "type": "ShotGun"
     },
     {
@@ -3863,6 +3847,38 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
+      "name": "weapon_init_bardxx4",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "灼谣",
+      "type": "ShotGun"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_bardxx2",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "应援彩球",
+      "type": "ShotGun"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
       "name": "weapon_init_bardxx",
       "tags": [
         "InitWeapon",
@@ -3885,22 +3901,6 @@
         "CantExchangeByToken"
       ],
       "title": "秘法瓶",
-      "type": "ShotGun"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_bardxx2",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "应援彩球",
       "type": "ShotGun"
     },
     {
@@ -3943,12 +3943,44 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
+      "name": "weapon_init_alchemistx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "休眠的毒泡泡泵",
+      "type": "ShotGun"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
       "name": "weapon_init_alchemistxx3",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
       "title": "日月",
+      "type": "ShotGun"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_bardxx7",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "绣球",
       "type": "ShotGun"
     },
     {
@@ -3975,124 +4007,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_alchemistxx14",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "蛇毒",
-      "type": "ShotGun"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_alchemistxx8",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "泄天机",
-      "type": "ShotGun"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_alchemistxx7",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "黄金力量",
-      "type": "ShotGun"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_alchemistxx9",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "不知名溶液",
-      "type": "ShotGun"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
       "name": "weapon_init_alchemistxx2",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "",
-      "type": "ShotGun"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_alchemistx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "休眠的毒泡泡泵",
-      "type": "ShotGun"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_alchemistxx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "休眠的毒泡泡泵",
-      "type": "ShotGun"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_alchemistxx13",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "断穗",
+      "title": null,
       "type": "ShotGun"
     },
     {
@@ -4119,12 +4039,108 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_bardxx5",
+      "name": "weapon_init_alchemistxx13",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "载诗者",
+      "title": "断穗",
+      "type": "ShotGun"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_alchemistxx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "休眠的毒泡泡泵",
+      "type": "ShotGun"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_alchemistxx9",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "不知名溶液",
+      "type": "ShotGun"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_alchemistxx7",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "黄金力量",
+      "type": "ShotGun"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_alchemistxx8",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "泄天机",
+      "type": "ShotGun"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_alchemistxx14",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "蛇毒",
+      "type": "ShotGun"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_alchemistxx6",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "相思木",
       "type": "ShotGun"
     },
     {
@@ -4241,60 +4257,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_elvesxx5",
+      "name": "weapon_init_elvesxx8",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "杏花弓",
-      "type": "Bow"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_elvesxx4",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "猎星",
-      "type": "Bow"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_elvesxx9",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "球场截击手",
-      "type": "Bow"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_elvesxx3",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "金弓",
+      "title": "霓裳羽弓",
       "type": "Bow"
     },
     {
@@ -4321,124 +4289,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_elvesx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "古老的弓",
-      "type": "Bow"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_elvesxx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "古老的弓",
-      "type": "Bow"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_elvesxx14",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "葬雪",
-      "type": "Bow"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_elvesxx13",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "精灵",
-      "type": "Bow"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
       "name": "weapon_init_elvesxx7",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
       "title": "跃动闪耀",
-      "type": "Bow"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_elvesxx8",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "霓裳羽弓",
-      "type": "Bow"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_elvesxx11",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "月相",
-      "type": "Bow"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_elvesxx6",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "钴蓝之翼",
       "type": "Bow"
     },
     {
@@ -4471,6 +4327,166 @@
         "CantExchangeByToken"
       ],
       "title": "铁胎弓",
+      "type": "Bow"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_elvesxx6",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "钴蓝之翼",
+      "type": "Bow"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_elvesxx13",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "精灵",
+      "type": "Bow"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_elvesxx9",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "球场截击手",
+      "type": "Bow"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_elvesxx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "古老的弓",
+      "type": "Bow"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_elvesx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "古老的弓",
+      "type": "Bow"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_elvesxx11",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "月相",
+      "type": "Bow"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_elvesxx3",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "金弓",
+      "type": "Bow"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_elvesxx14",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "葬雪",
+      "type": "Bow"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_elvesxx4",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "猎星",
+      "type": "Bow"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_elvesxx5",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "杏花弓",
       "type": "Bow"
     },
     {
@@ -4546,12 +4562,12 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_ninjaxx4",
+      "name": "weapon_init_jokerxx2",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "怒华",
+      "title": "净尘帚",
       "type": "Sword"
     },
     {
@@ -4562,12 +4578,12 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_ninjaxx",
+      "name": "weapon_init_assassinxx10",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "碎忆之刃",
+      "title": "亚特兰蒂斯之钥",
       "type": "Sword"
     },
     {
@@ -4578,28 +4594,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_warliegexx5",
+      "name": "weapon_init_warliegexx3",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "噪点狂潮",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_assassinxx12",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "刺客",
+      "title": "玄罡·虎啸",
       "type": "Sword"
     },
     {
@@ -4626,12 +4626,28 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_warliegexx",
+      "name": "weapon_init_warliegexx5",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "七星宝刀",
+      "title": "噪点狂潮",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_ninjaxx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "碎忆之刃",
       "type": "Sword"
     },
     {
@@ -4672,14 +4688,110 @@
       "forgeable": false,
       "indroduce": null,
       "indroduceAuthor": null,
-      "isMelle": false,
+      "isMelle": true,
       "level": 1,
-      "name": "weapon_init_warliegexx3",
+      "name": "weapon_init_swordmasterxx3",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "玄罡·虎啸",
+      "title": "等离子锋刃",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_warliegexx8",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "它的刀盾",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_swordmasterxx4",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "荆棘玫锋",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_warliegexx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "七星宝刀",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_assassinxx12",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "刺客",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_jokerxx3",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "星光咏叹",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_ninjaxx4",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "怒华",
       "type": "Sword"
     },
     {
@@ -4706,12 +4818,44 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_swordmasterxx",
+      "name": "weapon_init_jokerxx5",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "凤鸣剑",
+      "title": "戏法师",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_assassinxx2",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "龙渊剑",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_taoistxx7",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "剑与书",
       "type": "Sword"
     },
     {
@@ -4731,6 +4875,21 @@
       "type": "Sword"
     },
     {
+      "cantExchangeByToken": false,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_skill_joker_phantom",
+      "tags": [
+        "InitWeapon"
+      ],
+      "title": null,
+      "type": "Sword"
+    },
+    {
       "cantExchangeByToken": true,
       "dropLevel": -1,
       "forgeable": false,
@@ -4738,12 +4897,28 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_swordmasterxx3",
+      "name": "weapon_init_swordmasterxx8",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "等离子锋刃",
+      "title": "花剑",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_swordmasterxx2",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "律动星辉",
       "type": "Sword"
     },
     {
@@ -4754,12 +4929,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_warliegexx2",
+      "name": "weapon_init_warliegexx4",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "暗影收割者",
+      "title": "裁决之锤",
       "type": "Sword"
     },
     {
@@ -4770,12 +4945,44 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_assassinxx10",
+      "name": "weapon_init_taoistxx8",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "亚特兰蒂斯之钥",
+      "title": "满分试卷",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_jokerx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "幻影魔刃",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_assassinxx3",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": null,
       "type": "Sword"
     },
     {
@@ -4818,491 +5025,12 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_taoistxx7",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "剑与书",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_jokerx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "幻影魔刃",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_assassinxx3",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": false,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_skill_joker_phantom",
-      "tags": [
-        "InitWeapon"
-      ],
-      "title": "",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_swordmasterxx8",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "花剑",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_swordmasterxx2",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "律动星辉",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_jokerxx3",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "星光咏叹",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_warliegexx4",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "裁决之锤",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_taoistxx8",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "满分试卷",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_warliegexx8",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "它的刀盾",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
       "name": "weapon_init_taoistxx11",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
       "title": "道士",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_jokerxx2",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "净尘帚",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_swordmasterxx6",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "绛羽剑",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_taoistxx2",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "太乙拂尘",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_swordmasterxx4",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "荆棘玫锋",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_assassinxx9",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "真·方天画戟",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_swordmasterx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "清风剑",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_assassinxx4",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "沙海灵灯",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_assassinxx8",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "暗影刃",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_assassinxx5",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "残虹",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_ninjaxx2",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "幻影",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_warliegexx6",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "龙怨斧",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_assassinxx11",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "绯弦刃",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_ninjaxx3",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "超时空忍者",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_taoistxx3",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "点睛龙毫",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_assassinxx6",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "随心铁杆兵",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_assassinxx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "血刃",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_taoistx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "道剑",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_warliegex",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "传奇的刀盾",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_swordmasterxx5",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "燧魂刃",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_taoistxx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "",
       "type": "Sword"
     },
     {
@@ -5329,12 +5057,12 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_taoistxx9",
+      "name": "weapon_init_assassinxx6",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "红狱仲裁者",
+      "title": "随心铁杆兵",
       "type": "Sword"
     },
     {
@@ -5345,12 +5073,12 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_jokerxx5",
+      "name": "weapon_init_swordmasterx",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "戏法师",
+      "title": "清风剑",
       "type": "Sword"
     },
     {
@@ -5361,12 +5089,12 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_taoistxx13",
+      "name": "weapon_init_taoistx",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "翠羽扇",
+      "title": "道剑",
       "type": "Sword"
     },
     {
@@ -5377,12 +5105,12 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_taoistxx4",
+      "name": "weapon_init_assassinxx8",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "刺芒",
+      "title": "暗影刃",
       "type": "Sword"
     },
     {
@@ -5393,12 +5121,60 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_taoistxx10",
+      "name": "weapon_init_ninjaxx3",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "鲨牌尖刀",
+      "title": "超时空忍者",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_ninjaxx2",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "幻影",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_assassinxx4",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "沙海灵灯",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_assassinxx11",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "绯弦刃",
       "type": "Sword"
     },
     {
@@ -5425,12 +5201,76 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
+      "name": "weapon_init_taoistxx3",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "点睛龙毫",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_warliegexx2",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "暗影收割者",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_warliegexx6",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "龙怨斧",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
       "name": "weapon_init_assassinx",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
       "title": "血刃",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_assassinxx5",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "残虹",
       "type": "Sword"
     },
     {
@@ -5473,12 +5313,188 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_assassinxx2",
+      "name": "weapon_init_swordmasterxx",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "龙渊剑",
+      "title": "凤鸣剑",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_swordmasterxx5",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "燧魂刃",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_swordmasterxx6",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "绛羽剑",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_taoistxx4",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "刺芒",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_taoistxx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": null,
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_assassinxx9",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "真·方天画戟",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_taoistxx9",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "红狱仲裁者",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_taoistxx10",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "鲨牌尖刀",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_taoistxx13",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "翠羽扇",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_assassinxx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "血刃",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_warliegex",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "传奇的刀盾",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_taoistxx2",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "太乙拂尘",
       "type": "Sword"
     },
     {
@@ -5515,13 +5531,13 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_lancerxx6",
+      "name": "weapon_init_lancerx",
       "tags": [
         "InitWeapon",
         "NotReforgeResult",
         "CantExchangeByToken"
       ],
-      "title": "枪客",
+      "title": "龙枪·牙",
       "type": "Spear"
     },
     {
@@ -5549,13 +5565,13 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_lancerx",
+      "name": "weapon_init_lancerxx6",
       "tags": [
         "InitWeapon",
         "NotReforgeResult",
         "CantExchangeByToken"
       ],
-      "title": "龙枪·牙",
+      "title": "枪客",
       "type": "Spear"
     },
     {
@@ -5583,13 +5599,13 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_lancerxx7",
+      "name": "weapon_init_lancerxx2",
       "tags": [
         "InitWeapon",
         "NotReforgeResult",
         "CantExchangeByToken"
       ],
-      "title": "骁的专用枪",
+      "title": "残月",
       "type": "Spear"
     },
     {
@@ -5600,13 +5616,13 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_lancerxx2",
+      "name": "weapon_init_lancerxx3",
       "tags": [
         "InitWeapon",
         "NotReforgeResult",
         "CantExchangeByToken"
       ],
-      "title": "残月",
+      "title": "煌龙",
       "type": "Spear"
     },
     {
@@ -5634,13 +5650,13 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_lancerxx3",
+      "name": "weapon_init_lancerxx7",
       "tags": [
         "InitWeapon",
         "NotReforgeResult",
         "CantExchangeByToken"
       ],
-      "title": "煌龙",
+      "title": "骁的专用枪",
       "type": "Spear"
     },
     {
@@ -5677,12 +5693,13 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_paladinxx5",
+      "name": "weapon_init_minerxx7",
       "tags": [
         "InitWeapon",
+        "Default",
         "CantExchangeByToken"
       ],
-      "title": "正义",
+      "title": "爱的仙女棒",
       "type": "Axe"
     },
     {
@@ -5693,25 +5710,12 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_paladinx",
+      "name": "weapon_init_paladinxx",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
       "title": "神圣连枷",
-      "type": "Axe"
-    },
-    {
-      "cantExchangeByToken": false,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_25hammer",
-      "tags": [],
-      "title": "二五仔之锤",
       "type": "Axe"
     },
     {
@@ -5772,28 +5776,12 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_paladinxx4",
+      "name": "weapon_init_paladinxx5",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "斯巴达的荣耀",
-      "type": "Axe"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_paladinxx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "神圣连枷",
+      "title": "正义",
       "type": "Axe"
     },
     {
@@ -5810,6 +5798,86 @@
         "CantExchangeByToken"
       ],
       "title": "坠星锤",
+      "type": "Axe"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_minerxx3",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "星辰挖掘者",
+      "type": "Axe"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_minerxx4",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "淘金者",
+      "type": "Axe"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_paladinxx6",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "九齿钉耙",
+      "type": "Axe"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_paladinxx4",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "斯巴达的荣耀",
+      "type": "Axe"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_paladinxx11",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "碎浪者",
       "type": "Axe"
     },
     {
@@ -5837,44 +5905,12 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_paladinxx6",
+      "name": "weapon_init_paladinxx2",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "九齿钉耙",
-      "type": "Axe"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_paladinxx11",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "碎浪者",
-      "type": "Axe"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_minerxx3",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "星辰挖掘者",
+      "title": "青龙偃月刀",
       "type": "Axe"
     },
     {
@@ -5901,12 +5937,25 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_paladinxx2",
+      "name": "weapon_init_minerxx5",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "青龙偃月刀",
+      "title": "沁香扇",
+      "type": "Axe"
+    },
+    {
+      "cantExchangeByToken": false,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_25hammer",
+      "tags": [],
+      "title": "二五仔之锤",
       "type": "Axe"
     },
     {
@@ -5917,13 +5966,61 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_minerx",
+      "name": "weapon_init_paladinxx7",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "圆圆的充气锤",
+      "type": "Axe"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_minerxx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "萝卜镐",
+      "type": "Axe"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_paladinxx9",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "虎啸",
+      "type": "Axe"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_minerxx8",
       "tags": [
         "InitWeapon",
         "Default",
         "CantExchangeByToken"
       ],
-      "title": "开采者",
+      "title": "甜蜜之翼",
       "type": "Axe"
     },
     {
@@ -5967,110 +6064,12 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_paladinxx7",
+      "name": "weapon_init_paladinxx3",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "圆圆的充气锤",
-      "type": "Axe"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_minerxx4",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "淘金者",
-      "type": "Axe"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_minerxx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "萝卜镐",
-      "type": "Axe"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_minerxx7",
-      "tags": [
-        "InitWeapon",
-        "Default",
-        "CantExchangeByToken"
-      ],
-      "title": "爱的仙女棒",
-      "type": "Axe"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_paladinxx9",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "虎啸",
-      "type": "Axe"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_minerxx5",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "沁香扇",
-      "type": "Axe"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_minerxx8",
-      "tags": [
-        "InitWeapon",
-        "Default",
-        "CantExchangeByToken"
-      ],
-      "title": "甜蜜之翼",
+      "title": null,
       "type": "Axe"
     },
     {
@@ -6098,12 +6097,46 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_paladinxx3",
+      "name": "weapon_init_minerxx13",
+      "tags": [
+        "InitWeapon",
+        "Default",
+        "CantExchangeByToken"
+      ],
+      "title": "第三版地质锤",
+      "type": "Axe"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_minerx",
+      "tags": [
+        "InitWeapon",
+        "Default",
+        "CantExchangeByToken"
+      ],
+      "title": "开采者",
+      "type": "Axe"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_paladinx",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "",
+      "title": "神圣连枷",
       "type": "Axe"
     },
     {
@@ -6120,23 +6153,6 @@
         "CantExchangeByToken"
       ],
       "title": "炎狱之锋",
-      "type": "Axe"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_minerxx13",
-      "tags": [
-        "InitWeapon",
-        "Default",
-        "CantExchangeByToken"
-      ],
-      "title": "第三版地质锤",
       "type": "Axe"
     },
     {
@@ -6179,54 +6195,6 @@
       "type": "Axe"
     },
     {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_rangerxx14",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "金羽双生",
-      "type": "Throw"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_druidxx5",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "导引杖",
-      "type": "Throw"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_druidxx6",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "囚星仪",
-      "type": "Throw"
-    },
-    {
       "cantExchangeByToken": false,
       "dropLevel": -1,
       "forgeable": false,
@@ -6234,27 +6202,11 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_ladychefxx",
+      "name": "weapon_init_ladychefxx2",
       "tags": [
         "InitWeapon"
       ],
-      "title": "厨娘",
-      "type": "Throw"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_rangerxx16",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "华刃",
+      "title": "熔骨刀",
       "type": "Throw"
     },
     {
@@ -6270,54 +6222,6 @@
         "InitWeapon"
       ],
       "title": "传说锅铲",
-      "type": "Throw"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_druidxx14",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "潮声",
-      "type": "Throw"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_rangerxx6",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "离子双刃",
-      "type": "Throw"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_rangerxx8",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "公理与谬论",
       "type": "Throw"
     },
     {
@@ -6344,12 +6248,28 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_rangerxx2",
+      "name": "weapon_init_rangerxx5",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "干将 莫邪",
+      "title": "黑胶唱片：躁动&癫狂",
+      "type": "Throw"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_druidxx14",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "潮声",
       "type": "Throw"
     },
     {
@@ -6360,12 +6280,28 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_rangerxx7",
+      "name": "weapon_init_rangerxx11",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "培雨剑与惊雷枪",
+      "title": "金乌暗焰",
+      "type": "Throw"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_rangerxx2",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "干将 莫邪",
       "type": "Throw"
     },
     {
@@ -6408,22 +6344,6 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_druidxx7",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "落花",
-      "type": "Throw"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
       "name": "weapon_init_druidxx8",
       "tags": [
         "InitWeapon",
@@ -6440,12 +6360,108 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_rangerxx11",
+      "name": "weapon_init_rangerxx14",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "金乌暗焰",
+      "title": "金羽双生",
+      "type": "Throw"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_rangerxx8",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "公理与谬论",
+      "type": "Throw"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_druidxx6",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "囚星仪",
+      "type": "Throw"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_rangerxx7",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "培雨剑与惊雷枪",
+      "type": "Throw"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_rangerxx6",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "离子双刃",
+      "type": "Throw"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_rangerxx16",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "华刃",
+      "type": "Throw"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_druidxx7",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "落花",
       "type": "Throw"
     },
     {
@@ -6456,11 +6472,11 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_ladychefxx2",
+      "name": "weapon_init_ladychefxx",
       "tags": [
         "InitWeapon"
       ],
-      "title": "熔骨刀",
+      "title": "厨娘",
       "type": "Throw"
     },
     {
@@ -6469,30 +6485,14 @@
       "forgeable": false,
       "indroduce": null,
       "indroduceAuthor": null,
-      "isMelle": true,
+      "isMelle": false,
       "level": 1,
-      "name": "weapon_init_rangerxx5",
+      "name": "weapon_init_druidxx5",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "黑胶唱片：躁动&癫狂",
-      "type": "Throw"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_rangerx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "小明小红",
+      "title": "导引杖",
       "type": "Throw"
     },
     {
@@ -6509,6 +6509,163 @@
         "CantExchangeByToken"
       ],
       "title": "嘎嘣脆的骨头",
+      "type": "Throw"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_rangerxx17",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "路障",
+      "type": "Throw"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_rangerxx4",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "以牙还牙，以眼还眼",
+      "type": "Throw"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_druidxx2",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "羽扇",
+      "type": "Throw"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_druidxx4",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "轮回",
+      "type": "Throw"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_rangerxx3",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": null,
+      "type": "Throw"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_rangerxx10",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "幽冥破灭者",
+      "type": "Throw"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_druidxx9",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "风纪号角",
+      "type": "Throw"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_rangerxx13",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "隐叶",
+      "type": "Throw"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_druidxx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "嘎嘣脆的骨头",
+      "type": "Throw"
+    },
+    {
+      "cantExchangeByToken": false,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_banana",
+      "tags": [],
+      "title": "香蕉",
       "type": "Throw"
     },
     {
@@ -6549,134 +6706,6 @@
       "forgeable": false,
       "indroduce": null,
       "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_rangerxx10",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "幽冥破灭者",
-      "type": "Throw"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_druidxx4",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "轮回",
-      "type": "Throw"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_rangerxx13",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "隐叶",
-      "type": "Throw"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_druidxx2",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "羽扇",
-      "type": "Throw"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_rangerxx17",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "路障",
-      "type": "Throw"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_rangerxx3",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "",
-      "type": "Throw"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_druidxx13",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "德鲁伊",
-      "type": "Throw"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_druidxx9",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "风纪号角",
-      "type": "Throw"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
       "name": "weapon_init_druidxx10",
@@ -6709,14 +6738,14 @@
       "forgeable": false,
       "indroduce": null,
       "indroduceAuthor": null,
-      "isMelle": false,
+      "isMelle": true,
       "level": 1,
-      "name": "weapon_init_druidxx",
+      "name": "weapon_init_rangerx",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "嘎嘣脆的骨头",
+      "title": "小明小红",
       "type": "Throw"
     },
     {
@@ -6725,14 +6754,14 @@
       "forgeable": false,
       "indroduce": null,
       "indroduceAuthor": null,
-      "isMelle": true,
+      "isMelle": false,
       "level": 1,
-      "name": "weapon_init_rangerxx12",
+      "name": "weapon_init_druidxx13",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "苍辉双锋",
+      "title": "德鲁伊",
       "type": "Throw"
     },
     {
@@ -6749,19 +6778,6 @@
       "type": "Throw"
     },
     {
-      "cantExchangeByToken": false,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_banana",
-      "tags": [],
-      "title": "香蕉",
-      "type": "Throw"
-    },
-    {
       "cantExchangeByToken": true,
       "dropLevel": -1,
       "forgeable": false,
@@ -6769,12 +6785,12 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_rangerxx4",
+      "name": "weapon_init_rangerxx12",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "以牙还牙，以眼还眼",
+      "title": "苍辉双锋",
       "type": "Throw"
     },
     {
@@ -6837,6 +6853,102 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
+      "name": "weapon_init_warlockxx5",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "赤月魔杖",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_magexx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "法典",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_necromancerxx16",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "宝石之花",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_priestx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "木制十字架",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_magexx6",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "飞花点黛扇",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_astrologistxx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "天星飞羽",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
       "name": "weapon_init_astrologistx",
       "tags": [
         "InitWeapon",
@@ -6869,12 +6981,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_warlockxx4",
+      "name": "weapon_init_envoyxx4",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "布偶炮手",
+      "title": "感官过滤器",
       "type": "Staff"
     },
     {
@@ -6885,12 +6997,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_warlockxx5",
+      "name": "weapon_init_priestxx4",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "赤月魔杖",
+      "title": "小甜甜",
       "type": "Staff"
     },
     {
@@ -6901,12 +7013,28 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_magexx",
+      "name": "weapon_init_necromancerxx",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "法典",
+      "title": null,
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_warlockxx11",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "红戟",
       "type": "Staff"
     },
     {
@@ -6949,124 +7077,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_necromancerxx11",
+      "name": "weapon_init_magexx9",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "灵魂号角",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_envoyx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "元能之相",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_priestxx4",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "小甜甜",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_priestxx13",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "手术剪",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_warlockxx11",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "红戟",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_warlockxx3",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "熊斗士之钥",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_necromancerxx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_priestx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "木制十字架",
+      "title": "碧波琴",
       "type": "Staff"
     },
     {
@@ -7093,12 +7109,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_warlockxx7",
+      "name": "weapon_init_envoyx",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "幻光海螺",
+      "title": "元能之相",
       "type": "Staff"
     },
     {
@@ -7125,12 +7141,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_magexx6",
+      "name": "weapon_init_warlockxx4",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "飞花点黛扇",
+      "title": "布偶炮手",
       "type": "Staff"
     },
     {
@@ -7141,127 +7157,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_magexx2",
+      "name": "weapon_init_priestxx13",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "绣绒刀",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_magexx3",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_necromancerxx2",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "青蛇剑",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_priestxx3",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "一天秋",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_priestxx11",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "灭病针剂",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_arcaneknightxx5",
-      "tags": [
-        "Hold",
-        "Energy",
-        "MagicBullet",
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "真相之镜",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_necromancerxx12",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "红月之芽",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_warlockxx8",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "恶魔术士",
+      "title": "手术剪",
       "type": "Staff"
     },
     {
@@ -7291,12 +7192,92 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_magexx9",
+      "name": "weapon_init_priestxx2",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "碧波琴",
+      "title": "桃花落",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_necromancerxx12",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "红月之芽",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_magexx11",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "星梦应援棒",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_warlockxx3",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "熊斗士之钥",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_warlockxx8",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "恶魔术士",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_necromancerxx11",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "灵魂号角",
       "type": "Staff"
     },
     {
@@ -7313,6 +7294,105 @@
         "CantExchangeByToken"
       ],
       "title": "元气派得",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_necromancerxx2",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "青蛇剑",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_magexx16",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "蝶书",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_priestxx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "木制十字架",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_priestxx3",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "一天秋",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_arcaneknightxx5",
+      "tags": [
+        "Hold",
+        "Energy",
+        "MagicBullet",
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "真相之镜",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_priestxx15",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "满月扇",
       "type": "Staff"
     },
     {
@@ -7355,12 +7435,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_priestxx",
+      "name": "weapon_init_magexx3",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "木制十字架",
+      "title": null,
       "type": "Staff"
     },
     {
@@ -7403,12 +7483,44 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
+      "name": "weapon_init_warlockxx9",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "无限泪弦",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_priestxx11",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "灭病针剂",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
       "name": "weapon_init_necromancerxx14",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "",
+      "title": null,
       "type": "Staff"
     },
     {
@@ -7419,12 +7531,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_priestxx16",
+      "name": "weapon_init_necromancerxx15",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "手工吊瓶架",
+      "title": "艾芒",
       "type": "Staff"
     },
     {
@@ -7435,159 +7547,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_magexx11",
+      "name": "weapon_init_astrologistxx5",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "星梦应援棒",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_priestxx15",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "满月扇",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_priestxx2",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "桃花落",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_astrologistxx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "天星飞羽",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_warlockx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "暗星之钥",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_arcaneknightxx2",
-      "tags": [
-        "Hold",
-        "Energy",
-        "MagicBullet",
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "智慧手套",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_warlockxx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "藏影",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_necromancerxx4",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "璀璨之约",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_magexx8",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "羽之舞",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_necromancerxx6",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "摄魂扇",
+      "title": "星瞳之引",
       "type": "Staff"
     },
     {
@@ -7649,6 +7614,25 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
+      "name": "weapon_init_arcaneknightxx2",
+      "tags": [
+        "Hold",
+        "Energy",
+        "MagicBullet",
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "智慧手套",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
       "name": "weapon_init_necromancerxx3",
       "tags": [
         "InitWeapon",
@@ -7665,12 +7649,60 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_magexx7",
+      "name": "weapon_init_warlockxx10",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "海洋之心",
+      "title": "翠榴杖",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_magexx10",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "光夜权杖",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_magexx8",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "羽之舞",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_envoyxx3",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": null,
       "type": "Staff"
     },
     {
@@ -7764,12 +7796,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_magexx10",
+      "name": "weapon_init_priestxx12",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "光夜权杖",
+      "title": "一玫吻",
       "type": "Staff"
     },
     {
@@ -7780,12 +7812,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_warlockxx10",
+      "name": "weapon_init_necromancerxx5",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "翠榴杖",
+      "title": "乌鸦",
       "type": "Staff"
     },
     {
@@ -7796,12 +7828,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_necromancerxx8",
+      "name": "weapon_init_warlockx",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "飘花扇",
+      "title": "暗星之钥",
       "type": "Staff"
     },
     {
@@ -7812,12 +7844,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_warlockxx6",
+      "name": "weapon_init_magexx7",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "薰梦之露",
+      "title": "海洋之心",
       "type": "Staff"
     },
     {
@@ -7828,12 +7860,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_warlockxx9",
+      "name": "weapon_init_necromancerxx4",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "无限泪弦",
+      "title": "璀璨之约",
       "type": "Staff"
     },
     {
@@ -7844,12 +7876,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_priestxx10",
+      "name": "weapon_init_necromancerxx6",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "桂香安眠花",
+      "title": "摄魂扇",
       "type": "Staff"
     },
     {
@@ -7860,12 +7892,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_necromancerxx16",
+      "name": "weapon_init_warlockxx",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "宝石之花",
+      "title": "藏影",
       "type": "Staff"
     },
     {
@@ -7876,12 +7908,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_necromancerxx15",
+      "name": "weapon_init_warlockxx7",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "艾芒",
+      "title": "幻光海螺",
       "type": "Staff"
     },
     {
@@ -7892,12 +7924,28 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_warlockxx2",
+      "name": "weapon_init_priestxx16",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "火尖枪",
+      "title": "手工吊瓶架",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_astrologistxx2",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "超导脉冲",
       "type": "Staff"
     },
     {
@@ -7927,12 +7975,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_necromancerxx5",
+      "name": "weapon_init_priestxx10",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "乌鸦",
+      "title": "桂香安眠花",
       "type": "Staff"
     },
     {
@@ -7962,6 +8010,22 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
+      "name": "weapon_init_astrologistxx6",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "专用街机摇杆",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
       "name": "weapon_init_magexx5",
       "tags": [
         "InitWeapon",
@@ -7978,12 +8042,31 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_astrologistxx5",
+      "name": "weapon_init_arcaneknightxx8",
+      "tags": [
+        "Hold",
+        "Energy",
+        "MagicBullet",
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "离火杖",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_warlockxx2",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "星瞳之引",
+      "title": "火尖枪",
       "type": "Staff"
     },
     {
@@ -8010,60 +8093,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_priestxx12",
+      "name": "weapon_init_magexx2",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "一玫吻",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_envoyxx3",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_envoyxx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "潮蚀",
-      "type": "Staff"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_priestxx5",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "恢复之芯",
+      "title": "绣绒刀",
       "type": "Staff"
     },
     {
@@ -8090,15 +8125,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_arcaneknightxx7",
+      "name": "weapon_init_priestxx5",
       "tags": [
-        "Hold",
-        "Energy",
-        "MagicBullet",
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "离火杖",
+      "title": "恢复之芯",
       "type": "Staff"
     },
     {
@@ -8109,7 +8141,23 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_arcaneknightxx8",
+      "name": "weapon_init_envoyxx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "潮蚀",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_arcaneknightxx7",
       "tags": [
         "Hold",
         "Energy",
@@ -8117,7 +8165,7 @@
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "",
+      "title": null,
       "type": "Staff"
     },
     {
@@ -8144,12 +8192,28 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_astrologistxx2",
+      "name": "weapon_init_warlockxx6",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "超导脉冲",
+      "title": "薰梦之露",
+      "type": "Staff"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_necromancerxx8",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "飘花扇",
       "type": "Staff"
     },
     {
@@ -8225,12 +8289,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_gunsexpertxx",
+      "name": "weapon_init_gunsexpertxx2",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "兜兜枪",
+      "title": "枪械专家",
       "type": "Laser"
     },
     {
@@ -8273,12 +8337,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_gunsexpertxx2",
+      "name": "weapon_init_gunsexpertxx",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "枪械专家",
+      "title": "兜兜枪",
       "type": "Laser"
     },
     {
@@ -8293,7 +8357,7 @@
       "tags": [
         "CellerInvisible"
       ],
-      "title": "",
+      "title": null,
       "type": "Laser"
     },
     {
@@ -8330,12 +8394,29 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_werewolfxx7",
+      "name": "weapon_init_vikingxx4",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "真·丈八蛇矛",
+      "title": "英灵手斧",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_vikingxx13",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken",
+        "HideHand"
+      ],
+      "title": "狂战士",
       "type": "Strange"
     },
     {
@@ -8346,12 +8427,143 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_robotxx3",
+      "name": "weapon_init_robotxx7",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "分袂",
+      "title": "星际猎手",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_vampirexx6",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "深渊之核",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_captainxx9",
+      "tags": [
+        "InitWeapon",
+        "NotReforgeResult",
+        "CantExchangeByToken"
+      ],
+      "title": "复合反曲战弓",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_fighterxx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "偃月拳刀",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_vikingxx8",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken",
+        "HideHand"
+      ],
+      "title": "不屈之握",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_robotxx8",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "小凤雏",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_werewolfxx12",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken",
+        "HideHand"
+      ],
+      "title": "岚獠",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_vampirexx4",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "饮月",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_werewolfxx7",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "真·丈八蛇矛",
       "type": "Strange"
     },
     {
@@ -8410,28 +8622,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_vampirexx6",
+      "name": "weapon_init_specialforcesx",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "深渊之核",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_robotxx5",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "重炮",
+      "title": "特种作战武器",
       "type": "Strange"
     },
     {
@@ -8502,22 +8698,6 @@
       "forgeable": false,
       "indroduce": null,
       "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_specialforcesx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "特种作战武器",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
       "name": "weapon_init_vikingxx7",
@@ -8537,58 +8717,13 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_werewolfxx3",
+      "name": "weapon_init_werewolfxx",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken",
         "HideHand"
       ],
-      "title": "北风之力",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_fighterxx5",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "灼刃禁宴",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_fighterxx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "偃月拳刀",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": false,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_yinyangxx3",
-      "tags": [],
-      "title": "阴阳家",
+      "title": "灼热爪刃",
       "type": "Strange"
     },
     {
@@ -8599,12 +8734,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_vampirexx13",
+      "name": "weapon_init_robotxx5",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "夜脉",
+      "title": "重炮",
       "type": "Strange"
     },
     {
@@ -8613,47 +8748,15 @@
       "forgeable": false,
       "indroduce": null,
       "indroduceAuthor": null,
-      "isMelle": false,
+      "isMelle": true,
       "level": 1,
-      "name": "weapon_init_transcendentx",
+      "name": "weapon_init_vikingxx3",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken",
         "HideHand"
       ],
-      "title": "次元之握",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_vampirexx11",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_vampirexx4",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "饮月",
+      "title": "打虎拳法",
       "type": "Strange"
     },
     {
@@ -8680,13 +8783,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_transcendentxx2",
+      "name": "weapon_init_robotxx3",
       "tags": [
         "InitWeapon",
-        "CantExchangeByToken",
-        "HideHand"
+        "CantExchangeByToken"
       ],
-      "title": "超界者",
+      "title": "分袂",
       "type": "Strange"
     },
     {
@@ -8697,13 +8799,13 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_vikingxx8",
+      "name": "weapon_init_werewolfxx6",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken",
         "HideHand"
       ],
-      "title": "不屈之握",
+      "title": "巨螯",
       "type": "Strange"
     },
     {
@@ -8729,15 +8831,14 @@
       "forgeable": false,
       "indroduce": null,
       "indroduceAuthor": null,
-      "isMelle": true,
+      "isMelle": false,
       "level": 1,
-      "name": "weapon_init_werewolfxx6",
+      "name": "weapon_init_vampirexx3",
       "tags": [
         "InitWeapon",
-        "CantExchangeByToken",
-        "HideHand"
+        "CantExchangeByToken"
       ],
-      "title": "巨螯",
+      "title": "夜啼   ",
       "type": "Strange"
     },
     {
@@ -8798,6 +8899,23 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
+      "name": "weapon_init_transcendentx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken",
+        "HideHand"
+      ],
+      "title": "次元之握",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
       "name": "weapon_init_robotxx11",
       "tags": [
         "InitWeapon",
@@ -8828,39 +8946,6 @@
       "forgeable": false,
       "indroduce": null,
       "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_vikingxx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken",
-        "HideHand"
-      ],
-      "title": "拳套",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_vampirexx3",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "夜啼   ",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
       "name": "weapon_init_vampirexx2",
@@ -8869,74 +8954,6 @@
         "CantExchangeByToken"
       ],
       "title": "锁魂链&引魂幡",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_captainxx",
-      "tags": [
-        "InitWeapon",
-        "NotReforgeResult",
-        "CantExchangeByToken"
-      ],
-      "title": "冥焰锚铳",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_vikingxx15",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken",
-        "HideHand"
-      ],
-      "title": "勾爪手",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_captainxx5",
-      "tags": [
-        "InitWeapon",
-        "NotReforgeResult",
-        "CantExchangeByToken"
-      ],
-      "title": "",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_captainxx7",
-      "tags": [
-        "InitWeapon",
-        "NotReforgeResult",
-        "CantExchangeByToken"
-      ],
-      "title": "船长",
       "type": "Strange"
     },
     {
@@ -8963,80 +8980,13 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_vikingxx3",
+      "name": "weapon_init_vikingxx",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken",
         "HideHand"
       ],
-      "title": "打虎拳法",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_vikingxx4",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "英灵手斧",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_captainxx2",
-      "tags": [
-        "InitWeapon",
-        "NotReforgeResult",
-        "CantExchangeByToken"
-      ],
-      "title": "自由之匙",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_captainx",
-      "tags": [
-        "InitWeapon",
-        "NotReforgeResult",
-        "CantExchangeByToken"
-      ],
-      "title": "刀与火铳",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_vikingxx13",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken",
-        "HideHand"
-      ],
-      "title": "狂战士",
+      "title": "拳套",
       "type": "Strange"
     },
     {
@@ -9064,30 +9014,30 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_captainxx3",
+      "name": "weapon_init_transcendentxx2",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken",
+        "HideHand"
+      ],
+      "title": "超界者",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_captainx",
       "tags": [
         "InitWeapon",
         "NotReforgeResult",
         "CantExchangeByToken"
       ],
-      "title": "深潜之友",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_werewolfxx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken",
-        "HideHand"
-      ],
-      "title": "灼热爪刃",
+      "title": "刀与火铳",
       "type": "Strange"
     },
     {
@@ -9098,29 +9048,13 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_vampirexx10",
+      "name": "weapon_init_captainxx",
       "tags": [
         "InitWeapon",
+        "NotReforgeResult",
         "CantExchangeByToken"
       ],
-      "title": "嗜夜切割者",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_werewolfxx8",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken",
-        "HideHand"
-      ],
-      "title": "狂焰爪刃",
+      "title": "冥焰锚铳",
       "type": "Strange"
     },
     {
@@ -9131,12 +9065,141 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_aigirlxx3",
+      "name": "weapon_init_vampirexx13",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "终局之仪",
+      "title": "夜脉",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_captainxx5",
+      "tags": [
+        "InitWeapon",
+        "NotReforgeResult",
+        "CantExchangeByToken"
+      ],
+      "title": null,
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_captainxx7",
+      "tags": [
+        "InitWeapon",
+        "NotReforgeResult",
+        "CantExchangeByToken"
+      ],
+      "title": "船长",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_captainxx2",
+      "tags": [
+        "InitWeapon",
+        "NotReforgeResult",
+        "CantExchangeByToken"
+      ],
+      "title": "自由之匙",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_werewolfxx3",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken",
+        "HideHand"
+      ],
+      "title": "北风之力",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_fighterxx5",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "灼刃禁宴",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": false,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_yinyangxx3",
+      "tags": [],
+      "title": "阴阳家",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_vikingxx11",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "破浪之鳍",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_vampirexx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "鲜血酒杯",
       "type": "Strange"
     },
     {
@@ -9162,14 +9225,15 @@
       "forgeable": false,
       "indroduce": null,
       "indroduceAuthor": null,
-      "isMelle": false,
+      "isMelle": true,
       "level": 1,
-      "name": "weapon_init_vampirexx8",
+      "name": "weapon_init_vikingxx12",
       "tags": [
         "InitWeapon",
-        "CantExchangeByToken"
+        "CantExchangeByToken",
+        "HideHand"
       ],
-      "title": "灵龙",
+      "title": "陨神之握",
       "type": "Strange"
     },
     {
@@ -9210,23 +9274,6 @@
       "forgeable": false,
       "indroduce": null,
       "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_werewolfxx4",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken",
-        "HideHand"
-      ],
-      "title": "碎骨者",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
       "name": "weapon_init_transcendentxx3",
@@ -9244,48 +9291,14 @@
       "forgeable": false,
       "indroduce": null,
       "indroduceAuthor": null,
-      "isMelle": true,
+      "isMelle": false,
       "level": 1,
-      "name": "weapon_init_vikingxx2",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken",
-        "HideHand"
-      ],
-      "title": "",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_fighterxx3",
+      "name": "weapon_init_robotxx12",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "冰糖葫芦",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_werewolfxx9",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken",
-        "HideHand"
-      ],
-      "title": "狼人",
+      "title": "神拳",
       "type": "Strange"
     },
     {
@@ -9296,29 +9309,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_robotxx6",
+      "name": "weapon_init_aigirlxx3",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "鱼肚白",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_fighterx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken",
-        "HideHand"
-      ],
-      "title": "爆气拳",
+      "title": "终局之仪",
       "type": "Strange"
     },
     {
@@ -9329,12 +9325,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_robotxx10",
+      "name": "weapon_init_vampirexx8",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "破败信号",
+      "title": "灵龙",
       "type": "Strange"
     },
     {
@@ -9351,22 +9347,6 @@
         "CantExchangeByToken"
       ],
       "title": "喀嚓节拍麦",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_vampirexx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "鲜血酒杯",
       "type": "Strange"
     },
     {
@@ -9441,14 +9421,15 @@
       "forgeable": false,
       "indroduce": null,
       "indroduceAuthor": null,
-      "isMelle": false,
+      "isMelle": true,
       "level": 1,
-      "name": "weapon_init_aigirlx",
+      "name": "weapon_init_fighterx",
       "tags": [
         "InitWeapon",
-        "CantExchangeByToken"
+        "CantExchangeByToken",
+        "HideHand"
       ],
-      "title": "极电双星",
+      "title": "爆气拳",
       "type": "Strange"
     },
     {
@@ -9459,12 +9440,29 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_robotxx12",
+      "name": "weapon_init_captainxx3",
+      "tags": [
+        "InitWeapon",
+        "NotReforgeResult",
+        "CantExchangeByToken"
+      ],
+      "title": "深潜之友",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_robotxx6",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "神拳",
+      "title": "鱼肚白",
       "type": "Strange"
     },
     {
@@ -9475,12 +9473,179 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_vikingxx11",
+      "name": "weapon_init_werewolfxx4",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken",
+        "HideHand"
+      ],
+      "title": "碎骨者",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_vampirexx11",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "破浪之鳍",
+      "title": null,
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_captainxx4",
+      "tags": [
+        "InitWeapon",
+        "NotReforgeResult",
+        "CantExchangeByToken"
+      ],
+      "title": "逐光",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_vikingxx15",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken",
+        "HideHand"
+      ],
+      "title": "勾爪手",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_vikingxx2",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken",
+        "HideHand"
+      ],
+      "title": null,
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_werewolfxx9",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken",
+        "HideHand"
+      ],
+      "title": "狼人",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_fighterxx3",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "冰糖葫芦",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_robotxx10",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "破败信号",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_werewolfxx10",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken",
+        "HideHand"
+      ],
+      "title": "噬主之握",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_vikingx",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken",
+        "HideHand"
+      ],
+      "title": "拳套",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_robotxx9",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken"
+      ],
+      "title": "杰诺猫",
       "type": "Strange"
     },
     {
@@ -9497,23 +9662,6 @@
         "CantExchangeByToken"
       ],
       "title": "卫星浮游炮",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_fighterxx7",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken",
-        "HideHand"
-      ],
-      "title": "武斗家",
       "type": "Strange"
     },
     {
@@ -9558,7 +9706,7 @@
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "",
+      "title": null,
       "type": "Strange"
     },
     {
@@ -9582,29 +9730,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_robotxx7",
+      "name": "weapon_init_aigirlx",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "星际猎手",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_captainxx4",
-      "tags": [
-        "InitWeapon",
-        "NotReforgeResult",
-        "CantExchangeByToken"
-      ],
-      "title": "逐光",
+      "title": "极电双星",
       "type": "Strange"
     },
     {
@@ -9628,28 +9759,12 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_robotxx9",
+      "name": "weapon_init_vampirexx10",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken"
       ],
-      "title": "杰诺猫",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_robotxx8",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "小凤雏",
+      "title": "嗜夜切割者",
       "type": "Strange"
     },
     {
@@ -9677,22 +9792,6 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_specialforcesxx",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken"
-      ],
-      "title": "",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
       "name": "weapon_init_transcendentxx",
       "tags": [
         "InitWeapon",
@@ -9710,13 +9809,13 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_vikingxx5",
+      "name": "weapon_init_werewolfxx11",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken",
         "HideHand"
       ],
-      "title": "钻石之拳",
+      "title": "食堂两件套",
       "type": "Strange"
     },
     {
@@ -9727,13 +9826,47 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 1,
-      "name": "weapon_init_vikingx",
+      "name": "weapon_init_werewolfxx8",
       "tags": [
         "InitWeapon",
         "CantExchangeByToken",
         "HideHand"
       ],
-      "title": "拳套",
+      "title": "狂焰爪刃",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_fighterxx7",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken",
+        "HideHand"
+      ],
+      "title": "武斗家",
+      "type": "Strange"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 1,
+      "name": "weapon_init_vikingxx5",
+      "tags": [
+        "InitWeapon",
+        "CantExchangeByToken",
+        "HideHand"
+      ],
+      "title": "钻石之拳",
       "type": "Strange"
     },
     {
@@ -9787,23 +9920,6 @@
       "forgeable": false,
       "indroduce": null,
       "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_werewolfxx10",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken",
-        "HideHand"
-      ],
-      "title": "噬主之握",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
       "name": "weapon_init_vampirex",
@@ -9820,32 +9936,14 @@
       "forgeable": false,
       "indroduce": null,
       "indroduceAuthor": null,
-      "isMelle": true,
+      "isMelle": false,
       "level": 1,
-      "name": "weapon_init_werewolfxx11",
+      "name": "weapon_init_specialforcesxx",
       "tags": [
         "InitWeapon",
-        "CantExchangeByToken",
-        "HideHand"
+        "CantExchangeByToken"
       ],
-      "title": "食堂两件套",
-      "type": "Strange"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 1,
-      "name": "weapon_init_vikingxx12",
-      "tags": [
-        "InitWeapon",
-        "CantExchangeByToken",
-        "HideHand"
-      ],
-      "title": "陨神之握",
+      "title": null,
       "type": "Strange"
     },
     {
@@ -10044,27 +10142,6 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_airbenderx",
-      "tags": [
-        "CantExchangeByToken",
-        "NotReforgeResult",
-        "NotReforge",
-        "Unstorable",
-        "InitWeapon",
-        "NotOccupied",
-        "NoEquipment"
-      ],
-      "title": "天地通意拳",
-      "type": "Default"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
       "name": "weapon_init_airbenderxx2",
       "tags": [
         "NotReforgeResult",
@@ -10086,7 +10163,7 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_airbenderxx6",
+      "name": "weapon_init_airbenderxx12",
       "tags": [
         "CantExchangeByToken",
         "NotReforgeResult",
@@ -10096,7 +10173,49 @@
         "NotOccupied",
         "NoEquipment"
       ],
-      "title": "破军拳",
+      "title": "废钢炎拳",
+      "type": "Default"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_airbenderxx7",
+      "tags": [
+        "CantExchangeByToken",
+        "NotReforgeResult",
+        "NotReforge",
+        "Unstorable",
+        "InitWeapon",
+        "NotOccupied",
+        "NoEquipment"
+      ],
+      "title": "气劲拳",
+      "type": "Default"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_airbenderx",
+      "tags": [
+        "CantExchangeByToken",
+        "NotReforgeResult",
+        "NotReforge",
+        "Unstorable",
+        "InitWeapon",
+        "NotOccupied",
+        "NoEquipment"
+      ],
+      "title": "天地通意拳",
       "type": "Default"
     },
     {
@@ -10118,6 +10237,27 @@
         "CantExchangeByToken"
       ],
       "title": "炙热钢拳",
+      "type": "Default"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_airbenderxx9",
+      "tags": [
+        "CantExchangeByToken",
+        "NotReforgeResult",
+        "NotReforge",
+        "Unstorable",
+        "InitWeapon",
+        "NotOccupied",
+        "NoEquipment"
+      ],
+      "title": "震空手",
       "type": "Default"
     },
     {
@@ -10170,7 +10310,7 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 1,
-      "name": "weapon_init_airbenderxx12",
+      "name": "weapon_init_airbenderxx6",
       "tags": [
         "CantExchangeByToken",
         "NotReforgeResult",
@@ -10180,7 +10320,7 @@
         "NotOccupied",
         "NoEquipment"
       ],
-      "title": "废钢炎拳",
+      "title": "破军拳",
       "type": "Default"
     },
     {
@@ -10201,70 +10341,7 @@
         "NoEquipment",
         "CantExchangeByToken"
       ],
-      "title": "",
-      "type": "Default"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_airbenderxx9",
-      "tags": [
-        "CantExchangeByToken",
-        "NotReforgeResult",
-        "NotReforge",
-        "Unstorable",
-        "InitWeapon",
-        "NotOccupied",
-        "NoEquipment"
-      ],
-      "title": "震空手",
-      "type": "Default"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_airbenderxx4",
-      "tags": [
-        "NotReforgeResult",
-        "NotReforge",
-        "Unstorable",
-        "InitWeapon",
-        "NotOccupied",
-        "NoEquipment",
-        "CantExchangeByToken"
-      ],
-      "title": "幻星裂魔拳",
-      "type": "Default"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 1,
-      "name": "weapon_init_airbenderxx7",
-      "tags": [
-        "CantExchangeByToken",
-        "NotReforgeResult",
-        "NotReforge",
-        "Unstorable",
-        "InitWeapon",
-        "NotOccupied",
-        "NoEquipment"
-      ],
-      "title": "气劲拳",
+      "title": null,
       "type": "Default"
     },
     {
@@ -10286,6 +10363,27 @@
         "NoEquipment"
       ],
       "title": "浮响",
+      "type": "Default"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 1,
+      "name": "weapon_init_airbenderxx4",
+      "tags": [
+        "NotReforgeResult",
+        "NotReforge",
+        "Unstorable",
+        "InitWeapon",
+        "NotOccupied",
+        "NoEquipment",
+        "CantExchangeByToken"
+      ],
+      "title": "幻星裂魔拳",
       "type": "Default"
     },
     {
@@ -11242,11 +11340,11 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 2,
-      "name": "weapon_inkfish",
+      "name": "weapon_globefish",
       "tags": [
         "CantExchangeByToken"
       ],
-      "title": "乌贼",
+      "title": "喷气河豚",
       "type": "Strange"
     },
     {
@@ -11257,11 +11355,11 @@
       "indroduceAuthor": null,
       "isMelle": false,
       "level": 2,
-      "name": "weapon_globefish",
+      "name": "weapon_inkfish",
       "tags": [
         "CantExchangeByToken"
       ],
-      "title": "喷气河豚",
+      "title": "乌贼",
       "type": "Strange"
     },
     {
@@ -11951,21 +12049,6 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 3,
-      "name": "weapon_crabclaw",
-      "tags": [
-        "CantExchangeByToken"
-      ],
-      "title": "怪蟹巨螯",
-      "type": "Sword"
-    },
-    {
-      "cantExchangeByToken": true,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": true,
-      "level": 3,
       "name": "weapon_bladefish",
       "tags": [
         "CantExchangeByToken"
@@ -11986,6 +12069,21 @@
         "CantExchangeByToken"
       ],
       "title": "剑鱼",
+      "type": "Sword"
+    },
+    {
+      "cantExchangeByToken": true,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": true,
+      "level": 3,
+      "name": "weapon_crabclaw",
+      "tags": [
+        "CantExchangeByToken"
+      ],
+      "title": "怪蟹巨螯",
       "type": "Sword"
     },
     {
@@ -13362,11 +13460,11 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 5,
-      "name": "weapon_bossrushfinalB",
+      "name": "weapon_bossrushfinalA",
       "tags": [
         "CantExchangeByToken"
       ],
-      "title": "魂刃:魔魂",
+      "title": "魂刃:英魂",
       "type": "Sword"
     },
     {
@@ -13377,11 +13475,11 @@
       "indroduceAuthor": null,
       "isMelle": true,
       "level": 5,
-      "name": "weapon_bossrushfinalA",
+      "name": "weapon_bossrushfinalB",
       "tags": [
         "CantExchangeByToken"
       ],
-      "title": "魂刃:英魂",
+      "title": "魂刃:魔魂",
       "type": "Sword"
     },
     {
@@ -14052,7 +14150,7 @@
         "CantExchangeByToken",
         "CellerInvisible"
       ],
-      "title": "",
+      "title": null,
       "type": "Token"
     },
     {
@@ -14071,53 +14169,8 @@
         "CantExchangeByToken",
         "CellerInvisible"
       ],
-      "title": "",
+      "title": null,
       "type": "Token"
-    },
-    {
-      "cantExchangeByToken": false,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 6,
-      "name": "transform_weapon_transcendent",
-      "tags": [
-        "CellerInvisible"
-      ],
-      "title": "维度指引手册",
-      "type": "Mythic"
-    },
-    {
-      "cantExchangeByToken": false,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 6,
-      "name": "transform_weapon_ninja",
-      "tags": [
-        "CellerInvisible"
-      ],
-      "title": "超时空忍者召唤器",
-      "type": "Mythic"
-    },
-    {
-      "cantExchangeByToken": false,
-      "dropLevel": -1,
-      "forgeable": false,
-      "indroduce": null,
-      "indroduceAuthor": null,
-      "isMelle": false,
-      "level": 6,
-      "name": "transform_weapon_envoy",
-      "tags": [
-        "CellerInvisible"
-      ],
-      "title": "回响琥珀",
-      "type": "Mythic"
     },
     {
       "cantExchangeByToken": false,
@@ -14132,6 +14185,21 @@
         "CellerInvisible"
       ],
       "title": "特别支援呼叫器",
+      "type": "Mythic"
+    },
+    {
+      "cantExchangeByToken": false,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 6,
+      "name": "transform_weapon_transcendent",
+      "tags": [
+        "CellerInvisible"
+      ],
+      "title": "维度指引手册",
       "type": "Mythic"
     },
     {
@@ -14160,6 +14228,36 @@
       "name": "weapon_mythic_00",
       "tags": [],
       "title": "三尖两刃刀",
+      "type": "Mythic"
+    },
+    {
+      "cantExchangeByToken": false,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 6,
+      "name": "transform_weapon_envoy",
+      "tags": [
+        "CellerInvisible"
+      ],
+      "title": "回响琥珀",
+      "type": "Mythic"
+    },
+    {
+      "cantExchangeByToken": false,
+      "dropLevel": -1,
+      "forgeable": false,
+      "indroduce": null,
+      "indroduceAuthor": null,
+      "isMelle": false,
+      "level": 6,
+      "name": "transform_weapon_ninja",
+      "tags": [
+        "CellerInvisible"
+      ],
+      "title": "超时空忍者召唤器",
       "type": "Mythic"
     },
     {
